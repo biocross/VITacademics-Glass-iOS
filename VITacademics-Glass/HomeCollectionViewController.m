@@ -27,6 +27,7 @@ static NSString * const reuseIdentifier = @"course";
 {
     [super viewDidLoad];
     [self.collectionView setCollectionViewLayout:self.expandedLayout];
+    [self.collectionView reloadData];
 }
 
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView
