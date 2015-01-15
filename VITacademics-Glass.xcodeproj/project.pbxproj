@@ -1,0 +1,429 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		16E4A3041A67D66900152389 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 16E4A3031A67D66900152389 /* main.m */; };
+		16E4A3071A67D66900152389 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 16E4A3061A67D66900152389 /* AppDelegate.m */; };
+		16E4A30D1A67D66900152389 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 16E4A30B1A67D66900152389 /* Main.storyboard */; };
+		16E4A30F1A67D66900152389 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 16E4A30E1A67D66900152389 /* Images.xcassets */; };
+		16E4A3121A67D66900152389 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 16E4A3101A67D66900152389 /* LaunchScreen.xib */; };
+		16E4A31E1A67D66900152389 /* VITacademics_GlassTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 16E4A31D1A67D66900152389 /* VITacademics_GlassTests.m */; };
+		16E4A3291A67D6DE00152389 /* HomeCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 16E4A3281A67D6DE00152389 /* HomeCollectionViewController.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		16E4A3181A67D66900152389 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 16E4A2F61A67D66900152389 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 16E4A2FD1A67D66900152389;
+			remoteInfo = "VITacademics-Glass";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		16E4A2FE1A67D66900152389 /* VITacademics-Glass.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "VITacademics-Glass.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		16E4A3021A67D66900152389 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		16E4A3031A67D66900152389 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		16E4A3051A67D66900152389 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		16E4A3061A67D66900152389 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		16E4A30C1A67D66900152389 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		16E4A30E1A67D66900152389 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		16E4A3111A67D66900152389 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		16E4A3171A67D66900152389 /* VITacademics-GlassTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "VITacademics-GlassTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		16E4A31C1A67D66900152389 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		16E4A31D1A67D66900152389 /* VITacademics_GlassTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VITacademics_GlassTests.m; sourceTree = "<group>"; };
+		16E4A3271A67D6DE00152389 /* HomeCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeCollectionViewController.h; sourceTree = "<group>"; };
+		16E4A3281A67D6DE00152389 /* HomeCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeCollectionViewController.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		16E4A2FB1A67D66900152389 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		16E4A3141A67D66900152389 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		16E4A2F51A67D66900152389 = {
+			isa = PBXGroup;
+			children = (
+				16E4A3001A67D66900152389 /* VITacademics-Glass */,
+				16E4A31A1A67D66900152389 /* VITacademics-GlassTests */,
+				16E4A2FF1A67D66900152389 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		16E4A2FF1A67D66900152389 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				16E4A2FE1A67D66900152389 /* VITacademics-Glass.app */,
+				16E4A3171A67D66900152389 /* VITacademics-GlassTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		16E4A3001A67D66900152389 /* VITacademics-Glass */ = {
+			isa = PBXGroup;
+			children = (
+				16E4A3271A67D6DE00152389 /* HomeCollectionViewController.h */,
+				16E4A3281A67D6DE00152389 /* HomeCollectionViewController.m */,
+				16E4A3051A67D66900152389 /* AppDelegate.h */,
+				16E4A3061A67D66900152389 /* AppDelegate.m */,
+				16E4A30B1A67D66900152389 /* Main.storyboard */,
+				16E4A30E1A67D66900152389 /* Images.xcassets */,
+				16E4A3101A67D66900152389 /* LaunchScreen.xib */,
+				16E4A3011A67D66900152389 /* Supporting Files */,
+			);
+			path = "VITacademics-Glass";
+			sourceTree = "<group>";
+		};
+		16E4A3011A67D66900152389 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				16E4A3021A67D66900152389 /* Info.plist */,
+				16E4A3031A67D66900152389 /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		16E4A31A1A67D66900152389 /* VITacademics-GlassTests */ = {
+			isa = PBXGroup;
+			children = (
+				16E4A31D1A67D66900152389 /* VITacademics_GlassTests.m */,
+				16E4A31B1A67D66900152389 /* Supporting Files */,
+			);
+			path = "VITacademics-GlassTests";
+			sourceTree = "<group>";
+		};
+		16E4A31B1A67D66900152389 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				16E4A31C1A67D66900152389 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		16E4A2FD1A67D66900152389 /* VITacademics-Glass */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 16E4A3211A67D66900152389 /* Build configuration list for PBXNativeTarget "VITacademics-Glass" */;
+			buildPhases = (
+				16E4A2FA1A67D66900152389 /* Sources */,
+				16E4A2FB1A67D66900152389 /* Frameworks */,
+				16E4A2FC1A67D66900152389 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "VITacademics-Glass";
+			productName = "VITacademics-Glass";
+			productReference = 16E4A2FE1A67D66900152389 /* VITacademics-Glass.app */;
+			productType = "com.apple.product-type.application";
+		};
+		16E4A3161A67D66900152389 /* VITacademics-GlassTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 16E4A3241A67D66900152389 /* Build configuration list for PBXNativeTarget "VITacademics-GlassTests" */;
+			buildPhases = (
+				16E4A3131A67D66900152389 /* Sources */,
+				16E4A3141A67D66900152389 /* Frameworks */,
+				16E4A3151A67D66900152389 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				16E4A3191A67D66900152389 /* PBXTargetDependency */,
+			);
+			name = "VITacademics-GlassTests";
+			productName = "VITacademics-GlassTests";
+			productReference = 16E4A3171A67D66900152389 /* VITacademics-GlassTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		16E4A2F61A67D66900152389 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0610;
+				ORGANIZATIONNAME = "Siddharth Gupta";
+				TargetAttributes = {
+					16E4A2FD1A67D66900152389 = {
+						CreatedOnToolsVersion = 6.1.1;
+					};
+					16E4A3161A67D66900152389 = {
+						CreatedOnToolsVersion = 6.1.1;
+						TestTargetID = 16E4A2FD1A67D66900152389;
+					};
+				};
+			};
+			buildConfigurationList = 16E4A2F91A67D66900152389 /* Build configuration list for PBXProject "VITacademics-Glass" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 16E4A2F51A67D66900152389;
+			productRefGroup = 16E4A2FF1A67D66900152389 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				16E4A2FD1A67D66900152389 /* VITacademics-Glass */,
+				16E4A3161A67D66900152389 /* VITacademics-GlassTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		16E4A2FC1A67D66900152389 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				16E4A30D1A67D66900152389 /* Main.storyboard in Resources */,
+				16E4A3121A67D66900152389 /* LaunchScreen.xib in Resources */,
+				16E4A30F1A67D66900152389 /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		16E4A3151A67D66900152389 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		16E4A2FA1A67D66900152389 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				16E4A3071A67D66900152389 /* AppDelegate.m in Sources */,
+				16E4A3041A67D66900152389 /* main.m in Sources */,
+				16E4A3291A67D6DE00152389 /* HomeCollectionViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		16E4A3131A67D66900152389 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				16E4A31E1A67D66900152389 /* VITacademics_GlassTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		16E4A3191A67D66900152389 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 16E4A2FD1A67D66900152389 /* VITacademics-Glass */;
+			targetProxy = 16E4A3181A67D66900152389 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		16E4A30B1A67D66900152389 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				16E4A30C1A67D66900152389 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		16E4A3101A67D66900152389 /* LaunchScreen.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				16E4A3111A67D66900152389 /* Base */,
+			);
+			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		16E4A31F1A67D66900152389 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		16E4A3201A67D66900152389 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		16E4A3221A67D66900152389 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = "VITacademics-Glass/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		16E4A3231A67D66900152389 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = "VITacademics-Glass/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		16E4A3251A67D66900152389 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "VITacademics-GlassTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/VITacademics-Glass.app/VITacademics-Glass";
+			};
+			name = Debug;
+		};
+		16E4A3261A67D66900152389 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "VITacademics-GlassTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/VITacademics-Glass.app/VITacademics-Glass";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		16E4A2F91A67D66900152389 /* Build configuration list for PBXProject "VITacademics-Glass" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				16E4A31F1A67D66900152389 /* Debug */,
+				16E4A3201A67D66900152389 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		16E4A3211A67D66900152389 /* Build configuration list for PBXNativeTarget "VITacademics-Glass" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				16E4A3221A67D66900152389 /* Debug */,
+				16E4A3231A67D66900152389 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		16E4A3241A67D66900152389 /* Build configuration list for PBXNativeTarget "VITacademics-GlassTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				16E4A3251A67D66900152389 /* Debug */,
+				16E4A3261A67D66900152389 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 16E4A2F61A67D66900152389 /* Project object */;
+}
