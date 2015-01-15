@@ -7,6 +7,7 @@
 //
 
 #import "HomeCollectionViewController.h"
+//#import "TestView.xib"
 
 @interface HomeCollectionViewController ()
 
@@ -105,13 +106,32 @@ minimumInteritemSpacingForSectionAtIndex:(NSInteger)section
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
-//    self.selectedCell = indexPath.row;
-//    [self.collectionView reloadData];
-//    [self.collectionView scrollToItemAtIndexPath:indexPath atScrollPosition:UICollectionViewScrollPositionCenteredVertically animated:YES];
-    if(self.collectionView.collectionViewLayout == self.expandedLayout)
-        [self.collectionView setCollectionViewLayout:self.condensedLayout animated:YES];
-    else
-        [self.collectionView setCollectionViewLayout:self.expandedLayout animated:YES];
+
+    UICollectionViewCell *cell = [self.collectionView cellForItemAtIndexPath:indexPath];
+    UIView *view = [cell.contentView viewWithTag:3];
+    
+    [UIView animateWithDuration:0.2
+                     animations:^{
+                         view.alpha = 0;
+                     }
+                     completion:^(BOOL success){
+                         if(self.collectionView.collectionViewLayout == self.expandedLayout)
+                             [self.collectionView setCollectionViewLayout:self.condensedLayout
+                                                                 animated:YES
+                                                               completion:^(BOOL success){
+                                                                   view.backgroundColor = [UIColor greenColor];
+                                                                   [UIView animateWithDuration:0.2
+                                                                                    animations:^{view.alpha = 1.0;}];
+                                                               }];
+                         else
+                             [self.collectionView setCollectionViewLayout:self.expandedLayout
+                                                                 animated:YES
+                                                               completion:^(BOOL success){
+                                                                   view.backgroundColor = [UIColor redColor ];
+                                                                   [UIView animateWithDuration:0.2
+                                                                                    animations:^{view.alpha = 1.0;}];
+                                                               }];
+                     }];
 }
 
 @end
