@@ -7,7 +7,7 @@
 //
 
 #import "HomeCollectionViewController.h"
-//#import "TestView.xib"
+#import "UIImage+ImageEffects.h"
 
 @interface HomeCollectionViewController ()
 
@@ -29,7 +29,11 @@ static NSString * const reuseIdentifier = @"course";
     [self.collectionView setCollectionViewLayout:self.expandedLayout];
     [self.collectionView reloadData];
     
-    UIImageView *wallpaperView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"wallpaper.jpg"]];
+    UIImageView *wallpaperView = [[UIImageView alloc] initWithImage:[[UIImage imageNamed:@"wallpaper.jpg"]
+                                                                     applyBlurWithRadius:20
+                                                                     tintColor:[UIColor clearColor]
+                                                                     saturationDeltaFactor:1.8
+                                                                     maskImage:nil]];
     wallpaperView.contentMode = UIViewContentModeScaleAspectFill;
     //[wallpaperView setFrame:self.collectionView.bounds];
     
@@ -105,7 +109,7 @@ minimumInteritemSpacingForSectionAtIndex:(NSInteger)section
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
-    return 20;
+    return 8;
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
@@ -121,11 +125,10 @@ minimumInteritemSpacingForSectionAtIndex:(NSInteger)section
     UIView *view = [views firstObject];
     [cell.contentView addSubview:view];
     
-    if(indexPath.row%2==0)
-        cell.backgroundColor = [UIColor clearColor];
-    else
-        cell.backgroundColor = [UIColor clearColor];
-    // Configure the cell
+    cell.backgroundColor = [UIColor colorWithRed:0
+                                           green:0
+                                            blue:0
+                                           alpha:1.0-(float)((float)indexPath.row/(8*3))];
     
     return cell;
 }
@@ -134,28 +137,40 @@ minimumInteritemSpacingForSectionAtIndex:(NSInteger)section
 {
 
     UICollectionViewCell *cell = [self.collectionView cellForItemAtIndexPath:indexPath];
-    UIView *view = [cell.contentView viewWithTag:3];
+    
+    self.selectedCell = indexPath.row;
     
     [UIView animateWithDuration:0.2
                      animations:^{
-                         view.alpha = 0;
+                         for(UIView *view in [cell.contentView subviews])
+                         {
+                             view.alpha = 0.0;
+                         }
                      }
                      completion:^(BOOL success){
                          if(self.collectionView.collectionViewLayout == self.expandedLayout)
                              [self.collectionView setCollectionViewLayout:self.condensedLayout
                                                                  animated:YES
                                                                completion:^(BOOL success){
-                                                                   view.backgroundColor = [UIColor clearColor];
                                                                    [UIView animateWithDuration:0.2
-                                                                                    animations:^{view.alpha = 1.0;}];
+                                                                                    animations:^{
+                                                                                        for(UIView *view in [cell.contentView subviews])
+                                                                                        {
+                                                                                            view.alpha = 1.0;
+                                                                                        }
+                                                                                    }];
                                                                }];
                          else
                              [self.collectionView setCollectionViewLayout:self.expandedLayout
                                                                  animated:YES
                                                                completion:^(BOOL success){
-                                                                   view.backgroundColor = [UIColor clearColor ];
                                                                    [UIView animateWithDuration:0.2
-                                                                                    animations:^{view.alpha = 1.0;}];
+                                                                                    animations:^{
+                                                                                        for(UIView *view in [cell.contentView subviews])
+                                                                                        {
+                                                                                            view.alpha = 1.0;
+                                                                                        }
+                                                                                    }];
                                                                }];
                      }];
 }
