@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1634D25E1A6829DA00AFAC21 /* wallpaper.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1634D25D1A6829DA00AFAC21 /* wallpaper.jpg */; };
 		16E4A3041A67D66900152389 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 16E4A3031A67D66900152389 /* main.m */; };
 		16E4A3071A67D66900152389 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 16E4A3061A67D66900152389 /* AppDelegate.m */; };
 		16E4A30D1A67D66900152389 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 16E4A30B1A67D66900152389 /* Main.storyboard */; };
@@ -29,6 +30,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1634D25D1A6829DA00AFAC21 /* wallpaper.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = wallpaper.jpg; sourceTree = "<group>"; };
 		16E4A2FE1A67D66900152389 /* VITacademics-Glass.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "VITacademics-Glass.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		16E4A3021A67D66900152389 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		16E4A3031A67D66900152389 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -91,6 +93,7 @@
 				16E4A3061A67D66900152389 /* AppDelegate.m */,
 				16E4A30B1A67D66900152389 /* Main.storyboard */,
 				16E4A30E1A67D66900152389 /* Images.xcassets */,
+				1634D25D1A6829DA00AFAC21 /* wallpaper.jpg */,
 				16E4A3101A67D66900152389 /* LaunchScreen.xib */,
 				425783941A6820DB00885323 /* View XIB Files */,
 				16E4A3011A67D66900152389 /* Supporting Files */,
@@ -214,6 +217,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				425783911A6820B600885323 /* CondensedView.xib in Resources */,
+				1634D25E1A6829DA00AFAC21 /* wallpaper.jpg in Resources */,
 				16E4A30D1A67D66900152389 /* Main.storyboard in Resources */,
 				16E4A3121A67D66900152389 /* LaunchScreen.xib in Resources */,
 				425783931A6820D200885323 /* ExpandedView.xib in Resources */,

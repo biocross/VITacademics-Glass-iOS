@@ -28,11 +28,26 @@ static NSString * const reuseIdentifier = @"course";
     [super viewDidLoad];
     [self.collectionView setCollectionViewLayout:self.expandedLayout];
     [self.collectionView reloadData];
+    
+    UIImageView *wallpaperView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"wallpaper.jpg"]];
+    wallpaperView.contentMode = UIViewContentModeScaleAspectFill;
+    //[wallpaperView setFrame:self.collectionView.bounds];
+    
+    self.collectionView.backgroundView  = wallpaperView;
 }
 
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView
 {
     return 1;
+}
+
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView
+{
+    CGPoint point = CGPointMake(scrollView.bounds.origin.x,
+                                self.collectionView.bounds.origin.y);
+    CGRect newRect = self.collectionView.backgroundView.frame;
+    newRect.origin = point;
+    self.collectionView.backgroundView.frame = newRect;
 }
 
 - (CGFloat)collectionView:(UICollectionView *)collectionView
@@ -107,9 +122,9 @@ minimumInteritemSpacingForSectionAtIndex:(NSInteger)section
     [cell.contentView addSubview:view];
     
     if(indexPath.row%2==0)
-        cell.backgroundColor = [UIColor blackColor];
+        cell.backgroundColor = [UIColor clearColor];
     else
-        cell.backgroundColor = [UIColor blackColor];
+        cell.backgroundColor = [UIColor clearColor];
     // Configure the cell
     
     return cell;
@@ -130,7 +145,7 @@ minimumInteritemSpacingForSectionAtIndex:(NSInteger)section
                              [self.collectionView setCollectionViewLayout:self.condensedLayout
                                                                  animated:YES
                                                                completion:^(BOOL success){
-                                                                   view.backgroundColor = [UIColor greenColor];
+                                                                   view.backgroundColor = [UIColor clearColor];
                                                                    [UIView animateWithDuration:0.2
                                                                                     animations:^{view.alpha = 1.0;}];
                                                                }];
@@ -138,7 +153,7 @@ minimumInteritemSpacingForSectionAtIndex:(NSInteger)section
                              [self.collectionView setCollectionViewLayout:self.expandedLayout
                                                                  animated:YES
                                                                completion:^(BOOL success){
-                                                                   view.backgroundColor = [UIColor redColor ];
+                                                                   view.backgroundColor = [UIColor clearColor ];
                                                                    [UIView animateWithDuration:0.2
                                                                                     animations:^{view.alpha = 1.0;}];
                                                                }];
