@@ -93,13 +93,23 @@ minimumInteritemSpacingForSectionAtIndex:(NSInteger)section
     return 20;
 }
 
-- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
+- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
+{
     UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:reuseIdentifier forIndexPath:indexPath];
     
+    for(UIView *view in [cell.contentView subviews])
+    {
+        [view removeFromSuperview];
+    }
+    
+    NSArray *views = [[NSBundle mainBundle] loadNibNamed:@"CondensedView" owner:self options:nil];
+    UIView *view = [views firstObject];
+    [cell.contentView addSubview:view];
+    
     if(indexPath.row%2==0)
-        cell.backgroundColor = [UIColor darkGrayColor];
+        cell.backgroundColor = [UIColor blackColor];
     else
-        cell.backgroundColor = [UIColor lightGrayColor];
+        cell.backgroundColor = [UIColor blackColor];
     // Configure the cell
     
     return cell;

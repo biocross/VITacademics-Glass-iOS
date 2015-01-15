@@ -14,6 +14,8 @@
 		16E4A3121A67D66900152389 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 16E4A3101A67D66900152389 /* LaunchScreen.xib */; };
 		16E4A31E1A67D66900152389 /* VITacademics_GlassTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 16E4A31D1A67D66900152389 /* VITacademics_GlassTests.m */; };
 		16E4A3291A67D6DE00152389 /* HomeCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 16E4A3281A67D6DE00152389 /* HomeCollectionViewController.m */; };
+		425783911A6820B600885323 /* CondensedView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 425783901A6820B600885323 /* CondensedView.xib */; };
+		425783931A6820D200885323 /* ExpandedView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 425783921A6820D200885323 /* ExpandedView.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +42,8 @@
 		16E4A31D1A67D66900152389 /* VITacademics_GlassTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VITacademics_GlassTests.m; sourceTree = "<group>"; };
 		16E4A3271A67D6DE00152389 /* HomeCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeCollectionViewController.h; sourceTree = "<group>"; };
 		16E4A3281A67D6DE00152389 /* HomeCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeCollectionViewController.m; sourceTree = "<group>"; };
+		425783901A6820B600885323 /* CondensedView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CondensedView.xib; sourceTree = "<group>"; };
+		425783921A6820D200885323 /* ExpandedView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ExpandedView.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,6 +92,7 @@
 				16E4A30B1A67D66900152389 /* Main.storyboard */,
 				16E4A30E1A67D66900152389 /* Images.xcassets */,
 				16E4A3101A67D66900152389 /* LaunchScreen.xib */,
+				425783941A6820DB00885323 /* View XIB Files */,
 				16E4A3011A67D66900152389 /* Supporting Files */,
 			);
 			path = "VITacademics-Glass";
@@ -117,6 +122,15 @@
 				16E4A31C1A67D66900152389 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		425783941A6820DB00885323 /* View XIB Files */ = {
+			isa = PBXGroup;
+			children = (
+				425783901A6820B600885323 /* CondensedView.xib */,
+				425783921A6820D200885323 /* ExpandedView.xib */,
+			);
+			name = "View XIB Files";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -199,8 +213,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				425783911A6820B600885323 /* CondensedView.xib in Resources */,
 				16E4A30D1A67D66900152389 /* Main.storyboard in Resources */,
 				16E4A3121A67D66900152389 /* LaunchScreen.xib in Resources */,
+				425783931A6820D200885323 /* ExpandedView.xib in Resources */,
 				16E4A30F1A67D66900152389 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -414,6 +430,7 @@
 				16E4A3231A67D66900152389 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		16E4A3241A67D66900152389 /* Build configuration list for PBXNativeTarget "VITacademics-GlassTests" */ = {
 			isa = XCConfigurationList;
@@ -422,6 +439,7 @@
 				16E4A3261A67D66900152389 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
