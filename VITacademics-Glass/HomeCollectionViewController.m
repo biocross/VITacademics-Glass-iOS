@@ -71,6 +71,7 @@ static NSString * const reuseIdentifier = @"course";
     newRect.origin = point;
     self.collectionView.backgroundView.frame = newRect;
     
+
     
 }
 
@@ -129,7 +130,7 @@ minimumInteritemSpacingForSectionAtIndex:(NSInteger)section
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
-    return 8;
+    return 50;
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
@@ -143,14 +144,17 @@ minimumInteritemSpacingForSectionAtIndex:(NSInteger)section
     
     NSArray *views = [[NSBundle mainBundle] loadNibNamed:@"CondensedView" owner:self options:nil];
     UIView *view = [views firstObject];
+    
+    UIView *hexagonView = [view viewWithTag:1];
+    
+    [UIView animateWithDuration:0.6 animations:^{hexagonView.transform = CGAffineTransformMakeRotation(M_PI_2*3);}];
+    
     [cell.contentView addSubview:view];
     
-    CGFloat hue = ( arc4random() % 256 / 256.0 );  //  0.0 to 1.0
-    CGFloat saturation = ( arc4random() % 128 / 256.0 ) + 0.5;  //  0.5 to 1.0, away from white
-    CGFloat brightness = ( arc4random() % 128 / 256.0 ) + 0.5;  //  0.5 to 1.0, away from black
-    UIColor *color = [UIColor colorWithHue:hue saturation:saturation brightness:brightness alpha:0.7];
-    
-    cell.backgroundColor = color;
+    if(indexPath.row % 2 == 0)
+        cell.backgroundColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:0.6];
+    else
+        cell.backgroundColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:0.5];
     return cell;
 }
 
