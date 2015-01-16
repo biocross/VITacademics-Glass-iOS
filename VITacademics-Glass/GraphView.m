@@ -37,6 +37,9 @@
     [[UIColor whiteColor] setStroke];
     
     
+    int percentage = self.currentValue * 100;
+    
+    [[UIColor colorWithRed:0.8 green:0.8 blue:1 alpha:1] setStroke];
     
     [self.path moveToPoint:CGPointMake(-rect.size.width/2, rect.size.height - self.beforeValue*rect.size.height)];
     [self.path addLineToPoint:CGPointMake(rect.size.width/2, rect.size.height - self.currentValue*rect.size.height)];
