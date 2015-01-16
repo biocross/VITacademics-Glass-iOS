@@ -103,7 +103,7 @@ minimumInteritemSpacingForSectionAtIndex:(NSInteger)section
         return CGSizeMake(self.collectionView.bounds.size.width,
                           self.collectionView.bounds.size.height);
    else
-        return CGSizeMake(125, self.collectionView.bounds.size.height);
+        return CGSizeMake(150, self.collectionView.bounds.size.height);
 }
 
 
@@ -125,10 +125,10 @@ minimumInteritemSpacingForSectionAtIndex:(NSInteger)section
     UIView *view = [views firstObject];
     [cell.contentView addSubview:view];
     
-    cell.backgroundColor = [UIColor colorWithRed:0
-                                           green:0
-                                            blue:0
-                                           alpha:1.0-(float)((float)indexPath.row/(8*3))];
+    cell.backgroundColor = [UIColor colorWithRed:0.15
+                                           green:0.1
+                                            blue:0.4
+                                           alpha:0.75-(float)((float)indexPath.row/(8*3))];
     
     return cell;
 }
