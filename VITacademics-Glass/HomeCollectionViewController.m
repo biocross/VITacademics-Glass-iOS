@@ -14,6 +14,7 @@
 @property (nonatomic) NSInteger selectedCell;
 @property (nonatomic, strong) UICollectionViewFlowLayout *condensedLayout;
 @property (nonatomic, strong) UICollectionViewFlowLayout *expandedLayout;
+@property (nonatomic, strong) UIImageView *wallpaperView;
 
 @end
 
@@ -26,18 +27,35 @@ static NSString * const reuseIdentifier = @"course";
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    [self.collectionView setCollectionViewLayout:self.expandedLayout];
+    [self.collectionView setCollectionViewLayout:self.condensedLayout];
     [self.collectionView reloadData];
     
-    UIImageView *wallpaperView = [[UIImageView alloc] initWithImage:[[UIImage imageNamed:@"wallpaper.jpg"]
-                                                                     applyBlurWithRadius:20
-                                                                     tintColor:[UIColor clearColor]
-                                                                     saturationDeltaFactor:1.8
-                                                                     maskImage:nil]];
-    wallpaperView.contentMode = UIViewContentModeScaleAspectFill;
-    //[wallpaperView setFrame:self.collectionView.bounds];
+    [self addGestureRecogizersToCell];
     
-    self.collectionView.backgroundView  = wallpaperView;
+    self.collectionView.backgroundView  = self.wallpaperView;
+}
+
+- (UIImageView *)wallpaperView
+{
+    if(!_wallpaperView)
+    {
+        _wallpaperView = [[UIImageView alloc] initWithImage:[[UIImage imageNamed:@"wallpaper.jpg"] applyBlurWithRadius:20
+                                                                                                             tintColor:[UIColor clearColor]
+                                                                                                 saturationDeltaFactor:1.8
+                                                                                                             maskImage:nil]];
+        _wallpaperView.contentMode = UIViewContentModeScaleAspectFill;
+    }
+    return _wallpaperView;
+}
+
+- (void)willRotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration
+{
+    [self.collectionView reloadData];
+}
+
+- (void) addGestureRecogizersToCell
+{
+    
 }
 
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView
@@ -52,6 +70,8 @@ static NSString * const reuseIdentifier = @"course";
     CGRect newRect = self.collectionView.backgroundView.frame;
     newRect.origin = point;
     self.collectionView.backgroundView.frame = newRect;
+    
+    
 }
 
 - (CGFloat)collectionView:(UICollectionView *)collectionView
@@ -99,8 +119,8 @@ minimumInteritemSpacingForSectionAtIndex:(NSInteger)section
                   layout:(UICollectionViewLayout *)collectionViewLayout
   sizeForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    if(self.collectionView.collectionViewLayout == self.expandedLayout)
-        return CGSizeMake(self.collectionView.bounds.size.width,
+    if(indexPath.row == self.selectedCell)
+        return CGSizeMake(500,
                           self.collectionView.bounds.size.height);
    else
         return CGSizeMake(150, self.collectionView.bounds.size.height);
@@ -125,11 +145,12 @@ minimumInteritemSpacingForSectionAtIndex:(NSInteger)section
     UIView *view = [views firstObject];
     [cell.contentView addSubview:view];
     
-    cell.backgroundColor = [UIColor colorWithRed:0.15
-                                           green:0.1
-                                            blue:0.4
-                                           alpha:0.75-(float)((float)indexPath.row/(8*3))];
+    CGFloat hue = ( arc4random() % 256 / 256.0 );  //  0.0 to 1.0
+    CGFloat saturation = ( arc4random() % 128 / 256.0 ) + 0.5;  //  0.5 to 1.0, away from white
+    CGFloat brightness = ( arc4random() % 128 / 256.0 ) + 0.5;  //  0.5 to 1.0, away from black
+    UIColor *color = [UIColor colorWithHue:hue saturation:saturation brightness:brightness alpha:0.7];
     
+    cell.backgroundColor = color;
     return cell;
 }
 
