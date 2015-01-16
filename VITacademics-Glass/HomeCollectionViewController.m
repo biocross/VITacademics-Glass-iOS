@@ -141,61 +141,75 @@ minimumInteritemSpacingForSectionAtIndex:(NSInteger)section
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
     UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:reuseIdentifier forIndexPath:indexPath];
-    
+    UIView *view;
     for(UIView *view in [cell.contentView subviews])
     {
         [view removeFromSuperview];
     }
     
-    NSArray *views = [[NSBundle mainBundle] loadNibNamed:@"CondensedView" owner:self options:nil];
     
-    UIView *view = [views firstObject];
-    
-    DataSource *source = [DataSource sharedManager];
-    NSNumber *number = [source.data objectAtIndex:indexPath.row];
-    
-    RoundedHexagonPercentageView *hexagonView = (RoundedHexagonPercentageView *)[view viewWithTag:1];
-    
-    hexagonView.alpha = 0.0;
-    hexagonView.transform = CGAffineTransformMakeRotation(M_PI/6+M_PI);
-    hexagonView.center = CGPointMake(hexagonView.center.x,
-                                     hexagonView.center.y-20);
-    hexagonView.percentage = number.floatValue;
-    
-    [UIView animateWithDuration:0.5
-                          delay:0
-                        options:UIViewAnimationOptionAllowAnimatedContent|UIViewAnimationOptionBeginFromCurrentState
-                     animations:^{
-                         hexagonView.alpha = 1.0;
-                         hexagonView.center = CGPointMake(hexagonView.center.x,
-                                                          hexagonView.center.y + 20);
-                     }
-                     completion:nil];
-    
-    [cell.contentView addSubview:view];
-    
-    GraphView *graphView = (GraphView *)[cell.contentView viewWithTag:2];
-    
-    if(indexPath.row>0 && indexPath.row < 11)
-        [graphView setBefore:((NSNumber *)[source.data objectAtIndex:(indexPath.row-1)]).floatValue/100
-                     current:((NSNumber *)[source.data objectAtIndex:(indexPath.row)]).floatValue/100
-                       after:((NSNumber *)[source.data objectAtIndex:(indexPath.row+1)]).floatValue/100];
-    else if(indexPath.row == 0)
-        [graphView setBefore:0.5
-                     current:((NSNumber *)[source.data objectAtIndex:(indexPath.row)]).floatValue/100
-                       after:((NSNumber *)[source.data objectAtIndex:(indexPath.row+1)]).floatValue/100];
+    if(indexPath.row == self.selectedCell)
+    {
+        NSLog(@"Return empty cell");
+    }
     else
-        [graphView setBefore:((NSNumber *)[source.data objectAtIndex:(indexPath.row-1)]).floatValue/100
-                     current:((NSNumber *)[source.data objectAtIndex:(indexPath.row)]).floatValue/100
-                       after:0.5];
+    {
+        
+        NSArray *views = [[NSBundle mainBundle] loadNibNamed:@"CondensedView" owner:self options:nil];
+        
+        view = [views firstObject];
+        
+        DataSource *source = [DataSource sharedManager];
+        NSNumber *number = [source.data objectAtIndex:indexPath.row];
+        
+        RoundedHexagonPercentageView *hexagonView = (RoundedHexagonPercentageView *)[view viewWithTag:1];
+        
+        hexagonView.transform = CGAffineTransformMakeRotation(M_PI/6+M_PI);
+        hexagonView.center = CGPointMake(hexagonView.center.x,
+                                         hexagonView.center.y-20);
+        hexagonView.percentage = number.floatValue;
+        
+        [cell.contentView addSubview:view];
+        
+        GraphView *graphView = (GraphView *)[cell.contentView viewWithTag:2];
+        
+        if(indexPath.row>0 && indexPath.row < 11)
+            [graphView setBefore:((NSNumber *)[source.data objectAtIndex:(indexPath.row-1)]).floatValue/100
+                         current:((NSNumber *)[source.data objectAtIndex:(indexPath.row)]).floatValue/100
+                           after:((NSNumber *)[source.data objectAtIndex:(indexPath.row+1)]).floatValue/100];
+        else if(indexPath.row == 0)
+            [graphView setBefore:0.5
+                         current:((NSNumber *)[source.data objectAtIndex:(indexPath.row)]).floatValue/100
+                           after:((NSNumber *)[source.data objectAtIndex:(indexPath.row+1)]).floatValue/100];
+        else
+            [graphView setBefore:((NSNumber *)[source.data objectAtIndex:(indexPath.row-1)]).floatValue/100
+                         current:((NSNumber *)[source.data objectAtIndex:(indexPath.row)]).floatValue/100
+                           after:0.5];
+        
+        for(UIView *view in [cell.contentView subviews])
+        {
+            view.alpha = 0;
+        }
+        
+        [UIView animateWithDuration:0.5
+                              delay:0
+                            options:UIViewAnimationOptionAllowAnimatedContent|UIViewAnimationOptionBeginFromCurrentState|UIViewAnimationOptionAllowUserInteraction
+                         animations:^{
+                             for(UIView *view in [cell.contentView subviews])
+                             {
+                                 view.alpha = 1;
+                             }
+                             hexagonView.center = CGPointMake(hexagonView.center.x,
+                                                              hexagonView.center.y + 20);
+                         }
+                         completion:nil];
+    }
     
-    
-    
+    cell.backgroundColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:0.5];
     
     if(indexPath.row % 2 == 0)
         cell.backgroundColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:0.6];
-    else
-        cell.backgroundColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:0.5];
+    
     return cell;
 }
 
@@ -213,37 +227,33 @@ minimumInteritemSpacingForSectionAtIndex:(NSInteger)section
     {
         self.selectedCell = indexPath.row;
     }
+    
+    NSLog(@"Selected Row: %ld",(long)self.selectedCell);
+    
     [UIView animateWithDuration:0.2
                      animations:^{
                          for(UIView *view in [cell.contentView subviews])
                          {
                              view.alpha = 0.0;
+                             
                          }
                      }
                      completion:^(BOOL success){
+                         for(UIView *view in [cell.contentView subviews])
+                         {
+                             view.hidden = YES;
+                         }
                          if(self.collectionView.collectionViewLayout == self.expandedLayout)
                              [self.collectionView setCollectionViewLayout:self.condensedLayout
                                                                  animated:YES
                                                                completion:^(BOOL success){
-                                                                   [UIView animateWithDuration:0.2
-                                                                                    animations:^{
-                                                                                        for(UIView *view in [cell.contentView subviews])
-                                                                                        {
-                                                                                            view.alpha = 1.0;
-                                                                                        }
-                                                                                    }];
+                                                                   [collectionView reloadItemsAtIndexPaths:@[indexPath]];
                                                                }];
                          else
                              [self.collectionView setCollectionViewLayout:self.expandedLayout
                                                                  animated:YES
                                                                completion:^(BOOL success){
-                                                                   [UIView animateWithDuration:0.2
-                                                                                    animations:^{
-                                                                                        for(UIView *view in [cell.contentView subviews])
-                                                                                        {
-                                                                                            view.alpha = 1.0;
-                                                                                        }
-                                                                                    }];
+                                                                   [collectionView reloadItemsAtIndexPaths:@[indexPath]];
                                                                }];
                      }];
 }

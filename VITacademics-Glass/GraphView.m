@@ -29,26 +29,17 @@
     _currentValue = current;
     _afterValue = after;
     
-    NSLog(@"Before:%f Current:%f After:%f",before,current,after);
-    
     [self setNeedsDisplay];
 }
 
 - (void)drawRect:(CGRect)rect
 {
+    [[UIColor whiteColor] setStroke];
     
-    
-    //int percentage = self.currentValue * 100;
-    
-    [[UIColor yellowColor] setStroke];
-    
-    
-    
-    
-    
-    [self.path moveToPoint:CGPointMake(-rect.size.width/2, rect.size.height - self.beforeValue*rect.size.height)];
-    [self.path addLineToPoint:CGPointMake(rect.size.width/2, rect.size.height - self.currentValue*rect.size.height)];
-    [self.path addLineToPoint:CGPointMake(rect.size.width*3/2, rect.size.height - self.afterValue*rect.size.height)];
+
+    [self.path moveToPoint:CGPointMake(-rect.size.width/2, rect.size.height*0.8 - self.beforeValue*rect.size.height*0.8)];
+    [self.path addLineToPoint:CGPointMake(rect.size.width/2, rect.size.height*0.8 - self.currentValue*rect.size.height*0.8)];
+    [self.path addLineToPoint:CGPointMake(rect.size.width*3/2, rect.size.height*0.8 - self.afterValue*rect.size.height*0.8)];
     [self.path setLineWidth:2.5];
     [self.path stroke];
     
@@ -75,7 +66,10 @@
                                                 blue:0.9
                                                alpha:1.0].CGColor;
     }*/
-}
+
+    
+    
+    }
 
 
 @end
