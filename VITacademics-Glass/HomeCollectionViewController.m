@@ -121,7 +121,7 @@ minimumInteritemSpacingForSectionAtIndex:(NSInteger)section
   sizeForItemAtIndexPath:(NSIndexPath *)indexPath
 {
     if(indexPath.row == self.selectedCell)
-        return CGSizeMake(500,
+        return CGSizeMake(self.collectionView.bounds.size.width>500?500:self.collectionView.bounds.size.width,
                           self.collectionView.bounds.size.height);
    else
         return CGSizeMake(150, self.collectionView.bounds.size.height);
@@ -147,7 +147,20 @@ minimumInteritemSpacingForSectionAtIndex:(NSInteger)section
     
     UIView *hexagonView = [view viewWithTag:1];
     
-    [UIView animateWithDuration:0.6 animations:^{hexagonView.transform = CGAffineTransformMakeRotation(M_PI_2*3);}];
+    hexagonView.alpha = 0.0;
+    hexagonView.transform = CGAffineTransformMakeRotation(M_PI/6+M_PI);
+    hexagonView.center = CGPointMake(hexagonView.center.x,
+                                     hexagonView.center.y-20);
+    
+    [UIView animateWithDuration:0.5
+                          delay:0
+                        options:UIViewAnimationOptionAllowAnimatedContent|UIViewAnimationOptionBeginFromCurrentState
+                     animations:^{
+                         hexagonView.alpha = 1.0;
+                         hexagonView.center = CGPointMake(hexagonView.center.x,
+                                                          hexagonView.center.y + 20);
+                     }
+                     completion:nil];
     
     [cell.contentView addSubview:view];
     
@@ -163,8 +176,15 @@ minimumInteritemSpacingForSectionAtIndex:(NSInteger)section
 
     UICollectionViewCell *cell = [self.collectionView cellForItemAtIndexPath:indexPath];
     
-    self.selectedCell = indexPath.row;
-    
+    if(indexPath.row == self.selectedCell)
+    {
+        self.selectedCell = -1;
+        
+    }
+    else
+    {
+        self.selectedCell = indexPath.row;
+    }
     [UIView animateWithDuration:0.2
                      animations:^{
                          for(UIView *view in [cell.contentView subviews])

@@ -12,5 +12,8 @@
 
 @property (nonatomic, strong) UIBezierPath *hexagonPath;
 @property (nonatomic, strong) NSNumber *percentage;
+@property (nonatomic, strong) UILabel *percentageLabel;
+
+@property (nonatomic, strong) UIView *hexagonSuperView;
 
 @end

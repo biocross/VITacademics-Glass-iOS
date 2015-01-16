@@ -53,6 +53,19 @@
     return path;
 }
 
+- (UILabel *)percentageLabel
+{
+    if(!_percentageLabel)
+    {
+        _percentageLabel = [[UILabel alloc] initWithFrame:self.bounds];
+        _percentageLabel.font = [UIFont systemFontOfSize:25];
+        _percentageLabel.textColor = [UIColor whiteColor];
+        _percentageLabel.textAlignment = NSTextAlignmentCenter;
+    }
+    
+    return _percentageLabel;
+}
+
 - (void)drawRect:(CGRect)rect
 {
     self.hexagonPath = [self roundedPolygonPathWithRect:rect
@@ -60,27 +73,19 @@
                                                   sides:6
                                            cornerRadius:10];
     self.hexagonPath.lineWidth = 2.0;
-    
     [[UIColor darkGrayColor] setStroke];
-
     [self.hexagonPath stroke];
-    
-    
-    
     CAShapeLayer *halfBezier = [CAShapeLayer layer];
-    // use the full path
     halfBezier.path          = [self.hexagonPath CGPath];
-    // configure the appearance
     halfBezier.fillColor     = [[UIColor clearColor] CGColor];
     halfBezier.strokeColor   = [[UIColor whiteColor] CGColor];
     halfBezier.lineWidth     = 3.0;
-    
-    // 0.0 ≤ t ≤ 0.5
-    halfBezier.strokeStart   = 0.0; // the default value (only here for clarity)
-    halfBezier.strokeEnd     = 0.5; // only up until t=0.5
-    
-    // add this layer to the view's layer where it is supposed to be drawn
     [self.layer addSublayer:halfBezier];
+    halfBezier.strokeEnd = 0.6;
+    
+    self.percentageLabel.text = @"100";
+    self.percentageLabel.transform = CGAffineTransformMakeRotation(-M_PI/6+M_PI);
+    [self addSubview:self.percentageLabel];
 }
 
 
