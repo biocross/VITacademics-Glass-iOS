@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		161B75591A693E9F0074AFD5 /* MultiplePulsingHaloLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 161B75561A693E9F0074AFD5 /* MultiplePulsingHaloLayer.m */; };
+		161B755A1A693E9F0074AFD5 /* PulsingHaloLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 161B75581A693E9F0074AFD5 /* PulsingHaloLayer.m */; };
 		1634D25E1A6829DA00AFAC21 /* wallpaper.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1634D25D1A6829DA00AFAC21 /* wallpaper.jpg */; };
 		16E4A3041A67D66900152389 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 16E4A3031A67D66900152389 /* main.m */; };
 		16E4A3071A67D66900152389 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 16E4A3061A67D66900152389 /* AppDelegate.m */; };
@@ -21,6 +23,7 @@
 		4257839A1A68E93600885323 /* RoundedHexagonPercentageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 425783991A68E93600885323 /* RoundedHexagonPercentageView.m */; };
 		4257839D1A6938E600885323 /* DataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 4257839C1A6938E600885323 /* DataSource.m */; };
 		425783A01A69391600885323 /* GraphView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4257839F1A69391600885323 /* GraphView.m */; };
+		CEC71B31D098745E1442027B /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DA9E6B1DB054274C90B053C6 /* libPods.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,6 +37,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		161B75551A693E9F0074AFD5 /* MultiplePulsingHaloLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MultiplePulsingHaloLayer.h; sourceTree = "<group>"; };
+		161B75561A693E9F0074AFD5 /* MultiplePulsingHaloLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MultiplePulsingHaloLayer.m; sourceTree = "<group>"; };
+		161B75571A693E9F0074AFD5 /* PulsingHaloLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PulsingHaloLayer.h; sourceTree = "<group>"; };
+		161B75581A693E9F0074AFD5 /* PulsingHaloLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PulsingHaloLayer.m; sourceTree = "<group>"; };
 		1634D25D1A6829DA00AFAC21 /* wallpaper.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = wallpaper.jpg; sourceTree = "<group>"; };
 		16E4A2FE1A67D66900152389 /* VITacademics-Glass.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "VITacademics-Glass.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		16E4A3021A67D66900152389 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -48,6 +55,7 @@
 		16E4A31D1A67D66900152389 /* VITacademics_GlassTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VITacademics_GlassTests.m; sourceTree = "<group>"; };
 		16E4A3271A67D6DE00152389 /* HomeCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeCollectionViewController.h; sourceTree = "<group>"; };
 		16E4A3281A67D6DE00152389 /* HomeCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeCollectionViewController.m; sourceTree = "<group>"; };
+		35B4FC53CC73941112528291 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		425783901A6820B600885323 /* CondensedView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CondensedView.xib; sourceTree = "<group>"; };
 		425783921A6820D200885323 /* ExpandedView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ExpandedView.xib; sourceTree = "<group>"; };
 		425783951A682FF300885323 /* UIImage+ImageEffects.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+ImageEffects.h"; sourceTree = "<group>"; };
@@ -58,6 +66,8 @@
 		4257839C1A6938E600885323 /* DataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataSource.m; sourceTree = "<group>"; };
 		4257839E1A69391600885323 /* GraphView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GraphView.h; sourceTree = "<group>"; };
 		4257839F1A69391600885323 /* GraphView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GraphView.m; sourceTree = "<group>"; };
+		DA9E6B1DB054274C90B053C6 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		E37A615077840976B51267B2 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,6 +75,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CEC71B31D098745E1442027B /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -78,12 +89,25 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		161B75541A693E9F0074AFD5 /* PulsingHalo */ = {
+			isa = PBXGroup;
+			children = (
+				161B75551A693E9F0074AFD5 /* MultiplePulsingHaloLayer.h */,
+				161B75561A693E9F0074AFD5 /* MultiplePulsingHaloLayer.m */,
+				161B75571A693E9F0074AFD5 /* PulsingHaloLayer.h */,
+				161B75581A693E9F0074AFD5 /* PulsingHaloLayer.m */,
+			);
+			path = PulsingHalo;
+			sourceTree = "<group>";
+		};
 		16E4A2F51A67D66900152389 = {
 			isa = PBXGroup;
 			children = (
 				16E4A3001A67D66900152389 /* VITacademics-Glass */,
 				16E4A31A1A67D66900152389 /* VITacademics-GlassTests */,
 				16E4A2FF1A67D66900152389 /* Products */,
+				57AD456BB52A0FFAD0EF6E67 /* Pods */,
+				4086F0218CDD1A78F18C13A2 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -118,6 +142,7 @@
 		16E4A3011A67D66900152389 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				161B75541A693E9F0074AFD5 /* PulsingHalo */,
 				425783951A682FF300885323 /* UIImage+ImageEffects.h */,
 				425783961A682FF300885323 /* UIImage+ImageEffects.m */,
 				16E4A3021A67D66900152389 /* Info.plist */,
@@ -143,6 +168,14 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		4086F0218CDD1A78F18C13A2 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				DA9E6B1DB054274C90B053C6 /* libPods.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		425783941A6820DB00885323 /* View XIB Files */ = {
 			isa = PBXGroup;
 			children = (
@@ -156,6 +189,15 @@
 			name = "View XIB Files";
 			sourceTree = "<group>";
 		};
+		57AD456BB52A0FFAD0EF6E67 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				35B4FC53CC73941112528291 /* Pods.debug.xcconfig */,
+				E37A615077840976B51267B2 /* Pods.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -163,9 +205,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 16E4A3211A67D66900152389 /* Build configuration list for PBXNativeTarget "VITacademics-Glass" */;
 			buildPhases = (
+				A3F2500286869D6451D03DF5 /* Check Pods Manifest.lock */,
 				16E4A2FA1A67D66900152389 /* Sources */,
 				16E4A2FB1A67D66900152389 /* Frameworks */,
 				16E4A2FC1A67D66900152389 /* Resources */,
+				EDAB37BC300D5B2006D25268 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -255,6 +299,39 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		A3F2500286869D6451D03DF5 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		EDAB37BC300D5B2006D25268 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		16E4A2FA1A67D66900152389 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -263,7 +340,9 @@
 				425783971A682FF300885323 /* UIImage+ImageEffects.m in Sources */,
 				4257839A1A68E93600885323 /* RoundedHexagonPercentageView.m in Sources */,
 				4257839D1A6938E600885323 /* DataSource.m in Sources */,
+				161B755A1A693E9F0074AFD5 /* PulsingHaloLayer.m in Sources */,
 				16E4A3071A67D66900152389 /* AppDelegate.m in Sources */,
+				161B75591A693E9F0074AFD5 /* MultiplePulsingHaloLayer.m in Sources */,
 				425783A01A69391600885323 /* GraphView.m in Sources */,
 				16E4A3041A67D66900152389 /* main.m in Sources */,
 				16E4A3291A67D6DE00152389 /* HomeCollectionViewController.m in Sources */,
@@ -388,6 +467,7 @@
 		};
 		16E4A3221A67D66900152389 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 35B4FC53CC73941112528291 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -402,6 +482,7 @@
 		};
 		16E4A3231A67D66900152389 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E37A615077840976B51267B2 /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
