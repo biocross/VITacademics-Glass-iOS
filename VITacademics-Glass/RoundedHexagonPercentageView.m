@@ -66,6 +66,12 @@
     return _percentageLabel;
 }
 
+- (void)setPercentage:(float)percentage
+{
+    _percentage = percentage;
+    [self setNeedsDisplay];
+}
+
 - (void)drawRect:(CGRect)rect
 {
     self.hexagonPath = [self roundedPolygonPathWithRect:rect
@@ -81,9 +87,9 @@
     halfBezier.strokeColor   = [[UIColor whiteColor] CGColor];
     halfBezier.lineWidth     = 3.0;
     [self.layer addSublayer:halfBezier];
-    halfBezier.strokeEnd = 0.6;
+    halfBezier.strokeEnd = self.percentage/100;
     
-    self.percentageLabel.text = @"100";
+    self.percentageLabel.text = [NSString stringWithFormat:@"%1.0f",self.percentage];
     self.percentageLabel.transform = CGAffineTransformMakeRotation(-M_PI/6+M_PI);
     [self addSubview:self.percentageLabel];
 }

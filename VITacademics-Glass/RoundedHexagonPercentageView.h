@@ -11,7 +11,9 @@
 @interface RoundedHexagonPercentageView : UIView
 
 @property (nonatomic, strong) UIBezierPath *hexagonPath;
-@property (nonatomic, strong) NSNumber *percentage;
+
+@property (nonatomic) float percentage;
+
 @property (nonatomic, strong) UILabel *percentageLabel;
 
 @property (nonatomic, strong) UIView *hexagonSuperView;

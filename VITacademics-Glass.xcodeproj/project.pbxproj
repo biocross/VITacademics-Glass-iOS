@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		1634D25E1A6829DA00AFAC21 /* wallpaper.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1634D25D1A6829DA00AFAC21 /* wallpaper.jpg */; };
+		166F8EBA1A692B9A00E38AAA /* DataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 166F8EB91A692B9A00E38AAA /* DataSource.m */; };
 		16E4A3041A67D66900152389 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 16E4A3031A67D66900152389 /* main.m */; };
 		16E4A3071A67D66900152389 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 16E4A3061A67D66900152389 /* AppDelegate.m */; };
 		16E4A30D1A67D66900152389 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 16E4A30B1A67D66900152389 /* Main.storyboard */; };
@@ -15,6 +16,8 @@
 		16E4A3121A67D66900152389 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 16E4A3101A67D66900152389 /* LaunchScreen.xib */; };
 		16E4A31E1A67D66900152389 /* VITacademics_GlassTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 16E4A31D1A67D66900152389 /* VITacademics_GlassTests.m */; };
 		16E4A3291A67D6DE00152389 /* HomeCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 16E4A3281A67D6DE00152389 /* HomeCollectionViewController.m */; };
+		16FE48AC1A692E0200C5DED1 /* RoundedHexagonPercentageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 16FE48AB1A692E0200C5DED1 /* RoundedHexagonPercentageView.m */; };
+		16FE48AF1A69314F00C5DED1 /* GraphView.m in Sources */ = {isa = PBXBuildFile; fileRef = 16FE48AE1A69314F00C5DED1 /* GraphView.m */; };
 		425783911A6820B600885323 /* CondensedView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 425783901A6820B600885323 /* CondensedView.xib */; };
 		425783931A6820D200885323 /* ExpandedView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 425783921A6820D200885323 /* ExpandedView.xib */; };
 		425783971A682FF300885323 /* UIImage+ImageEffects.m in Sources */ = {isa = PBXBuildFile; fileRef = 425783961A682FF300885323 /* UIImage+ImageEffects.m */; };
@@ -32,6 +35,8 @@
 
 /* Begin PBXFileReference section */
 		1634D25D1A6829DA00AFAC21 /* wallpaper.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = wallpaper.jpg; sourceTree = "<group>"; };
+		166F8EB81A692B9A00E38AAA /* DataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataSource.h; sourceTree = "<group>"; };
+		166F8EB91A692B9A00E38AAA /* DataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataSource.m; sourceTree = "<group>"; };
 		16E4A2FE1A67D66900152389 /* VITacademics-Glass.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "VITacademics-Glass.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		16E4A3021A67D66900152389 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		16E4A3031A67D66900152389 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -45,6 +50,10 @@
 		16E4A31D1A67D66900152389 /* VITacademics_GlassTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VITacademics_GlassTests.m; sourceTree = "<group>"; };
 		16E4A3271A67D6DE00152389 /* HomeCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeCollectionViewController.h; sourceTree = "<group>"; };
 		16E4A3281A67D6DE00152389 /* HomeCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeCollectionViewController.m; sourceTree = "<group>"; };
+		16FE48AA1A692E0200C5DED1 /* RoundedHexagonPercentageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RoundedHexagonPercentageView.h; sourceTree = "<group>"; };
+		16FE48AB1A692E0200C5DED1 /* RoundedHexagonPercentageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RoundedHexagonPercentageView.m; sourceTree = "<group>"; };
+		16FE48AD1A69314F00C5DED1 /* GraphView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GraphView.h; sourceTree = "<group>"; };
+		16FE48AE1A69314F00C5DED1 /* GraphView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GraphView.m; sourceTree = "<group>"; };
 		425783901A6820B600885323 /* CondensedView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CondensedView.xib; sourceTree = "<group>"; };
 		425783921A6820D200885323 /* ExpandedView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ExpandedView.xib; sourceTree = "<group>"; };
 		425783951A682FF300885323 /* UIImage+ImageEffects.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+ImageEffects.h"; sourceTree = "<group>"; };
@@ -92,6 +101,8 @@
 			children = (
 				16E4A3271A67D6DE00152389 /* HomeCollectionViewController.h */,
 				16E4A3281A67D6DE00152389 /* HomeCollectionViewController.m */,
+				166F8EB81A692B9A00E38AAA /* DataSource.h */,
+				166F8EB91A692B9A00E38AAA /* DataSource.m */,
 				16E4A3051A67D66900152389 /* AppDelegate.h */,
 				16E4A3061A67D66900152389 /* AppDelegate.m */,
 				16E4A30B1A67D66900152389 /* Main.storyboard */,
@@ -135,7 +146,11 @@
 		425783941A6820DB00885323 /* View XIB Files */ = {
 			isa = PBXGroup;
 			children = (
+				16FE48AA1A692E0200C5DED1 /* RoundedHexagonPercentageView.h */,
+				16FE48AB1A692E0200C5DED1 /* RoundedHexagonPercentageView.m */,
 				425783901A6820B600885323 /* CondensedView.xib */,
+				16FE48AD1A69314F00C5DED1 /* GraphView.h */,
+				16FE48AE1A69314F00C5DED1 /* GraphView.m */,
 				425783921A6820D200885323 /* ExpandedView.xib */,
 			);
 			name = "View XIB Files";
@@ -246,9 +261,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				425783971A682FF300885323 /* UIImage+ImageEffects.m in Sources */,
+				166F8EBA1A692B9A00E38AAA /* DataSource.m in Sources */,
 				16E4A3071A67D66900152389 /* AppDelegate.m in Sources */,
 				16E4A3041A67D66900152389 /* main.m in Sources */,
+				16FE48AF1A69314F00C5DED1 /* GraphView.m in Sources */,
 				16E4A3291A67D6DE00152389 /* HomeCollectionViewController.m in Sources */,
+				16FE48AC1A692E0200C5DED1 /* RoundedHexagonPercentageView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -8,6 +8,9 @@
 
 #import "HomeCollectionViewController.h"
 #import "UIImage+ImageEffects.h"
+#import "DataSource.h"
+#import "RoundedHexagonPercentageView.h"
+#import "GraphView.h"
 
 @interface HomeCollectionViewController ()
 
@@ -33,6 +36,8 @@ static NSString * const reuseIdentifier = @"course";
     [self addGestureRecogizersToCell];
     
     self.collectionView.backgroundView  = self.wallpaperView;
+    
+    
 }
 
 - (UIImageView *)wallpaperView
@@ -130,7 +135,7 @@ minimumInteritemSpacingForSectionAtIndex:(NSInteger)section
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
-    return 50;
+    return [[DataSource sharedManager].data count];
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
@@ -143,14 +148,19 @@ minimumInteritemSpacingForSectionAtIndex:(NSInteger)section
     }
     
     NSArray *views = [[NSBundle mainBundle] loadNibNamed:@"CondensedView" owner:self options:nil];
+    
     UIView *view = [views firstObject];
     
-    UIView *hexagonView = [view viewWithTag:1];
+    DataSource *source = [DataSource sharedManager];
+    NSNumber *number = [source.data objectAtIndex:indexPath.row];
+    
+    RoundedHexagonPercentageView *hexagonView = (RoundedHexagonPercentageView *)[view viewWithTag:1];
     
     hexagonView.alpha = 0.0;
     hexagonView.transform = CGAffineTransformMakeRotation(M_PI/6+M_PI);
     hexagonView.center = CGPointMake(hexagonView.center.x,
                                      hexagonView.center.y-20);
+    hexagonView.percentage = number.floatValue;
     
     [UIView animateWithDuration:0.5
                           delay:0
@@ -163,6 +173,24 @@ minimumInteritemSpacingForSectionAtIndex:(NSInteger)section
                      completion:nil];
     
     [cell.contentView addSubview:view];
+    
+    GraphView *graphView = (GraphView *)[cell.contentView viewWithTag:2];
+    
+    if(indexPath.row>0 && indexPath.row < 11)
+        [graphView setBefore:((NSNumber *)[source.data objectAtIndex:(indexPath.row-1)]).floatValue/100
+                     current:((NSNumber *)[source.data objectAtIndex:(indexPath.row)]).floatValue/100
+                       after:((NSNumber *)[source.data objectAtIndex:(indexPath.row+1)]).floatValue/100];
+    else if(indexPath.row == 0)
+        [graphView setBefore:0.5
+                     current:((NSNumber *)[source.data objectAtIndex:(indexPath.row)]).floatValue/100
+                       after:((NSNumber *)[source.data objectAtIndex:(indexPath.row+1)]).floatValue/100];
+    else
+        [graphView setBefore:((NSNumber *)[source.data objectAtIndex:(indexPath.row-1)]).floatValue/100
+                     current:((NSNumber *)[source.data objectAtIndex:(indexPath.row)]).floatValue/100
+                       after:0.5];
+    
+    
+    
     
     if(indexPath.row % 2 == 0)
         cell.backgroundColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:0.6];
