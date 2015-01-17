@@ -18,6 +18,8 @@
 @property (nonatomic, strong) UICollectionViewFlowLayout *condensedLayout;
 @property (nonatomic, strong) UICollectionViewFlowLayout *expandedLayout;
 @property (nonatomic, strong) UIImageView *wallpaperView;
+@property (nonatomic) NSInteger previouslySelectedCell;
+@property (nonatomic) BOOL cellIsChanging;
 
 @end
 
@@ -150,7 +152,28 @@ minimumInteritemSpacingForSectionAtIndex:(NSInteger)section
     
     if(indexPath.row == self.selectedCell)
     {
-        NSLog(@"Return empty cell");
+        NSArray *views = [[NSBundle mainBundle] loadNibNamed:@"ExpandedView" owner:self options:nil];
+        
+        view = [views firstObject];
+        
+        [cell.contentView addSubview:view];
+        
+        for(UIView *view in [cell.contentView subviews])
+        {
+            view.alpha = 0;
+        }
+        
+        [UIView animateWithDuration:0.5
+                              delay:0
+                            options:UIViewAnimationOptionAllowAnimatedContent|UIViewAnimationOptionBeginFromCurrentState|UIViewAnimationOptionAllowUserInteraction
+                         animations:^{
+                             for(UIView *view in [cell.contentView subviews])
+                             {
+                                 view.alpha = 1;
+                             }
+                         }
+                         completion:nil];
+        
     }
     else
     {
@@ -213,15 +236,43 @@ minimumInteritemSpacingForSectionAtIndex:(NSInteger)section
     return cell;
 }
 
+- (BOOL)collectionView:(UICollectionView *)collectionView shouldSelectItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    if(!self.cellIsChanging)
+    {
+        self.cellIsChanging = YES;
+        if(self.selectedCell == indexPath.row)
+        {
+            self.previouslySelectedCell = -1;
+            return YES;
+        }
+        else
+        {
+            self.previouslySelectedCell = self.selectedCell;
+            return YES;
+        }
+    }
+    else
+        return NO;
+}
+
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
 
     UICollectionViewCell *cell = [self.collectionView cellForItemAtIndexPath:indexPath];
+    UICollectionViewCell *previousCell;
+    
+    NSLog(@"Previous Cell NUmber: %ld",(long)self.previouslySelectedCell);
+    
+    if(self.previouslySelectedCell >= 0)
+    {
+        previousCell = [self.collectionView cellForItemAtIndexPath:[NSIndexPath indexPathForRow:self.previouslySelectedCell inSection:0]];
+    }
+    
     
     if(indexPath.row == self.selectedCell)
     {
         self.selectedCell = -1;
-        
     }
     else
     {
@@ -235,7 +286,13 @@ minimumInteritemSpacingForSectionAtIndex:(NSInteger)section
                          for(UIView *view in [cell.contentView subviews])
                          {
                              view.alpha = 0.0;
-                             
+                         }
+                         if(previousCell && [[collectionView visibleCells] containsObject:previousCell])
+                         {
+                             for(UIView *view in [previousCell.contentView subviews])
+                             {
+                                 view.alpha = 0.0;
+                             }
                          }
                      }
                      completion:^(BOOL success){
@@ -243,17 +300,51 @@ minimumInteritemSpacingForSectionAtIndex:(NSInteger)section
                          {
                              view.hidden = YES;
                          }
+                         if(previousCell && [[collectionView visibleCells] containsObject:previousCell])
+                         {
+                             for(UIView *view in [cell.contentView subviews])
+                             {
+                                 view.hidden = YES;
+                             }
+                         }
                          if(self.collectionView.collectionViewLayout == self.expandedLayout)
                              [self.collectionView setCollectionViewLayout:self.condensedLayout
                                                                  animated:YES
                                                                completion:^(BOOL success){
-                                                                   [collectionView reloadItemsAtIndexPaths:@[indexPath]];
+                                                                   [UIView animateWithDuration:0
+                                                                                    animations:^{
+                                                                                        [collectionView performBatchUpdates:^{
+                                                                                            [collectionView reloadItemsAtIndexPaths:@[indexPath]];
+                                                                                            if(previousCell && [[collectionView visibleCells] containsObject:previousCell])
+                                                                                            {
+                                                                                                [collectionView reloadItemsAtIndexPaths:@[[collectionView indexPathForCell:previousCell]]];
+                                                                                            }
+                                                                                        }
+                                                                                                                 completion:^(BOOL success){
+                                                                                                                     self.cellIsChanging = NO;
+                                                                                                                 }];
+                                                                                    }];
+                                                                   
+                                                                   
+                                                                   
                                                                }];
                          else
                              [self.collectionView setCollectionViewLayout:self.expandedLayout
                                                                  animated:YES
                                                                completion:^(BOOL success){
-                                                                   [collectionView reloadItemsAtIndexPaths:@[indexPath]];
+                                                                   [UIView animateWithDuration:0
+                                                                                    animations:^{
+                                                                                        [collectionView performBatchUpdates:^{
+                                                                                            [collectionView reloadItemsAtIndexPaths:@[indexPath]];
+                                                                                            if(previousCell && [[collectionView visibleCells] containsObject:previousCell])
+                                                                                            {
+                                                                                                [collectionView reloadItemsAtIndexPaths:@[[collectionView indexPathForCell:previousCell]]];
+                                                                                            }
+                                                                                        }
+                                                                                                                 completion:^(BOOL success){
+                                                                                                                     self.cellIsChanging = NO;
+                                                                                                                 }];
+                                                                                    }];
                                                                }];
                      }];
 }
