@@ -9,6 +9,20 @@
 /* Begin PBXBuildFile section */
 		161B75591A693E9F0074AFD5 /* MultiplePulsingHaloLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 161B75561A693E9F0074AFD5 /* MultiplePulsingHaloLayer.m */; };
 		161B755A1A693E9F0074AFD5 /* PulsingHaloLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 161B75581A693E9F0074AFD5 /* PulsingHaloLayer.m */; };
+		161CCDA31A6A436600527A7A /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 161CCD871A6A436600527A7A /* .gitignore */; };
+		161CCDA41A6A436600527A7A /* NSValueTransformer+FTGTransformerAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 161CCD8B1A6A436600527A7A /* NSValueTransformer+FTGTransformerAdditions.m */; };
+		161CCDA51A6A436600527A7A /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = 161CCD8C1A6A436600527A7A /* LICENSE */; };
+		161CCDA61A6A436600527A7A /* Attendance.m in Sources */ = {isa = PBXBuildFile; fileRef = 161CCD8F1A6A436600527A7A /* Attendance.m */; };
+		161CCDA71A6A436600527A7A /* AttendanceDetails.m in Sources */ = {isa = PBXBuildFile; fileRef = 161CCD911A6A436600527A7A /* AttendanceDetails.m */; };
+		161CCDA81A6A436600527A7A /* CBLMarks.m in Sources */ = {isa = PBXBuildFile; fileRef = 161CCD931A6A436600527A7A /* CBLMarks.m */; };
+		161CCDA91A6A436600527A7A /* Courses.m in Sources */ = {isa = PBXBuildFile; fileRef = 161CCD951A6A436600527A7A /* Courses.m */; };
+		161CCDAA1A6A436600527A7A /* LBCMarks.m in Sources */ = {isa = PBXBuildFile; fileRef = 161CCD971A6A436600527A7A /* LBCMarks.m */; };
+		161CCDAB1A6A436600527A7A /* LoginStatus.m in Sources */ = {isa = PBXBuildFile; fileRef = 161CCD991A6A436600527A7A /* LoginStatus.m */; };
+		161CCDAC1A6A436600527A7A /* PBLMarksElement.m in Sources */ = {isa = PBXBuildFile; fileRef = 161CCD9B1A6A436600527A7A /* PBLMarksElement.m */; };
+		161CCDAD1A6A436600527A7A /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 161CCD9D1A6A436600527A7A /* User.m */; };
+		161CCDAE1A6A436600527A7A /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = 161CCD9E1A6A436600527A7A /* README.md */; };
+		161CCDAF1A6A436600527A7A /* VITXClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 161CCDA01A6A436600527A7A /* VITXClient.m */; };
+		161CCDB01A6A436600527A7A /* VITXManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 161CCDA21A6A436600527A7A /* VITXManager.m */; };
 		1634D25E1A6829DA00AFAC21 /* wallpaper.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1634D25D1A6829DA00AFAC21 /* wallpaper.jpg */; };
 		16E4A3041A67D66900152389 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 16E4A3031A67D66900152389 /* main.m */; };
 		16E4A3071A67D66900152389 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 16E4A3061A67D66900152389 /* AppDelegate.m */; };
@@ -21,7 +35,6 @@
 		425783931A6820D200885323 /* ExpandedView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 425783921A6820D200885323 /* ExpandedView.xib */; };
 		425783971A682FF300885323 /* UIImage+ImageEffects.m in Sources */ = {isa = PBXBuildFile; fileRef = 425783961A682FF300885323 /* UIImage+ImageEffects.m */; };
 		4257839A1A68E93600885323 /* RoundedHexagonPercentageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 425783991A68E93600885323 /* RoundedHexagonPercentageView.m */; };
-		4257839D1A6938E600885323 /* DataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 4257839C1A6938E600885323 /* DataSource.m */; };
 		425783A01A69391600885323 /* GraphView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4257839F1A69391600885323 /* GraphView.m */; };
 		CEC71B31D098745E1442027B /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DA9E6B1DB054274C90B053C6 /* libPods.a */; };
 /* End PBXBuildFile section */
@@ -41,6 +54,32 @@
 		161B75561A693E9F0074AFD5 /* MultiplePulsingHaloLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MultiplePulsingHaloLayer.m; sourceTree = "<group>"; };
 		161B75571A693E9F0074AFD5 /* PulsingHaloLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PulsingHaloLayer.h; sourceTree = "<group>"; };
 		161B75581A693E9F0074AFD5 /* PulsingHaloLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PulsingHaloLayer.m; sourceTree = "<group>"; };
+		161CCD871A6A436600527A7A /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
+		161CCD891A6A436600527A7A /* FTGValueTransformer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FTGValueTransformer.h; sourceTree = "<group>"; };
+		161CCD8A1A6A436600527A7A /* NSValueTransformer+FTGTransformerAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSValueTransformer+FTGTransformerAdditions.h"; sourceTree = "<group>"; };
+		161CCD8B1A6A436600527A7A /* NSValueTransformer+FTGTransformerAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSValueTransformer+FTGTransformerAdditions.m"; sourceTree = "<group>"; };
+		161CCD8C1A6A436600527A7A /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
+		161CCD8E1A6A436600527A7A /* Attendance.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Attendance.h; sourceTree = "<group>"; };
+		161CCD8F1A6A436600527A7A /* Attendance.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Attendance.m; sourceTree = "<group>"; };
+		161CCD901A6A436600527A7A /* AttendanceDetails.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AttendanceDetails.h; sourceTree = "<group>"; };
+		161CCD911A6A436600527A7A /* AttendanceDetails.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AttendanceDetails.m; sourceTree = "<group>"; };
+		161CCD921A6A436600527A7A /* CBLMarks.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBLMarks.h; sourceTree = "<group>"; };
+		161CCD931A6A436600527A7A /* CBLMarks.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBLMarks.m; sourceTree = "<group>"; };
+		161CCD941A6A436600527A7A /* Courses.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Courses.h; sourceTree = "<group>"; };
+		161CCD951A6A436600527A7A /* Courses.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Courses.m; sourceTree = "<group>"; };
+		161CCD961A6A436600527A7A /* LBCMarks.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LBCMarks.h; sourceTree = "<group>"; };
+		161CCD971A6A436600527A7A /* LBCMarks.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LBCMarks.m; sourceTree = "<group>"; };
+		161CCD981A6A436600527A7A /* LoginStatus.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginStatus.h; sourceTree = "<group>"; };
+		161CCD991A6A436600527A7A /* LoginStatus.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginStatus.m; sourceTree = "<group>"; };
+		161CCD9A1A6A436600527A7A /* PBLMarksElement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBLMarksElement.h; sourceTree = "<group>"; };
+		161CCD9B1A6A436600527A7A /* PBLMarksElement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PBLMarksElement.m; sourceTree = "<group>"; };
+		161CCD9C1A6A436600527A7A /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
+		161CCD9D1A6A436600527A7A /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
+		161CCD9E1A6A436600527A7A /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		161CCD9F1A6A436600527A7A /* VITXClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VITXClient.h; sourceTree = "<group>"; };
+		161CCDA01A6A436600527A7A /* VITXClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VITXClient.m; sourceTree = "<group>"; };
+		161CCDA11A6A436600527A7A /* VITXManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VITXManager.h; sourceTree = "<group>"; };
+		161CCDA21A6A436600527A7A /* VITXManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VITXManager.m; sourceTree = "<group>"; };
 		1634D25D1A6829DA00AFAC21 /* wallpaper.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = wallpaper.jpg; sourceTree = "<group>"; };
 		16E4A2FE1A67D66900152389 /* VITacademics-Glass.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "VITacademics-Glass.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		16E4A3021A67D66900152389 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -62,8 +101,6 @@
 		425783961A682FF300885323 /* UIImage+ImageEffects.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+ImageEffects.m"; sourceTree = "<group>"; };
 		425783981A68E93600885323 /* RoundedHexagonPercentageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RoundedHexagonPercentageView.h; sourceTree = "<group>"; };
 		425783991A68E93600885323 /* RoundedHexagonPercentageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RoundedHexagonPercentageView.m; sourceTree = "<group>"; };
-		4257839B1A6938E600885323 /* DataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataSource.h; sourceTree = "<group>"; };
-		4257839C1A6938E600885323 /* DataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataSource.m; sourceTree = "<group>"; };
 		4257839E1A69391600885323 /* GraphView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GraphView.h; sourceTree = "<group>"; };
 		4257839F1A69391600885323 /* GraphView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GraphView.m; sourceTree = "<group>"; };
 		DA9E6B1DB054274C90B053C6 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -100,6 +137,55 @@
 			path = PulsingHalo;
 			sourceTree = "<group>";
 		};
+		161CCD861A6A436600527A7A /* VITacademics-iOS-SDK */ = {
+			isa = PBXGroup;
+			children = (
+				161CCD871A6A436600527A7A /* .gitignore */,
+				161CCD881A6A436600527A7A /* FTGValueTransformer */,
+				161CCD8C1A6A436600527A7A /* LICENSE */,
+				161CCD8D1A6A436600527A7A /* Model */,
+				161CCD9E1A6A436600527A7A /* README.md */,
+				161CCD9F1A6A436600527A7A /* VITXClient.h */,
+				161CCDA01A6A436600527A7A /* VITXClient.m */,
+				161CCDA11A6A436600527A7A /* VITXManager.h */,
+				161CCDA21A6A436600527A7A /* VITXManager.m */,
+			);
+			path = "VITacademics-iOS-SDK";
+			sourceTree = "<group>";
+		};
+		161CCD881A6A436600527A7A /* FTGValueTransformer */ = {
+			isa = PBXGroup;
+			children = (
+				161CCD891A6A436600527A7A /* FTGValueTransformer.h */,
+				161CCD8A1A6A436600527A7A /* NSValueTransformer+FTGTransformerAdditions.h */,
+				161CCD8B1A6A436600527A7A /* NSValueTransformer+FTGTransformerAdditions.m */,
+			);
+			path = FTGValueTransformer;
+			sourceTree = "<group>";
+		};
+		161CCD8D1A6A436600527A7A /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				161CCD8E1A6A436600527A7A /* Attendance.h */,
+				161CCD8F1A6A436600527A7A /* Attendance.m */,
+				161CCD901A6A436600527A7A /* AttendanceDetails.h */,
+				161CCD911A6A436600527A7A /* AttendanceDetails.m */,
+				161CCD921A6A436600527A7A /* CBLMarks.h */,
+				161CCD931A6A436600527A7A /* CBLMarks.m */,
+				161CCD941A6A436600527A7A /* Courses.h */,
+				161CCD951A6A436600527A7A /* Courses.m */,
+				161CCD961A6A436600527A7A /* LBCMarks.h */,
+				161CCD971A6A436600527A7A /* LBCMarks.m */,
+				161CCD981A6A436600527A7A /* LoginStatus.h */,
+				161CCD991A6A436600527A7A /* LoginStatus.m */,
+				161CCD9A1A6A436600527A7A /* PBLMarksElement.h */,
+				161CCD9B1A6A436600527A7A /* PBLMarksElement.m */,
+				161CCD9C1A6A436600527A7A /* User.h */,
+				161CCD9D1A6A436600527A7A /* User.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		16E4A2F51A67D66900152389 = {
 			isa = PBXGroup;
 			children = (
@@ -127,8 +213,6 @@
 				16E4A3281A67D6DE00152389 /* HomeCollectionViewController.m */,
 				16E4A3051A67D66900152389 /* AppDelegate.h */,
 				16E4A3061A67D66900152389 /* AppDelegate.m */,
-				4257839B1A6938E600885323 /* DataSource.h */,
-				4257839C1A6938E600885323 /* DataSource.m */,
 				16E4A30B1A67D66900152389 /* Main.storyboard */,
 				16E4A30E1A67D66900152389 /* Images.xcassets */,
 				1634D25D1A6829DA00AFAC21 /* wallpaper.jpg */,
@@ -142,6 +226,7 @@
 		16E4A3011A67D66900152389 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				161CCD861A6A436600527A7A /* VITacademics-iOS-SDK */,
 				161B75541A693E9F0074AFD5 /* PulsingHalo */,
 				425783951A682FF300885323 /* UIImage+ImageEffects.h */,
 				425783961A682FF300885323 /* UIImage+ImageEffects.m */,
@@ -282,6 +367,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				425783911A6820B600885323 /* CondensedView.xib in Resources */,
+				161CCDA31A6A436600527A7A /* .gitignore in Resources */,
+				161CCDA51A6A436600527A7A /* LICENSE in Resources */,
 				1634D25E1A6829DA00AFAC21 /* wallpaper.jpg in Resources */,
 				16E4A30D1A67D66900152389 /* Main.storyboard in Resources */,
 				16E4A3121A67D66900152389 /* LaunchScreen.xib in Resources */,
@@ -338,14 +425,25 @@
 			buildActionMask = 2147483647;
 			files = (
 				425783971A682FF300885323 /* UIImage+ImageEffects.m in Sources */,
+				161CCDAF1A6A436600527A7A /* VITXClient.m in Sources */,
 				4257839A1A68E93600885323 /* RoundedHexagonPercentageView.m in Sources */,
-				4257839D1A6938E600885323 /* DataSource.m in Sources */,
+				161CCDAD1A6A436600527A7A /* User.m in Sources */,
 				161B755A1A693E9F0074AFD5 /* PulsingHaloLayer.m in Sources */,
 				16E4A3071A67D66900152389 /* AppDelegate.m in Sources */,
+				161CCDAB1A6A436600527A7A /* LoginStatus.m in Sources */,
+				161CCDB01A6A436600527A7A /* VITXManager.m in Sources */,
 				161B75591A693E9F0074AFD5 /* MultiplePulsingHaloLayer.m in Sources */,
+				161CCDA91A6A436600527A7A /* Courses.m in Sources */,
+				161CCDA61A6A436600527A7A /* Attendance.m in Sources */,
+				161CCDA81A6A436600527A7A /* CBLMarks.m in Sources */,
 				425783A01A69391600885323 /* GraphView.m in Sources */,
+				161CCDAA1A6A436600527A7A /* LBCMarks.m in Sources */,
+				161CCDAE1A6A436600527A7A /* README.md in Sources */,
 				16E4A3041A67D66900152389 /* main.m in Sources */,
+				161CCDA41A6A436600527A7A /* NSValueTransformer+FTGTransformerAdditions.m in Sources */,
+				161CCDAC1A6A436600527A7A /* PBLMarksElement.m in Sources */,
 				16E4A3291A67D6DE00152389 /* HomeCollectionViewController.m in Sources */,
+				161CCDA71A6A436600527A7A /* AttendanceDetails.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

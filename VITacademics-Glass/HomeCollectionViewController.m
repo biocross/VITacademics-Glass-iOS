@@ -8,9 +8,9 @@
 
 #import "HomeCollectionViewController.h"
 #import "UIImage+ImageEffects.h"
-#import "DataSource.h"
 #import "RoundedHexagonPercentageView.h"
 #import "GraphView.h"
+#import "VITXManager.h"
 
 @interface HomeCollectionViewController ()
 
@@ -20,6 +20,7 @@
 @property (nonatomic, strong) UIImageView *wallpaperView;
 @property (nonatomic) NSInteger previouslySelectedCell;
 @property (nonatomic) BOOL cellIsChanging;
+@property User *user;
 
 @end
 
@@ -39,6 +40,20 @@ static NSString * const reuseIdentifier = @"course";
     
     self.collectionView.backgroundView  = self.wallpaperView;
     
+    
+    [[NSUserDefaults standardUserDefaults] setObject:@"12bit0272" forKey:@"registrationNumber"];
+    [[NSUserDefaults standardUserDefaults] setObject:@"21051994" forKey:@"dateOfBirth"];
+
+    [[RACObserve([VITXManager sharedManager], user)
+      deliverOn:RACScheduler.mainThreadScheduler]
+     subscribeNext:^(User *user) {
+         if(!user){
+             [[VITXManager sharedManager] startRefreshing];
+         }
+         //NSLog(@"User: %@", user);
+         self.user = user;
+         [self.collectionView reloadData];
+     }];
     
 }
 
@@ -137,7 +152,7 @@ minimumInteritemSpacingForSectionAtIndex:(NSInteger)section
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
-    return [[DataSource sharedManager].data count];
+    return [self.user.courses count];
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
@@ -182,31 +197,46 @@ minimumInteritemSpacingForSectionAtIndex:(NSInteger)section
         
         view = [views firstObject];
         
-        DataSource *source = [DataSource sharedManager];
-        NSNumber *number = [source.data objectAtIndex:indexPath.row];
         
         RoundedHexagonPercentageView *hexagonView = (RoundedHexagonPercentageView *)[view viewWithTag:1];
         
         hexagonView.transform = CGAffineTransformMakeRotation(M_PI/6+M_PI);
         hexagonView.center = CGPointMake(hexagonView.center.x,
                                          hexagonView.center.y-20);
-        hexagonView.percentage = number.floatValue;
+        hexagonView.percentage = [[[self.user.courses[indexPath.row] attendance] attendance_percentage] floatValue];
         
         [cell.contentView addSubview:view];
         
+        
+        UILabel *courseCode = (UILabel *)[view viewWithTag:3];
+        UILabel *courseTitle = (UILabel *)[view viewWithTag:4];
+        UILabel *courseSlot = (UILabel *)[view viewWithTag:5];
+        
+        courseCode.text = [self.user.courses[indexPath.row] course_code];
+        courseTitle.text = [self.user.courses[indexPath.row] course_title];
+        courseSlot.text = [self.user.courses[indexPath.row] slot];
+        
+        if([courseSlot.text isEqualToString:@"NIL"]){
+            courseSlot.text = @"";
+        }
+        
+        
+        
+        
+        
         GraphView *graphView = (GraphView *)[cell.contentView viewWithTag:2];
         
-        if(indexPath.row>0 && indexPath.row < 11)
-            [graphView setBefore:((NSNumber *)[source.data objectAtIndex:(indexPath.row-1)]).floatValue/100
-                         current:((NSNumber *)[source.data objectAtIndex:(indexPath.row)]).floatValue/100
-                           after:((NSNumber *)[source.data objectAtIndex:(indexPath.row+1)]).floatValue/100];
+        if(indexPath.row>0 && indexPath.row < ([self.user.courses count] - 1))
+            [graphView setBefore:[[[self.user.courses[indexPath.row-1] attendance] attendance_percentage] floatValue]/100
+                         current:[[[self.user.courses[indexPath.row] attendance] attendance_percentage] floatValue]/100
+                           after:[[[self.user.courses[indexPath.row+1] attendance] attendance_percentage] floatValue]/100];
         else if(indexPath.row == 0)
             [graphView setBefore:0.5
-                         current:((NSNumber *)[source.data objectAtIndex:(indexPath.row)]).floatValue/100
-                           after:((NSNumber *)[source.data objectAtIndex:(indexPath.row+1)]).floatValue/100];
+                         current:[[[self.user.courses[indexPath.row] attendance] attendance_percentage] floatValue]/100
+                           after:[[[self.user.courses[indexPath.row+1] attendance] attendance_percentage] floatValue]/100];
         else
-            [graphView setBefore:((NSNumber *)[source.data objectAtIndex:(indexPath.row-1)]).floatValue/100
-                         current:((NSNumber *)[source.data objectAtIndex:(indexPath.row)]).floatValue/100
+            [graphView setBefore:[[[self.user.courses[indexPath.row-1] attendance] attendance_percentage] floatValue]/100
+                         current:[[[self.user.courses[indexPath.row] attendance] attendance_percentage] floatValue]/100
                            after:0.5];
         
         for(UIView *view in [cell.contentView subviews])
