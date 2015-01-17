@@ -30,6 +30,15 @@
     return _circlePath;
 }
 
+- (UIBezierPath *)pointerPath
+{
+    if(!_pointerPath)
+    {
+        _pointerPath = [UIBezierPath bezierPath];
+    }
+    return _pointerPath;
+}
+
 - (void) setBefore:(float) before
            current:(float) current
              after:(float) after
@@ -52,16 +61,80 @@
     [self.graphLinePath setLineWidth:2.5];
     [self.graphLinePath stroke];
     
+    
+    
+    [self.pointerPath moveToPoint:CGPointMake(rect.size.width/2,
+                                              (rect.size.height*0.8 - self.currentValue*rect.size.height*0.8)+0.1*rect.size.height)];
+    
+    NSMutableParagraphStyle *paragraphStyle = NSMutableParagraphStyle.new;
+    paragraphStyle.alignment                = NSTextAlignmentCenter;
+    
+    
+    NSString *string = @"Pratham is Awesome";
+    
+    if(self.currentValue<0.5)
+    {
+        [self.pointerPath addLineToPoint:CGPointMake(rect.size.width/2,
+                                                     30)];
+//        [string drawInRect:CGRectMake(0,
+//                                      0,
+//                                      rect.size.width,
+//                                      30)
+//            withAttributes:@{
+//                             NSFontAttributeName:[UIFont systemFontOfSize:12],
+//                             NSForegroundColorAttributeName:[UIColor whiteColor],
+//                             NSParagraphStyleAttributeName:paragraphStyle
+//                             }];
+        
+        self.updateLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 5, rect.size.width, 20)];
+        self.updateLabel.text = string;
+        self.updateLabel.textColor = [UIColor whiteColor];
+        self.updateLabel.textAlignment = NSTextAlignmentCenter;
+        self.updateLabel.font = [UIFont systemFontOfSize:12];
+        self.roundedRectPath = [UIBezierPath bezierPathWithRoundedRect:CGRectMake(10, 5, rect.size.width-20, 20) cornerRadius:15];
+        
+    }
+    else
+    {
+        [self.pointerPath addLineToPoint:CGPointMake(rect.size.width/2,
+                                                     rect.size.height-30)];
+//        [string drawInRect:CGRectMake(0,
+//                                      rect.size.height-30,
+//                                      rect.size.width,
+//                                      30)
+//            withAttributes:@{
+//                             NSFontAttributeName:[UIFont systemFontOfSize:12],
+//                             NSForegroundColorAttributeName:[UIColor whiteColor],
+//                             NSParagraphStyleAttributeName:paragraphStyle
+//                             }];
+        
+        self.updateLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, rect.size.height-30, rect.size.width, 20)];
+        self.updateLabel.text = string;
+        self.updateLabel.textColor = [UIColor whiteColor];
+        self.updateLabel.textAlignment = NSTextAlignmentCenter;
+        self.updateLabel.font = [UIFont systemFontOfSize:12];
+        self.roundedRectPath = [UIBezierPath bezierPathWithRoundedRect:CGRectMake(10, rect.size.height-30, rect.size.width-20, 20) cornerRadius:15];
+    }
+    [self addSubview:self.updateLabel];
+    [[UIColor lightGrayColor] setStroke];
+    self.roundedRectPath.lineWidth = 0.5;
+    [self.roundedRectPath stroke];
+    
+    
+    CGFloat bezier2Pattern[] = {2, 2, 2, 2};
+    [self.pointerPath setLineDash:bezier2Pattern count: 4 phase: 0];
+    [[UIColor lightGrayColor] setStroke];
+    [self.pointerPath stroke];
+    
     self.circlePath = [UIBezierPath bezierPathWithOvalInRect:CGRectMake(rect.size.width/2-5,
                                                                         (rect.size.height*0.8 - self.currentValue*rect.size.height*0.8-5)+0.1*rect.size.height,
                                                                         10,
                                                                         10)];
+    [[UIColor whiteColor] setStroke];
     [self.circlePath stroke];
     [self.circlePath fill];
     
-    
-    
-    }
+}
 
 
 @end

@@ -16,6 +16,10 @@
 
 @property (nonatomic, strong) UIBezierPath *graphLinePath;
 @property (nonatomic, strong) UIBezierPath *circlePath;
+@property (nonatomic, strong) UIBezierPath *pointerPath;
+@property (nonatomic, strong) UIBezierPath *roundedRectPath;
+
+@property (nonatomic, strong) UILabel *updateLabel;
 
 - (void) setBefore:(float) before
            current:(float) current
