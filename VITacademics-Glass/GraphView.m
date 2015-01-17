@@ -12,13 +12,22 @@
 
 @implementation GraphView
 
-- (UIBezierPath *)path
+- (UIBezierPath *)graphLinePath
 {
-    if(!_path)
+    if(!_graphLinePath)
     {
-        _path = [UIBezierPath bezierPath];
+        _graphLinePath = [UIBezierPath bezierPath];
     }
-    return _path;
+    return _graphLinePath;
+}
+
+- (UIBezierPath *)circlePath
+{
+    if(!_circlePath)
+    {
+        _circlePath = [UIBezierPath bezierPath];
+    }
+    return _circlePath;
 }
 
 - (void) setBefore:(float) before
@@ -35,38 +44,21 @@
 - (void)drawRect:(CGRect)rect
 {
     [[UIColor whiteColor] setStroke];
-    
+    [[UIColor whiteColor] setFill];
 
-    [self.path moveToPoint:CGPointMake(-rect.size.width/2, rect.size.height*0.8 - self.beforeValue*rect.size.height*0.8)];
-    [self.path addLineToPoint:CGPointMake(rect.size.width/2, rect.size.height*0.8 - self.currentValue*rect.size.height*0.8)];
-    [self.path addLineToPoint:CGPointMake(rect.size.width*3/2, rect.size.height*0.8 - self.afterValue*rect.size.height*0.8)];
-    [self.path setLineWidth:2.5];
-    [self.path stroke];
+    [self.graphLinePath moveToPoint:CGPointMake(-rect.size.width/2, (rect.size.height*0.8 - self.beforeValue*rect.size.height*0.8)+0.1*rect.size.height)];
+    [self.graphLinePath addLineToPoint:CGPointMake(rect.size.width/2, (rect.size.height*0.8 - self.currentValue*rect.size.height*0.8)+0.1*rect.size.height)];
+    [self.graphLinePath addLineToPoint:CGPointMake(rect.size.width*3/2, (rect.size.height*0.8 - self.afterValue*rect.size.height*0.8)+0.1*rect.size.height)];
+    [self.graphLinePath setLineWidth:2.5];
+    [self.graphLinePath stroke];
     
+    self.circlePath = [UIBezierPath bezierPathWithOvalInRect:CGRectMake(rect.size.width/2-5,
+                                                                        (rect.size.height*0.8 - self.currentValue*rect.size.height*0.8-5)+0.1*rect.size.height,
+                                                                        10,
+                                                                        10)];
+    [self.circlePath stroke];
+    [self.circlePath fill];
     
-    /*MultiplePulsingHaloLayer *halo = [[MultiplePulsingHaloLayer alloc] initWithHaloLayerNum:3 andStartInterval:0.7];
-    
-    [halo buildSublayers];
-    
-    PulsingHaloLayer *halo = [PulsingHaloLayer layer];
-    
-    halo.position = CGPointMake(rect.size.width/2, rect.size.height - self.currentValue*rect.size.height);
-    halo.radius = rect.size.width/2;
-    
-    
-    
-    
-    halo.backgroundColor = [UIColor redColor].CGColor;
-    [self.layer addSublayer:halo];
-    
-    if(percentage > 74){
-        halo.radius = 20;
-        halo.backgroundColor = [UIColor colorWithRed:0.2
-                                               green:0.2
-                                                blue:0.9
-                                               alpha:1.0].CGColor;
-    }*/
-
     
     
     }

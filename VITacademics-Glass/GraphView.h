@@ -14,7 +14,8 @@
 @property (nonatomic) float beforeValue;
 @property (nonatomic) float afterValue;
 
-@property (nonatomic, strong) UIBezierPath *path;
+@property (nonatomic, strong) UIBezierPath *graphLinePath;
+@property (nonatomic, strong) UIBezierPath *circlePath;
 
 - (void) setBefore:(float) before
            current:(float) current
