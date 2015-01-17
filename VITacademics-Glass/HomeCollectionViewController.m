@@ -44,14 +44,10 @@ static NSString * const reuseIdentifier = @"course";
 {
     if(!_wallpaperView)
     {
-        _wallpaperView = [[UIImageView alloc]
-                          initWithImage:[[UIImage imageNamed:@"wallpaper.jpg"] applyBlurWithRadius:20
-                                                                                         tintColor:[UIColor colorWithRed:0
-                                                                                                                   green:0
-                                                                                                                    blue:0
-                                                                                                                   alpha:0.5]
-                                                                             saturationDeltaFactor:1.8
-                                                                                         maskImage:nil]];
+        _wallpaperView = [[UIImageView alloc] initWithImage:[[UIImage imageNamed:@"wallpaper.jpg"] applyBlurWithRadius:20
+                                                                                                             tintColor:[UIColor clearColor]
+                                                                                                 saturationDeltaFactor:1.8
+                                                                                                             maskImage:nil]];
         _wallpaperView.contentMode = UIViewContentModeScaleAspectFill;
     }
     return _wallpaperView;
@@ -209,10 +205,10 @@ minimumInteritemSpacingForSectionAtIndex:(NSInteger)section
                          completion:nil];
     }
     
+    cell.backgroundColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:0.5];
+    
     if(indexPath.row % 2 == 0)
-        cell.backgroundColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:0.2];
-    else
-        cell.backgroundColor = [UIColor clearColor];
+        cell.backgroundColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:0.6];
     
     return cell;
 }
@@ -222,18 +218,17 @@ minimumInteritemSpacingForSectionAtIndex:(NSInteger)section
 
     UICollectionViewCell *cell = [self.collectionView cellForItemAtIndexPath:indexPath];
     
-    NSInteger previouslySelected = self.selectedCell;
-
     if(indexPath.row == self.selectedCell)
     {
         self.selectedCell = -1;
+        
     }
     else
     {
         self.selectedCell = indexPath.row;
     }
     
-    NSLog(@"Previously Selected Row: %ld",(long)previouslySelected);
+    NSLog(@"Selected Row: %ld",(long)self.selectedCell);
     
     [UIView animateWithDuration:0.2
                      animations:^{
@@ -252,25 +247,13 @@ minimumInteritemSpacingForSectionAtIndex:(NSInteger)section
                              [self.collectionView setCollectionViewLayout:self.condensedLayout
                                                                  animated:YES
                                                                completion:^(BOOL success){
-                                                                   
                                                                    [collectionView reloadItemsAtIndexPaths:@[indexPath]];
-                                                                   
-                                                                   if(previouslySelected != indexPath.row && previouslySelected >= 0)
-                                                                   {
-                                                                       [collectionView reloadItemsAtIndexPaths:@[[NSIndexPath indexPathForRow:previouslySelected inSection:0]]];
-                                                                   }
                                                                }];
                          else
                              [self.collectionView setCollectionViewLayout:self.expandedLayout
                                                                  animated:YES
                                                                completion:^(BOOL success){
-                                                                   
                                                                    [collectionView reloadItemsAtIndexPaths:@[indexPath]];
-                                                                   
-                                                                   if(previouslySelected != indexPath.row)
-                                                                   {
-                                                                       [collectionView reloadItemsAtIndexPaths:@[[NSIndexPath indexPathForRow:previouslySelected inSection:0]]];
-                                                                   }
                                                                }];
                      }];
 }
