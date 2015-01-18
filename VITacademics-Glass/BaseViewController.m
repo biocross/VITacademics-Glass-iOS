@@ -7,6 +7,7 @@
 //
 
 #import "BaseViewController.h"
+#import "LoginViewController.h"
 
 @interface BaseViewController ()
 
@@ -34,7 +35,19 @@
     [self.view insertSubview:self.homeScreenCollectionViewController.view belowSubview:self.menuButton];
     
     [self addshadows];
+    
+    
+    if(![[NSUserDefaults standardUserDefaults] stringForKey:@"loginCompleted"]){
+        [self beginLoginProcess];
+    }
+    
+    
 }
+
+-(void)beginLoginProcess{
+    //Launch Login View Here.
+}
+
 
 - (void) addshadows
 {

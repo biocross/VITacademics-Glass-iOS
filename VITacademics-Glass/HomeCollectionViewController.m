@@ -37,7 +37,7 @@ static NSString * const reuseIdentifier = @"course";
     
     CCColorCube *colorCube = [[CCColorCube alloc] init];
     UIColor *color;
-    color = [[colorCube extractColorsFromImage:[UIImage imageNamed:@"img6.jpg"]
+    color = [[colorCube extractColorsFromImage:[UIImage imageNamed:@"img1.jpg"]
                                          flags:CCAvoidBlack|CCOnlyBrightColors|CCOrderByBrightness
                                          count:3] firstObject];
     
@@ -81,7 +81,7 @@ static NSString * const reuseIdentifier = @"course";
 {
     if(!_wallpaperView)
     {
-        _wallpaperView = [[UIImageView alloc] initWithImage:[[UIImage imageNamed:@"img6.jpg"] applyBlurWithRadius:20
+        _wallpaperView = [[UIImageView alloc] initWithImage:[[UIImage imageNamed:@"img1.jpg"] applyBlurWithRadius:20
                                                                                                              tintColor:[UIColor clearColor]
                                                                                                  saturationDeltaFactor:1.8
                                                                                                              maskImage:nil]];

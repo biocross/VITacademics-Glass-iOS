@@ -31,7 +31,6 @@
 		16217B241A6A9A5100BB0ED0 /* TodayView.m in Sources */ = {isa = PBXBuildFile; fileRef = 16217B231A6A9A5100BB0ED0 /* TodayView.m */; };
 		1634D25E1A6829DA00AFAC21 /* wallpaper.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1634D25D1A6829DA00AFAC21 /* wallpaper.jpg */; };
 		1644E5F21A6BDB4300504ED8 /* TimeTable.m in Sources */ = {isa = PBXBuildFile; fileRef = 1644E5F11A6BDB4300504ED8 /* TimeTable.m */; };
-		16617C131A6BDE5D000CA406 /* LoginScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 16617C121A6BDE5D000CA406 /* LoginScreen.xib */; };
 		16617C171A6BDF86000CA406 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 16617C151A6BDF86000CA406 /* LoginViewController.m */; };
 		16617C1B1A6BE622000CA406 /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 16617C1A1A6BE622000CA406 /* BaseViewController.m */; };
 		167203B81A6B969F00A498AE /* CCColorCube.mm in Sources */ = {isa = PBXBuildFile; fileRef = 167203B51A6B969F00A498AE /* CCColorCube.mm */; };
@@ -106,7 +105,6 @@
 		1634D25D1A6829DA00AFAC21 /* wallpaper.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = wallpaper.jpg; sourceTree = "<group>"; };
 		1644E5F01A6BDB4300504ED8 /* TimeTable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimeTable.h; sourceTree = "<group>"; };
 		1644E5F11A6BDB4300504ED8 /* TimeTable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TimeTable.m; sourceTree = "<group>"; };
-		16617C121A6BDE5D000CA406 /* LoginScreen.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginScreen.xib; sourceTree = "<group>"; };
 		16617C141A6BDF86000CA406 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		16617C151A6BDF86000CA406 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		16617C191A6BE622000CA406 /* BaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseViewController.h; sourceTree = "<group>"; };
@@ -336,10 +334,9 @@
 				16217B221A6A9A5100BB0ED0 /* TodayView.h */,
 				16217B231A6A9A5100BB0ED0 /* TodayView.m */,
 				4257839E1A69391600885323 /* GraphView.h */,
-				16617C121A6BDE5D000CA406 /* LoginScreen.xib */,
+				4257839F1A69391600885323 /* GraphView.m */,
 				16617C141A6BDF86000CA406 /* LoginViewController.h */,
 				16617C151A6BDF86000CA406 /* LoginViewController.m */,
-				4257839F1A69391600885323 /* GraphView.m */,
 				425783981A68E93600885323 /* RoundedHexagonPercentageView.h */,
 				425783991A68E93600885323 /* RoundedHexagonPercentageView.m */,
 				421324561A6BA5CF00483BBF /* ClassViewCell.xib */,
@@ -452,7 +449,6 @@
 				16217B191A6A8D7E00BB0ED0 /* img2.jpg in Resources */,
 				421324571A6BA5CF00483BBF /* ClassViewCell.xib in Resources */,
 				16217B1F1A6A92A500BB0ED0 /* img4.jpg in Resources */,
-				16617C131A6BDE5D000CA406 /* LoginScreen.xib in Resources */,
 				1634D25E1A6829DA00AFAC21 /* wallpaper.jpg in Resources */,
 				16E4A30D1A67D66900152389 /* Main.storyboard in Resources */,
 				16217B171A6A8CFE00BB0ED0 /* img1.jpg in Resources */,
