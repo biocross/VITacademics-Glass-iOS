@@ -182,7 +182,7 @@ minimumInteritemSpacingForSectionAtIndex:(NSInteger)section
 {
     if(section == 0)
     {
-        return 1;
+        return 0;
     }
     if(section == 1)
     {
