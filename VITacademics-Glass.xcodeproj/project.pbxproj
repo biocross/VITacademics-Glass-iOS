@@ -41,6 +41,8 @@
 		16E4A3121A67D66900152389 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 16E4A3101A67D66900152389 /* LaunchScreen.xib */; };
 		16E4A31E1A67D66900152389 /* VITacademics_GlassTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 16E4A31D1A67D66900152389 /* VITacademics_GlassTests.m */; };
 		16E4A3291A67D6DE00152389 /* HomeCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 16E4A3281A67D6DE00152389 /* HomeCollectionViewController.m */; };
+		421324551A6BA3EE00483BBF /* crap.xib in Resources */ = {isa = PBXBuildFile; fileRef = 421324541A6BA3EE00483BBF /* crap.xib */; };
+		421324571A6BA5CF00483BBF /* ClassViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 421324561A6BA5CF00483BBF /* ClassViewCell.xib */; };
 		425783911A6820B600885323 /* CondensedView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 425783901A6820B600885323 /* CondensedView.xib */; };
 		425783931A6820D200885323 /* ExpandedView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 425783921A6820D200885323 /* ExpandedView.xib */; };
 		425783971A682FF300885323 /* UIImage+ImageEffects.m in Sources */ = {isa = PBXBuildFile; fileRef = 425783961A682FF300885323 /* UIImage+ImageEffects.m */; };
@@ -118,6 +120,8 @@
 		16E4A3271A67D6DE00152389 /* HomeCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeCollectionViewController.h; sourceTree = "<group>"; };
 		16E4A3281A67D6DE00152389 /* HomeCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeCollectionViewController.m; sourceTree = "<group>"; };
 		35B4FC53CC73941112528291 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		421324541A6BA3EE00483BBF /* crap.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = crap.xib; sourceTree = "<group>"; };
+		421324561A6BA5CF00483BBF /* ClassViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ClassViewCell.xib; sourceTree = "<group>"; };
 		425783901A6820B600885323 /* CondensedView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CondensedView.xib; sourceTree = "<group>"; };
 		425783921A6820D200885323 /* ExpandedView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ExpandedView.xib; sourceTree = "<group>"; };
 		425783951A682FF300885323 /* UIImage+ImageEffects.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+ImageEffects.h"; sourceTree = "<group>"; };
@@ -311,6 +315,8 @@
 				4257839F1A69391600885323 /* GraphView.m */,
 				425783981A68E93600885323 /* RoundedHexagonPercentageView.h */,
 				425783991A68E93600885323 /* RoundedHexagonPercentageView.m */,
+				421324541A6BA3EE00483BBF /* crap.xib */,
+				421324561A6BA5CF00483BBF /* ClassViewCell.xib */,
 				16217B201A6A949A00BB0ED0 /* TodayView.xib */,
 				425783901A6820B600885323 /* CondensedView.xib */,
 				425783921A6820D200885323 /* ExpandedView.xib */,
@@ -410,12 +416,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				421324551A6BA3EE00483BBF /* crap.xib in Resources */,
 				16217B211A6A949A00BB0ED0 /* TodayView.xib in Resources */,
 				167203BD1A6B9C3F00A498AE /* img6.jpg in Resources */,
 				425783911A6820B600885323 /* CondensedView.xib in Resources */,
 				161CCDA31A6A436600527A7A /* .gitignore in Resources */,
 				161CCDA51A6A436600527A7A /* LICENSE in Resources */,
 				16217B191A6A8D7E00BB0ED0 /* img2.jpg in Resources */,
+				421324571A6BA5CF00483BBF /* ClassViewCell.xib in Resources */,
 				16217B1F1A6A92A500BB0ED0 /* img4.jpg in Resources */,
 				1634D25E1A6829DA00AFAC21 /* wallpaper.jpg in Resources */,
 				16E4A30D1A67D66900152389 /* Main.storyboard in Resources */,

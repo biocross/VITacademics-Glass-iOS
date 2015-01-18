@@ -35,12 +35,21 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 70;
+    return 79;
 }
 
 - (UITableViewCell *) tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     UITableViewCell *cell = [[UITableViewCell alloc] init];
+    
+    UIView *view = [[NSBundle mainBundle] loadNibNamed:@"ClassViewCell" owner:self options:0].firstObject;
+
+    [cell.contentView addSubview:view];
+    
+    for(int i=1;i<=5;i++)
+    {
+        ((UILabel *)[view viewWithTag:i]).textColor = self.tintColor;
+    }
     
     cell.backgroundColor = [UIColor clearColor];
     
