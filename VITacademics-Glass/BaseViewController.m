@@ -38,9 +38,9 @@
 
 - (void) addshadows
 {
-    self.homeScreenCollectionViewController.view.layer.shadowRadius = 5.0;
+    self.homeScreenCollectionViewController.view.layer.shadowRadius = 10.0;
     self.homeScreenCollectionViewController.view.layer.shadowOpacity = 0.8;
-    self.homeScreenCollectionViewController.view.layer.shadowColor = [UIColor lightGrayColor].CGColor;
+    self.homeScreenCollectionViewController.view.layer.shadowColor = [UIColor darkGrayColor].CGColor;
     self.homeScreenCollectionViewController.view.layer.shadowOffset = CGSizeZero;
 }
 
@@ -52,6 +52,7 @@
                          animations:^{
                              self.homeScreenCollectionViewController.view.transform = CGAffineTransformIdentity;
                              self.homeScreenCollectionViewController.view.layer.cornerRadius = 0;
+                             self.homeScreenCollectionViewController.view.userInteractionEnabled = YES;
                          }];
         self.menuShowing = NO;
     }
@@ -60,6 +61,7 @@
         [UIView animateWithDuration:0.5
                          animations:^{
                              self.homeScreenCollectionViewController.view.transform = CGAffineTransformMakeTranslation(0, 400);
+                             self.homeScreenCollectionViewController.view.userInteractionEnabled = NO;
                          }];
         self.menuShowing = YES;
     }
