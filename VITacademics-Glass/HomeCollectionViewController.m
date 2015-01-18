@@ -11,6 +11,7 @@
 #import "RoundedHexagonPercentageView.h"
 #import "GraphView.h"
 #import "VITXManager.h"
+#import "CCColorCube.h"
 
 @interface HomeCollectionViewController ()
 
@@ -33,13 +34,31 @@ static NSString * const reuseIdentifier = @"course";
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    CCColorCube *colorCube = [[CCColorCube alloc] init];
+    UIColor *color;
+    color = [[colorCube extractColorsFromImage:[UIImage imageNamed:@"img6.jpg"]
+                                         flags:CCAvoidBlack|CCOnlyBrightColors|CCOrderByBrightness
+                                         count:3] firstObject];
+    
+    const CGFloat *components = CGColorGetComponents(color.CGColor);
+    CGFloat red = components[0];
+    CGFloat green = components[1];
+    CGFloat blue = components[2];
+    
+    self.view.tintColor = [UIColor colorWithRed:red
+                                          green:green
+                                           blue:blue
+                                          alpha:0.7];
+    
+    //self.view.tintColor = [UIColor yellowColor];
+    self.selectedCell = -1;
     [self.collectionView setCollectionViewLayout:self.condensedLayout];
     [self.collectionView reloadData];
     
     [self addGestureRecogizersToCell];
     
     self.collectionView.backgroundView  = self.wallpaperView;
-    
     
     [[NSUserDefaults standardUserDefaults] setObject:@"12bit0272" forKey:@"registrationNumber"];
     [[NSUserDefaults standardUserDefaults] setObject:@"21051994" forKey:@"dateOfBirth"];
@@ -61,7 +80,7 @@ static NSString * const reuseIdentifier = @"course";
 {
     if(!_wallpaperView)
     {
-        _wallpaperView = [[UIImageView alloc] initWithImage:[[UIImage imageNamed:@"wallpaper.jpg"] applyBlurWithRadius:20
+        _wallpaperView = [[UIImageView alloc] initWithImage:[[UIImage imageNamed:@"img6.jpg"] applyBlurWithRadius:20
                                                                                                              tintColor:[UIColor clearColor]
                                                                                                  saturationDeltaFactor:1.8
                                                                                                              maskImage:nil]];
@@ -82,7 +101,7 @@ static NSString * const reuseIdentifier = @"course";
 
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView
 {
-    return 1;
+    return 2;
 }
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView
@@ -142,148 +161,201 @@ minimumInteritemSpacingForSectionAtIndex:(NSInteger)section
                   layout:(UICollectionViewLayout *)collectionViewLayout
   sizeForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    if(indexPath.row == self.selectedCell)
-        return CGSizeMake(self.collectionView.bounds.size.width>500?500:self.collectionView.bounds.size.width,
-                          self.collectionView.bounds.size.height);
-   else
-        return CGSizeMake(150, self.collectionView.bounds.size.height);
+    if(indexPath.section == 0)
+    {
+        return CGSizeMake(321, self.collectionView.bounds.size.height);
+    }
+    else if(indexPath.section == 1)
+    {
+        if(indexPath.row == self.selectedCell)
+            return CGSizeMake(self.collectionView.bounds.size.width>500?500:self.collectionView.bounds.size.width,
+                              self.collectionView.bounds.size.height);
+        else
+            return CGSizeMake(150, self.collectionView.bounds.size.height);
+    }
+    return CGSizeZero;
 }
 
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
-    return [self.user.courses count];
+    if(section == 0)
+    {
+        return 1;
+    }
+    if(section == 1)
+    {
+        return [self.user.courses count];
+    }
+    return 0;
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
     UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:reuseIdentifier forIndexPath:indexPath];
     UIView *view;
-    for(UIView *view in [cell.contentView subviews])
-    {
-        [view removeFromSuperview];
-    }
     
-    
-    if(indexPath.row == self.selectedCell)
+    if(indexPath.section == 0)
     {
-        NSArray *views = [[NSBundle mainBundle] loadNibNamed:@"ExpandedView" owner:self options:nil];
-        
-        view = [views firstObject];
-        
-        [cell.contentView addSubview:view];
-        
         for(UIView *view in [cell.contentView subviews])
         {
-            view.alpha = 0;
+            [view removeFromSuperview];
         }
         
-        [UIView animateWithDuration:0.5
-                              delay:0
-                            options:UIViewAnimationOptionAllowAnimatedContent|UIViewAnimationOptionBeginFromCurrentState|UIViewAnimationOptionAllowUserInteraction
-                         animations:^{
-                             for(UIView *view in [cell.contentView subviews])
-                             {
-                                 view.alpha = 1;
-                             }
-                         }
-                         completion:nil];
-        
-    }
-    else
-    {
-        
-        NSArray *views = [[NSBundle mainBundle] loadNibNamed:@"CondensedView" owner:self options:nil];
+        NSArray *views = [[NSBundle mainBundle] loadNibNamed:@"TodayView" owner:self options:nil];
         
         view = [views firstObject];
         
-        
-        RoundedHexagonPercentageView *hexagonView = (RoundedHexagonPercentageView *)[view viewWithTag:1];
-        
-        hexagonView.transform = CGAffineTransformMakeRotation(M_PI/6+M_PI);
-        hexagonView.center = CGPointMake(hexagonView.center.x,
-                                         hexagonView.center.y-20);
-        hexagonView.percentage = [[[self.user.courses[indexPath.row] attendance] attendance_percentage] floatValue];
-        
         [cell.contentView addSubview:view];
         
-        
-        UILabel *courseCode = (UILabel *)[view viewWithTag:3];
-        UILabel *courseTitle = (UILabel *)[view viewWithTag:4];
-        UILabel *courseSlot = (UILabel *)[view viewWithTag:5];
-        
-        courseCode.text = [self.user.courses[indexPath.row] course_code];
-        courseTitle.text = [self.user.courses[indexPath.row] course_title];
-        courseSlot.text = [self.user.courses[indexPath.row] slot];
-        
-        if([courseSlot.text isEqualToString:@"NIL"]){
-            courseSlot.text = @"";
+        cell.backgroundColor = [UIColor clearColor];
+    }
+    else if(indexPath.section == 1)
+    {
+        for(UIView *view in [cell.contentView subviews])
+        {
+            [view removeFromSuperview];
         }
         
         
-        
-        
-        
-        GraphView *graphView = (GraphView *)[cell.contentView viewWithTag:2];
-        
-        if(indexPath.row>0 && indexPath.row < ([self.user.courses count] - 1))
-            [graphView setBefore:[[[self.user.courses[indexPath.row-1] attendance] attendance_percentage] floatValue]/100
-                         current:[[[self.user.courses[indexPath.row] attendance] attendance_percentage] floatValue]/100
-                           after:[[[self.user.courses[indexPath.row+1] attendance] attendance_percentage] floatValue]/100];
-        else if(indexPath.row == 0)
-            [graphView setBefore:0.5
-                         current:[[[self.user.courses[indexPath.row] attendance] attendance_percentage] floatValue]/100
-                           after:[[[self.user.courses[indexPath.row+1] attendance] attendance_percentage] floatValue]/100];
+        if(indexPath.row == self.selectedCell)
+        {
+            NSArray *views = [[NSBundle mainBundle] loadNibNamed:@"ExpandedView" owner:self options:nil];
+            
+            view = [views firstObject];
+            
+            [cell.contentView addSubview:view];
+            
+            for(UIView *view in [cell.contentView subviews])
+            {
+                view.alpha = 0;
+            }
+            
+            [UIView animateWithDuration:0.5
+                                  delay:0
+                                options:UIViewAnimationOptionAllowAnimatedContent|UIViewAnimationOptionBeginFromCurrentState|UIViewAnimationOptionAllowUserInteraction
+                             animations:^{
+                                 for(UIView *view in [cell.contentView subviews])
+                                 {
+                                     view.alpha = 1;
+                                 }
+                             }
+                             completion:nil];
+            
+        }
         else
-            [graphView setBefore:[[[self.user.courses[indexPath.row-1] attendance] attendance_percentage] floatValue]/100
-                         current:[[[self.user.courses[indexPath.row] attendance] attendance_percentage] floatValue]/100
-                           after:0.5];
-        
-        for(UIView *view in [cell.contentView subviews])
         {
-            view.alpha = 0;
+            
+            NSArray *views = [[NSBundle mainBundle] loadNibNamed:@"CondensedView" owner:self options:nil];
+            
+            view = [views firstObject];
+            
+            
+            RoundedHexagonPercentageView *hexagonView = (RoundedHexagonPercentageView *)[view viewWithTag:1];
+            
+            hexagonView.transform = CGAffineTransformMakeRotation(M_PI/6+M_PI);
+            hexagonView.center = CGPointMake(hexagonView.center.x,
+                                             hexagonView.center.y-20);
+            hexagonView.percentage = [[[self.user.courses[indexPath.row] attendance] attendance_percentage] floatValue];
+            
+            [cell.contentView addSubview:view];
+            
+            
+            UILabel *courseCode = (UILabel *)[view viewWithTag:3];
+            UILabel *courseTitle = (UILabel *)[view viewWithTag:4];
+            UILabel *courseSlot = (UILabel *)[view viewWithTag:5];
+            
+            courseCode.text = [self.user.courses[indexPath.row] course_code];
+            courseTitle.text = [self.user.courses[indexPath.row] course_title];
+            courseSlot.text = [self.user.courses[indexPath.row] slot];
+            
+            courseCode.textColor = self.view.tintColor;
+            courseTitle.textColor = self.view.tintColor;
+            courseSlot.textColor = self.view.tintColor;
+            
+            
+
+            
+            if([courseSlot.text isEqualToString:@"NIL"]){
+                courseSlot.text = @"";
+            }
+            
+            
+            
+            
+            
+            GraphView *graphView = (GraphView *)[cell.contentView viewWithTag:2];
+            
+            if(indexPath.row>0 && indexPath.row < ([self.user.courses count] - 1))
+                [graphView setBefore:[[[self.user.courses[indexPath.row-1] attendance] attendance_percentage] floatValue]/100
+                             current:[[[self.user.courses[indexPath.row] attendance] attendance_percentage] floatValue]/100
+                               after:[[[self.user.courses[indexPath.row+1] attendance] attendance_percentage] floatValue]/100];
+            else if(indexPath.row == 0)
+                [graphView setBefore:0.5
+                             current:[[[self.user.courses[indexPath.row] attendance] attendance_percentage] floatValue]/100
+                               after:[[[self.user.courses[indexPath.row+1] attendance] attendance_percentage] floatValue]/100];
+            else
+                [graphView setBefore:[[[self.user.courses[indexPath.row-1] attendance] attendance_percentage] floatValue]/100
+                             current:[[[self.user.courses[indexPath.row] attendance] attendance_percentage] floatValue]/100
+                               after:0.5];
+            
+            for(UIView *view in [cell.contentView subviews])
+            {
+                view.alpha = 0;
+            }
+            
+            [UIView animateWithDuration:0.5
+                                  delay:0
+                                options:UIViewAnimationOptionAllowAnimatedContent|UIViewAnimationOptionBeginFromCurrentState|UIViewAnimationOptionAllowUserInteraction
+                             animations:^{
+                                 for(UIView *view in [cell.contentView subviews])
+                                 {
+                                     view.alpha = 1;
+                                 }
+                                 hexagonView.center = CGPointMake(hexagonView.center.x,
+                                                                  hexagonView.center.y + 20);
+                             }
+                             completion:nil];
         }
         
-        [UIView animateWithDuration:0.5
-                              delay:0
-                            options:UIViewAnimationOptionAllowAnimatedContent|UIViewAnimationOptionBeginFromCurrentState|UIViewAnimationOptionAllowUserInteraction
-                         animations:^{
-                             for(UIView *view in [cell.contentView subviews])
-                             {
-                                 view.alpha = 1;
-                             }
-                             hexagonView.center = CGPointMake(hexagonView.center.x,
-                                                              hexagonView.center.y + 20);
-                         }
-                         completion:nil];
+        cell.backgroundColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:0.5];
+        
+        if(indexPath.row % 2 == 0)
+            cell.backgroundColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:0.6];
     }
     
-    cell.backgroundColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:0.5];
     
-    if(indexPath.row % 2 == 0)
-        cell.backgroundColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:0.6];
     
     return cell;
 }
 
 - (BOOL)collectionView:(UICollectionView *)collectionView shouldSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    if(!self.cellIsChanging)
+    if(indexPath.section == 0)
     {
-        self.cellIsChanging = YES;
-        if(self.selectedCell == indexPath.row)
+        return NO;
+    }
+    else if(indexPath.section == 1)
+    {
+        if(!self.cellIsChanging)
         {
-            self.previouslySelectedCell = -1;
-            return YES;
+            self.cellIsChanging = YES;
+            if(self.selectedCell == indexPath.row)
+            {
+                self.previouslySelectedCell = -1;
+                return YES;
+            }
+            else
+            {
+                self.previouslySelectedCell = self.selectedCell;
+                return YES;
+            }
         }
         else
-        {
-            self.previouslySelectedCell = self.selectedCell;
-            return YES;
-        }
+            return NO;
     }
-    else
-        return NO;
+    
+    return NO;
 }
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
@@ -296,10 +368,10 @@ minimumInteritemSpacingForSectionAtIndex:(NSInteger)section
     
     if(self.previouslySelectedCell >= 0)
     {
-        previousCell = [self.collectionView cellForItemAtIndexPath:[NSIndexPath indexPathForRow:self.previouslySelectedCell inSection:0]];
+        previousCell = [self.collectionView cellForItemAtIndexPath:[NSIndexPath indexPathForRow:self.previouslySelectedCell inSection:1]];
     }
     
-    
+
     if(indexPath.row == self.selectedCell)
     {
         self.selectedCell = -1;

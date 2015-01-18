@@ -59,7 +59,7 @@
     {
         _percentageLabel = [[UILabel alloc] initWithFrame:self.bounds];
         _percentageLabel.font = [UIFont systemFontOfSize:25];
-        _percentageLabel.textColor = [UIColor whiteColor];
+        _percentageLabel.textColor = self.tintColor;
         _percentageLabel.textAlignment = NSTextAlignmentCenter;
     }
     
@@ -84,7 +84,7 @@
     CAShapeLayer *halfBezier = [CAShapeLayer layer];
     halfBezier.path          = [self.hexagonPath CGPath];
     halfBezier.fillColor     = [[UIColor clearColor] CGColor];
-    halfBezier.strokeColor   = [[UIColor whiteColor] CGColor];
+    halfBezier.strokeColor   = [self.tintColor CGColor];
     halfBezier.lineWidth     = 3.0;
     [self.layer addSublayer:halfBezier];
     halfBezier.strokeEnd = self.percentage/100;
