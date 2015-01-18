@@ -9,12 +9,14 @@
 #import <Foundation/Foundation.h>
 #import "Mantle.h"
 #import "Courses.h"
+#import "TimeTable.h"
 
 
 @interface User : MTLModel <MTLJSONSerializing>
 
-@property (nonatomic, retain) NSString * refreshed;
+@property (nonatomic, retain) NSString *refreshed;
 @property (nonatomic, retain) NSString * reg_no;
 @property (nonatomic, retain) NSArray *courses;
+@property (nonatomic, retain) TimeTable *timetable;
 
 @end

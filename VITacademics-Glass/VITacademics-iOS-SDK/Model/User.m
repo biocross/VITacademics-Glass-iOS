@@ -18,22 +18,30 @@
     return @{};
 }
 
++ (NSDateFormatter *)dateFormatter {
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    dateFormatter.locale = [[NSLocale alloc] initWithLocaleIdentifier:@"en_US_POSIX"];
+    dateFormatter.dateFormat = @"yyyy-MM-dd'T'HH:mm:ss'Z'";
+    return dateFormatter;
+}
+
 
 + (NSValueTransformer *)coursesJSONTransformer {
     return [NSValueTransformer mtl_JSONArrayTransformerWithModelClass:[Courses class]];
 }
 
-/*+ (NSValueTransformer *)refreshedJSONTransformer{
-    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-    //[dateFormatter setDateFormat:@"eee, dd MMM yyyy HH:mm:ss ZZZZ"];
-    [dateFormatter setDateFormat:@"yyyy-MM-dd HH:mm:ss ZZZZ"];
-    
-    return [MTLValueTransformer reversibleTransformerWithForwardBlock:^(NSString *dateStr) {
-        return [dateFormatter dateFromString:dateStr];
-    } reverseBlock:^(NSDate *date) {
-        return [dateFormatter stringFromDate:date];
-    }];
-}*/
+//+ (NSValueTransformer *)refreshedJSONTransformer{
+//    return [MTLValueTransformer reversibleTransformerWithForwardBlock:^(NSString *dateStr) {
+//        NSLog(@"Date is %@, Expected is: %@", dateStr, [self.dateFormatter dateFromString:dateStr]);
+//        return [self.dateFormatter dateFromString:dateStr];
+//    } reverseBlock:^(NSDate *date) {
+//        return [self.dateFormatter stringFromDate:date];
+//    }];
+//}
+
++(NSValueTransformer *)timetableJSONTransformer{
+    return [NSValueTransformer mtl_JSONDictionaryTransformerWithModelClass:[TimeTable class]];
+}
 
 
 

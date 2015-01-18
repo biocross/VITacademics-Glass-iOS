@@ -32,6 +32,7 @@
 - (id)init {
     if (self = [super init]) {
         _client = [[VITXClient alloc] init];
+        
         NSAssert([[NSUserDefaults standardUserDefaults] stringForKey:@"registrationNumber"],
                  @"Registration Number is required, Please set the key in your [NSUserDefaults standardUserDefaults]");
         NSAssert([[NSUserDefaults standardUserDefaults] stringForKey:@"dateOfBirth"],
@@ -80,7 +81,7 @@
 }
 
 - (RACSignal *)reloadFirstTimeData {
-    NSLog(@"reached: reloadFirstTimeData");
+    NSLog(@"Loading data for the first time.");
     
      return [[_client fetchFirstTimeForUserWithRegistrationNumber:[[NSUserDefaults standardUserDefaults] stringForKey:@"registrationNumber"] andDateOfBirth:[[NSUserDefaults standardUserDefaults] stringForKey:@"dateOfBirth"]] doNext:^(User *user) {
         self.user = user;
