@@ -114,7 +114,9 @@
         
         self.updateLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, rect.size.height-30, rect.size.width, 20)];
         self.updateLabel.text = string;
+
         self.updateLabel.numberOfLines = 2;
+
         self.updateLabel.textColor = self.tintColor;
         self.updateLabel.textAlignment = NSTextAlignmentCenter;
         self.updateLabel.font = [UIFont systemFontOfSize:10];

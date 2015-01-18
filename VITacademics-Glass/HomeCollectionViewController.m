@@ -42,6 +42,7 @@ static NSString * const reuseIdentifier = @"course";
                                          count:3] firstObject];
     
     const CGFloat *components = CGColorGetComponents(color.CGColor);
+    
     CGFloat red = components[0];
     CGFloat green = components[1];
     CGFloat blue = components[2];
@@ -51,9 +52,9 @@ static NSString * const reuseIdentifier = @"course";
                                            blue:blue
                                           alpha:0.7];
     
-    //self.view.tintColor = [UIColor yellowColor];
     self.selectedCell = -1;
     [self.collectionView setCollectionViewLayout:self.condensedLayout];
+    
     [self.collectionView reloadData];
     
     [self addGestureRecogizersToCell];
