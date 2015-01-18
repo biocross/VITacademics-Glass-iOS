@@ -8,8 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ExpanedView : UIView <UITableViewDelegate, UITableViewDataSource>
+@interface ExpanedView : UIView
 
-@property (nonatomic, strong) UITableView *tableView;
+
 
 @end
