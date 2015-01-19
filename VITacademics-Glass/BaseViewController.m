@@ -37,7 +37,7 @@
     [self addshadows];
     
     
-    if(![[NSUserDefaults standardUserDefaults] stringForKey:@"loginCompleted"]){
+    if(![[NSUserDefaults standardUserDefaults] stringForKey:@"firstTime"]){
         [self beginLoginProcess];
     }
     
