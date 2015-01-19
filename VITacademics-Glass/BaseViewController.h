@@ -13,4 +13,6 @@
 
 @property (nonatomic, strong) HomeCollectionViewController *homeScreenCollectionViewController;
 
+@property (strong, nonatomic) IBOutletCollection(UILabel) NSArray *MenuButtons;
+@property (strong, nonatomic) IBOutlet UIView *buttonsView;
 @end

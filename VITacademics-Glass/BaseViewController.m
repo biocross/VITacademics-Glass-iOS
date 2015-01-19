@@ -44,6 +44,18 @@
         [self addshadows];
     }
     
+    [self.buttonsView removeFromSuperview];
+    [self.view insertSubview:self.buttonsView belowSubview:self.homeScreenCollectionViewController.view];
+    
+    for(UIButton *button in self.MenuButtons){
+        button.alpha = 0;
+    }
+    
+    [UIView animateWithDuration:0.8 animations:^{
+        for(UIButton *button in self.MenuButtons){
+            button.alpha = 1;
+        }
+    }];
     
 
 }

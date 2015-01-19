@@ -37,6 +37,12 @@
                  @"Registration Number is required, Please set the key in your [NSUserDefaults standardUserDefaults]");
         NSAssert([[NSUserDefaults standardUserDefaults] stringForKey:@"dateOfBirth"],
                  @"Date Of Birth (ddmmyyyy) is required, Please set the key in your [NSUserDefaults standardUserDefaults]");
+        
+        [[NSNotificationCenter defaultCenter]
+         addObserver:self
+         selector:@selector(startRefreshing)
+         name:@"credentialsChanged"
+         object:nil];
 
         if([[NSUserDefaults standardUserDefaults] stringForKey:@"firstTime"]){
             self.firstTime = NO;

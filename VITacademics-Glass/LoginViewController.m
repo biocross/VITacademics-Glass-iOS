@@ -60,7 +60,7 @@
     [prefs setObject:@"YES" forKey:@"firstTime"];
     
     [self dismissViewControllerAnimated:YES completion:^{
-        NSLog(@"Yeah");
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"credentialsChanged" object:nil];
     }];
 }
 
