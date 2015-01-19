@@ -282,6 +282,8 @@
 				16E4A30E1A67D66900152389 /* Images.xcassets */,
 				1634D25D1A6829DA00AFAC21 /* wallpaper.jpg */,
 				16E4A3101A67D66900152389 /* LaunchScreen.xib */,
+				16617C141A6BDF86000CA406 /* LoginViewController.h */,
+				16617C151A6BDF86000CA406 /* LoginViewController.m */,
 				425783941A6820DB00885323 /* View XIB Files */,
 				16E4A3011A67D66900152389 /* Supporting Files */,
 			);
@@ -335,8 +337,6 @@
 				16217B231A6A9A5100BB0ED0 /* TodayView.m */,
 				4257839E1A69391600885323 /* GraphView.h */,
 				4257839F1A69391600885323 /* GraphView.m */,
-				16617C141A6BDF86000CA406 /* LoginViewController.h */,
-				16617C151A6BDF86000CA406 /* LoginViewController.m */,
 				425783981A68E93600885323 /* RoundedHexagonPercentageView.h */,
 				425783991A68E93600885323 /* RoundedHexagonPercentageView.m */,
 				421324561A6BA5CF00483BBF /* ClassViewCell.xib */,

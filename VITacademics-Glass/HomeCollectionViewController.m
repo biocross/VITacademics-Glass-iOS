@@ -37,7 +37,7 @@ static NSString * const reuseIdentifier = @"course";
     
     CCColorCube *colorCube = [[CCColorCube alloc] init];
     UIColor *color;
-    color = [[colorCube extractColorsFromImage:[UIImage imageNamed:@"img1.jpg"]
+    color = [[colorCube extractColorsFromImage:[UIImage imageNamed:@"img2.jpg"]
                                          flags:CCAvoidBlack|CCOnlyBrightColors|CCOrderByBrightness
                                          count:3] firstObject];
     
@@ -60,9 +60,6 @@ static NSString * const reuseIdentifier = @"course";
     [self addGestureRecogizersToCell];
     
     self.collectionView.backgroundView  = self.wallpaperView;
-    
-    [[NSUserDefaults standardUserDefaults] setObject:@"12bit0272" forKey:@"registrationNumber"];
-    [[NSUserDefaults standardUserDefaults] setObject:@"21051994" forKey:@"dateOfBirth"];
 
     [[RACObserve([VITXManager sharedManager], user)
       deliverOn:RACScheduler.mainThreadScheduler]
@@ -72,6 +69,7 @@ static NSString * const reuseIdentifier = @"course";
          }
          //NSLog(@"User: %@", user);
          self.user = user;
+         
          [self.collectionView reloadData];
      }];
     
@@ -81,7 +79,7 @@ static NSString * const reuseIdentifier = @"course";
 {
     if(!_wallpaperView)
     {
-        _wallpaperView = [[UIImageView alloc] initWithImage:[[UIImage imageNamed:@"img1.jpg"] applyBlurWithRadius:20
+        _wallpaperView = [[UIImageView alloc] initWithImage:[[UIImage imageNamed:@"img2.jpg"] applyBlurWithRadius:20
                                                                                                              tintColor:[UIColor clearColor]
                                                                                                  saturationDeltaFactor:1.8
                                                                                                              maskImage:nil]];

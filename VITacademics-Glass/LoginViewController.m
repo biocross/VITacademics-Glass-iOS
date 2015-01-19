@@ -57,7 +57,11 @@
     NSLog(@"Preferences Saved");
     
     [prefs removeObjectForKey:@"firstTime"];
-    [self dismissViewControllerAnimated:YES completion:nil];
+    [prefs setObject:@"YES" forKey:@"firstTime"];
+    
+    [self dismissViewControllerAnimated:YES completion:^{
+        NSLog(@"Yeah");
+    }];
 }
 
 -(void)textFieldDidBeginEditing:(UITextField *)textField{

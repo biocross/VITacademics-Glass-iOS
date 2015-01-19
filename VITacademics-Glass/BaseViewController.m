@@ -28,24 +28,32 @@
     return _homeScreenCollectionViewController;
 }
 
-- (void)viewDidLoad {
-    [super viewDidLoad];
 
-    [self addChildViewController:self.homeScreenCollectionViewController];
-    [self.view insertSubview:self.homeScreenCollectionViewController.view belowSubview:self.menuButton];
-    
-    [self addshadows];
-    
+
+- (void) viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
     
     if(![[NSUserDefaults standardUserDefaults] stringForKey:@"firstTime"]){
         [self beginLoginProcess];
     }
+    else{
+        [self addChildViewController:self.homeScreenCollectionViewController];
+        [self.view insertSubview:self.homeScreenCollectionViewController.view belowSubview:self.menuButton];
+        
+        [self addshadows];
+    }
     
     
+
 }
 
--(void)beginLoginProcess{
-    //Launch Login View Here.
+-(void)beginLoginProcess
+{
+    
+    LoginViewController *loginViewController = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"LoginViewController"];
+    
+    [self presentViewController:loginViewController animated:NO completion:nil];
 }
 
 
