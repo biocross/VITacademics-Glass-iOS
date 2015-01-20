@@ -15,4 +15,9 @@
 
 @property (strong, nonatomic) IBOutletCollection(UIButton) NSArray *MenuButtons;
 @property (strong, nonatomic) IBOutlet UIView *buttonsView;
+- (IBAction)coursesPressed:(id)sender;
+- (IBAction)timeTablePressed:(id)sender;
+- (IBAction)credentialsPressed:(id)sender;
+- (IBAction)feedbackPressed:(id)sender;
+- (IBAction)aboutPressed:(id)sender;
 @end

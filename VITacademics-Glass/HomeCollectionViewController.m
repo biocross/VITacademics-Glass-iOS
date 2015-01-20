@@ -22,6 +22,7 @@
 @property (nonatomic) NSInteger previouslySelectedCell;
 @property (nonatomic) BOOL cellIsChanging;
 @property User *user;
+@property UIImage *wallpaper;
 
 @end
 
@@ -37,7 +38,10 @@ static NSString * const reuseIdentifier = @"course";
     
     CCColorCube *colorCube = [[CCColorCube alloc] init];
     UIColor *color;
-    color = [[colorCube extractColorsFromImage:[UIImage imageNamed:@"img2.jpg"]
+    
+    self.wallpaper = [UIImage imageNamed:@"img5"];
+    
+    color = [[colorCube extractColorsFromImage:self.wallpaper
                                          flags:CCAvoidBlack|CCOnlyBrightColors|CCOrderByBrightness
                                          count:3] firstObject];
     
@@ -79,7 +83,7 @@ static NSString * const reuseIdentifier = @"course";
 {
     if(!_wallpaperView)
     {
-        _wallpaperView = [[UIImageView alloc] initWithImage:[[UIImage imageNamed:@"img2.jpg"] applyBlurWithRadius:20
+        _wallpaperView = [[UIImageView alloc] initWithImage:[self.wallpaper applyBlurWithRadius:20
                                                                                                              tintColor:[UIColor colorWithRed:0
                                                                                                                                        green:0
                                                                                                                                         blue:0

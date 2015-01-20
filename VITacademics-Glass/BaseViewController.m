@@ -8,6 +8,18 @@
 
 #import "BaseViewController.h"
 #import "LoginViewController.h"
+#import "VITXManager.h"
+
+
+/*
+TODOs:
+ 
+- [LOW PRIORITY] fix NSNotification center calls
+- animate insertion of homeScreenCollectionView
+- loading indicator / clue / something!
+ 
+*/
+
 
 @interface BaseViewController ()
 
@@ -37,18 +49,18 @@
         [self performSelector:(@selector(beginLoginProcess)) withObject:nil afterDelay:1];
     }
     else{
-        [self addChildViewController:self.homeScreenCollectionViewController];
-        [self.view insertSubview:self.homeScreenCollectionViewController.view belowSubview:self.menuButton];
-        
-        [self addshadows];
+        [self addCollectionView];
     }
-    
-    [self.buttonsView removeFromSuperview];
-    [self.view insertSubview:self.buttonsView belowSubview:self.homeScreenCollectionViewController.view];
-    
-    self.menuButton.backgroundColor = [UIColor colorWithWhite:0.1 alpha:0.25];
-    
 
+}
+
+-(void)addCollectionView{
+    
+    [self addChildViewController:self.homeScreenCollectionViewController];
+    [self.view insertSubview:self.homeScreenCollectionViewController.view belowSubview:self.menuButton];
+    [self addshadows];
+    [self.view sendSubviewToBack:self.buttonsView];
+    self.menuButton.backgroundColor = [UIColor colorWithWhite:0.1 alpha:0.15];
 }
 
 - (void) viewDidAppear:(BOOL)animated
@@ -59,11 +71,16 @@
         button.contentEdgeInsets = UIEdgeInsetsMake(0, 15, 0, 0);
     }
 
+    [[NSNotificationCenter defaultCenter]
+     addObserver:self
+     selector:@selector(addCollectionView)
+     name:@"prepareViewsForDataPresentation"
+     object:nil];
+    
 }
 
 -(void)beginLoginProcess
 {
-    
     LoginViewController *loginViewController = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"LoginViewController"];
     
     [self presentViewController:loginViewController animated:YES completion:nil];
@@ -101,4 +118,20 @@
     }
 }
 
+- (IBAction)coursesPressed:(id)sender {
+}
+
+- (IBAction)timeTablePressed:(id)sender {
+    [[VITXManager sharedManager] startRefreshing];
+}
+
+- (IBAction)credentialsPressed:(id)sender {
+    [self beginLoginProcess];
+}
+
+- (IBAction)feedbackPressed:(id)sender {
+    
+}
+- (IBAction)aboutPressed:(id)sender {
+}
 @end

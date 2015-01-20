@@ -7,6 +7,7 @@
 //
 
 #import "LoginViewController.h"
+#import "VITXManager.h"
 
 @interface LoginViewController (){
     UIDatePicker *datePicker;
@@ -55,6 +56,8 @@
     [prefs setObject:self.regNoTextField.text forKey:@"registrationNumber"];
     [prefs setObject:self.dobTextField.text forKey:@"dateOfBirth"];
     NSLog(@"Preferences Saved");
+    
+    [VITXManager sharedManager];
     
     [prefs removeObjectForKey:@"firstTime"];
     [prefs setObject:@"YES" forKey:@"firstTime"];

@@ -82,6 +82,7 @@
                    merge:@[[self reloadFirstTimeData]]]
                   subscribeCompleted:^{
                       NSLog(@"Loaded first time data");
+                      [[NSNotificationCenter defaultCenter] postNotificationName:@"prepareViewsForDataPresentation" object:nil];
                   }];
                  
              }
