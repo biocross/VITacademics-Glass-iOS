@@ -43,7 +43,14 @@
         [self addshadows];
     }
     
+<<<<<<< Updated upstream
     [self.view sendSubviewToBack:self.buttonsView];
+=======
+    [self.buttonsView removeFromSuperview];
+    
+    [self.view insertSubview:self.buttonsView belowSubview:self.homeScreenCollectionViewController.view];
+    
+>>>>>>> Stashed changes
     self.menuButton.backgroundColor = [UIColor colorWithWhite:0.1 alpha:0.25];
 }
 
