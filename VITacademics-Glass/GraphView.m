@@ -9,6 +9,7 @@
 #import "GraphView.h"
 #import "MultiplePulsingHaloLayer.h"
 #import "PulsingHaloLayer.h"
+#import "DateTools.h"
 
 @implementation GraphView
 
@@ -69,8 +70,13 @@
     NSMutableParagraphStyle *paragraphStyle = NSMutableParagraphStyle.new;
     paragraphStyle.alignment                = NSTextAlignmentCenter;
     
-    
-    NSString *string = @"Updated Last Thursday";
+    NSString *string;
+    if(self.lastUpdated){
+         string = [NSString stringWithFormat:@"Updated %@", self.lastUpdated.timeAgoSinceNow];
+    }
+    else{
+        string = @"Not Uploaded";
+    }
     
     
     
@@ -78,39 +84,18 @@
     {
         [self.pointerPath addLineToPoint:CGPointMake(rect.size.width/2,
                                                      30)];
-//        [string drawInRect:CGRectMake(0,
-//                                      0,
-//                                      rect.size.width,
-//                                      30)
-//            withAttributes:@{
-//                             NSFontAttributeName:[UIFont systemFontOfSize:12],
-//                             NSForegroundColorAttributeName:[UIColor whiteColor],
-//                             NSParagraphStyleAttributeName:paragraphStyle
-//                             }];
         
         self.updateLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 5, rect.size.width, 20)];
         self.updateLabel.text = string;
         self.updateLabel.textColor = self.tintColor;
         self.updateLabel.textAlignment = NSTextAlignmentCenter;
         self.updateLabel.font = [UIFont systemFontOfSize:10];
-        self.roundedRectPath = [UIBezierPath bezierPathWithRoundedRect:CGRectMake(10, 5, rect.size.width-20, 20) cornerRadius:15];
         
     }
     else
     {
         [self.pointerPath addLineToPoint:CGPointMake(rect.size.width/2,
                                                      rect.size.height-30)];
-//        [string drawInRect:CGRectMake(0,
-//                                      rect.size.height-30,
-//                                      rect.size.width,
-//                                      30)
-//            withAttributes:@{
-//                             NSFontAttributeName:[UIFont systemFontOfSize:12],
-//                             NSForegroundColorAttributeName:[UIColor whiteColor],
-//                             NSParagraphStyleAttributeName:paragraphStyle
-//                             }];
-        
-        
         
         self.updateLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, rect.size.height-30, rect.size.width, 20)];
         self.updateLabel.text = string;
@@ -120,12 +105,9 @@
         self.updateLabel.textColor = self.tintColor;
         self.updateLabel.textAlignment = NSTextAlignmentCenter;
         self.updateLabel.font = [UIFont systemFontOfSize:10];
-        self.roundedRectPath = [UIBezierPath bezierPathWithRoundedRect:CGRectMake(10, rect.size.height-30, rect.size.width-20, 20) cornerRadius:15];
     }
     [self addSubview:self.updateLabel];
     [[UIColor lightGrayColor] setStroke];
-    self.roundedRectPath.lineWidth = 0.5;
-    //[self.roundedRectPath stroke];
     
     
     CGFloat bezier2Pattern[] = {2, 2, 2, 2};

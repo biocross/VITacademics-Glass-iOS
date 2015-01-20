@@ -298,6 +298,11 @@ minimumInteritemSpacingForSectionAtIndex:(NSInteger)section
                              current:[[[self.user.courses[indexPath.row] attendance] attendance_percentage] floatValue]/100
                                after:0.5];
             
+            
+            graphView.lastUpdated = [[[[self.user.courses[indexPath.row] attendance] details] lastObject] date];
+            
+            
+            
             for(UIView *view in [cell.contentView subviews])
             {
                 view.alpha = 0;
@@ -363,8 +368,6 @@ minimumInteritemSpacingForSectionAtIndex:(NSInteger)section
     UICollectionViewCell *cell = [self.collectionView cellForItemAtIndexPath:indexPath];
     UICollectionViewCell *previousCell;
     
-    NSLog(@"Previous Cell NUmber: %ld",(long)self.previouslySelectedCell);
-    
     if(self.previouslySelectedCell >= 0)
     {
         previousCell = [self.collectionView cellForItemAtIndexPath:[NSIndexPath indexPathForRow:self.previouslySelectedCell inSection:1]];
@@ -379,8 +382,6 @@ minimumInteritemSpacingForSectionAtIndex:(NSInteger)section
     {
         self.selectedCell = indexPath.row;
     }
-    
-    NSLog(@"Selected Row: %ld",(long)self.selectedCell);
     
     [UIView animateWithDuration:0.2
                      animations:^{

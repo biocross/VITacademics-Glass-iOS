@@ -17,7 +17,7 @@
 @property (nonatomic, strong) UIBezierPath *graphLinePath;
 @property (nonatomic, strong) UIBezierPath *circlePath;
 @property (nonatomic, strong) UIBezierPath *pointerPath;
-@property (nonatomic, strong) UIBezierPath *roundedRectPath;
+@property NSDate *lastUpdated;
 
 @property (nonatomic, strong) UILabel *updateLabel;
 

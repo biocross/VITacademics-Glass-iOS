@@ -1,4 +1,5 @@
 PODS:
+  - DateTools (1.4.3)
   - Mantle (1.5.3):
     - Mantle/extobjc (= 1.5.3)
   - Mantle/extobjc (1.5.3)
@@ -11,10 +12,12 @@ PODS:
     - ReactiveCocoa/Core
 
 DEPENDENCIES:
+  - DateTools
   - Mantle
   - ReactiveCocoa
 
 SPEC CHECKSUMS:
+  DateTools: 7c2d233ea2d4bda3a717d0cd5f58da926a5998d0
   Mantle: 8d84cacd6c2a69ff6fbce985a2b51298a5495de3
   ReactiveCocoa: 31119068e3dde866bd257cf74e1f06b4023bf387
 

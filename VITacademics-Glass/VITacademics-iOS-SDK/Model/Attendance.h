@@ -19,7 +19,7 @@
 @property (nonatomic, retain) NSString * registration_date;
 @property (nonatomic, retain) NSString * supported;
 @property (nonatomic, retain) NSString * total_classes;
-@property (nonatomic) AttendanceDetails * details;
+@property (nonatomic) NSArray * details;
 
 
 @end

@@ -29,13 +29,12 @@
 }
 
 
-
-- (void) viewDidAppear:(BOOL)animated
-{
-    [super viewDidAppear:animated];
+-(void)viewDidLoad{
+    
+    [super viewDidLoad];
     
     if(![[NSUserDefaults standardUserDefaults] stringForKey:@"firstTime"]){
-        [self beginLoginProcess];
+        [self performSelector:(@selector(beginLoginProcess)) withObject:nil afterDelay:1];
     }
     else{
         [self addChildViewController:self.homeScreenCollectionViewController];
@@ -47,16 +46,15 @@
     [self.buttonsView removeFromSuperview];
     [self.view insertSubview:self.buttonsView belowSubview:self.homeScreenCollectionViewController.view];
     
+    
+}
+
+- (void) viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
     for(UIButton *button in self.MenuButtons){
-        button.alpha = 0;
+        button.titleLabel.textAlignment = NSTextAlignmentLeft;
     }
-    
-    [UIView animateWithDuration:0.8 animations:^{
-        for(UIButton *button in self.MenuButtons){
-            button.alpha = 1;
-        }
-    }];
-    
 
 }
 
@@ -65,7 +63,7 @@
     
     LoginViewController *loginViewController = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"LoginViewController"];
     
-    [self presentViewController:loginViewController animated:NO completion:nil];
+    [self presentViewController:loginViewController animated:YES completion:nil];
 }
 
 
