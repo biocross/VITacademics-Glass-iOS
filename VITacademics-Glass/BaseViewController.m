@@ -46,6 +46,8 @@
     [self.buttonsView removeFromSuperview];
     [self.view insertSubview:self.buttonsView belowSubview:self.homeScreenCollectionViewController.view];
     
+    self.menuButton.backgroundColor = [UIColor colorWithWhite:0.1 alpha:0.25];
+    
 
 }
 

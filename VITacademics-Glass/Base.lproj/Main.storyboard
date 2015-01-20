@@ -157,9 +157,10 @@
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NI5-hG-VY7">
-                                <rect key="frame" x="279" y="21" width="25" height="25"/>
-                                <state key="normal" backgroundImage="Menu.png"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NI5-hG-VY7">
+                                <rect key="frame" x="264" y="20" width="40" height="40"/>
+                                <inset key="contentEdgeInsets" minX="2" minY="2" maxX="2" maxY="2"/>
+                                <state key="normal" image="Menu.png"/>
                                 <connections>
                                     <action selector="menuButtonTapped:" destination="BJl-B7-Ivi" eventType="touchUpInside" id="Iy6-jC-IH6"/>
                                 </connections>
