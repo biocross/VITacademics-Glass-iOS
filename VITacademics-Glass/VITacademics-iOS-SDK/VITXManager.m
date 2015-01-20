@@ -33,6 +33,14 @@
     if (self = [super init]) {
         _client = [[VITXClient alloc] init];
         
+
+
+//        NSAssert([[NSUserDefaults standardUserDefaults] stringForKey:@"registrationNumber"],
+//                 @"Registration Number is required, Please set the key in your [NSUserDefaults standardUserDefaults]");
+//        NSAssert([[NSUserDefaults standardUserDefaults] stringForKey:@"dateOfBirth"],
+//                 @"Date Of Birth (ddmmyyyy) is required, Please set the key in your [NSUserDefaults standardUserDefaults]");
+//        
+
         [[NSNotificationCenter defaultCenter]
          addObserver:self
          selector:@selector(startRefreshing)
@@ -51,6 +59,7 @@
 }
 
 -(void)startRefreshing{
+    
     NSLog(@"Started Refreshing: %@", self.client);
     
     /*
