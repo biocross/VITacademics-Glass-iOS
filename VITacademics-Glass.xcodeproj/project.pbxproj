@@ -51,6 +51,7 @@
 		425783971A682FF300885323 /* UIImage+ImageEffects.m in Sources */ = {isa = PBXBuildFile; fileRef = 425783961A682FF300885323 /* UIImage+ImageEffects.m */; };
 		4257839A1A68E93600885323 /* RoundedHexagonPercentageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 425783991A68E93600885323 /* RoundedHexagonPercentageView.m */; };
 		425783A01A69391600885323 /* GraphView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4257839F1A69391600885323 /* GraphView.m */; };
+		42E4ACFB1A6EC81200D9572F /* Menu@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 42E4ACFA1A6EC81200D9572F /* Menu@2x.png */; };
 		CEC71B31D098745E1442027B /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DA9E6B1DB054274C90B053C6 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -140,6 +141,7 @@
 		425783991A68E93600885323 /* RoundedHexagonPercentageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RoundedHexagonPercentageView.m; sourceTree = "<group>"; };
 		4257839E1A69391600885323 /* GraphView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GraphView.h; sourceTree = "<group>"; };
 		4257839F1A69391600885323 /* GraphView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GraphView.m; sourceTree = "<group>"; };
+		42E4ACFA1A6EC81200D9572F /* Menu@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Menu@2x.png"; sourceTree = "<group>"; };
 		DA9E6B1DB054274C90B053C6 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		E37A615077840976B51267B2 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -228,6 +230,7 @@
 		1644E5F31A6BDB6300504ED8 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				42E4ACFA1A6EC81200D9572F /* Menu@2x.png */,
 				16217B161A6A8CFE00BB0ED0 /* img1.jpg */,
 				16217B181A6A8D7E00BB0ED0 /* img2.jpg */,
 				16217B1A1A6A8DA700BB0ED0 /* img3.jpg */,
@@ -453,6 +456,7 @@
 				16E4A30D1A67D66900152389 /* Main.storyboard in Resources */,
 				16217B171A6A8CFE00BB0ED0 /* img1.jpg in Resources */,
 				16E4A3121A67D66900152389 /* LaunchScreen.xib in Resources */,
+				42E4ACFB1A6EC81200D9572F /* Menu@2x.png in Resources */,
 				425783931A6820D200885323 /* ExpandedView.xib in Resources */,
 				167203BB1A6B9A5E00A498AE /* img5.png in Resources */,
 				16217B1B1A6A8DA700BB0ED0 /* img3.jpg in Resources */,
