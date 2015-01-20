@@ -46,7 +46,7 @@
     [self.buttonsView removeFromSuperview];
     [self.view insertSubview:self.buttonsView belowSubview:self.homeScreenCollectionViewController.view];
     
-    
+
 }
 
 - (void) viewDidAppear:(BOOL)animated

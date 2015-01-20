@@ -111,13 +111,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NI5-hG-VY7">
-                                <rect key="frame" x="258" y="21" width="39" height="30"/>
-                                <state key="normal" title="Menu"/>
-                                <connections>
-                                    <action selector="menuButtonTapped:" destination="BJl-B7-Ivi" eventType="touchUpInside" id="Iy6-jC-IH6"/>
-                                </connections>
-                            </button>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="txd-iL-h5O">
                                 <rect key="frame" x="16" y="21" width="220" height="284"/>
                                 <subviews>
@@ -164,6 +157,13 @@
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NI5-hG-VY7">
+                                <rect key="frame" x="279" y="21" width="25" height="25"/>
+                                <state key="normal" backgroundImage="Menu.png"/>
+                                <connections>
+                                    <action selector="menuButtonTapped:" destination="BJl-B7-Ivi" eventType="touchUpInside" id="Iy6-jC-IH6"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -184,4 +184,7 @@
             <point key="canvasLocation" x="481" y="-164"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Menu.png" width="19" height="19"/>
+    </resources>
 </document>
