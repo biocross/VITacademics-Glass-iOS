@@ -80,7 +80,10 @@ static NSString * const reuseIdentifier = @"course";
     if(!_wallpaperView)
     {
         _wallpaperView = [[UIImageView alloc] initWithImage:[[UIImage imageNamed:@"img2.jpg"] applyBlurWithRadius:20
-                                                                                                             tintColor:[UIColor clearColor]
+                                                                                                             tintColor:[UIColor colorWithRed:0
+                                                                                                                                       green:0
+                                                                                                                                        blue:0
+                                                                                                                                       alpha:0.5]
                                                                                                  saturationDeltaFactor:1.8
                                                                                                              maskImage:nil]];
         _wallpaperView.contentMode = UIViewContentModeScaleAspectFill;
@@ -227,7 +230,8 @@ minimumInteritemSpacingForSectionAtIndex:(NSInteger)section
             
             for(UIView *view in [cell.contentView subviews])
             {
-                view.alpha = 0;
+                if(view.tag != 10)
+                    view.alpha = 0;
             }
             
             [UIView animateWithDuration:0.5
@@ -282,7 +286,6 @@ minimumInteritemSpacingForSectionAtIndex:(NSInteger)section
             
             
             
-            
             GraphView *graphView = (GraphView *)[cell.contentView viewWithTag:2];
             
             if(indexPath.row>0 && indexPath.row < ([self.user.courses count] - 1))
@@ -320,12 +323,14 @@ minimumInteritemSpacingForSectionAtIndex:(NSInteger)section
                                                                   hexagonView.center.y + 20);
                              }
                              completion:nil];
+            
+            cell.backgroundColor = [UIColor clearColor];
+            
+            if(indexPath.row % 2 == 0)
+                [cell viewWithTag:10].backgroundColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:0.2];
         }
         
-        cell.backgroundColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:0.5];
         
-        if(indexPath.row % 2 == 0)
-            cell.backgroundColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:0.6];
     }
     
     
