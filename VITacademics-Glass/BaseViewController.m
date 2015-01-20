@@ -53,7 +53,8 @@
 {
     [super viewDidAppear:animated];
     for(UIButton *button in self.MenuButtons){
-        button.titleLabel.textAlignment = NSTextAlignmentLeft;
+        button.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
+        button.contentEdgeInsets = UIEdgeInsetsMake(0, 15, 0, 0);
     }
 
 }
