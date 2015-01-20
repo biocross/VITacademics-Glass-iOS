@@ -418,40 +418,55 @@ minimumInteritemSpacingForSectionAtIndex:(NSInteger)section
                              [self.collectionView setCollectionViewLayout:self.condensedLayout
                                                                  animated:YES
                                                                completion:^(BOOL success){
-                                                                   [UIView animateWithDuration:0
-                                                                                    animations:^{
-                                                                                        [collectionView performBatchUpdates:^{
-                                                                                            [collectionView reloadItemsAtIndexPaths:@[indexPath]];
-                                                                                            if(previousCell && [[collectionView visibleCells] containsObject:previousCell])
-                                                                                            {
-                                                                                                [collectionView reloadItemsAtIndexPaths:@[[collectionView indexPathForCell:previousCell]]];
-                                                                                            }
-                                                                                        }
-                                                                                                                 completion:^(BOOL success){
-                                                                                                                     self.cellIsChanging = NO;
-                                                                                                                 }];
-                                                                                    }];
+//                                                                   [UIView animateWithDuration:0
+//                                                                                    animations:^{
+//                                                                                        [collectionView performBatchUpdates:^{
+//                                                                                            [collectionView reloadItemsAtIndexPaths:@[indexPath]];
+//                                                                                            if(previousCell && [[collectionView visibleCells] containsObject:previousCell])
+//                                                                                            {
+//                                                                                                [collectionView reloadItemsAtIndexPaths:@[[collectionView indexPathForCell:previousCell]]];
+//                                                                                            }
+//                                                                                        }
+//                                                                                                                 completion:^(BOOL success){
+//                                                                                                                     self.cellIsChanging = NO;
+//                                                                                                                 }];
+//                                                                                    }];
                                                                    
+                                                                   [collectionView reloadItemsAtIndexPaths:@[indexPath]];
+                                                                   if(previousCell && [[collectionView visibleCells] containsObject:previousCell])
+                                                                   {
+                                                                       [collectionView reloadItemsAtIndexPaths:@[[collectionView indexPathForCell:previousCell]]];
+                                                                   }
                                                                    
+                                                                   self.cellIsChanging = NO;
                                                                    
                                                                }];
                          else
                              [self.collectionView setCollectionViewLayout:self.expandedLayout
                                                                  animated:YES
                                                                completion:^(BOOL success){
-                                                                   [UIView animateWithDuration:0
-                                                                                    animations:^{
-                                                                                        [collectionView performBatchUpdates:^{
-                                                                                            [collectionView reloadItemsAtIndexPaths:@[indexPath]];
-                                                                                            if(previousCell && [[collectionView visibleCells] containsObject:previousCell])
-                                                                                            {
-                                                                                                [collectionView reloadItemsAtIndexPaths:@[[collectionView indexPathForCell:previousCell]]];
-                                                                                            }
-                                                                                        }
-                                                                                                                 completion:^(BOOL success){
-                                                                                                                     self.cellIsChanging = NO;
-                                                                                                                 }];
-                                                                                    }];
+//                                                                   [UIView animateWithDuration:0
+//                                                                                    animations:^{
+//                                                                                        [collectionView performBatchUpdates:^{
+//                                                                                            [collectionView reloadItemsAtIndexPaths:@[indexPath]];
+//                                                                                            if(previousCell && [[collectionView visibleCells] containsObject:previousCell])
+//                                                                                            {
+//                                                                                                [collectionView reloadItemsAtIndexPaths:@[[collectionView indexPathForCell:previousCell]]];
+//                                                                                            }
+//                                                                                        }
+//                                                                                                                 completion:^(BOOL success){
+//                                                                                                                     self.cellIsChanging = NO;
+//                                                                                                                 }];
+//                                                                                    }];
+                                                                   
+                                                                   [collectionView reloadItemsAtIndexPaths:@[indexPath]];
+                                                                   if(previousCell && [[collectionView visibleCells] containsObject:previousCell])
+                                                                   {
+                                                                       [collectionView reloadItemsAtIndexPaths:@[[collectionView indexPathForCell:previousCell]]];
+                                                                   }
+                                                                   
+                                                                   self.cellIsChanging = NO;
+                                                                   
                                                                }];
                      }];
 }
