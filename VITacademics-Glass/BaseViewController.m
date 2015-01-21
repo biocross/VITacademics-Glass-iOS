@@ -166,6 +166,7 @@ TODOs:
 }
 
 - (IBAction)coursesPressed:(id)sender {
+    [self hideShowCollectionViewController];
 }
 
 - (IBAction)timeTablePressed:(id)sender {
@@ -178,7 +179,40 @@ TODOs:
 
 - (IBAction)feedbackPressed:(id)sender {
     
+    NSArray *emails = @[@"sids.1992@gmail.com", @"prathammehta@outlook.com"];
+    
+    if([MFMailComposeViewController canSendMail]) {
+            MFMailComposeViewController *mailCont = [[MFMailComposeViewController alloc] init];
+            mailCont.mailComposeDelegate = self;
+            [mailCont setToRecipients:emails];
+            [mailCont setSubject:@"VITacademics Beta Bug Report"];
+            [self presentViewController:mailCont animated:YES completion:nil];
+    }
+    
 }
-- (IBAction)aboutPressed:(id)sender {
+
+
+- (void)mailComposeController:(MFMailComposeViewController *)controller didFinishWithResult:(MFMailComposeResult)result error:(NSError *)error
+{
+    switch (result) {
+        case MFMailComposeResultSent:
+            NSLog(@"You sent the email.");
+            break;
+        case MFMailComposeResultSaved:
+            NSLog(@"You saved a draft of this email");
+            break;
+        case MFMailComposeResultCancelled:
+            NSLog(@"You cancelled sending this email.");
+            break;
+        case MFMailComposeResultFailed:
+            NSLog(@"Mail failed:  An error occurred when trying to compose this email");
+            break;
+        default:
+            NSLog(@"An error occurred when trying to compose this email");
+            break;
+    }
+    
+    [self dismissViewControllerAnimated:YES completion:NULL];
 }
+
 @end

@@ -24,6 +24,12 @@
 #define COCOAPODS_VERSION_MINOR_Mantle_extobjc 5
 #define COCOAPODS_VERSION_PATCH_Mantle_extobjc 3
 
+// NewRelicAgent
+#define COCOAPODS_POD_AVAILABLE_NewRelicAgent
+#define COCOAPODS_VERSION_MAJOR_NewRelicAgent 4
+#define COCOAPODS_VERSION_MINOR_NewRelicAgent 155
+#define COCOAPODS_VERSION_PATCH_NewRelicAgent 0
+
 // ReactiveCocoa
 #define COCOAPODS_POD_AVAILABLE_ReactiveCocoa
 #define COCOAPODS_VERSION_MAJOR_ReactiveCocoa 2

@@ -7,6 +7,8 @@
 //
 
 #import "AppDelegate.h"
+#import <NewRelicAgent/NewRelic.h>
+
 
 @interface AppDelegate ()
 
@@ -17,6 +19,10 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    
+    [NewRelicAgent startWithApplicationToken:@"AA9dddfc1c83a1544567e0d6f2664d650191b08979"];
+    
+    
     return YES;
 }
 

@@ -8,8 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import "HomeCollectionViewController.h"
+#import <MessageUI/MessageUI.h>
 
-@interface BaseViewController : UIViewController
+@interface BaseViewController : UIViewController <MFMailComposeViewControllerDelegate>
 
 @property (nonatomic, strong) HomeCollectionViewController *homeScreenCollectionViewController;
 
@@ -19,7 +20,6 @@
 - (IBAction)timeTablePressed:(id)sender;
 - (IBAction)credentialsPressed:(id)sender;
 - (IBAction)feedbackPressed:(id)sender;
-- (IBAction)aboutPressed:(id)sender;
 @property (strong, nonatomic) IBOutlet UILabel *loadingIndicator;
 
 -(void)showLoadingIndicator;
