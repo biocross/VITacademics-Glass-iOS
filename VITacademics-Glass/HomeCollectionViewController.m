@@ -39,7 +39,7 @@ static NSString * const reuseIdentifier = @"course";
     CCColorCube *colorCube = [[CCColorCube alloc] init];
     UIColor *color;
     
-    self.wallpaper = [UIImage imageNamed:@"img5"];
+    self.wallpaper = [UIImage imageNamed:@"img1.jpg"];
     
     color = [[colorCube extractColorsFromImage:self.wallpaper
                                          flags:CCAvoidBlack|CCOnlyBrightColors|CCOrderByBrightness

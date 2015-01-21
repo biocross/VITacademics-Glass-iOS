@@ -20,4 +20,8 @@
 - (IBAction)credentialsPressed:(id)sender;
 - (IBAction)feedbackPressed:(id)sender;
 - (IBAction)aboutPressed:(id)sender;
+@property (strong, nonatomic) IBOutlet UILabel *loadingIndicator;
+
+-(void)showLoadingIndicator;
+-(void)hideLoadingIndicator;
 @end

@@ -10,11 +10,14 @@
 #import "User.h"
 #import "VITXClient.h"
 #import "LoginStatus.h"
+#import "BaseViewController.h"
 
 @interface VITXManager : NSObject
 
 + (instancetype)sharedManager;
 - (void)startRefreshing;
+
+@property BaseViewController *baseViewController;
 
 @property User *user;
 

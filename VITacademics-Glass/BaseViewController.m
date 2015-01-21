@@ -75,12 +75,26 @@ TODOs:
     else{
         [self addCollectionView];
     }
-    
-    
 
+    [self.view bringSubviewToFront:self.loadingIndicator];
+    
+#warning shit
+[VITXManager sharedManager].baseViewController = self;
+    [self hideLoadingIndicator];
+    
 }
 
--(void)addCollectionView{
+
+-(void)showLoadingIndicator{
+    self.loadingIndicator.hidden = NO;
+}
+
+-(void)hideLoadingIndicator{
+    self.loadingIndicator.hidden = YES;
+}
+
+-(void)addCollectionView
+{
     
     [self addChildViewController:self.homeScreenCollectionViewController];
     [self.view insertSubview:self.homeScreenCollectionViewController.view belowSubview:self.menuButton];
