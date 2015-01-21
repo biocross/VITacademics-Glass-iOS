@@ -25,6 +25,7 @@ TODOs:
 
 @property (nonatomic) BOOL menuShowing;
 @property (strong, nonatomic) IBOutlet UIButton *menuButton;
+@property (nonatomic, strong) UIPanGestureRecognizer *panGestureRecognizer;
 
 @end
 
@@ -40,6 +41,29 @@ TODOs:
     return _homeScreenCollectionViewController;
 }
 
+- (UIPanGestureRecognizer *)panGestureRecognizer
+{
+    if(!_panGestureRecognizer)
+    {
+        _panGestureRecognizer = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(collectionViewDragged:)];
+    }
+    return _panGestureRecognizer;
+}
+
+- (void) collectionViewDragged:(UIPanGestureRecognizer *) panGestureRecognizer
+{
+    if(panGestureRecognizer.state == UIGestureRecognizerStateChanged && self.menuShowing == YES)
+    {
+        self.homeScreenCollectionViewController.view.center = CGPointMake(self.homeScreenCollectionViewController.view.center.x,
+                                                                          self.homeScreenCollectionViewController.view.center.y + [panGestureRecognizer translationInView:self.view].y);
+        [panGestureRecognizer setTranslation:CGPointZero inView:self.view];
+    }
+    else if(panGestureRecognizer.state == UIGestureRecognizerStateEnded && self.menuShowing == YES)
+    {
+        [self hideShowCollectionViewController];
+    }
+}
+
 
 -(void)viewDidLoad{
     
@@ -51,6 +75,8 @@ TODOs:
     else{
         [self addCollectionView];
     }
+    
+    
 
 }
 
@@ -61,6 +87,8 @@ TODOs:
     [self addshadows];
     [self.view sendSubviewToBack:self.buttonsView];
     self.menuButton.backgroundColor = [UIColor colorWithWhite:0.1 alpha:0.15];
+    [self.homeScreenCollectionViewController.view addGestureRecognizer:self.panGestureRecognizer];
+
 }
 
 - (void) viewDidAppear:(BOOL)animated
@@ -97,13 +125,17 @@ TODOs:
 
 - (IBAction)menuButtonTapped:(id)sender
 {
+    [self hideShowCollectionViewController];
+}
+
+- (void) hideShowCollectionViewController
+{
     if(self.menuShowing)
     {
         [UIView animateWithDuration:0.5
                          animations:^{
-                             self.homeScreenCollectionViewController.view.transform = CGAffineTransformIdentity;
-                             self.homeScreenCollectionViewController.view.layer.cornerRadius = 0;
-                             self.homeScreenCollectionViewController.view.userInteractionEnabled = YES;
+                             self.homeScreenCollectionViewController.view.center = self.view.center;
+                             self.homeScreenCollectionViewController.collectionView.userInteractionEnabled = YES;
                          }];
         self.menuShowing = NO;
     }
@@ -111,11 +143,12 @@ TODOs:
     {
         [UIView animateWithDuration:0.5
                          animations:^{
-                             self.homeScreenCollectionViewController.view.transform = CGAffineTransformMakeTranslation(0, 400);
-                             self.homeScreenCollectionViewController.view.userInteractionEnabled = NO;
+                             self.homeScreenCollectionViewController.view.center = CGPointMake(self.view.center.x, self.homeScreenCollectionViewController.view.center.y + 400);
+                             self.homeScreenCollectionViewController.collectionView.userInteractionEnabled = NO;
                          }];
         self.menuShowing = YES;
     }
+
 }
 
 - (IBAction)coursesPressed:(id)sender {
