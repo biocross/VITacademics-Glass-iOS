@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Home Collection View Controller-->
@@ -161,14 +162,6 @@
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NI5-hG-VY7">
-                                <rect key="frame" x="264" y="20" width="40" height="40"/>
-                                <inset key="contentEdgeInsets" minX="2" minY="2" maxX="2" maxY="2"/>
-                                <state key="normal" image="Menu.png"/>
-                                <connections>
-                                    <action selector="menuButtonTapped:" destination="BJl-B7-Ivi" eventType="touchUpInside" id="Iy6-jC-IH6"/>
-                                </connections>
-                            </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Loading..." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A65-sI-0eg">
                                 <rect key="frame" x="117" y="523" width="87" height="25"/>
                                 <constraints>
@@ -179,9 +172,23 @@
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NI5-hG-VY7">
+                                <rect key="frame" x="264" y="20" width="40" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="40" id="3mE-Gn-OIQ"/>
+                                    <constraint firstAttribute="height" constant="40" id="wza-Li-Tzd"/>
+                                </constraints>
+                                <inset key="contentEdgeInsets" minX="2" minY="2" maxX="2" maxY="2"/>
+                                <state key="normal" image="Menu.png"/>
+                                <connections>
+                                    <action selector="menuButtonTapped:" destination="BJl-B7-Ivi" eventType="touchUpInside" id="Iy6-jC-IH6"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="NI5-hG-VY7" firstAttribute="trailing" secondItem="GZN-dw-Zcn" secondAttribute="trailingMargin" id="XHR-zD-uCC"/>
+                            <constraint firstItem="NI5-hG-VY7" firstAttribute="top" secondItem="fY9-Q9-nM6" secondAttribute="bottom" constant="20" id="Zl8-f2-24Y"/>
                             <constraint firstAttribute="centerX" secondItem="A65-sI-0eg" secondAttribute="centerX" id="dJZ-wU-2Cf"/>
                             <constraint firstItem="qWw-y4-LPv" firstAttribute="top" secondItem="A65-sI-0eg" secondAttribute="bottom" constant="20" id="nLu-SA-iln"/>
                         </constraints>
