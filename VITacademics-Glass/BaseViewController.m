@@ -52,7 +52,7 @@ TODOs:
 
 - (void) collectionViewDragged:(UIPanGestureRecognizer *) panGestureRecognizer
 {
-    if(panGestureRecognizer.state == UIGestureRecognizerStateChanged)
+    if(panGestureRecognizer.state == UIGestureRecognizerStateChanged && se)
     {
         self.homeScreenCollectionViewController.view.center = CGPointMake(self.homeScreenCollectionViewController.view.center.x,
                                                                           self.homeScreenCollectionViewController.view.center.y + [panGestureRecognizer translationInView:self.view].y);
