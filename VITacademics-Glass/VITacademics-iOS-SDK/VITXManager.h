@@ -20,6 +20,7 @@
 @property BaseViewController *baseViewController;
 
 -(void)hideLoadingIndicator;
+-(void)showLoadingIndicator;
 
 @property User *user;
 

@@ -84,6 +84,8 @@ static NSString * const reuseIdentifier = @"course";
 {
     if(!_wallpaperView)
     {
+        [[VITXManager sharedManager] showLoadingIndicator];
+        
         _wallpaperView = [[UIImageView alloc] initWithImage:[self.wallpaper applyBlurWithRadius:20
                                                                                                              tintColor:[UIColor colorWithRed:0
                                                                                                                                        green:0
@@ -92,6 +94,9 @@ static NSString * const reuseIdentifier = @"course";
                                                                                                  saturationDeltaFactor:1.8
                                                                                                              maskImage:nil]];
         _wallpaperView.contentMode = UIViewContentModeScaleAspectFill;
+        
+        [[VITXManager sharedManager] hideLoadingIndicator];
+        
     }
     return _wallpaperView;
 }

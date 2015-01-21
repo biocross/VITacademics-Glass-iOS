@@ -145,4 +145,8 @@
     [self.baseViewController hideLoadingIndicator];
 }
 
+-(void)showLoadingIndicator{
+    [self.baseViewController showLoadingIndicator];
+}
+
 @end
