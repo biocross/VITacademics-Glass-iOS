@@ -52,13 +52,13 @@ TODOs:
 
 - (void) collectionViewDragged:(UIPanGestureRecognizer *) panGestureRecognizer
 {
-    if(panGestureRecognizer.state == UIGestureRecognizerStateChanged && se)
+    if(panGestureRecognizer.state == UIGestureRecognizerStateChanged && self.menuShowing == YES)
     {
         self.homeScreenCollectionViewController.view.center = CGPointMake(self.homeScreenCollectionViewController.view.center.x,
                                                                           self.homeScreenCollectionViewController.view.center.y + [panGestureRecognizer translationInView:self.view].y);
         [panGestureRecognizer setTranslation:CGPointZero inView:self.view];
     }
-    else if(panGestureRecognizer.state == UIGestureRecognizerStateEnded)
+    else if(panGestureRecognizer.state == UIGestureRecognizerStateEnded && self.menuShowing == YES)
     {
         [self hideShowCollectionViewController];
     }
@@ -143,7 +143,7 @@ TODOs:
     {
         [UIView animateWithDuration:0.5
                          animations:^{
-                             self.homeScreenCollectionViewController.view.center = CGPointMake(self.view.center.x, self.view.center.y + 400);
+                             self.homeScreenCollectionViewController.view.center = CGPointMake(self.view.center.x, self.homeScreenCollectionViewController.view.center.y + 400);
                              self.homeScreenCollectionViewController.collectionView.userInteractionEnabled = NO;
                          }];
         self.menuShowing = YES;
