@@ -109,8 +109,6 @@
         self.user = user;
         [self saveData];
          [[NSUserDefaults standardUserDefaults] setObject:@"NO" forKey:@"firstTime"];
-         [self.baseViewController hideLoadingIndicator];
-         
     }];
      
 }
@@ -125,7 +123,6 @@
     return [[_client refreshDataForUserWithRegistrationNumber:[[NSUserDefaults standardUserDefaults] stringForKey:@"registrationNumber"] andDateOfBirth:[[NSUserDefaults standardUserDefaults] stringForKey:@"dateOfBirth"]] doNext:^(User *user) {
         self.user = user;
         [self saveData];
-        [self.baseViewController hideLoadingIndicator];
     }];
 }
 
@@ -144,5 +141,8 @@
     }
 }
 
+-(void)hideLoadingIndicator{
+    [self.baseViewController hideLoadingIndicator];
+}
 
 @end

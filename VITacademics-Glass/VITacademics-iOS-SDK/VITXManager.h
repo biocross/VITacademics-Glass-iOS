@@ -19,6 +19,8 @@
 
 @property BaseViewController *baseViewController;
 
+-(void)hideLoadingIndicator;
+
 @property User *user;
 
 
