@@ -32,10 +32,10 @@
 		16617C1B1A6BE622000CA406 /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 16617C1A1A6BE622000CA406 /* BaseViewController.m */; };
 		167203B81A6B969F00A498AE /* CCColorCube.mm in Sources */ = {isa = PBXBuildFile; fileRef = 167203B51A6B969F00A498AE /* CCColorCube.mm */; };
 		167203B91A6B969F00A498AE /* CCLocalMaximum.m in Sources */ = {isa = PBXBuildFile; fileRef = 167203B71A6B969F00A498AE /* CCLocalMaximum.m */; };
+		16C7A4C31A7158FA009D6522 /* Images-2.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 16C7A4C21A7158FA009D6522 /* Images-2.xcassets */; };
 		16E4A3041A67D66900152389 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 16E4A3031A67D66900152389 /* main.m */; };
 		16E4A3071A67D66900152389 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 16E4A3061A67D66900152389 /* AppDelegate.m */; };
 		16E4A30D1A67D66900152389 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 16E4A30B1A67D66900152389 /* Main.storyboard */; };
-		16E4A30F1A67D66900152389 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 16E4A30E1A67D66900152389 /* Images.xcassets */; };
 		16E4A3121A67D66900152389 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 16E4A3101A67D66900152389 /* LaunchScreen.xib */; };
 		16E4A31E1A67D66900152389 /* VITacademics_GlassTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 16E4A31D1A67D66900152389 /* VITacademics_GlassTests.m */; };
 		16E4A3291A67D6DE00152389 /* HomeCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 16E4A3281A67D6DE00152389 /* HomeCollectionViewController.m */; };
@@ -120,6 +120,7 @@
 		167203B51A6B969F00A498AE /* CCColorCube.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = CCColorCube.mm; sourceTree = "<group>"; };
 		167203B61A6B969F00A498AE /* CCLocalMaximum.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCLocalMaximum.h; sourceTree = "<group>"; };
 		167203B71A6B969F00A498AE /* CCLocalMaximum.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCLocalMaximum.m; sourceTree = "<group>"; };
+		16C7A4C21A7158FA009D6522 /* Images-2.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Images-2.xcassets"; sourceTree = "<group>"; };
 		16D5D4B81A700AA30077499D /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		16D5D4BA1A700AA80077499D /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		16D5D4BC1A700AAF0077499D /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
@@ -239,7 +240,6 @@
 		16E4A3051A67D66900152389 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		16E4A3061A67D66900152389 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		16E4A30C1A67D66900152389 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		16E4A30E1A67D66900152389 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		16E4A3111A67D66900152389 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		16E4A3171A67D66900152389 /* VITacademics-GlassTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "VITacademics-GlassTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		16E4A31C1A67D66900152389 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -609,12 +609,12 @@
 				16E4A30B1A67D66900152389 /* Main.storyboard */,
 				16617C191A6BE622000CA406 /* BaseViewController.h */,
 				16617C1A1A6BE622000CA406 /* BaseViewController.m */,
-				16E4A30E1A67D66900152389 /* Images.xcassets */,
 				1634D25D1A6829DA00AFAC21 /* wallpaper.jpg */,
 				16E4A3101A67D66900152389 /* LaunchScreen.xib */,
 				16617C141A6BDF86000CA406 /* LoginViewController.h */,
 				16617C151A6BDF86000CA406 /* LoginViewController.m */,
 				425783941A6820DB00885323 /* View XIB Files */,
+				16C7A4C21A7158FA009D6522 /* Images-2.xcassets */,
 				16E4A3011A67D66900152389 /* Supporting Files */,
 			);
 			path = "VITacademics-Glass";
@@ -744,7 +744,7 @@
 				TargetAttributes = {
 					16E4A2FD1A67D66900152389 = {
 						CreatedOnToolsVersion = 6.1.1;
-						DevelopmentTeam = RV68FXHFU7;
+						DevelopmentTeam = GC4Z88CPZF;
 					};
 					16E4A3161A67D66900152389 = {
 						CreatedOnToolsVersion = 6.1.1;
@@ -809,12 +809,12 @@
 				161CCDA51A6A436600527A7A /* LICENSE in Resources */,
 				421324571A6BA5CF00483BBF /* ClassViewCell.xib in Resources */,
 				1634D25E1A6829DA00AFAC21 /* wallpaper.jpg in Resources */,
+				16C7A4C31A7158FA009D6522 /* Images-2.xcassets in Resources */,
 				16E4A30D1A67D66900152389 /* Main.storyboard in Resources */,
 				16217B171A6A8CFE00BB0ED0 /* img1.jpg in Resources */,
 				16E4A3121A67D66900152389 /* LaunchScreen.xib in Resources */,
 				42E4ACFB1A6EC81200D9572F /* Menu@2x.png in Resources */,
 				425783931A6820D200885323 /* ExpandedView.xib in Resources */,
-				16E4A30F1A67D66900152389 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1016,6 +1016,7 @@
 			baseConfigurationReference = 35B4FC53CC73941112528291 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = "VITacademics-Glass/Info.plist";
@@ -1035,6 +1036,7 @@
 			baseConfigurationReference = E37A615077840976B51267B2 /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = "VITacademics-Glass/Info.plist";
