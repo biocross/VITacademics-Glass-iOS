@@ -78,7 +78,6 @@ TODOs:
 
     [self.view bringSubviewToFront:self.loadingIndicator];
     
-#warning shit
 [VITXManager sharedManager].baseViewController = self;
     [self hideLoadingIndicator];
     

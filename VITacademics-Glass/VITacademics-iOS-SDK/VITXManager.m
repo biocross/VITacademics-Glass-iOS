@@ -149,4 +149,11 @@
     [self.baseViewController showLoadingIndicator];
 }
 
+-(UIImage *)getAwesomeImage{
+    NSArray *images = @[@"b1.jpg", @"b2.jpg", @"b3.jpg", @"b5.jpg", @"b6.jpg"];
+    int choice = arc4random() % [images count];
+    NSLog(@"%d", choice);
+    return [UIImage imageNamed:images[choice]];
+}
+
 @end

@@ -8,10 +8,15 @@
 
 #import "LoginViewController.h"
 #import "VITXManager.h"
+#import "UIImage+ImageEffects.h"
+
+
+
 
 @interface LoginViewController (){
     UIDatePicker *datePicker;
 }
+@property UIImageView *wallpaperView;
 
 @end
 
@@ -32,8 +37,26 @@
         self.dobTextField.text = [[NSUserDefaults standardUserDefaults] stringForKey:@"dateOfBirth"];
     }
     
+    _wallpaperView = [[UIImageView alloc] initWithFrame:self.view.frame];
+    _wallpaperView.contentMode = UIViewContentModeLeft;
+    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad){
+        _wallpaperView.contentMode = UIViewContentModeScaleAspectFill;
+    }
+    _wallpaperView.image = [[[VITXManager sharedManager] getAwesomeImage] applyBlurWithRadius:5 tintColor:[UIColor colorWithRed:0 green:0 blue:0 alpha:0.5] saturationDeltaFactor:1.8 maskImage:nil];
+    [self.view insertSubview:_wallpaperView atIndex:0];
+    
+    if ([self.regNoTextField respondsToSelector:@selector(setAttributedPlaceholder:)]) {
+        UIColor *color = [UIColor whiteColor];
+        self.regNoTextField.attributedPlaceholder = [[NSAttributedString alloc] initWithString:@"Registration Number" attributes:@{NSForegroundColorAttributeName: color}];
+        self.dobTextField.attributedPlaceholder = [[NSAttributedString alloc] initWithString:@"Date Of Birth" attributes:@{NSForegroundColorAttributeName: color}];
+    } else {
+        NSLog(@"Cannot set placeholder text's color, because deployment target is earlier than iOS 6.0");
+        // TODO: Add fall-back code to set placeholder color.
+    }
     
 
+
+    
 }
 
 - (void)didReceiveMemoryWarning {
