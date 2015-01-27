@@ -175,10 +175,6 @@ minimumInteritemSpacingForSectionAtIndex:(NSInteger)section
 {
     if(indexPath.section == 0)
     {
-        return CGSizeMake(321, self.collectionView.bounds.size.height);
-    }
-    else if(indexPath.section == 1)
-    {
         if(indexPath.row == self.selectedCell)
             return CGSizeMake(self.collectionView.bounds.size.width>500?500:self.collectionView.bounds.size.width,
                               self.collectionView.bounds.size.height);
@@ -193,10 +189,6 @@ minimumInteritemSpacingForSectionAtIndex:(NSInteger)section
 {
     if(section == 0)
     {
-        return 0;
-    }
-    if(section == 1)
-    {
         return [self.user.courses count];
     }
     return 0;
@@ -208,21 +200,6 @@ minimumInteritemSpacingForSectionAtIndex:(NSInteger)section
     UIView *view;
     
     if(indexPath.section == 0)
-    {
-        for(UIView *view in [cell.contentView subviews])
-        {
-            [view removeFromSuperview];
-        }
-        
-        NSArray *views = [[NSBundle mainBundle] loadNibNamed:@"TodayView" owner:self options:nil];
-        
-        view = [views firstObject];
-        
-        [cell.contentView addSubview:view];
-        
-        cell.backgroundColor = [UIColor clearColor];
-    }
-    else if(indexPath.section == 1)
     {
         for(UIView *view in [cell.contentView subviews])
         {
@@ -294,8 +271,6 @@ minimumInteritemSpacingForSectionAtIndex:(NSInteger)section
             }
             
             
-            
-            
             GraphView *graphView = (GraphView *)[cell.contentView viewWithTag:2];
             
             if(indexPath.row>0 && indexPath.row < ([self.user.courses count] - 1))
@@ -343,18 +318,12 @@ minimumInteritemSpacingForSectionAtIndex:(NSInteger)section
         
     }
     
-    
-    
     return cell;
 }
 
 - (BOOL)collectionView:(UICollectionView *)collectionView shouldSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    if(indexPath.section == 0)
-    {
-        return NO;
-    }
-    else if(indexPath.section == 1)
+    if(indexPath.section == 1)
     {
         if(!self.cellIsChanging)
         {
@@ -428,19 +397,6 @@ minimumInteritemSpacingForSectionAtIndex:(NSInteger)section
                              [self.collectionView setCollectionViewLayout:self.condensedLayout
                                                                  animated:YES
                                                                completion:^(BOOL success){
-//                                                                   [UIView animateWithDuration:0
-//                                                                                    animations:^{
-//                                                                                        [collectionView performBatchUpdates:^{
-//                                                                                            [collectionView reloadItemsAtIndexPaths:@[indexPath]];
-//                                                                                            if(previousCell && [[collectionView visibleCells] containsObject:previousCell])
-//                                                                                            {
-//                                                                                                [collectionView reloadItemsAtIndexPaths:@[[collectionView indexPathForCell:previousCell]]];
-//                                                                                            }
-//                                                                                        }
-//                                                                                                                 completion:^(BOOL success){
-//                                                                                                                     self.cellIsChanging = NO;
-//                                                                                                                 }];
-//                                                                                    }];
                                                                    
                                                                    [collectionView reloadItemsAtIndexPaths:@[indexPath]];
                                                                    if(previousCell && [[collectionView visibleCells] containsObject:previousCell])
@@ -455,19 +411,6 @@ minimumInteritemSpacingForSectionAtIndex:(NSInteger)section
                              [self.collectionView setCollectionViewLayout:self.expandedLayout
                                                                  animated:YES
                                                                completion:^(BOOL success){
-//                                                                   [UIView animateWithDuration:0
-//                                                                                    animations:^{
-//                                                                                        [collectionView performBatchUpdates:^{
-//                                                                                            [collectionView reloadItemsAtIndexPaths:@[indexPath]];
-//                                                                                            if(previousCell && [[collectionView visibleCells] containsObject:previousCell])
-//                                                                                            {
-//                                                                                                [collectionView reloadItemsAtIndexPaths:@[[collectionView indexPathForCell:previousCell]]];
-//                                                                                            }
-//                                                                                        }
-//                                                                                                                 completion:^(BOOL success){
-//                                                                                                                     self.cellIsChanging = NO;
-//                                                                                                                 }];
-//                                                                                    }];
                                                                    
                                                                    [collectionView reloadItemsAtIndexPaths:@[indexPath]];
                                                                    if(previousCell && [[collectionView visibleCells] containsObject:previousCell])
