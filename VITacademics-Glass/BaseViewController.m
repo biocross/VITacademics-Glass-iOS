@@ -56,6 +56,7 @@ TODOs:
     {
         self.homeScreenCollectionViewController.view.center = CGPointMake(self.homeScreenCollectionViewController.view.center.x,
                                                                           self.homeScreenCollectionViewController.view.center.y + [panGestureRecognizer translationInView:self.view].y);
+        
         [panGestureRecognizer setTranslation:CGPointZero inView:self.view];
     }
     else if(panGestureRecognizer.state == UIGestureRecognizerStateEnded && self.menuShowing == YES)
