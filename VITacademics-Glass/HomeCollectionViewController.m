@@ -13,7 +13,9 @@
 #import "VITXManager.h"
 #import "CCColorCube.h"
 
-@interface HomeCollectionViewController ()
+@interface HomeCollectionViewController (){
+    BOOL coursesMode;
+}
 
 @property (nonatomic) NSInteger selectedCell;
 @property (nonatomic, strong) UICollectionViewFlowLayout *condensedLayout;
@@ -78,6 +80,7 @@ static NSString * const reuseIdentifier = @"course";
          [[VITXManager sharedManager] hideLoadingIndicator];
      }];
     
+    coursesMode = false;
 }
 
 - (UIImageView *)wallpaperView
@@ -187,9 +190,11 @@ minimumInteritemSpacingForSectionAtIndex:(NSInteger)section
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
-    if(section == 0)
-    {
-        return [self.user.courses count];
+    if(coursesMode){
+       return [self.user.courses count];
+    }
+    else {
+        return [[self.user.timetable wednesday] count];
     }
     return 0;
 }
@@ -422,6 +427,11 @@ minimumInteritemSpacingForSectionAtIndex:(NSInteger)section
                                                                    
                                                                }];
                      }];
+}
+
+-(void)toggleMode{
+    coursesMode = !coursesMode;
+    [self.collectionView reloadData];
 }
 
 @end

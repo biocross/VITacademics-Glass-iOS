@@ -10,4 +10,6 @@
 
 @interface HomeCollectionViewController : UICollectionViewController
 
+-(void)toggleMode;
+
 @end

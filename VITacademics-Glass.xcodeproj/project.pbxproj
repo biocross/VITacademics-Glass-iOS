@@ -24,8 +24,6 @@
 		161CCDAF1A6A436600527A7A /* VITXClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 161CCDA01A6A436600527A7A /* VITXClient.m */; };
 		161CCDB01A6A436600527A7A /* VITXManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 161CCDA21A6A436600527A7A /* VITXManager.m */; };
 		16217B171A6A8CFE00BB0ED0 /* img1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 16217B161A6A8CFE00BB0ED0 /* img1.jpg */; };
-		16217B211A6A949A00BB0ED0 /* TodayView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 16217B201A6A949A00BB0ED0 /* TodayView.xib */; };
-		16217B241A6A9A5100BB0ED0 /* TodayView.m in Sources */ = {isa = PBXBuildFile; fileRef = 16217B231A6A9A5100BB0ED0 /* TodayView.m */; };
 		1644E5F21A6BDB4300504ED8 /* TimeTable.m in Sources */ = {isa = PBXBuildFile; fileRef = 1644E5F11A6BDB4300504ED8 /* TimeTable.m */; };
 		16617C171A6BDF86000CA406 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 16617C151A6BDF86000CA406 /* LoginViewController.m */; };
 		16617C1B1A6BE622000CA406 /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 16617C1A1A6BE622000CA406 /* BaseViewController.m */; };
@@ -44,7 +42,6 @@
 		16E4A30D1A67D66900152389 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 16E4A30B1A67D66900152389 /* Main.storyboard */; };
 		16E4A31E1A67D66900152389 /* VITacademics_GlassTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 16E4A31D1A67D66900152389 /* VITacademics_GlassTests.m */; };
 		16E4A3291A67D6DE00152389 /* HomeCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 16E4A3281A67D6DE00152389 /* HomeCollectionViewController.m */; };
-		421324571A6BA5CF00483BBF /* ClassViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 421324561A6BA5CF00483BBF /* ClassViewCell.xib */; };
 		4213245D1A6BCC3B00483BBF /* ExpanedView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4213245C1A6BCC3B00483BBF /* ExpanedView.m */; };
 		425783911A6820B600885323 /* CondensedView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 425783901A6820B600885323 /* CondensedView.xib */; };
 		425783931A6820D200885323 /* ExpandedView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 425783921A6820D200885323 /* ExpandedView.xib */; };
@@ -111,9 +108,6 @@
 		161CCDA11A6A436600527A7A /* VITXManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VITXManager.h; sourceTree = "<group>"; };
 		161CCDA21A6A436600527A7A /* VITXManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VITXManager.m; sourceTree = "<group>"; };
 		16217B161A6A8CFE00BB0ED0 /* img1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = img1.jpg; sourceTree = "<group>"; };
-		16217B201A6A949A00BB0ED0 /* TodayView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TodayView.xib; sourceTree = "<group>"; };
-		16217B221A6A9A5100BB0ED0 /* TodayView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TodayView.h; sourceTree = "<group>"; };
-		16217B231A6A9A5100BB0ED0 /* TodayView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TodayView.m; sourceTree = "<group>"; };
 		1644E5F01A6BDB4300504ED8 /* TimeTable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimeTable.h; sourceTree = "<group>"; };
 		1644E5F11A6BDB4300504ED8 /* TimeTable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TimeTable.m; sourceTree = "<group>"; };
 		16617C141A6BDF86000CA406 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
@@ -258,7 +252,6 @@
 		16E4A3281A67D6DE00152389 /* HomeCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeCollectionViewController.m; sourceTree = "<group>"; };
 		16E89DA31A700E3100F592BD /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
 		35B4FC53CC73941112528291 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
-		421324561A6BA5CF00483BBF /* ClassViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ClassViewCell.xib; sourceTree = "<group>"; };
 		4213245B1A6BCC3B00483BBF /* ExpanedView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExpanedView.h; sourceTree = "<group>"; };
 		4213245C1A6BCC3B00483BBF /* ExpanedView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExpanedView.m; sourceTree = "<group>"; };
 		425783901A6820B600885323 /* CondensedView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CondensedView.xib; sourceTree = "<group>"; };
@@ -683,14 +676,10 @@
 		425783941A6820DB00885323 /* View XIB Files */ = {
 			isa = PBXGroup;
 			children = (
-				16217B221A6A9A5100BB0ED0 /* TodayView.h */,
-				16217B231A6A9A5100BB0ED0 /* TodayView.m */,
 				4257839E1A69391600885323 /* GraphView.h */,
 				4257839F1A69391600885323 /* GraphView.m */,
 				425783981A68E93600885323 /* RoundedHexagonPercentageView.h */,
 				425783991A68E93600885323 /* RoundedHexagonPercentageView.m */,
-				421324561A6BA5CF00483BBF /* ClassViewCell.xib */,
-				16217B201A6A949A00BB0ED0 /* TodayView.xib */,
 				425783901A6820B600885323 /* CondensedView.xib */,
 				425783921A6820D200885323 /* ExpandedView.xib */,
 				4213245B1A6BCC3B00483BBF /* ExpanedView.h */,
@@ -819,7 +808,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				1681950E1A7284F8009C236B /* b1.jpg in Resources */,
-				16217B211A6A949A00BB0ED0 /* TodayView.xib in Resources */,
 				425783911A6820B600885323 /* CondensedView.xib in Resources */,
 				168195131A728508009C236B /* b5.jpg in Resources */,
 				161CCDA31A6A436600527A7A /* .gitignore in Resources */,
@@ -827,7 +815,6 @@
 				1681950A1A727D20009C236B /* b3.jpg in Resources */,
 				168195121A728508009C236B /* b4.jpg in Resources */,
 				1681950C1A727D65009C236B /* b2.jpg in Resources */,
-				421324571A6BA5CF00483BBF /* ClassViewCell.xib in Resources */,
 				16C7A4C31A7158FA009D6522 /* Images-2.xcassets in Resources */,
 				16E4A30D1A67D66900152389 /* Main.storyboard in Resources */,
 				16217B171A6A8CFE00BB0ED0 /* img1.jpg in Resources */,
@@ -895,7 +882,6 @@
 				16E4A3071A67D66900152389 /* AppDelegate.m in Sources */,
 				161CCDAB1A6A436600527A7A /* LoginStatus.m in Sources */,
 				4213245D1A6BCC3B00483BBF /* ExpanedView.m in Sources */,
-				16217B241A6A9A5100BB0ED0 /* TodayView.m in Sources */,
 				161CCDB01A6A436600527A7A /* VITXManager.m in Sources */,
 				161B75591A693E9F0074AFD5 /* MultiplePulsingHaloLayer.m in Sources */,
 				1644E5F21A6BDB4300504ED8 /* TimeTable.m in Sources */,

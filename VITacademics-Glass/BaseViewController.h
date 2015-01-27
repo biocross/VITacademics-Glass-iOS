@@ -25,5 +25,7 @@
 -(void)showLoadingIndicator;
 -(void)hideLoadingIndicator;
 
+- (IBAction)toggleCollectionViewMode:(id)sender;
+@property (strong, nonatomic) IBOutlet UIButton *toggleButton;
 
 @end

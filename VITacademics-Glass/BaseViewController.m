@@ -93,6 +93,10 @@ TODOs:
     self.loadingIndicator.hidden = YES;
 }
 
+- (IBAction)toggleCollectionViewMode:(id)sender {
+    [self.homeScreenCollectionViewController toggleMode];
+}
+
 -(void)addCollectionView
 {
     
