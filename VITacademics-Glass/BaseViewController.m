@@ -37,8 +37,22 @@ TODOs:
     {
         _homeScreenCollectionViewController = [[UIStoryboard storyboardWithName:@"Main"
                                                                          bundle:nil] instantiateViewControllerWithIdentifier:@"HomeCollectionViewController"];
+        _homeScreenCollectionViewController.view.layer.masksToBounds = YES;
+        _homeScreenCollectionViewController.view.clipsToBounds = YES;
     }
     return _homeScreenCollectionViewController;
+}
+
+- (TimeTableCollectionViewController *)timeTableCollectionViewController
+{
+    if(!_timeTableCollectionViewController)
+    {
+        _timeTableCollectionViewController = [[UIStoryboard storyboardWithName:@"Main"
+                                                                         bundle:nil] instantiateViewControllerWithIdentifier:@"TimeTableCollectionViewController"];
+        _timeTableCollectionViewController.view.layer.masksToBounds = YES;
+        _timeTableCollectionViewController.view.clipsToBounds = YES;
+    }
+    return _timeTableCollectionViewController;
 }
 
 - (UIPanGestureRecognizer *)panGestureRecognizer
@@ -75,11 +89,12 @@ TODOs:
     }
     else{
         [self addCollectionView];
+        [self addTimeTableView];
     }
 
     [self.view bringSubviewToFront:self.loadingIndicator];
     
-[VITXManager sharedManager].baseViewController = self;
+    [VITXManager sharedManager].baseViewController = self;
     [self hideLoadingIndicator];
     
 }
@@ -93,8 +108,14 @@ TODOs:
     self.loadingIndicator.hidden = YES;
 }
 
-- (IBAction)toggleCollectionViewMode:(id)sender {
-    [self.homeScreenCollectionViewController toggleMode];
+-(void)addTimeTableView
+{
+    [self addChildViewController:self.timeTableCollectionViewController];
+    [self.view insertSubview:self.timeTableCollectionViewController.view aboveSubview:self.homeScreenCollectionViewController.view];
+    [self addshadows:self.timeTableCollectionViewController.view];
+    [self.view sendSubviewToBack:self.buttonsView];
+    self.menuButton.backgroundColor = [UIColor colorWithWhite:0.1 alpha:0.15];
+//    [self.homeScreenCollectionViewController.view addGestureRecognizer:self.panGestureRecognizer];
 }
 
 -(void)addCollectionView
@@ -102,7 +123,7 @@ TODOs:
     
     [self addChildViewController:self.homeScreenCollectionViewController];
     [self.view insertSubview:self.homeScreenCollectionViewController.view belowSubview:self.menuButton];
-    [self addshadows];
+    [self addshadows:self.homeScreenCollectionViewController.view];
     [self.view sendSubviewToBack:self.buttonsView];
     self.menuButton.backgroundColor = [UIColor colorWithWhite:0.1 alpha:0.15];
     [self.homeScreenCollectionViewController.view addGestureRecognizer:self.panGestureRecognizer];
@@ -133,12 +154,12 @@ TODOs:
 }
 
 
-- (void) addshadows
+- (void) addshadows:(UIView *)view
 {
-    self.homeScreenCollectionViewController.view.layer.shadowRadius = 10.0;
-    self.homeScreenCollectionViewController.view.layer.shadowOpacity = 0.8;
-    self.homeScreenCollectionViewController.view.layer.shadowColor = [UIColor darkGrayColor].CGColor;
-    self.homeScreenCollectionViewController.view.layer.shadowOffset = CGSizeZero;
+    view.layer.shadowRadius = 10.0;
+    view.layer.shadowOpacity = 0.8;
+    view.layer.shadowColor = [UIColor darkGrayColor].CGColor;
+    view.layer.shadowOffset = CGSizeZero;
 }
 
 - (IBAction)menuButtonTapped:(id)sender
@@ -153,7 +174,10 @@ TODOs:
         [UIView animateWithDuration:0.5
                          animations:^{
                              self.homeScreenCollectionViewController.view.center = self.view.center;
+                             self.timeTableCollectionViewController.view.center = self.view.center;
                              self.homeScreenCollectionViewController.collectionView.userInteractionEnabled = YES;
+                             self.homeScreenCollectionViewController.view.layer.cornerRadius = 0;
+                             self.timeTableCollectionViewController.view.layer.cornerRadius = 0;
                          }];
         self.menuShowing = NO;
     }
@@ -162,7 +186,10 @@ TODOs:
         [UIView animateWithDuration:0.5
                          animations:^{
                              self.homeScreenCollectionViewController.view.center = CGPointMake(self.view.center.x, self.homeScreenCollectionViewController.view.center.y + 400);
+                             self.timeTableCollectionViewController.view.center = CGPointMake(self.view.center.x, self.timeTableCollectionViewController.view.center.y + 500);
                              self.homeScreenCollectionViewController.collectionView.userInteractionEnabled = NO;
+                             self.homeScreenCollectionViewController.view.layer.cornerRadius = 10;
+                             self.timeTableCollectionViewController.view.layer.cornerRadius = 10;
                          }];
         self.menuShowing = YES;
     }

@@ -15,6 +15,8 @@
 
 @interface HomeCollectionViewController (){
     BOOL coursesMode;
+    NSArray *timeTable;
+    NSMutableArray *classes;
 }
 
 @property (nonatomic) NSInteger selectedCell;
@@ -60,11 +62,8 @@ static NSString * const reuseIdentifier = @"course";
     
     self.selectedCell = -1;
     [self.collectionView setCollectionViewLayout:self.condensedLayout];
-    
     [self.collectionView reloadData];
-    
     [self addGestureRecogizersToCell];
-    
     self.collectionView.backgroundView  = self.wallpaperView;
 
     [[RACObserve([VITXManager sharedManager], user)
@@ -75,12 +74,45 @@ static NSString * const reuseIdentifier = @"course";
          }
          //NSLog(@"User: %@", user);
          self.user = user;
+         [self initTimeTable];
          
          [self.collectionView reloadData];
          [[VITXManager sharedManager] hideLoadingIndicator];
+         
+         
      }];
     
     coursesMode = false;
+}
+
+
+-(void)initTimeTable{
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateFormat:@"EEEE"];
+    NSString *todaysDay = [dateFormatter stringFromDate:[NSDate date]];
+    
+    
+    if([todaysDay isEqualToString:@"Monday"]){
+        timeTable = self.user.timetable.monday;
+    }
+    else if([todaysDay isEqualToString:@"Tuesday"]){
+        timeTable = self.user.timetable.tuesday;
+    }
+    else if([todaysDay isEqualToString:@"Wednesday"]){
+        timeTable = self.user.timetable.wednesday;
+    }
+    else if([todaysDay isEqualToString:@"Thursday"]){
+        timeTable = self.user.timetable.thursday;
+    }
+    else if([todaysDay isEqualToString:@"Friday"]){
+        timeTable = self.user.timetable.friday;
+    }
+    else if([todaysDay isEqualToString:@"Saturday"]){
+        timeTable = self.user.timetable.saturday;
+    }
+    else{
+        timeTable = self.user.timetable.monday;
+    }
 }
 
 - (UIImageView *)wallpaperView
@@ -204,8 +236,6 @@ minimumInteritemSpacingForSectionAtIndex:(NSInteger)section
     UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:reuseIdentifier forIndexPath:indexPath];
     UIView *view;
     
-    if(indexPath.section == 0)
-    {
         for(UIView *view in [cell.contentView subviews])
         {
             [view removeFromSuperview];
@@ -319,9 +349,6 @@ minimumInteritemSpacingForSectionAtIndex:(NSInteger)section
             if(indexPath.row % 2 == 0)
                 [cell viewWithTag:10].backgroundColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:0.2];
         }
-        
-        
-    }
     
     return cell;
 }
@@ -428,10 +455,4 @@ minimumInteritemSpacingForSectionAtIndex:(NSInteger)section
                                                                }];
                      }];
 }
-
--(void)toggleMode{
-    coursesMode = !coursesMode;
-    [self.collectionView reloadData];
-}
-
 @end

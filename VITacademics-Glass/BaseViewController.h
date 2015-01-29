@@ -9,10 +9,12 @@
 #import <UIKit/UIKit.h>
 #import "HomeCollectionViewController.h"
 #import <MessageUI/MessageUI.h>
+#import "TimeTableCollectionViewController.h"
 
 @interface BaseViewController : UIViewController <MFMailComposeViewControllerDelegate>
 
 @property (nonatomic, strong) HomeCollectionViewController *homeScreenCollectionViewController;
+@property (nonatomic, strong) TimeTableCollectionViewController *timeTableCollectionViewController;
 
 @property (strong, nonatomic) IBOutletCollection(UIButton) NSArray *MenuButtons;
 @property (strong, nonatomic) IBOutlet UIView *buttonsView;
@@ -25,7 +27,5 @@
 -(void)showLoadingIndicator;
 -(void)hideLoadingIndicator;
 
-- (IBAction)toggleCollectionViewMode:(id)sender;
-@property (strong, nonatomic) IBOutlet UIButton *toggleButton;
 
 @end
