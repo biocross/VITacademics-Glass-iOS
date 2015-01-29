@@ -16,7 +16,6 @@ TODOs:
  
 - [LOW PRIORITY] fix NSNotification center calls
 - animate insertion of homeScreenCollectionView
-- loading indicator / clue / something!
  
 */
 
@@ -211,6 +210,7 @@ TODOs:
                              self.homeScreenCollectionViewController.view.center = self.view.center;
                              self.timeTableCollectionViewController.view.center = self.view.center;
                              self.homeScreenCollectionViewController.collectionView.userInteractionEnabled = YES;
+                             self.timeTableCollectionViewController.collectionView.userInteractionEnabled = YES;
                              self.homeScreenCollectionViewController.view.layer.cornerRadius = 0;
                              self.timeTableCollectionViewController.view.layer.cornerRadius = 0;
                          }];
@@ -225,6 +225,7 @@ TODOs:
                                  self.homeScreenCollectionViewController.view.center = CGPointMake(self.view.center.x, self.homeScreenCollectionViewController.view.center.y + 400);
                                  self.timeTableCollectionViewController.view.center = CGPointMake(self.view.center.x, self.timeTableCollectionViewController.view.center.y + 500);
                                  self.homeScreenCollectionViewController.collectionView.userInteractionEnabled = NO;
+                                 self.timeTableCollectionViewController.collectionView.userInteractionEnabled = NO;
                                  self.homeScreenCollectionViewController.view.layer.cornerRadius = 10;
                                  self.timeTableCollectionViewController.view.layer.cornerRadius = 10;
                              }];
@@ -235,6 +236,7 @@ TODOs:
                                  self.homeScreenCollectionViewController.view.center = CGPointMake(self.view.center.x, self.homeScreenCollectionViewController.view.center.y + 500);
                                  self.timeTableCollectionViewController.view.center = CGPointMake(self.view.center.x, self.timeTableCollectionViewController.view.center.y + 400);
                                  self.homeScreenCollectionViewController.collectionView.userInteractionEnabled = NO;
+                                 self.timeTableCollectionViewController.collectionView.userInteractionEnabled = NO;
                                  self.homeScreenCollectionViewController.view.layer.cornerRadius = 10;
                                  self.timeTableCollectionViewController.view.layer.cornerRadius = 10;
                              }];
@@ -247,6 +249,10 @@ TODOs:
 }
 
 - (IBAction)coursesPressed:(id)sender {
+    if(timeTableViewInFront){
+        [self.view exchangeSubviewAtIndex:1 withSubviewAtIndex:2];
+        timeTableViewInFront = NO;
+    }
     [self hideShowCollectionViewController];
 }
 
@@ -275,6 +281,11 @@ TODOs:
 }
 
 - (IBAction)timeTablePressed:(id)sender {
+    if(!timeTableViewInFront){
+        [self.view exchangeSubviewAtIndex:1 withSubviewAtIndex:2];
+        timeTableViewInFront = YES;
+    }
+    [self hideShowCollectionViewController];
 }
 
 
