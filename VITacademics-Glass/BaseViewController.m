@@ -21,11 +21,14 @@ TODOs:
 */
 
 
-@interface BaseViewController ()
+@interface BaseViewController (){
+    BOOL timeTableViewInFront;
+}
 
 @property (nonatomic) BOOL menuShowing;
 @property (strong, nonatomic) IBOutlet UIButton *menuButton;
-@property (nonatomic, strong) UIPanGestureRecognizer *panGestureRecognizer;
+@property (nonatomic, strong) UIPanGestureRecognizer *coursesPanGestureRecognizer;
+@property (nonatomic, strong) UIPanGestureRecognizer *timeTablePangestureRecognizer;
 
 @end
 
@@ -55,29 +58,63 @@ TODOs:
     return _timeTableCollectionViewController;
 }
 
-- (UIPanGestureRecognizer *)panGestureRecognizer
+- (UIPanGestureRecognizer *)coursesPanGestureRecognizer
 {
-    if(!_panGestureRecognizer)
+    if(!_coursesPanGestureRecognizer)
     {
-        _panGestureRecognizer = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(collectionViewDragged:)];
+        _coursesPanGestureRecognizer = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(collectionViewDragged:)];
     }
-    return _panGestureRecognizer;
+    return _coursesPanGestureRecognizer;
+}
+
+- (UIPanGestureRecognizer *)timeTablePangestureRecognizer{
+    if(!_timeTablePangestureRecognizer){
+        _timeTablePangestureRecognizer = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(collectionViewDragged:)];
+    }
+    return _timeTablePangestureRecognizer;
 }
 
 - (void) collectionViewDragged:(UIPanGestureRecognizer *) panGestureRecognizer
 {
-    if(panGestureRecognizer.state == UIGestureRecognizerStateChanged && self.menuShowing == YES)
-    {
-        self.homeScreenCollectionViewController.view.center = CGPointMake(self.homeScreenCollectionViewController.view.center.x,
-                                                                          self.homeScreenCollectionViewController.view.center.y + [panGestureRecognizer translationInView:self.view].y);
-        
-        [panGestureRecognizer setTranslation:CGPointZero inView:self.view];
+    if(panGestureRecognizer == self.coursesPanGestureRecognizer){
+        if(panGestureRecognizer.state == UIGestureRecognizerStateChanged && self.menuShowing == YES)
+        {
+            //Index 1
+            if(timeTableViewInFront){
+                [self.view exchangeSubviewAtIndex:1 withSubviewAtIndex:2];
+                timeTableViewInFront = NO;
+            }
+            self.homeScreenCollectionViewController.view.center = CGPointMake(self.homeScreenCollectionViewController.view.center.x,
+                                                                              self.homeScreenCollectionViewController.view.center.y + [panGestureRecognizer translationInView:self.view].y);
+            
+            [panGestureRecognizer setTranslation:CGPointZero inView:self.view];
+        }
+        else if(panGestureRecognizer.state == UIGestureRecognizerStateEnded && self.menuShowing == YES)
+        {
+            [self hideShowCollectionViewController];
+        }
     }
-    else if(panGestureRecognizer.state == UIGestureRecognizerStateEnded && self.menuShowing == YES)
-    {
-        [self hideShowCollectionViewController];
+    else{
+        if(panGestureRecognizer.state == UIGestureRecognizerStateChanged && self.menuShowing == YES)
+        {
+            //Index 2
+            if(!timeTableViewInFront){
+                [self.view exchangeSubviewAtIndex:1 withSubviewAtIndex:2];
+                timeTableViewInFront = YES;
+            }
+            self.timeTableCollectionViewController.view.center = CGPointMake(self.timeTableCollectionViewController.view.center.x,
+                                                                             self.timeTableCollectionViewController.view.center.y + [panGestureRecognizer translationInView:self.view].y);
+            
+            [panGestureRecognizer setTranslation:CGPointZero inView:self.view];
+        }
+        else if(panGestureRecognizer.state == UIGestureRecognizerStateEnded && self.menuShowing == YES)
+        {
+            [self hideShowCollectionViewController];
+        }
     }
+    
 }
+
 
 
 -(void)viewDidLoad{
@@ -111,23 +148,22 @@ TODOs:
 -(void)addTimeTableView
 {
     [self addChildViewController:self.timeTableCollectionViewController];
-    [self.view insertSubview:self.timeTableCollectionViewController.view aboveSubview:self.homeScreenCollectionViewController.view];
+    [self.view insertSubview:self.timeTableCollectionViewController.view atIndex:2];
     [self addshadows:self.timeTableCollectionViewController.view];
     [self.view sendSubviewToBack:self.buttonsView];
     self.menuButton.backgroundColor = [UIColor colorWithWhite:0.1 alpha:0.15];
-//    [self.homeScreenCollectionViewController.view addGestureRecognizer:self.panGestureRecognizer];
+    [self.timeTableCollectionViewController.view addGestureRecognizer:self.timeTablePangestureRecognizer];
+    timeTableViewInFront = YES;
 }
 
 -(void)addCollectionView
 {
     
     [self addChildViewController:self.homeScreenCollectionViewController];
-    [self.view insertSubview:self.homeScreenCollectionViewController.view belowSubview:self.menuButton];
+    [self.view insertSubview:self.homeScreenCollectionViewController.view atIndex:1];
     [self addshadows:self.homeScreenCollectionViewController.view];
     [self.view sendSubviewToBack:self.buttonsView];
-    self.menuButton.backgroundColor = [UIColor colorWithWhite:0.1 alpha:0.15];
-    [self.homeScreenCollectionViewController.view addGestureRecognizer:self.panGestureRecognizer];
-
+    [self.homeScreenCollectionViewController.view addGestureRecognizer:self.coursesPanGestureRecognizer];
 }
 
 - (void) viewDidAppear:(BOOL)animated
@@ -149,7 +185,6 @@ TODOs:
 -(void)beginLoginProcess
 {
     LoginViewController *loginViewController = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"LoginViewController"];
-    
     [self presentViewController:loginViewController animated:YES completion:nil];
 }
 
@@ -183,14 +218,29 @@ TODOs:
     }
     else
     {
-        [UIView animateWithDuration:0.5
-                         animations:^{
-                             self.homeScreenCollectionViewController.view.center = CGPointMake(self.view.center.x, self.homeScreenCollectionViewController.view.center.y + 400);
-                             self.timeTableCollectionViewController.view.center = CGPointMake(self.view.center.x, self.timeTableCollectionViewController.view.center.y + 500);
-                             self.homeScreenCollectionViewController.collectionView.userInteractionEnabled = NO;
-                             self.homeScreenCollectionViewController.view.layer.cornerRadius = 10;
-                             self.timeTableCollectionViewController.view.layer.cornerRadius = 10;
-                         }];
+        
+        if(timeTableViewInFront){
+            [UIView animateWithDuration:0.5
+                             animations:^{
+                                 self.homeScreenCollectionViewController.view.center = CGPointMake(self.view.center.x, self.homeScreenCollectionViewController.view.center.y + 400);
+                                 self.timeTableCollectionViewController.view.center = CGPointMake(self.view.center.x, self.timeTableCollectionViewController.view.center.y + 500);
+                                 self.homeScreenCollectionViewController.collectionView.userInteractionEnabled = NO;
+                                 self.homeScreenCollectionViewController.view.layer.cornerRadius = 10;
+                                 self.timeTableCollectionViewController.view.layer.cornerRadius = 10;
+                             }];
+        }
+        else{
+            [UIView animateWithDuration:0.5
+                             animations:^{
+                                 self.homeScreenCollectionViewController.view.center = CGPointMake(self.view.center.x, self.homeScreenCollectionViewController.view.center.y + 500);
+                                 self.timeTableCollectionViewController.view.center = CGPointMake(self.view.center.x, self.timeTableCollectionViewController.view.center.y + 400);
+                                 self.homeScreenCollectionViewController.collectionView.userInteractionEnabled = NO;
+                                 self.homeScreenCollectionViewController.view.layer.cornerRadius = 10;
+                                 self.timeTableCollectionViewController.view.layer.cornerRadius = 10;
+                             }];
+        }
+        
+        
         self.menuShowing = YES;
     }
 
@@ -200,9 +250,11 @@ TODOs:
     [self hideShowCollectionViewController];
 }
 
-- (IBAction)timeTablePressed:(id)sender {
+- (IBAction)refreshedPressed:(id)sender {
     [[VITXManager sharedManager] startRefreshing];
 }
+
+
 
 - (IBAction)credentialsPressed:(id)sender {
     [self beginLoginProcess];
@@ -220,6 +272,9 @@ TODOs:
             [self presentViewController:mailCont animated:YES completion:nil];
     }
     
+}
+
+- (IBAction)timeTablePressed:(id)sender {
 }
 
 

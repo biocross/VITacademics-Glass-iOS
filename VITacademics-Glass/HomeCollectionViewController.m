@@ -14,7 +14,6 @@
 #import "CCColorCube.h"
 
 @interface HomeCollectionViewController (){
-    BOOL coursesMode;
     NSArray *timeTable;
     NSMutableArray *classes;
 }
@@ -81,8 +80,6 @@ static NSString * const reuseIdentifier = @"course";
          
          
      }];
-    
-    coursesMode = false;
 }
 
 
@@ -222,13 +219,7 @@ minimumInteritemSpacingForSectionAtIndex:(NSInteger)section
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
-    if(coursesMode){
-       return [self.user.courses count];
-    }
-    else {
-        return [[self.user.timetable wednesday] count];
-    }
-    return 0;
+    return [self.user.courses count];
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
