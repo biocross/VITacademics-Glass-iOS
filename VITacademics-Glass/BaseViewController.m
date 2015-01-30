@@ -116,7 +116,8 @@ TODOs:
 
 
 
--(void)viewDidLoad{
+-(void)viewDidLoad
+{
     
     [super viewDidLoad];
     
@@ -137,22 +138,24 @@ TODOs:
 }
 
 
--(void)showLoadingIndicator{
+-(void)showLoadingIndicator
+{
     self.loadingIndicator.hidden = NO;
 }
 
--(void)hideLoadingIndicator{
+-(void)hideLoadingIndicator
+{
     self.loadingIndicator.hidden = YES;
 }
 
 -(void)addTimeTableView
 {
     [self addChildViewController:self.timeTableCollectionViewController];
-<<<<<<< Updated upstream
+
     [self.view insertSubview:self.timeTableCollectionViewController.view atIndex:2];
-=======
+
     [self.view insertSubview:self.timeTableCollectionViewController.view belowSubview:self.homeScreenCollectionViewController.view];
->>>>>>> Stashed changes
+
     [self addshadows:self.timeTableCollectionViewController.view];
     [self.view sendSubviewToBack:self.buttonsView];
     self.menuButton.backgroundColor = [UIColor colorWithWhite:0.1 alpha:0.15];
@@ -164,11 +167,11 @@ TODOs:
 {
     
     [self addChildViewController:self.homeScreenCollectionViewController];
-<<<<<<< Updated upstream
+
     [self.view insertSubview:self.homeScreenCollectionViewController.view atIndex:1];
-=======
+
     [self.view insertSubview:self.homeScreenCollectionViewController.view aboveSubview:self.menuButton];
->>>>>>> Stashed changes
+
     [self addshadows:self.homeScreenCollectionViewController.view];
     [self.view sendSubviewToBack:self.buttonsView];
     [self.homeScreenCollectionViewController.view addGestureRecognizer:self.coursesPanGestureRecognizer];
@@ -257,7 +260,8 @@ TODOs:
 
 }
 
-- (IBAction)coursesPressed:(id)sender {
+- (IBAction)coursesPressed:(id)sender
+{
     if(timeTableViewInFront){
         [self.view exchangeSubviewAtIndex:1 withSubviewAtIndex:2];
         timeTableViewInFront = NO;
@@ -265,17 +269,20 @@ TODOs:
     [self hideShowCollectionViewController];
 }
 
-- (IBAction)refreshedPressed:(id)sender {
+- (IBAction)refreshedPressed:(id)sender
+{
     [[VITXManager sharedManager] startRefreshing];
 }
 
 
 
-- (IBAction)credentialsPressed:(id)sender {
+- (IBAction)credentialsPressed:(id)sender
+{
     [self beginLoginProcess];
 }
 
-- (IBAction)feedbackPressed:(id)sender {
+- (IBAction)feedbackPressed:(id)sender
+{
     
     NSArray *emails = @[@"sids.1992@gmail.com", @"prathammehta@outlook.com"];
     
@@ -289,7 +296,8 @@ TODOs:
     
 }
 
-- (IBAction)timeTablePressed:(id)sender {
+- (IBAction)timeTablePressed:(id)sender
+{
     if(!timeTableViewInFront){
         [self.view exchangeSubviewAtIndex:1 withSubviewAtIndex:2];
         timeTableViewInFront = YES;
