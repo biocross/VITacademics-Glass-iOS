@@ -1,5 +1,5 @@
 #include "Pods-Mantle.xcconfig"
 GCC_PREPROCESSOR_DEFINITIONS = $(inherited) COCOAPODS=1
-HEADER_SEARCH_PATHS = "${PODS_ROOT}/Headers/Build" "${PODS_ROOT}/Headers/Build/Mantle" "${PODS_ROOT}/Headers/Public" "${PODS_ROOT}/Headers/Public/DateTools" "${PODS_ROOT}/Headers/Public/Mantle" "${PODS_ROOT}/Headers/Public/NewRelicAgent" "${PODS_ROOT}/Headers/Public/ReactiveCocoa"
+HEADER_SEARCH_PATHS = "${PODS_ROOT}/Headers/Build" "${PODS_ROOT}/Headers/Build/Mantle" "${PODS_ROOT}/Headers/Public" "${PODS_ROOT}/Headers/Public/DateTools" "${PODS_ROOT}/Headers/Public/Mantle" "${PODS_ROOT}/Headers/Public/NewRelicAgent" "${PODS_ROOT}/Headers/Public/ReactiveCocoa" "${PODS_ROOT}/Headers/Public/Shimmer" "${PODS_ROOT}/Headers/Public/pop"
 OTHER_LDFLAGS = ${PODS_MANTLE_OTHER_LDFLAGS} -ObjC
 PODS_ROOT = ${SRCROOT}

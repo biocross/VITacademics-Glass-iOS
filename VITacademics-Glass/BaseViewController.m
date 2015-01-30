@@ -9,6 +9,7 @@
 #import "BaseViewController.h"
 #import "LoginViewController.h"
 #import "VITXManager.h"
+#import <pop/POP.h>
 
 
 /*
@@ -205,10 +206,18 @@ TODOs:
 {
     if(self.menuShowing)
     {
+        POPSpringAnimation *upAnimation = [POPSpringAnimation animationWithPropertyNamed:kPOPViewCenter];
+        upAnimation.toValue = [NSValue valueWithCGPoint:self.view.center];
+        upAnimation.springBounciness = 7;
+        [self.timeTableCollectionViewController.view pop_addAnimation:upAnimation forKey:@"up"];
+        
+        POPSpringAnimation *upAnimation2 = [POPSpringAnimation animationWithPropertyNamed:kPOPViewCenter];
+        upAnimation2.toValue = [NSValue valueWithCGPoint:self.view.center];
+        upAnimation2.springBounciness = 7;
+        [self.homeScreenCollectionViewController.view pop_addAnimation:upAnimation2 forKey:@"up"];
+        
         [UIView animateWithDuration:0.5
                          animations:^{
-                             self.homeScreenCollectionViewController.view.center = self.view.center;
-                             self.timeTableCollectionViewController.view.center = self.view.center;
                              self.homeScreenCollectionViewController.collectionView.userInteractionEnabled = YES;
                              self.timeTableCollectionViewController.collectionView.userInteractionEnabled = YES;
                              self.homeScreenCollectionViewController.view.layer.cornerRadius = 0;
@@ -220,10 +229,21 @@ TODOs:
     {
         
         if(timeTableViewInFront){
+            
+            
+            POPSpringAnimation *coursesAnimation = [POPSpringAnimation animationWithPropertyNamed:kPOPViewCenter];
+            coursesAnimation.toValue = [NSValue valueWithCGPoint:CGPointMake(self.view.center.x, self.homeScreenCollectionViewController.view.center.y + 400)];
+            coursesAnimation.springBounciness = 8;
+            [self.homeScreenCollectionViewController.view pop_addAnimation:coursesAnimation forKey:@"down1"];
+            
+            POPSpringAnimation *timeTableAnimation = [POPSpringAnimation animationWithPropertyNamed:kPOPViewCenter];
+            timeTableAnimation.toValue = [NSValue valueWithCGPoint:CGPointMake(self.view.center.x, self.timeTableCollectionViewController.view.center.y + 500)];
+            timeTableAnimation.springBounciness = 8;
+            [self.timeTableCollectionViewController.view pop_addAnimation:timeTableAnimation forKey:@"down1"];
+            
+            
             [UIView animateWithDuration:0.5
                              animations:^{
-                                 self.homeScreenCollectionViewController.view.center = CGPointMake(self.view.center.x, self.homeScreenCollectionViewController.view.center.y + 400);
-                                 self.timeTableCollectionViewController.view.center = CGPointMake(self.view.center.x, self.timeTableCollectionViewController.view.center.y + 500);
                                  self.homeScreenCollectionViewController.collectionView.userInteractionEnabled = NO;
                                  self.timeTableCollectionViewController.collectionView.userInteractionEnabled = NO;
                                  self.homeScreenCollectionViewController.view.layer.cornerRadius = 10;
@@ -231,10 +251,20 @@ TODOs:
                              }];
         }
         else{
+            
+            POPSpringAnimation *coursesAnimation = [POPSpringAnimation animationWithPropertyNamed:kPOPViewCenter];
+            coursesAnimation.toValue = [NSValue valueWithCGPoint:CGPointMake(self.view.center.x, self.homeScreenCollectionViewController.view.center.y + 500)];
+            coursesAnimation.springBounciness = 8;
+            [self.homeScreenCollectionViewController.view pop_addAnimation:coursesAnimation forKey:@"down2"];
+            
+            POPSpringAnimation *timeTableAnimation = [POPSpringAnimation animationWithPropertyNamed:kPOPViewCenter];
+            timeTableAnimation.toValue = [NSValue valueWithCGPoint:CGPointMake(self.view.center.x, self.timeTableCollectionViewController.view.center.y + 400)];
+            timeTableAnimation.springBounciness = 8;
+            [self.timeTableCollectionViewController.view pop_addAnimation:timeTableAnimation forKey:@"down2"];
+            
+            
             [UIView animateWithDuration:0.5
                              animations:^{
-                                 self.homeScreenCollectionViewController.view.center = CGPointMake(self.view.center.x, self.homeScreenCollectionViewController.view.center.y + 500);
-                                 self.timeTableCollectionViewController.view.center = CGPointMake(self.view.center.x, self.timeTableCollectionViewController.view.center.y + 400);
                                  self.homeScreenCollectionViewController.collectionView.userInteractionEnabled = NO;
                                  self.timeTableCollectionViewController.collectionView.userInteractionEnabled = NO;
                                  self.homeScreenCollectionViewController.view.layer.cornerRadius = 10;
@@ -283,7 +313,6 @@ TODOs:
 - (IBAction)timeTablePressed:(id)sender {
     if(!timeTableViewInFront){
         [self.view exchangeSubviewAtIndex:1 withSubviewAtIndex:2];
-        timeTableViewInFront = YES;
     }
     [self hideShowCollectionViewController];
 }
