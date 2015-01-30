@@ -124,8 +124,9 @@ TODOs:
         [self performSelector:(@selector(beginLoginProcess)) withObject:nil afterDelay:1];
     }
     else{
-        [self addCollectionView];
         [self addTimeTableView];
+        [self addCollectionView];
+        [self.view bringSubviewToFront:self.menuButton];
     }
 
     [self.view bringSubviewToFront:self.loadingIndicator];
@@ -147,7 +148,11 @@ TODOs:
 -(void)addTimeTableView
 {
     [self addChildViewController:self.timeTableCollectionViewController];
+<<<<<<< Updated upstream
     [self.view insertSubview:self.timeTableCollectionViewController.view atIndex:2];
+=======
+    [self.view insertSubview:self.timeTableCollectionViewController.view belowSubview:self.homeScreenCollectionViewController.view];
+>>>>>>> Stashed changes
     [self addshadows:self.timeTableCollectionViewController.view];
     [self.view sendSubviewToBack:self.buttonsView];
     self.menuButton.backgroundColor = [UIColor colorWithWhite:0.1 alpha:0.15];
@@ -159,7 +164,11 @@ TODOs:
 {
     
     [self addChildViewController:self.homeScreenCollectionViewController];
+<<<<<<< Updated upstream
     [self.view insertSubview:self.homeScreenCollectionViewController.view atIndex:1];
+=======
+    [self.view insertSubview:self.homeScreenCollectionViewController.view aboveSubview:self.menuButton];
+>>>>>>> Stashed changes
     [self addshadows:self.homeScreenCollectionViewController.view];
     [self.view sendSubviewToBack:self.buttonsView];
     [self.homeScreenCollectionViewController.view addGestureRecognizer:self.coursesPanGestureRecognizer];
