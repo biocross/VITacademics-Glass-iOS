@@ -4,7 +4,6 @@ PODS:
     - Mantle/extobjc (= 1.5.3)
   - Mantle/extobjc (1.5.3)
   - NewRelicAgent (4.155)
-  - pop (1.0.7)
   - ReactiveCocoa (2.4.4):
     - ReactiveCocoa/UI (= 2.4.4)
   - ReactiveCocoa/Core (2.4.4):
@@ -12,22 +11,17 @@ PODS:
   - ReactiveCocoa/no-arc (2.4.4)
   - ReactiveCocoa/UI (2.4.4):
     - ReactiveCocoa/Core
-  - Shimmer (1.0.2)
 
 DEPENDENCIES:
   - DateTools
   - Mantle
   - NewRelicAgent
-  - Pop
   - ReactiveCocoa
-  - Shimmer
 
 SPEC CHECKSUMS:
   DateTools: 7c2d233ea2d4bda3a717d0cd5f58da926a5998d0
   Mantle: 8d84cacd6c2a69ff6fbce985a2b51298a5495de3
   NewRelicAgent: 4b148cc1ded2ed52a567ae64f78d658a16f1ed63
-  pop: 2f14a1ea61339767af9e66741b418c831b3844df
   ReactiveCocoa: 31119068e3dde866bd257cf74e1f06b4023bf387
-  Shimmer: 057fcfe9c1c978d69d50b64fce93a61080cd08ec
 
 COCOAPODS: 0.35.0

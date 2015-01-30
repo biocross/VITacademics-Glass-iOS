@@ -30,12 +30,6 @@
 #define COCOAPODS_VERSION_MINOR_NewRelicAgent 155
 #define COCOAPODS_VERSION_PATCH_NewRelicAgent 0
 
-// Pop
-#define COCOAPODS_POD_AVAILABLE_Pop
-#define COCOAPODS_VERSION_MAJOR_Pop 1
-#define COCOAPODS_VERSION_MINOR_Pop 0
-#define COCOAPODS_VERSION_PATCH_Pop 7
-
 // ReactiveCocoa
 #define COCOAPODS_POD_AVAILABLE_ReactiveCocoa
 #define COCOAPODS_VERSION_MAJOR_ReactiveCocoa 2
@@ -59,10 +53,4 @@
 #define COCOAPODS_VERSION_MAJOR_ReactiveCocoa_no_arc 2
 #define COCOAPODS_VERSION_MINOR_ReactiveCocoa_no_arc 4
 #define COCOAPODS_VERSION_PATCH_ReactiveCocoa_no_arc 4
-
-// Shimmer
-#define COCOAPODS_POD_AVAILABLE_Shimmer
-#define COCOAPODS_VERSION_MAJOR_Shimmer 1
-#define COCOAPODS_VERSION_MINOR_Shimmer 0
-#define COCOAPODS_VERSION_PATCH_Shimmer 2
 
