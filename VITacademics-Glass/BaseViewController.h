@@ -10,6 +10,8 @@
 #import "HomeCollectionViewController.h"
 #import <MessageUI/MessageUI.h>
 #import "TimeTableCollectionViewController.h"
+#import "FBShimmeringView.h"
+
 
 @interface BaseViewController : UIViewController <MFMailComposeViewControllerDelegate>
 
@@ -23,10 +25,10 @@
 - (IBAction)credentialsPressed:(id)sender;
 - (IBAction)feedbackPressed:(id)sender;
 - (IBAction)timeTablePressed:(id)sender;
-@property (strong, nonatomic) IBOutlet UILabel *loadingIndicator;
 
 -(void)showLoadingIndicator;
 -(void)hideLoadingIndicator;
 
+@property (strong, nonatomic) IBOutlet FBShimmeringView *shimmeringView;
 
 @end

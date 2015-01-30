@@ -129,20 +129,28 @@ TODOs:
         [self addTimeTableView];
     }
 
-    [self.view bringSubviewToFront:self.loadingIndicator];
+    [self.view bringSubviewToFront:self.shimmeringView];
     
     [VITXManager sharedManager].baseViewController = self;
     [self hideLoadingIndicator];
+    
+    UILabel *loadingLabel = [[UILabel alloc] initWithFrame:self.shimmeringView.bounds];
+    loadingLabel.text = @"Loading...";
+    loadingLabel.textColor = [UIColor whiteColor];
+    loadingLabel.font = [UIFont fontWithName:@"HelveticaNeue-Thin" size:20];
+    loadingLabel.textAlignment = NSTextAlignmentCenter;
+    self.shimmeringView.contentView = loadingLabel;
+    self.shimmeringView.shimmering = YES;
     
 }
 
 
 -(void)showLoadingIndicator{
-    self.loadingIndicator.hidden = NO;
+    self.shimmeringView.hidden = NO;
 }
 
 -(void)hideLoadingIndicator{
-    self.loadingIndicator.hidden = YES;
+    self.shimmeringView.hidden = YES;
 }
 
 -(void)addTimeTableView
