@@ -24,9 +24,9 @@
 		161CCDAF1A6A436600527A7A /* VITXClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 161CCDA01A6A436600527A7A /* VITXClient.m */; };
 		161CCDB01A6A436600527A7A /* VITXManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 161CCDA21A6A436600527A7A /* VITXManager.m */; };
 		1644E5F21A6BDB4300504ED8 /* TimeTable.m in Sources */ = {isa = PBXBuildFile; fileRef = 1644E5F11A6BDB4300504ED8 /* TimeTable.m */; };
+		164E8A151A7D5765006B77B8 /* TimeTableCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 164E8A141A7D5765006B77B8 /* TimeTableCollectionViewController.m */; };
+		164E8A181A7D5786006B77B8 /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 164E8A171A7D5786006B77B8 /* BaseViewController.m */; };
 		16617C171A6BDF86000CA406 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 16617C151A6BDF86000CA406 /* LoginViewController.m */; };
-		16617C1B1A6BE622000CA406 /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 16617C1A1A6BE622000CA406 /* BaseViewController.m */; };
-		1662CF3C1A7A746F00F02F81 /* TimeTableCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1662CF3B1A7A746F00F02F81 /* TimeTableCollectionViewController.m */; };
 		1662CF3E1A7A75AB00F02F81 /* TimeTableExpandedView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1662CF3D1A7A75AB00F02F81 /* TimeTableExpandedView.xib */; };
 		167203B81A6B969F00A498AE /* CCColorCube.mm in Sources */ = {isa = PBXBuildFile; fileRef = 167203B51A6B969F00A498AE /* CCColorCube.mm */; };
 		167203B91A6B969F00A498AE /* CCLocalMaximum.m in Sources */ = {isa = PBXBuildFile; fileRef = 167203B71A6B969F00A498AE /* CCLocalMaximum.m */; };
@@ -110,12 +110,12 @@
 		161CCDA21A6A436600527A7A /* VITXManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VITXManager.m; sourceTree = "<group>"; };
 		1644E5F01A6BDB4300504ED8 /* TimeTable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimeTable.h; sourceTree = "<group>"; };
 		1644E5F11A6BDB4300504ED8 /* TimeTable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TimeTable.m; sourceTree = "<group>"; };
+		164E8A131A7D5765006B77B8 /* TimeTableCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimeTableCollectionViewController.h; sourceTree = "<group>"; };
+		164E8A141A7D5765006B77B8 /* TimeTableCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TimeTableCollectionViewController.m; sourceTree = "<group>"; };
+		164E8A161A7D5786006B77B8 /* BaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseViewController.h; sourceTree = "<group>"; };
+		164E8A171A7D5786006B77B8 /* BaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseViewController.m; sourceTree = "<group>"; };
 		16617C141A6BDF86000CA406 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		16617C151A6BDF86000CA406 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
-		16617C191A6BE622000CA406 /* BaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseViewController.h; sourceTree = "<group>"; };
-		16617C1A1A6BE622000CA406 /* BaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseViewController.m; sourceTree = "<group>"; };
-		1662CF3A1A7A746F00F02F81 /* TimeTableCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimeTableCollectionViewController.h; sourceTree = "<group>"; };
-		1662CF3B1A7A746F00F02F81 /* TimeTableCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TimeTableCollectionViewController.m; sourceTree = "<group>"; };
 		1662CF3D1A7A75AB00F02F81 /* TimeTableExpandedView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TimeTableExpandedView.xib; sourceTree = "<group>"; };
 		167203B41A6B969F00A498AE /* CCColorCube.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCColorCube.h; sourceTree = "<group>"; };
 		167203B51A6B969F00A498AE /* CCColorCube.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = CCColorCube.mm; sourceTree = "<group>"; };
@@ -614,17 +614,17 @@
 		16E4A3001A67D66900152389 /* VITacademics-Glass */ = {
 			isa = PBXGroup;
 			children = (
-				1662CF3A1A7A746F00F02F81 /* TimeTableCollectionViewController.h */,
-				1662CF3B1A7A746F00F02F81 /* TimeTableCollectionViewController.m */,
+				164E8A131A7D5765006B77B8 /* TimeTableCollectionViewController.h */,
+				164E8A141A7D5765006B77B8 /* TimeTableCollectionViewController.m */,
 				16E4A3271A67D6DE00152389 /* HomeCollectionViewController.h */,
 				16E4A3281A67D6DE00152389 /* HomeCollectionViewController.m */,
 				16E4A3051A67D66900152389 /* AppDelegate.h */,
 				16E4A3061A67D66900152389 /* AppDelegate.m */,
 				16E4A30B1A67D66900152389 /* Main.storyboard */,
-				16617C191A6BE622000CA406 /* BaseViewController.h */,
-				16617C1A1A6BE622000CA406 /* BaseViewController.m */,
 				16617C141A6BDF86000CA406 /* LoginViewController.h */,
 				16617C151A6BDF86000CA406 /* LoginViewController.m */,
+				164E8A161A7D5786006B77B8 /* BaseViewController.h */,
+				164E8A171A7D5786006B77B8 /* BaseViewController.m */,
 				425783941A6820DB00885323 /* View XIB Files */,
 				16C7A4C21A7158FA009D6522 /* Images-2.xcassets */,
 				16E4A3011A67D66900152389 /* Supporting Files */,
@@ -882,7 +882,7 @@
 				16617C171A6BDF86000CA406 /* LoginViewController.m in Sources */,
 				4257839A1A68E93600885323 /* RoundedHexagonPercentageView.m in Sources */,
 				161CCDAD1A6A436600527A7A /* User.m in Sources */,
-				1662CF3C1A7A746F00F02F81 /* TimeTableCollectionViewController.m in Sources */,
+				164E8A151A7D5765006B77B8 /* TimeTableCollectionViewController.m in Sources */,
 				167203B91A6B969F00A498AE /* CCLocalMaximum.m in Sources */,
 				161B755A1A693E9F0074AFD5 /* PulsingHaloLayer.m in Sources */,
 				16E4A3071A67D66900152389 /* AppDelegate.m in Sources */,
@@ -896,7 +896,7 @@
 				161CCDA81A6A436600527A7A /* CBLMarks.m in Sources */,
 				425783A01A69391600885323 /* GraphView.m in Sources */,
 				161CCDAA1A6A436600527A7A /* LBCMarks.m in Sources */,
-				16617C1B1A6BE622000CA406 /* BaseViewController.m in Sources */,
+				164E8A181A7D5786006B77B8 /* BaseViewController.m in Sources */,
 				161CCDAE1A6A436600527A7A /* README.md in Sources */,
 				16E4A3041A67D66900152389 /* main.m in Sources */,
 				161CCDA41A6A436600527A7A /* NSValueTransformer+FTGTransformerAdditions.m in Sources */,

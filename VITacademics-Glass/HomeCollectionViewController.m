@@ -13,10 +13,7 @@
 #import "VITXManager.h"
 #import "CCColorCube.h"
 
-@interface HomeCollectionViewController (){
-    NSArray *timeTable;
-    NSMutableArray *classes;
-}
+@interface HomeCollectionViewController ()
 
 @property (nonatomic) NSInteger selectedCell;
 @property (nonatomic, strong) UICollectionViewFlowLayout *condensedLayout;
@@ -62,7 +59,6 @@ static NSString * const reuseIdentifier = @"course";
     self.selectedCell = -1;
     [self.collectionView setCollectionViewLayout:self.condensedLayout];
     [self.collectionView reloadData];
-    [self addGestureRecogizersToCell];
     self.collectionView.backgroundView  = self.wallpaperView;
 
     [[RACObserve([VITXManager sharedManager], user)
@@ -73,43 +69,12 @@ static NSString * const reuseIdentifier = @"course";
          }
          //NSLog(@"User: %@", user);
          self.user = user;
-         [self initTimeTable];
          
          [self.collectionView reloadData];
          [[VITXManager sharedManager] hideLoadingIndicator];
          
          
      }];
-}
-
-
--(void)initTimeTable{
-    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-    [dateFormatter setDateFormat:@"EEEE"];
-    NSString *todaysDay = [dateFormatter stringFromDate:[NSDate date]];
-    
-    
-    if([todaysDay isEqualToString:@"Monday"]){
-        timeTable = self.user.timetable.monday;
-    }
-    else if([todaysDay isEqualToString:@"Tuesday"]){
-        timeTable = self.user.timetable.tuesday;
-    }
-    else if([todaysDay isEqualToString:@"Wednesday"]){
-        timeTable = self.user.timetable.wednesday;
-    }
-    else if([todaysDay isEqualToString:@"Thursday"]){
-        timeTable = self.user.timetable.thursday;
-    }
-    else if([todaysDay isEqualToString:@"Friday"]){
-        timeTable = self.user.timetable.friday;
-    }
-    else if([todaysDay isEqualToString:@"Saturday"]){
-        timeTable = self.user.timetable.saturday;
-    }
-    else{
-        timeTable = self.user.timetable.monday;
-    }
 }
 
 - (UIImageView *)wallpaperView
@@ -133,19 +98,9 @@ static NSString * const reuseIdentifier = @"course";
     return _wallpaperView;
 }
 
-- (void)willRotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration
-{
-    [self.collectionView reloadData];
-}
-
-- (void) addGestureRecogizersToCell
-{
-    
-}
-
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView
 {
-    return 2;
+    return 1;
 }
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView
@@ -155,9 +110,7 @@ static NSString * const reuseIdentifier = @"course";
     CGRect newRect = self.collectionView.backgroundView.frame;
     newRect.origin = point;
     self.collectionView.backgroundView.frame = newRect;
-    
 
-    
 }
 
 - (CGFloat)collectionView:(UICollectionView *)collectionView
@@ -205,16 +158,13 @@ minimumInteritemSpacingForSectionAtIndex:(NSInteger)section
                   layout:(UICollectionViewLayout *)collectionViewLayout
   sizeForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    if(indexPath.section == 0)
-    {
         if(indexPath.row == self.selectedCell)
             return CGSizeMake(self.collectionView.bounds.size.width>500?500:self.collectionView.bounds.size.width,
                               self.collectionView.bounds.size.height);
         else
             return CGSizeMake(150, self.collectionView.bounds.size.height);
-    }
-    return CGSizeZero;
 }
+
 
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
@@ -346,8 +296,6 @@ minimumInteritemSpacingForSectionAtIndex:(NSInteger)section
 
 - (BOOL)collectionView:(UICollectionView *)collectionView shouldSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    if(indexPath.section == 1)
-    {
         if(!self.cellIsChanging)
         {
             self.cellIsChanging = YES;
@@ -364,7 +312,6 @@ minimumInteritemSpacingForSectionAtIndex:(NSInteger)section
         }
         else
             return NO;
-    }
     
     return NO;
 }

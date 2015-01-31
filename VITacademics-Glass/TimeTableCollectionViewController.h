@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "VITXManager.h"
+
 
 @interface TimeTableCollectionViewController : UICollectionViewController
+
 
 @end
