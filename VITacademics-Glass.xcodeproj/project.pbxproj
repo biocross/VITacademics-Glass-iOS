@@ -27,7 +27,7 @@
 		16617C171A6BDF86000CA406 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 16617C151A6BDF86000CA406 /* LoginViewController.m */; };
 		16617C1B1A6BE622000CA406 /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 16617C1A1A6BE622000CA406 /* BaseViewController.m */; };
 		1662CF3C1A7A746F00F02F81 /* TimeTableCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1662CF3B1A7A746F00F02F81 /* TimeTableCollectionViewController.m */; };
-		1662CF3E1A7A75AB00F02F81 /* TimeTableExpandedView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1662CF3D1A7A75AB00F02F81 /* TimeTableExpandedView.xib */; };
+		1662CF3E1A7A75AB00F02F81 /* TimeTableCondensedView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1662CF3D1A7A75AB00F02F81 /* TimeTableCondensedView.xib */; };
 		167203B81A6B969F00A498AE /* CCColorCube.mm in Sources */ = {isa = PBXBuildFile; fileRef = 167203B51A6B969F00A498AE /* CCColorCube.mm */; };
 		167203B91A6B969F00A498AE /* CCLocalMaximum.m in Sources */ = {isa = PBXBuildFile; fileRef = 167203B71A6B969F00A498AE /* CCLocalMaximum.m */; };
 		168195061A727C3A009C236B /* ice.png in Resources */ = {isa = PBXBuildFile; fileRef = 168195051A727C3A009C236B /* ice.png */; };
@@ -116,7 +116,7 @@
 		16617C1A1A6BE622000CA406 /* BaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseViewController.m; sourceTree = "<group>"; };
 		1662CF3A1A7A746F00F02F81 /* TimeTableCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimeTableCollectionViewController.h; sourceTree = "<group>"; };
 		1662CF3B1A7A746F00F02F81 /* TimeTableCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TimeTableCollectionViewController.m; sourceTree = "<group>"; };
-		1662CF3D1A7A75AB00F02F81 /* TimeTableExpandedView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TimeTableExpandedView.xib; sourceTree = "<group>"; };
+		1662CF3D1A7A75AB00F02F81 /* TimeTableCondensedView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TimeTableCondensedView.xib; sourceTree = "<group>"; };
 		167203B41A6B969F00A498AE /* CCColorCube.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCColorCube.h; sourceTree = "<group>"; };
 		167203B51A6B969F00A498AE /* CCColorCube.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = CCColorCube.mm; sourceTree = "<group>"; };
 		167203B61A6B969F00A498AE /* CCLocalMaximum.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCLocalMaximum.h; sourceTree = "<group>"; };
@@ -680,7 +680,7 @@
 		425783941A6820DB00885323 /* View XIB Files */ = {
 			isa = PBXGroup;
 			children = (
-				1662CF3D1A7A75AB00F02F81 /* TimeTableExpandedView.xib */,
+				1662CF3D1A7A75AB00F02F81 /* TimeTableCondensedView.xib */,
 				4257839E1A69391600885323 /* GraphView.h */,
 				4257839F1A69391600885323 /* GraphView.m */,
 				425783981A68E93600885323 /* RoundedHexagonPercentageView.h */,
@@ -812,7 +812,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1662CF3E1A7A75AB00F02F81 /* TimeTableExpandedView.xib in Resources */,
+				1662CF3E1A7A75AB00F02F81 /* TimeTableCondensedView.xib in Resources */,
 				1681950E1A7284F8009C236B /* b1.jpg in Resources */,
 				425783911A6820B600885323 /* CondensedView.xib in Resources */,
 				168195131A728508009C236B /* b5.jpg in Resources */,

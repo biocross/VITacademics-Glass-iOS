@@ -7,7 +7,7 @@
 //
 
 #import "TimeTableCollectionViewController.h"
-#import "CCColorCube.h"
+#import "UIImage+ImageEffects.h"
 #import "VITXManager.h"
 
 
@@ -75,7 +75,13 @@ static NSString * const reuseIdentifier = @"TimeTable";
 {
     if(!_wallpaperView)
     {
-        _wallpaperView = [[UIImageView alloc] initWithImage:self.wallpaper];
+        _wallpaperView = [[UIImageView alloc] initWithImage:[self.wallpaper applyBlurWithRadius:20
+                                                                                      tintColor:[UIColor colorWithRed:0
+                                                                                                                green:0
+                                                                                                                 blue:0
+                                                                                                                alpha:0.5]
+                                                                          saturationDeltaFactor:1.8
+                                                                                      maskImage:nil]];
         _wallpaperView.contentMode = UIViewContentModeScaleAspectFill;
     }
     return _wallpaperView;
@@ -128,12 +134,7 @@ minimumInteritemSpacingForSectionAtIndex:(NSInteger)section
                   layout:(UICollectionViewLayout *)collectionViewLayout
   sizeForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-
-        if(1)
-            return CGSizeMake(self.collectionView.bounds.size.width>500?500:self.collectionView.bounds.size.width,
-                              self.collectionView.bounds.size.height);
-        else
-            return CGSizeMake(150, self.collectionView.bounds.size.height);
+    return CGSizeMake(50, self.collectionView.bounds.size.height);
 }
 
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
@@ -147,6 +148,32 @@ minimumInteritemSpacingForSectionAtIndex:(NSInteger)section
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:reuseIdentifier forIndexPath:indexPath];
+    
+    for(UIView *view in [cell.contentView subviews])
+    {
+        [view removeFromSuperview];
+    }
+    
+
+    
+    
+    UIView *view;
+    NSArray *views = [[NSBundle mainBundle] loadNibNamed:@"TimeTableCondensedView" owner:self options:nil];
+    view = [views firstObject];
+    [cell.contentView addSubview:view];
+    
+    UILabel *slot = (UILabel *)[view viewWithTag:5];
+    CGAffineTransform transform = CGAffineTransformMakeRotation(4.71);
+    slot.transform = transform;
+    slot.textColor = [UIColor whiteColor];
+    
+    
+    
+    
+    cell.backgroundColor = [UIColor clearColor];
+    if(indexPath.row % 2 == 0)
+        [cell viewWithTag:10].backgroundColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:0.2];
+    
     
     return cell;
 }
