@@ -7,7 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "User.h"
 
 @interface TimeTableCollectionViewController : UICollectionViewController
+
+@property User *user;
+
 
 @end

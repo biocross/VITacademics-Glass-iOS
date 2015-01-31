@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "TimeTableCollectionViewController.h"
 
 @interface HomeCollectionViewController : UICollectionViewController
 
