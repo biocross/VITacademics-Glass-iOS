@@ -8,148 +8,93 @@
 
 #import "TimeTableCollectionViewController.h"
 
-@interface TimeTableCollectionViewController (){
-    NSArray *timeTable;
-    NSMutableArray *classes;
-}
-
-
-
-@property (nonatomic, strong) UICollectionViewFlowLayout *condensedLayout;
-@property (nonatomic, strong) UICollectionViewFlowLayout *expandedLayout;
-@property (nonatomic, strong) UIImageView *wallpaperView;
-@property User *user;
-@property UIImage *wallpaper;
+@interface TimeTableCollectionViewController ()
 
 @end
 
 @implementation TimeTableCollectionViewController
 
-static NSString * const reuseIdentifier = @"TimeTable";
+static NSString * const reuseIdentifier = @"Cell";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    // Uncomment the following line to preserve selection between presentations
+    // self.clearsSelectionOnViewWillAppear = NO;
+    
+    // Register cell classes
     [self.collectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:reuseIdentifier];
     
-    self.wallpaper = [[VITXManager sharedManager] getAwesomeImage];
-    [self.collectionView setCollectionViewLayout:self.condensedLayout];
-    [self.collectionView reloadData];
-    self.collectionView.backgroundView  = self.wallpaperView;
+    self.collectionView.backgroundColor = [UIColor cyanColor];
     
-    [[RACObserve([VITXManager sharedManager], user)
-      deliverOn:RACScheduler.mainThreadScheduler]
-     subscribeNext:^(User *user) {
-         if(!user){
-             [[VITXManager sharedManager] startRefreshing];
-         }
-         //NSLog(@"User: %@", user);
-         self.user = user;
-         [self initTimeTable];
-         
-         [self.collectionView reloadData];
-         [[VITXManager sharedManager] hideLoadingIndicator];
-         
-         
-     }];
+    // Do any additional setup after loading the view.
 }
 
-
-
--(void)initTimeTable{
-    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-    [dateFormatter setDateFormat:@"EEEE"];
-    NSString *todaysDay = [dateFormatter stringFromDate:[NSDate date]];
-    
-    
-    if([todaysDay isEqualToString:@"Monday"]){
-        timeTable = self.user.timetable.monday;
-    }
-    else if([todaysDay isEqualToString:@"Tuesday"]){
-        timeTable = self.user.timetable.tuesday;
-    }
-    else if([todaysDay isEqualToString:@"Wednesday"]){
-        timeTable = self.user.timetable.wednesday;
-    }
-    else if([todaysDay isEqualToString:@"Thursday"]){
-        timeTable = self.user.timetable.thursday;
-    }
-    else if([todaysDay isEqualToString:@"Friday"]){
-        timeTable = self.user.timetable.friday;
-    }
-    else if([todaysDay isEqualToString:@"Saturday"]){
-        timeTable = self.user.timetable.saturday;
-    }
-    else{
-        timeTable = self.user.timetable.monday;
-    }
+- (void)didReceiveMemoryWarning {
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
 }
 
+/*
+#pragma mark - Navigation
+
+// In a storyboard-based application, you will often want to do a little preparation before navigation
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    // Get the new view controller using [segue destinationViewController].
+    // Pass the selected object to the new view controller.
+}
+*/
 
 #pragma mark <UICollectionViewDataSource>
 
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
+#warning Incomplete method implementation -- Return the number of sections
     return 0;
 }
 
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
+#warning Incomplete method implementation -- Return the number of items in the section
     return 0;
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:reuseIdentifier forIndexPath:indexPath];
     
+    // Configure the cell
+    
     return cell;
 }
 
-- (CGFloat)collectionView:(UICollectionView *)collectionView
-                   layout:(UICollectionViewLayout *)collectionViewLayout
-minimumLineSpacingForSectionAtIndex:(NSInteger)section
-{
-    return 0;
+#pragma mark <UICollectionViewDelegate>
+
+/*
+// Uncomment this method to specify if the specified item should be highlighted during tracking
+- (BOOL)collectionView:(UICollectionView *)collectionView shouldHighlightItemAtIndexPath:(NSIndexPath *)indexPath {
+	return YES;
+}
+*/
+
+/*
+// Uncomment this method to specify if the specified item should be selected
+- (BOOL)collectionView:(UICollectionView *)collectionView shouldSelectItemAtIndexPath:(NSIndexPath *)indexPath {
+    return YES;
+}
+*/
+
+/*
+// Uncomment these methods to specify if an action menu should be displayed for the specified item, and react to actions performed on the item
+- (BOOL)collectionView:(UICollectionView *)collectionView shouldShowMenuForItemAtIndexPath:(NSIndexPath *)indexPath {
+	return NO;
 }
 
-- (UICollectionViewFlowLayout *)condensedLayout
-{
-    if(!_condensedLayout)
-    {
-        _condensedLayout = [[UICollectionViewFlowLayout alloc] init];
-        [_condensedLayout setScrollDirection:UICollectionViewScrollDirectionHorizontal];
-    }
-    return _condensedLayout;
+- (BOOL)collectionView:(UICollectionView *)collectionView canPerformAction:(SEL)action forItemAtIndexPath:(NSIndexPath *)indexPath withSender:(id)sender {
+	return NO;
 }
 
-- (UICollectionViewFlowLayout *)expandedLayout
-{
-    if(!_expandedLayout)
-    {
-        _expandedLayout = [[UICollectionViewFlowLayout alloc] init];
-        _expandedLayout.scrollDirection = UICollectionViewScrollDirectionHorizontal;
-    }
-    return _expandedLayout;
+- (void)collectionView:(UICollectionView *)collectionView performAction:(SEL)action forItemAtIndexPath:(NSIndexPath *)indexPath withSender:(id)sender {
+	
 }
-
-- (UIEdgeInsets)collectionView:(UICollectionView *)collectionView
-                        layout:(UICollectionViewLayout *)collectionViewLayout
-        insetForSectionAtIndex:(NSInteger)section
-{
-    return UIEdgeInsetsZero;
-}
-
-- (CGFloat)collectionView:(UICollectionView *)collectionView
-                   layout:(UICollectionViewLayout *)collectionViewLayout
-minimumInteritemSpacingForSectionAtIndex:(NSInteger)section
-{
-    return 0;
-}
-
-- (CGSize)collectionView:(UICollectionView *)collectionView
-                  layout:(UICollectionViewLayout *)collectionViewLayout
-  sizeForItemAtIndexPath:(NSIndexPath *)indexPath
-{
-        return CGSizeMake(50, self.collectionView.bounds.size.height);
-}
-
+*/
 
 @end

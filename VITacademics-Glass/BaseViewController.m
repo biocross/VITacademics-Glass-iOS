@@ -248,6 +248,8 @@ TODOs:
             timeTableAnimation.toValue = [NSValue valueWithCGPoint:CGPointMake(self.view.center.x, self.timeTableCollectionViewController.view.center.y + 500)];
             timeTableAnimation.springBounciness = 8;
             [self.timeTableCollectionViewController.view pop_addAnimation:timeTableAnimation forKey:@"down1"];
+            
+            
             [UIView animateWithDuration:0.5
                              animations:^{
                                  self.homeScreenCollectionViewController.collectionView.userInteractionEnabled = NO;
@@ -257,6 +259,7 @@ TODOs:
                              }];
         }
         else{
+            
             POPSpringAnimation *coursesAnimation = [POPSpringAnimation animationWithPropertyNamed:kPOPViewCenter];
             coursesAnimation.toValue = [NSValue valueWithCGPoint:CGPointMake(self.view.center.x, self.homeScreenCollectionViewController.view.center.y + 500)];
             coursesAnimation.springBounciness = 8;
@@ -276,6 +279,8 @@ TODOs:
                                  self.timeTableCollectionViewController.view.layer.cornerRadius = 10;
                              }];
         }
+        
+        
         self.menuShowing = YES;
     }
 
@@ -316,7 +321,6 @@ TODOs:
 - (IBAction)timeTablePressed:(id)sender {
     if(!timeTableViewInFront){
         [self.view exchangeSubviewAtIndex:1 withSubviewAtIndex:2];
-        timeTableViewInFront = YES;
     }
     [self hideShowCollectionViewController];
 }

@@ -17,7 +17,7 @@
 + (instancetype)sharedManager;
 - (void)startRefreshing;
 
-@property (nonatomic, strong) BaseViewController *baseViewController;
+@property BaseViewController *baseViewController;
 
 -(void)hideLoadingIndicator;
 -(void)showLoadingIndicator;
