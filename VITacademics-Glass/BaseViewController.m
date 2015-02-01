@@ -23,6 +23,7 @@ TODOs:
 
 @interface BaseViewController (){
     BOOL timeTableViewInFront;
+    BOOL coursesDragged;
 }
 
 @property (nonatomic) BOOL menuShowing;
@@ -80,12 +81,9 @@ TODOs:
         if(panGestureRecognizer.state == UIGestureRecognizerStateChanged && self.menuShowing == YES)
         {
             //Index 1
-            if(timeTableViewInFront){
-                [self.view exchangeSubviewAtIndex:1 withSubviewAtIndex:2];
-                timeTableViewInFront = NO;
-            }
             self.homeScreenCollectionViewController.view.center = CGPointMake(self.homeScreenCollectionViewController.view.center.x,
                                                                               self.homeScreenCollectionViewController.view.center.y + [panGestureRecognizer translationInView:self.view].y);
+            coursesDragged = YES;
             
             [panGestureRecognizer setTranslation:CGPointZero inView:self.view];
         }
@@ -98,13 +96,10 @@ TODOs:
         if(panGestureRecognizer.state == UIGestureRecognizerStateChanged && self.menuShowing == YES)
         {
             //Index 2
-            if(!timeTableViewInFront){
-                [self.view exchangeSubviewAtIndex:1 withSubviewAtIndex:2];
-                timeTableViewInFront = YES;
-            }
             self.timeTableCollectionViewController.view.center = CGPointMake(self.timeTableCollectionViewController.view.center.x,
                                                                              self.timeTableCollectionViewController.view.center.y + [panGestureRecognizer translationInView:self.view].y);
             
+            coursesDragged = NO;
             [panGestureRecognizer setTranslation:CGPointZero inView:self.view];
         }
         else if(panGestureRecognizer.state == UIGestureRecognizerStateEnded && self.menuShowing == YES)
@@ -214,15 +209,39 @@ TODOs:
 {
     if(self.menuShowing)
     {
-        POPSpringAnimation *upAnimation = [POPSpringAnimation animationWithPropertyNamed:kPOPViewCenter];
-        upAnimation.toValue = [NSValue valueWithCGPoint:self.view.center];
-        upAnimation.springBounciness = 7;
-        [self.timeTableCollectionViewController.view pop_addAnimation:upAnimation forKey:@"up"];
         
-        POPSpringAnimation *upAnimation2 = [POPSpringAnimation animationWithPropertyNamed:kPOPViewCenter];
-        upAnimation2.toValue = [NSValue valueWithCGPoint:self.view.center];
-        upAnimation2.springBounciness = 7;
-        [self.homeScreenCollectionViewController.view pop_addAnimation:upAnimation2 forKey:@"up"];
+        if(coursesDragged){
+            POPSpringAnimation *masterUp1 = [POPSpringAnimation animationWithPropertyNamed:kPOPViewCenter];
+            masterUp1.toValue = [NSValue valueWithCGPoint:self.view.center];
+            masterUp1.springBounciness = 7;
+            [self.homeScreenCollectionViewController.view pop_addAnimation:masterUp1 forKey:@"up1"];
+            
+//            [UIView animateWithDuration:0.3 animations:^{
+//                self.timeTableCollectionViewController.view.center = CGPointMake(self.view.center.x, self.view.center.y + self.view.bounds.size.height);
+//            }];
+            
+            POPSpringAnimation *slaveDown1 = [POPSpringAnimation animationWithPropertyNamed:kPOPViewCenter];
+            slaveDown1.toValue = [NSValue valueWithCGPoint:CGPointMake(self.view.center.x, self.view.center.y + self.view.bounds.size.height)];
+            slaveDown1.springBounciness = 4;
+            [self.timeTableCollectionViewController.view pop_addAnimation:slaveDown1 forKey:@"down1"];
+            
+            
+        }
+        else {
+            POPSpringAnimation *upAnimation2 = [POPSpringAnimation animationWithPropertyNamed:kPOPViewCenter];
+            upAnimation2.toValue = [NSValue valueWithCGPoint:self.view.center];
+            upAnimation2.springBounciness = 7;
+            [self.timeTableCollectionViewController.view pop_addAnimation:upAnimation2 forKey:@"up2"];
+            
+//            [UIView animateWithDuration:0.3 animations:^{
+//                self.homeScreenCollectionViewController.view.center = CGPointMake(self.view.center.x, self.view.center.y + self.view.bounds.size.height);
+//            }];
+            
+            POPSpringAnimation *slaveDown1 = [POPSpringAnimation animationWithPropertyNamed:kPOPViewCenter];
+            slaveDown1.toValue = [NSValue valueWithCGPoint:CGPointMake(self.view.center.x, self.view.center.y + self.view.bounds.size.height)];
+            slaveDown1.springBounciness = 4;
+            [self.homeScreenCollectionViewController.view pop_addAnimation:slaveDown1 forKey:@"down2"];
+        }
         
         [UIView animateWithDuration:0.5
                          animations:^{
@@ -235,17 +254,14 @@ TODOs:
     }
     else
     {
-        
-        if(timeTableViewInFront){
-            
             
             POPSpringAnimation *coursesAnimation = [POPSpringAnimation animationWithPropertyNamed:kPOPViewCenter];
-            coursesAnimation.toValue = [NSValue valueWithCGPoint:CGPointMake(self.view.center.x, self.homeScreenCollectionViewController.view.center.y + 400)];
+            coursesAnimation.toValue = [NSValue valueWithCGPoint:CGPointMake(self.view.center.x, ((self.view.bounds.size.height) + 100))];
             coursesAnimation.springBounciness = 8;
             [self.homeScreenCollectionViewController.view pop_addAnimation:coursesAnimation forKey:@"down1"];
             
             POPSpringAnimation *timeTableAnimation = [POPSpringAnimation animationWithPropertyNamed:kPOPViewCenter];
-            timeTableAnimation.toValue = [NSValue valueWithCGPoint:CGPointMake(self.view.center.x, self.timeTableCollectionViewController.view.center.y + 500)];
+            timeTableAnimation.toValue = [NSValue valueWithCGPoint:CGPointMake(self.view.center.x, ((self.view.bounds.size.height) + 200))];
             timeTableAnimation.springBounciness = 8;
             [self.timeTableCollectionViewController.view pop_addAnimation:timeTableAnimation forKey:@"down1"];
             
@@ -257,29 +273,6 @@ TODOs:
                                  self.homeScreenCollectionViewController.view.layer.cornerRadius = 10;
                                  self.timeTableCollectionViewController.view.layer.cornerRadius = 10;
                              }];
-        }
-        else{
-            
-            POPSpringAnimation *coursesAnimation = [POPSpringAnimation animationWithPropertyNamed:kPOPViewCenter];
-            coursesAnimation.toValue = [NSValue valueWithCGPoint:CGPointMake(self.view.center.x, self.homeScreenCollectionViewController.view.center.y + 500)];
-            coursesAnimation.springBounciness = 8;
-            [self.homeScreenCollectionViewController.view pop_addAnimation:coursesAnimation forKey:@"down2"];
-            
-            POPSpringAnimation *timeTableAnimation = [POPSpringAnimation animationWithPropertyNamed:kPOPViewCenter];
-            timeTableAnimation.toValue = [NSValue valueWithCGPoint:CGPointMake(self.view.center.x, self.timeTableCollectionViewController.view.center.y + 400)];
-            timeTableAnimation.springBounciness = 8;
-            [self.timeTableCollectionViewController.view pop_addAnimation:timeTableAnimation forKey:@"down2"];
-            
-            
-            [UIView animateWithDuration:0.5
-                             animations:^{
-                                 self.homeScreenCollectionViewController.collectionView.userInteractionEnabled = NO;
-                                 self.timeTableCollectionViewController.collectionView.userInteractionEnabled = NO;
-                                 self.homeScreenCollectionViewController.view.layer.cornerRadius = 10;
-                                 self.timeTableCollectionViewController.view.layer.cornerRadius = 10;
-                             }];
-        }
-        
         
         self.menuShowing = YES;
     }
@@ -288,7 +281,6 @@ TODOs:
 
 - (IBAction)coursesPressed:(id)sender {
     if(timeTableViewInFront){
-        [self.view exchangeSubviewAtIndex:1 withSubviewAtIndex:2];
         timeTableViewInFront = NO;
     }
     [self hideShowCollectionViewController];
@@ -319,9 +311,6 @@ TODOs:
 }
 
 - (IBAction)timeTablePressed:(id)sender {
-    if(!timeTableViewInFront){
-        [self.view exchangeSubviewAtIndex:1 withSubviewAtIndex:2];
-    }
     [self hideShowCollectionViewController];
 }
 
