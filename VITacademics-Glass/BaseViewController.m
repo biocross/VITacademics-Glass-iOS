@@ -22,7 +22,6 @@ TODOs:
 
 
 @interface BaseViewController (){
-    BOOL timeTableViewInFront;
     BOOL coursesDragged;
 }
 
@@ -156,7 +155,6 @@ TODOs:
     [self.view sendSubviewToBack:self.buttonsView];
     self.menuButton.backgroundColor = [UIColor colorWithWhite:0.1 alpha:0.15];
     [self.timeTableCollectionViewController.view addGestureRecognizer:self.timeTablePangestureRecognizer];
-    timeTableViewInFront = YES;
 }
 
 -(void)addCollectionView
@@ -216,10 +214,6 @@ TODOs:
             masterUp1.springBounciness = 7;
             [self.homeScreenCollectionViewController.view pop_addAnimation:masterUp1 forKey:@"up1"];
             
-//            [UIView animateWithDuration:0.3 animations:^{
-//                self.timeTableCollectionViewController.view.center = CGPointMake(self.view.center.x, self.view.center.y + self.view.bounds.size.height);
-//            }];
-            
             POPSpringAnimation *slaveDown1 = [POPSpringAnimation animationWithPropertyNamed:kPOPViewCenter];
             slaveDown1.toValue = [NSValue valueWithCGPoint:CGPointMake(self.view.center.x, self.view.center.y + self.view.bounds.size.height)];
             slaveDown1.springBounciness = 4;
@@ -232,10 +226,6 @@ TODOs:
             upAnimation2.toValue = [NSValue valueWithCGPoint:self.view.center];
             upAnimation2.springBounciness = 7;
             [self.timeTableCollectionViewController.view pop_addAnimation:upAnimation2 forKey:@"up2"];
-            
-//            [UIView animateWithDuration:0.3 animations:^{
-//                self.homeScreenCollectionViewController.view.center = CGPointMake(self.view.center.x, self.view.center.y + self.view.bounds.size.height);
-//            }];
             
             POPSpringAnimation *slaveDown1 = [POPSpringAnimation animationWithPropertyNamed:kPOPViewCenter];
             slaveDown1.toValue = [NSValue valueWithCGPoint:CGPointMake(self.view.center.x, self.view.center.y + self.view.bounds.size.height)];
@@ -280,9 +270,7 @@ TODOs:
 }
 
 - (IBAction)coursesPressed:(id)sender {
-    if(timeTableViewInFront){
-        timeTableViewInFront = NO;
-    }
+    coursesDragged = YES;
     [self hideShowCollectionViewController];
 }
 
@@ -311,6 +299,7 @@ TODOs:
 }
 
 - (IBAction)timeTablePressed:(id)sender {
+    coursesDragged = NO;
     [self hideShowCollectionViewController];
 }
 
