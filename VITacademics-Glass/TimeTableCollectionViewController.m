@@ -40,6 +40,7 @@ static NSString * const reuseIdentifier = @"TimeTable";
     self.collectionView.backgroundView  = self.wallpaperView;
     
     
+    
 }
 
 -(void)initTimeTable{
@@ -138,7 +139,7 @@ minimumInteritemSpacingForSectionAtIndex:(NSInteger)section
 }
 
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
-    return 1;
+    return 6;
 }
 
 
@@ -148,15 +149,13 @@ minimumInteritemSpacingForSectionAtIndex:(NSInteger)section
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:reuseIdentifier forIndexPath:indexPath];
+    
     cell.contentView.clipsToBounds = YES;
     for(UIView *view in [cell.contentView subviews])
     {
         [view removeFromSuperview];
     }
-    
 
-    
-    
     UIView *view;
     NSArray *views = [[NSBundle mainBundle] loadNibNamed:@"TimeTableCondensedView" owner:self options:nil];
     view = [views firstObject];
@@ -166,8 +165,6 @@ minimumInteritemSpacingForSectionAtIndex:(NSInteger)section
     CGAffineTransform transform = CGAffineTransformMakeRotation(4.71);
     slot.transform = transform;
     slot.textColor = [UIColor whiteColor];
-    
-    
     
     
     cell.backgroundColor = [UIColor clearColor];

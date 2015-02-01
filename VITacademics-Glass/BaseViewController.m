@@ -30,6 +30,9 @@ TODOs:
 @property (nonatomic, strong) UIPanGestureRecognizer *coursesPanGestureRecognizer;
 @property (nonatomic, strong) UIPanGestureRecognizer *timeTablePangestureRecognizer;
 
+@property (nonatomic, strong) UITapGestureRecognizer *coursesTapped;
+@property (nonatomic, strong) UITapGestureRecognizer *timeTableTapped;
+
 @end
 
 @implementation BaseViewController
@@ -67,12 +70,38 @@ TODOs:
     return _coursesPanGestureRecognizer;
 }
 
+- (UITapGestureRecognizer *)coursesTapped{
+    if(!_coursesTapped){
+        _coursesTapped = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(childViewTapped:)];
+    }
+    return _coursesTapped;
+}
+
+- (UITapGestureRecognizer *)timeTableTapped{
+    if(!_timeTableTapped){
+        _timeTableTapped = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(childViewTapped:)];
+    }
+    return _timeTableTapped;
+}
+
 - (UIPanGestureRecognizer *)timeTablePangestureRecognizer{
     if(!_timeTablePangestureRecognizer){
         _timeTablePangestureRecognizer = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(collectionViewDragged:)];
     }
     return _timeTablePangestureRecognizer;
 }
+
+-(void)childViewTapped:(UITapGestureRecognizer *)sender{
+    if(sender == self.coursesTapped){
+        coursesDragged = YES;
+        [self hideShowCollectionViewController];
+    }
+    if(sender == self.timeTableTapped){
+        coursesDragged = NO;
+        [self hideShowCollectionViewController];
+    }
+}
+
 
 - (void) collectionViewDragged:(UIPanGestureRecognizer *) panGestureRecognizer
 {
@@ -135,7 +164,6 @@ TODOs:
     loadingLabel.textAlignment = NSTextAlignmentCenter;
     self.shimmeringView.contentView = loadingLabel;
     self.shimmeringView.shimmering = YES;
-    
 }
 
 
@@ -155,6 +183,7 @@ TODOs:
     [self.view sendSubviewToBack:self.buttonsView];
     self.menuButton.backgroundColor = [UIColor colorWithWhite:0.1 alpha:0.15];
     [self.timeTableCollectionViewController.view addGestureRecognizer:self.timeTablePangestureRecognizer];
+    [self.timeTableCollectionViewController.view addGestureRecognizer:self.timeTableTapped];
 }
 
 -(void)addCollectionView
@@ -165,6 +194,7 @@ TODOs:
     [self addshadows:self.homeScreenCollectionViewController.view];
     [self.view sendSubviewToBack:self.buttonsView];
     [self.homeScreenCollectionViewController.view addGestureRecognizer:self.coursesPanGestureRecognizer];
+    [self.homeScreenCollectionViewController.view addGestureRecognizer:self.coursesTapped];
 }
 
 - (void) viewDidAppear:(BOOL)animated
@@ -181,6 +211,12 @@ TODOs:
      name:@"prepareViewsForDataPresentation"
      object:nil];
     
+}
+
+-(void)viewWillDisappear:(BOOL)animated{
+    [super viewDidDisappear:animated];
+    
+    [self.homeScreenCollectionViewController removeObserver:self forKeyPath:@"view.center.y" context:nil];
 }
 
 -(void)beginLoginProcess
@@ -219,7 +255,6 @@ TODOs:
             slaveDown1.springBounciness = 4;
             [self.timeTableCollectionViewController.view pop_addAnimation:slaveDown1 forKey:@"down1"];
             
-            
         }
         else {
             POPSpringAnimation *upAnimation2 = [POPSpringAnimation animationWithPropertyNamed:kPOPViewCenter];
@@ -244,7 +279,6 @@ TODOs:
     }
     else
     {
-            
             POPSpringAnimation *coursesAnimation = [POPSpringAnimation animationWithPropertyNamed:kPOPViewCenter];
             coursesAnimation.toValue = [NSValue valueWithCGPoint:CGPointMake(self.view.center.x, ((self.view.bounds.size.height) + 100))];
             coursesAnimation.springBounciness = 8;
