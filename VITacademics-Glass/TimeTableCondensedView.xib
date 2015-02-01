@@ -15,7 +15,7 @@
                     <rect key="frame" x="0.0" y="0.0" width="151" height="568"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" tag="5" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="C1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rqZ-tj-Io9">
-                            <rect key="frame" x="25" y="273" width="100" height="21"/>
+                            <rect key="frame" x="-27" y="273" width="100" height="21"/>
                             <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="17"/>
                             <nil key="highlightedColor"/>
                         </label>

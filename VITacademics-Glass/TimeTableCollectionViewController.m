@@ -148,7 +148,7 @@ minimumInteritemSpacingForSectionAtIndex:(NSInteger)section
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:reuseIdentifier forIndexPath:indexPath];
-    
+    cell.contentView.clipsToBounds = YES;
     for(UIView *view in [cell.contentView subviews])
     {
         [view removeFromSuperview];
