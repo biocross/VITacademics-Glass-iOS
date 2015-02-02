@@ -219,6 +219,7 @@ typedef CGPoint NSPoint;
 
 -(void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context{
     CGPoint new = [change[@"new"] CGPointValue];
+#warning Hardcoded Values
     float alpha = (new.y - 284) / 384;
     self.buttonsView.alpha = alpha;
 }
