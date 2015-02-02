@@ -37,6 +37,9 @@ TODOs:
 
 @implementation BaseViewController
 
+typedef CGPoint NSPoint;
+
+
 - (HomeCollectionViewController *)homeScreenCollectionViewController
 {
     if(!_homeScreenCollectionViewController)
@@ -211,11 +214,21 @@ TODOs:
      name:@"prepareViewsForDataPresentation"
      object:nil];
     
+    [self.homeScreenCollectionViewController.view addObserver:self forKeyPath:@"center" options:NSKeyValueObservingOptionNew context:nil];
+}
+
+-(void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context{
+    CGPoint new = [change[@"new"] CGPointValue];
+    float alpha = (new.y - 284) / 384;
+    self.buttonsView.alpha = alpha;
 }
 
 -(void)viewWillDisappear:(BOOL)animated{
     [super viewDidDisappear:animated];
     
+}
+
+-(void)dealloc{
     [self.homeScreenCollectionViewController removeObserver:self forKeyPath:@"view.center.y" context:nil];
 }
 
