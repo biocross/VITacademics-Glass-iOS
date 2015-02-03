@@ -151,8 +151,7 @@ typedef CGPoint NSPoint;
         [self performSelector:(@selector(beginLoginProcess)) withObject:nil afterDelay:1];
     }
     else{
-        [self addCollectionView];
-        [self addTimeTableView];
+        [self addChildViews];
     }
 
     [self.view bringSubviewToFront:self.shimmeringView];
@@ -167,6 +166,8 @@ typedef CGPoint NSPoint;
     loadingLabel.textAlignment = NSTextAlignmentCenter;
     self.shimmeringView.contentView = loadingLabel;
     self.shimmeringView.shimmering = YES;
+    
+    coursesDragged = YES; //Default View is Courses View.
 }
 
 
@@ -186,7 +187,7 @@ typedef CGPoint NSPoint;
     [self.view sendSubviewToBack:self.buttonsView];
     self.menuButton.backgroundColor = [UIColor colorWithWhite:0.1 alpha:0.15];
     [self.timeTableCollectionViewController.view addGestureRecognizer:self.timeTablePangestureRecognizer];
-    [self.timeTableCollectionViewController.view addGestureRecognizer:self.timeTableTapped];
+
 }
 
 -(void)addCollectionView
@@ -197,7 +198,11 @@ typedef CGPoint NSPoint;
     [self addshadows:self.homeScreenCollectionViewController.view];
     [self.view sendSubviewToBack:self.buttonsView];
     [self.homeScreenCollectionViewController.view addGestureRecognizer:self.coursesPanGestureRecognizer];
-    [self.homeScreenCollectionViewController.view addGestureRecognizer:self.coursesTapped];
+}
+
+- (void)addChildViews{
+    [self addCollectionView];
+    //[self addTimeTableView];
 }
 
 - (void) viewDidAppear:(BOOL)animated
@@ -210,7 +215,7 @@ typedef CGPoint NSPoint;
 
     [[NSNotificationCenter defaultCenter]
      addObserver:self
-     selector:@selector(addCollectionView)
+     selector:@selector(addChildViews)
      name:@"prepareViewsForDataPresentation"
      object:nil];
     
@@ -290,6 +295,9 @@ typedef CGPoint NSPoint;
                              self.timeTableCollectionViewController.view.layer.cornerRadius = 0;
                          }];
         self.menuShowing = NO;
+        [self.homeScreenCollectionViewController.view removeGestureRecognizer:self.coursesTapped];
+        [self.timeTableCollectionViewController.view removeGestureRecognizer:self.timeTableTapped];
+        
     }
     else
     {
@@ -313,6 +321,8 @@ typedef CGPoint NSPoint;
                              }];
         
         self.menuShowing = YES;
+        [self.homeScreenCollectionViewController.view addGestureRecognizer:self.coursesTapped];
+        [self.timeTableCollectionViewController.view addGestureRecognizer:self.timeTableTapped];
     }
 
 }

@@ -179,7 +179,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zc9-za-qde">
-                                        <rect key="frame" x="0.0" y="87" width="168" height="43"/>
+                                        <rect key="frame" x="0.0" y="48" width="168" height="43"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="26"/>
                                         <state key="normal" title="Refresh">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -190,7 +190,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="u2f-a7-s2m">
-                                        <rect key="frame" x="0.0" y="128" width="168" height="43"/>
+                                        <rect key="frame" x="0.0" y="89" width="168" height="43"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="26"/>
                                         <state key="normal" title="Credentials">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -200,19 +200,8 @@
                                             <action selector="credentialsPressed:" destination="BJl-B7-Ivi" eventType="touchUpInside" id="FM2-AT-DX9"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="S6h-B6-PsU">
-                                        <rect key="frame" x="0.0" y="47" width="168" height="43"/>
-                                        <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="26"/>
-                                        <state key="normal" title="Time Table">
-                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="timeTablePressed:" destination="BJl-B7-Ivi" eventType="touchUpInside" id="XjE-X8-W1R"/>
-                                        </connections>
-                                    </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="v3K-fY-ld7">
-                                        <rect key="frame" x="-2" y="169" width="222" height="43"/>
+                                        <rect key="frame" x="-2" y="130" width="222" height="43"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="26"/>
                                         <state key="normal" title="Send Feedback">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -264,7 +253,6 @@
                         <outletCollection property="MenuButtons" destination="u2f-a7-s2m" id="Mhe-aR-PKB"/>
                         <outletCollection property="MenuButtons" destination="Zc9-za-qde" id="OB7-2J-lRs"/>
                         <outletCollection property="MenuButtons" destination="qmR-17-Wjt" id="UZX-bl-NUz"/>
-                        <outletCollection property="MenuButtons" destination="S6h-B6-PsU" id="LR6-to-xzE"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tjo-XE-JbJ" userLabel="First Responder" sceneMemberID="firstResponder"/>

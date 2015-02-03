@@ -73,7 +73,6 @@ static NSString * const reuseIdentifier = @"course";
          [self.collectionView reloadData];
          [[VITXManager sharedManager] hideLoadingIndicator];
          
-         
      }];
 }
 
@@ -244,24 +243,26 @@ minimumInteritemSpacingForSectionAtIndex:(NSInteger)section
             }
             
             
-            GraphView *graphView = (GraphView *)[cell.contentView viewWithTag:2];
+            if([self.user.courses count] > 1){
+                GraphView *graphView = (GraphView *)[cell.contentView viewWithTag:2];
+
+                if(indexPath.row>0 && indexPath.row < ([self.user.courses count] - 1))
+                    [graphView setBefore:[[[self.user.courses[indexPath.row-1] attendance] attendance_percentage] floatValue]/100
+                                 current:[[[self.user.courses[indexPath.row] attendance] attendance_percentage] floatValue]/100
+                                   after:[[[self.user.courses[indexPath.row+1] attendance] attendance_percentage] floatValue]/100];
+                else if(indexPath.row == 0)
+                    [graphView setBefore:0.5
+                                 current:[[[self.user.courses[indexPath.row] attendance] attendance_percentage] floatValue]/100
+                                   after:[[[self.user.courses[indexPath.row+1] attendance] attendance_percentage] floatValue]/100];
+                else
+                    [graphView setBefore:[[[self.user.courses[indexPath.row-1] attendance] attendance_percentage] floatValue]/100
+                                 current:[[[self.user.courses[indexPath.row] attendance] attendance_percentage] floatValue]/100
+                                   after:0.5];
+                
+                
+                graphView.lastUpdated = [[[[self.user.courses[indexPath.row] attendance] details] lastObject] date];
             
-            if(indexPath.row>0 && indexPath.row < ([self.user.courses count] - 1))
-                [graphView setBefore:[[[self.user.courses[indexPath.row-1] attendance] attendance_percentage] floatValue]/100
-                             current:[[[self.user.courses[indexPath.row] attendance] attendance_percentage] floatValue]/100
-                               after:[[[self.user.courses[indexPath.row+1] attendance] attendance_percentage] floatValue]/100];
-            else if(indexPath.row == 0)
-                [graphView setBefore:0.5
-                             current:[[[self.user.courses[indexPath.row] attendance] attendance_percentage] floatValue]/100
-                               after:[[[self.user.courses[indexPath.row+1] attendance] attendance_percentage] floatValue]/100];
-            else
-                [graphView setBefore:[[[self.user.courses[indexPath.row-1] attendance] attendance_percentage] floatValue]/100
-                             current:[[[self.user.courses[indexPath.row] attendance] attendance_percentage] floatValue]/100
-                               after:0.5];
-            
-            
-            graphView.lastUpdated = [[[[self.user.courses[indexPath.row] attendance] details] lastObject] date];
-            
+            }
             
             
             for(UIView *view in [cell.contentView subviews])
