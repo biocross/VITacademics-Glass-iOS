@@ -45,7 +45,8 @@ typedef CGPoint NSPoint;
     if(!_homeScreenCollectionViewController)
     {
         _homeScreenCollectionViewController = [[UIStoryboard storyboardWithName:@"Main"
-                                                                         bundle:nil] instantiateViewControllerWithIdentifier:@"HomeCollectionViewController"];
+                                                                         bundle:nil]
+                                               instantiateViewControllerWithIdentifier:@"HomeCollectionViewController"];
         _homeScreenCollectionViewController.view.layer.masksToBounds = YES;
         _homeScreenCollectionViewController.view.clipsToBounds = YES;
     }
@@ -224,7 +225,9 @@ typedef CGPoint NSPoint;
 
 -(void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context{
     CGPoint new = [change[@"new"] CGPointValue];
+
 #warning Hardcoded Values
+    
     float alpha = (new.y - 284) / 384;
     self.buttonsView.alpha = alpha;
 }
