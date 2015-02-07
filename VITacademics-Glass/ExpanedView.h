@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "RoundedHexagonPercentageView.h"
 
 @interface ExpanedView : UIView
+
+@property (weak, nonatomic) IBOutlet RoundedHexagonPercentageView *hexagonView;
 
 @end
