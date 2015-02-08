@@ -24,6 +24,7 @@
 		161CCDAF1A6A436600527A7A /* VITXClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 161CCDA01A6A436600527A7A /* VITXClient.m */; };
 		161CCDB01A6A436600527A7A /* VITXManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 161CCDA21A6A436600527A7A /* VITXManager.m */; };
 		1644E5F21A6BDB4300504ED8 /* TimeTable.m in Sources */ = {isa = PBXBuildFile; fileRef = 1644E5F11A6BDB4300504ED8 /* TimeTable.m */; };
+		1658035B1A86727100FD9E2D /* TimeTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1658035A1A86727100FD9E2D /* TimeTableCell.xib */; };
 		16617C171A6BDF86000CA406 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 16617C151A6BDF86000CA406 /* LoginViewController.m */; };
 		16617C1B1A6BE622000CA406 /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 16617C1A1A6BE622000CA406 /* BaseViewController.m */; };
 		1662CF3C1A7A746F00F02F81 /* TimeTableCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1662CF3B1A7A746F00F02F81 /* TimeTableCollectionViewController.m */; };
@@ -37,6 +38,7 @@
 		168195121A728508009C236B /* b4.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1681950F1A728508009C236B /* b4.jpg */; };
 		168195131A728508009C236B /* b5.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 168195101A728508009C236B /* b5.jpg */; };
 		168195141A728508009C236B /* b6.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 168195111A728508009C236B /* b6.jpg */; };
+		16A902B31A86299000C3E65A /* TimeTableDayView.m in Sources */ = {isa = PBXBuildFile; fileRef = 16A902B21A86299000C3E65A /* TimeTableDayView.m */; };
 		16C7A4C31A7158FA009D6522 /* Images-2.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 16C7A4C21A7158FA009D6522 /* Images-2.xcassets */; };
 		16E4A3041A67D66900152389 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 16E4A3031A67D66900152389 /* main.m */; };
 		16E4A3071A67D66900152389 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 16E4A3061A67D66900152389 /* AppDelegate.m */; };
@@ -110,6 +112,7 @@
 		161CCDA21A6A436600527A7A /* VITXManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VITXManager.m; sourceTree = "<group>"; };
 		1644E5F01A6BDB4300504ED8 /* TimeTable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimeTable.h; sourceTree = "<group>"; };
 		1644E5F11A6BDB4300504ED8 /* TimeTable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TimeTable.m; sourceTree = "<group>"; };
+		1658035A1A86727100FD9E2D /* TimeTableCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TimeTableCell.xib; sourceTree = "<group>"; };
 		16617C141A6BDF86000CA406 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		16617C151A6BDF86000CA406 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		16617C191A6BE622000CA406 /* BaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseViewController.h; sourceTree = "<group>"; };
@@ -128,6 +131,8 @@
 		1681950F1A728508009C236B /* b4.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = b4.jpg; sourceTree = "<group>"; };
 		168195101A728508009C236B /* b5.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = b5.jpg; sourceTree = "<group>"; };
 		168195111A728508009C236B /* b6.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = b6.jpg; sourceTree = "<group>"; };
+		16A902B11A86299000C3E65A /* TimeTableDayView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimeTableDayView.h; sourceTree = "<group>"; };
+		16A902B21A86299000C3E65A /* TimeTableDayView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TimeTableDayView.m; sourceTree = "<group>"; };
 		16C7A4C21A7158FA009D6522 /* Images-2.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Images-2.xcassets"; sourceTree = "<group>"; };
 		16D5D4B81A700AA30077499D /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		16D5D4BA1A700AA80077499D /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
@@ -681,6 +686,9 @@
 			isa = PBXGroup;
 			children = (
 				1662CF3D1A7A75AB00F02F81 /* TimeTableCondensedView.xib */,
+				16A902B11A86299000C3E65A /* TimeTableDayView.h */,
+				16A902B21A86299000C3E65A /* TimeTableDayView.m */,
+				1658035A1A86727100FD9E2D /* TimeTableCell.xib */,
 				4257839E1A69391600885323 /* GraphView.h */,
 				4257839F1A69391600885323 /* GraphView.m */,
 				425783981A68E93600885323 /* RoundedHexagonPercentageView.h */,
@@ -821,6 +829,7 @@
 				1681950A1A727D20009C236B /* b3.jpg in Resources */,
 				168195121A728508009C236B /* b4.jpg in Resources */,
 				1681950C1A727D65009C236B /* b2.jpg in Resources */,
+				1658035B1A86727100FD9E2D /* TimeTableCell.xib in Resources */,
 				16C7A4C31A7158FA009D6522 /* Images-2.xcassets in Resources */,
 				16E4A30D1A67D66900152389 /* Main.storyboard in Resources */,
 				42E4ACFB1A6EC81200D9572F /* Menu@2x.png in Resources */,
@@ -890,6 +899,7 @@
 				4213245D1A6BCC3B00483BBF /* ExpanedView.m in Sources */,
 				161CCDB01A6A436600527A7A /* VITXManager.m in Sources */,
 				161B75591A693E9F0074AFD5 /* MultiplePulsingHaloLayer.m in Sources */,
+				16A902B31A86299000C3E65A /* TimeTableDayView.m in Sources */,
 				1644E5F21A6BDB4300504ED8 /* TimeTable.m in Sources */,
 				161CCDA91A6A436600527A7A /* Courses.m in Sources */,
 				161CCDA61A6A436600527A7A /* Attendance.m in Sources */,

@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "User.h"
+#import "TimeTableDayView.h"
 
 @interface TimeTableCollectionViewController : UICollectionViewController
 

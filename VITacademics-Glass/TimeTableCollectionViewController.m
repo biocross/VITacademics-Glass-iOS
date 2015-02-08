@@ -19,7 +19,6 @@
 
 
 @property (nonatomic, strong) UICollectionViewFlowLayout *condensedLayout;
-@property (nonatomic, strong) UICollectionViewFlowLayout *expandedLayout;
 @property (nonatomic, strong) UIImageView *wallpaperView;
 @property UIImage *wallpaper;
 
@@ -105,16 +104,6 @@ minimumLineSpacingForSectionAtIndex:(NSInteger)section
     return _condensedLayout;
 }
 
-- (UICollectionViewFlowLayout *)expandedLayout
-{
-    if(!_expandedLayout)
-    {
-        _expandedLayout = [[UICollectionViewFlowLayout alloc] init];
-        _expandedLayout.scrollDirection = UICollectionViewScrollDirectionHorizontal;
-    }
-    return _expandedLayout;
-}
-
 - (UIEdgeInsets)collectionView:(UICollectionView *)collectionView
                         layout:(UICollectionViewLayout *)collectionViewLayout
         insetForSectionAtIndex:(NSInteger)section
@@ -135,16 +124,16 @@ minimumInteritemSpacingForSectionAtIndex:(NSInteger)section
                   layout:(UICollectionViewLayout *)collectionViewLayout
   sizeForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    return CGSizeMake(50, self.collectionView.bounds.size.height);
+    return CGSizeMake(200, self.collectionView.bounds.size.height);
 }
 
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
-    return 6;
+    return 1;
 }
 
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    return 13;
+    return 6;
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
@@ -161,10 +150,7 @@ minimumInteritemSpacingForSectionAtIndex:(NSInteger)section
     view = [views firstObject];
     [cell.contentView addSubview:view];
     
-    UILabel *slot = (UILabel *)[view viewWithTag:5];
-    CGAffineTransform transform = CGAffineTransformMakeRotation(4.71);
-    slot.transform = transform;
-    slot.textColor = [UIColor whiteColor];
+    
     
     
     cell.backgroundColor = [UIColor clearColor];
