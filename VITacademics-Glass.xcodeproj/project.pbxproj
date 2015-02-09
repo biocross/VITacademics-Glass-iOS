@@ -52,6 +52,7 @@
 		4257839A1A68E93600885323 /* RoundedHexagonPercentageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 425783991A68E93600885323 /* RoundedHexagonPercentageView.m */; };
 		425783A01A69391600885323 /* GraphView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4257839F1A69391600885323 /* GraphView.m */; };
 		42E4ACFB1A6EC81200D9572F /* Menu@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 42E4ACFA1A6EC81200D9572F /* Menu@2x.png */; };
+		42F370D01A8886C700854AE8 /* TopAttendanceView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 42F370CF1A8886C700854AE8 /* TopAttendanceView.xib */; };
 		CEC71B31D098745E1442027B /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DA9E6B1DB054274C90B053C6 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -200,7 +201,7 @@
 		16D5D5051A700CC50077499D /* CuteAnimals-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "CuteAnimals-Info.plist"; sourceTree = "<group>"; };
 		16D5D5061A700CC50077499D /* CuteAnimals-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CuteAnimals-Prefix.pch"; sourceTree = "<group>"; };
 		16D5D5071A700CC50077499D /* CuteAnimals.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = CuteAnimals.xcodeproj; sourceTree = "<group>"; };
-		16D5D50A1A700CC50077499D /* GTM-XXXX */ = {isa = PBXFileReference; lastKnownFileType = file; path = "GTM-XXXX"; sourceTree = "<group>"; };
+		16D5D50A1A700CC50077499D /* GTM-XXXX */ = {isa = PBXFileReference; lastKnownFileType = text; path = "GTM-XXXX"; sourceTree = "<group>"; };
 		16D5D50B1A700CC50077499D /* GTM-XXXX.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GTM-XXXX.plist"; sourceTree = "<group>"; };
 		16D5D50D1A700CC50077499D /* Bunny-1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "Bunny-1.jpg"; sourceTree = "<group>"; };
 		16D5D50E1A700CC50077499D /* Bunny-2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "Bunny-2.jpg"; sourceTree = "<group>"; };
@@ -271,6 +272,7 @@
 		4257839E1A69391600885323 /* GraphView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GraphView.h; sourceTree = "<group>"; };
 		4257839F1A69391600885323 /* GraphView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GraphView.m; sourceTree = "<group>"; };
 		42E4ACFA1A6EC81200D9572F /* Menu@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Menu@2x.png"; sourceTree = "<group>"; };
+		42F370CF1A8886C700854AE8 /* TopAttendanceView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TopAttendanceView.xib; sourceTree = "<group>"; };
 		DA9E6B1DB054274C90B053C6 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		E37A615077840976B51267B2 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -697,8 +699,17 @@
 				425783921A6820D200885323 /* ExpandedView.xib */,
 				4213245B1A6BCC3B00483BBF /* ExpanedView.h */,
 				4213245C1A6BCC3B00483BBF /* ExpanedView.m */,
+				42F370CE1A88869D00854AE8 /* Sections of Expanded View */,
 			);
 			name = "View XIB Files";
+			sourceTree = "<group>";
+		};
+		42F370CE1A88869D00854AE8 /* Sections of Expanded View */ = {
+			isa = PBXGroup;
+			children = (
+				42F370CF1A8886C700854AE8 /* TopAttendanceView.xib */,
+			);
+			name = "Sections of Expanded View";
 			sourceTree = "<group>";
 		};
 		57AD456BB52A0FFAD0EF6E67 /* Pods */ = {
@@ -824,6 +835,7 @@
 				1681950E1A7284F8009C236B /* b1.jpg in Resources */,
 				425783911A6820B600885323 /* CondensedView.xib in Resources */,
 				168195131A728508009C236B /* b5.jpg in Resources */,
+				42F370D01A8886C700854AE8 /* TopAttendanceView.xib in Resources */,
 				161CCDA31A6A436600527A7A /* .gitignore in Resources */,
 				161CCDA51A6A436600527A7A /* LICENSE in Resources */,
 				1681950A1A727D20009C236B /* b3.jpg in Resources */,

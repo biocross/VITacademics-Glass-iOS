@@ -33,7 +33,37 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 100;
+    return 5;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    switch (indexPath.row) {
+        case 0:
+            return 224;
+            break;
+        case 1:
+            return 60;
+            break;
+        case 2:
+            return 70;
+            break;
+        case 3:
+            return 80;
+            break;
+        case 4:
+            return 90;
+            break;
+            
+        default:
+            break;
+    }
+    return 50;
+}
+
+- (BOOL)tableView:(UITableView *)tableView shouldHighlightRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return NO;
 }
 
 - (UITableViewCell *) tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -48,6 +78,25 @@
     {
         cell.backgroundColor = [UIColor clearColor];
     }
+    
+    for(UIView *view in [cell.contentView subviews])
+    {
+        [view removeFromSuperview];
+    }
+    
+    UIView *viewToBeAdded;
+    
+    switch(indexPath.row)
+    {
+            case 0:
+            viewToBeAdded = [[NSBundle mainBundle] loadNibNamed:@"TopAttendanceView" owner:self options:nil].firstObject;
+            viewToBeAdded.frame = CGRectMake(0, 0, cell.bounds.size.width, 224);
+            [cell.contentView addSubview:viewToBeAdded];
+            break;
+    }
+    
+    cell.contentView.clipsToBounds = YES;
+    cell.contentView.layer.masksToBounds = YES;
 
     return cell;
 }
