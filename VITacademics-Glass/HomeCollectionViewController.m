@@ -203,6 +203,7 @@ minimumInteritemSpacingForSectionAtIndex:(NSInteger)section
                                  }
                              }
                              completion:nil];
+            [view viewWithTag:1].transform = CGAffineTransformMakeRotation(M_PI/6);
             
         }
         else

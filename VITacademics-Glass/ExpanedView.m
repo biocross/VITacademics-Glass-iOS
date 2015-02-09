@@ -11,11 +11,48 @@
 @implementation ExpanedView
 
 - (id)initWithCoder:(NSCoder *)aDecoder {
-    if ((self = [super initWithCoder:aDecoder])) {
-        self.hexagonView.transform = CGAffineTransformMakeRotation(M_PI_2);
-    }
+    if ((self = [super initWithCoder:aDecoder])) {}
     return self;
 }
+
+- (void) setTableView:(UITableView *)tableView
+{
+    _tableView = tableView;
+    _tableView.delegate = self;
+    _tableView.dataSource = self;
+    _tableView.backgroundColor = [UIColor clearColor];
+    _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    
+    [_tableView reloadData];
+}
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+    return 1;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return 100;
+}
+
+- (UITableViewCell *) tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    UITableViewCell *cell = [[UITableViewCell alloc] init];
+    
+    if(indexPath.row%2 == 0)
+    {
+        cell.backgroundColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:0.2];
+    }
+    else
+    {
+        cell.backgroundColor = [UIColor clearColor];
+    }
+
+    return cell;
+}
+
+
 
 
 @end
