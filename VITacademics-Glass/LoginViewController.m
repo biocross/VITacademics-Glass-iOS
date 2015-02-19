@@ -26,6 +26,10 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     
+    if(![[NSUserDefaults standardUserDefaults] objectForKey:@"campus"]){
+        [[NSUserDefaults standardUserDefaults] setObject:@"vellore" forKey:@"campus"];
+    }
+    
     self.regNoTextField.delegate = self;
     self.dobTextField.delegate = self;
      datePicker = [[UIDatePicker alloc] init];
@@ -53,8 +57,22 @@
         NSLog(@"Cannot set placeholder text's color, because deployment target is earlier than iOS 6.0");
         // TODO: Add fall-back code to set placeholder color.
     }
+    
+    [self.campusSelector addTarget:self
+                            action:@selector(selectCampus:)
+               forControlEvents:UIControlEventValueChanged];
 
     
+}
+
+-(void)selectCampus:(UISegmentedControl *)sender{
+    NSInteger choice = [sender selectedSegmentIndex];
+    if(!choice){
+        [[NSUserDefaults standardUserDefaults] setObject:@"vellore" forKey:@"campus"];
+    }
+    else{
+        [[NSUserDefaults standardUserDefaults] setObject:@"chennai" forKey:@"campus"];
+    }
 }
 
 - (void)didReceiveMemoryWarning {

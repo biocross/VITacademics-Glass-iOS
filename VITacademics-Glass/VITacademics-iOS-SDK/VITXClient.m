@@ -63,7 +63,8 @@
 }
 
 - (RACSignal *)fetchFirstTimeForUserWithRegistrationNumber:(NSString *)registrationNumber andDateOfBirth:(NSString *)dateOfBirth {
-    NSString *url = [NSString stringWithFormat:@"http://vitacademics-rel.herokuapp.com/api/vellore/data/first?regno=%@&dob=%@", registrationNumber, dateOfBirth];
+    NSString *campus = [[NSUserDefaults standardUserDefaults] stringForKey:@"campus"];
+    NSString *url = [NSString stringWithFormat:@"http://vitacademics-rel.herokuapp.com/api/%@/data/first?regno=%@&dob=%@", campus, registrationNumber, dateOfBirth];
     
     return [[self fetchJSONFromURL:url] map:^(NSDictionary *json) {
         return [MTLJSONAdapter modelOfClass:[User class] fromJSONDictionary:json error:nil];
@@ -71,7 +72,8 @@
 }
 
 - (RACSignal *)refreshDataForUserWithRegistrationNumber:(NSString *)registrationNumber andDateOfBirth:(NSString *)dateOfBirth {
-    NSString *url = [NSString stringWithFormat:@"http://vitacademics-rel.herokuapp.com/api/vellore/data/refresh?regno=%@&dob=%@", registrationNumber, dateOfBirth];
+    NSString *campus = [[NSUserDefaults standardUserDefaults] stringForKey:@"campus"];
+    NSString *url = [NSString stringWithFormat:@"http://vitacademics-rel.herokuapp.com/api/%@/data/refresh?regno=%@&dob=%@", campus, registrationNumber, dateOfBirth];
     
     return [[self fetchJSONFromURL:url] map:^(NSDictionary *json) {
         return [MTLJSONAdapter modelOfClass:[User class] fromJSONDictionary:json error:nil];
@@ -79,7 +81,8 @@
 }
 
 - (RACSignal *)loginWithRegistrationNumber:(NSString *)registrationNumber andDateOfBirth:(NSString *)dateOfBirth {
-    NSString *url = [NSString stringWithFormat:@"http://vitacademics-rel.herokuapp.com/api/vellore/login/auto?regno=%@&dob=%@", registrationNumber, dateOfBirth];
+    NSString *campus = [[NSUserDefaults standardUserDefaults] stringForKey:@"campus"];
+    NSString *url = [NSString stringWithFormat:@"http://vitacademics-rel.herokuapp.com/api/%@/login/auto?regno=%@&dob=%@", campus, registrationNumber, dateOfBirth];
     
     return [[self fetchJSONFromURL:url] map:^(NSDictionary *json) {
         return [MTLJSONAdapter modelOfClass:[LoginStatus class] fromJSONDictionary:json[@"status"] error:nil];
