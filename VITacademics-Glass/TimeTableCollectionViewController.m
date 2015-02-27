@@ -128,7 +128,7 @@ minimumInteritemSpacingForSectionAtIndex:(NSInteger)section
 }
 
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
-    return 1;
+    return 0;
 }
 
 
