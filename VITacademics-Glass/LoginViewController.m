@@ -16,7 +16,6 @@
 @interface LoginViewController (){
     UIDatePicker *datePicker;
 }
-@property UIImageView *wallpaperView;
 
 @end
 
@@ -30,6 +29,8 @@
         [[NSUserDefaults standardUserDefaults] setObject:@"vellore" forKey:@"campus"];
     }
     
+    self.view.backgroundColor = [UIColor colorWithRed:0.16 green:0.16 blue:0.21 alpha:1];
+    
     self.regNoTextField.delegate = self;
     self.dobTextField.delegate = self;
      datePicker = [[UIDatePicker alloc] init];
@@ -40,15 +41,7 @@
     if([[NSUserDefaults standardUserDefaults] stringForKey:@"dateOfBirth"]){
         self.dobTextField.text = [[NSUserDefaults standardUserDefaults] stringForKey:@"dateOfBirth"];
     }
-    
-    _wallpaperView = [[UIImageView alloc] initWithFrame:self.view.frame];
-    _wallpaperView.contentMode = UIViewContentModeLeft;
-    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad){
-        _wallpaperView.contentMode = UIViewContentModeScaleAspectFill;
-    }
-    _wallpaperView.image = [[[VITXManager sharedManager] getAwesomeImage] applyBlurWithRadius:5 tintColor:[UIColor colorWithRed:0 green:0 blue:0 alpha:0.5] saturationDeltaFactor:1.8 maskImage:nil];
-    [self.view insertSubview:_wallpaperView atIndex:0];
-    
+
     if ([self.regNoTextField respondsToSelector:@selector(setAttributedPlaceholder:)]) {
         UIColor *color = [UIColor whiteColor];
         self.regNoTextField.attributedPlaceholder = [[NSAttributedString alloc] initWithString:@"Registration Number" attributes:@{NSForegroundColorAttributeName: color}];

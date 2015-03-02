@@ -21,7 +21,6 @@
 
 -(void)hideLoadingIndicator;
 -(void)showLoadingIndicator;
--(UIImage *)getAwesomeImage;
 
 @property User *user;
 

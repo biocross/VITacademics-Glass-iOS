@@ -203,7 +203,7 @@ typedef CGPoint NSPoint;
 
 - (void)addChildViews{
     [self addCollectionView];
-    [self addTimeTableView];
+    //[self addTimeTableView];
 }
 
 - (void) viewDidAppear:(BOOL)animated

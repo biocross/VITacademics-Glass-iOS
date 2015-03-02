@@ -7,22 +7,18 @@
 //
 
 #import "HomeCollectionViewController.h"
-#import "UIImage+ImageEffects.h"
 #import "RoundedHexagonPercentageView.h"
 #import "GraphView.h"
 #import "VITXManager.h"
-#import "CCColorCube.h"
 
 @interface HomeCollectionViewController ()
 
 @property (nonatomic) NSInteger selectedCell;
 @property (nonatomic, strong) UICollectionViewFlowLayout *condensedLayout;
 @property (nonatomic, strong) UICollectionViewFlowLayout *expandedLayout;
-@property (nonatomic, strong) UIImageView *wallpaperView;
 @property (nonatomic) NSInteger previouslySelectedCell;
 @property (nonatomic) BOOL cellIsChanging;
 @property User *user;
-@property UIImage *wallpaper;
 
 @end
 
@@ -35,31 +31,11 @@ static NSString * const reuseIdentifier = @"course";
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
-    CCColorCube *colorCube = [[CCColorCube alloc] init];
-    UIColor *color;
-    
-    self.wallpaper = [[VITXManager sharedManager] getAwesomeImage];
-    
-    color = [[colorCube extractColorsFromImage:self.wallpaper
-                                         flags:CCAvoidBlack|CCOnlyBrightColors|CCOrderByBrightness
-                                         count:3] firstObject];
-    
-    const CGFloat *components = CGColorGetComponents(color.CGColor);
-    
-    CGFloat red = components[0];
-    CGFloat green = components[1];
-    CGFloat blue = components[2];
-    
-    self.view.tintColor = [UIColor colorWithRed:red
-                                          green:green
-                                           blue:blue
-                                          alpha:0.7];
+    self.view.tintColor = [UIColor colorWithRed:0.1019 green:0.7372 blue:0.6117 alpha:1];
     
     self.selectedCell = -1;
     [self.collectionView setCollectionViewLayout:self.condensedLayout];
     [self.collectionView reloadData];
-    self.collectionView.backgroundView  = self.wallpaperView;
 
     [[RACObserve([VITXManager sharedManager], user)
       deliverOn:RACScheduler.mainThreadScheduler]
@@ -80,24 +56,6 @@ static NSString * const reuseIdentifier = @"course";
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView
 {
     return 1;
-}
-
-- (UIImageView *)wallpaperView
-{
-    if(!_wallpaperView)
-    {
-        
-        _wallpaperView = [[UIImageView alloc] initWithImage:[self.wallpaper applyBlurWithRadius:20
-                                                                                      tintColor:[UIColor colorWithRed:0
-                                                                                                                green:0
-                                                                                                                 blue:0
-                                                                                                                alpha:0.5]
-                                                                          saturationDeltaFactor:1.8
-                                                                                      maskImage:nil]];
-        _wallpaperView.contentMode = UIViewContentModeScaleAspectFill;
-        
-    }
-    return _wallpaperView;
 }
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView
@@ -284,10 +242,10 @@ minimumInteritemSpacingForSectionAtIndex:(NSInteger)section
                              }
                              completion:nil];
             
-            cell.backgroundColor = [UIColor clearColor];
+            cell.backgroundColor = [UIColor colorWithRed:0.16 green:0.17 blue:0.21 alpha:1];
             
             if(indexPath.row % 2 == 0)
-                [cell viewWithTag:10].backgroundColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:0.2];
+                [cell viewWithTag:10].backgroundColor = [UIColor colorWithRed:0.16 green:0.16 blue:0.20 alpha:1];
         }
     
     return cell;
