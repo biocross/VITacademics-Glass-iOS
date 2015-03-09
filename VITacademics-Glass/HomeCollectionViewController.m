@@ -31,7 +31,7 @@ static NSString * const reuseIdentifier = @"course";
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self.view.tintColor = [UIColor colorWithRed:0.32 green:0.85 blue:0.36 alpha:1];
+    self.view.tintColor = [UIColor colorWithRed:0.1019 green:0.7372 blue:0.6117 alpha:1];
     
     self.selectedCell = -1;
     [self.collectionView setCollectionViewLayout:self.condensedLayout];
@@ -276,7 +276,6 @@ minimumInteritemSpacingForSectionAtIndex:(NSInteger)section
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
 
-    /*
     UICollectionViewCell *cell = [self.collectionView cellForItemAtIndexPath:indexPath];
     UICollectionViewCell *previousCell;
     
@@ -350,6 +349,5 @@ minimumInteritemSpacingForSectionAtIndex:(NSInteger)section
                                                                    
                                                                }];
                      }];
-     */
 }
 @end
