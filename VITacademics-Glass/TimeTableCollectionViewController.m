@@ -7,6 +7,7 @@
 //
 
 #import "TimeTableCollectionViewController.h"
+#import "UIImage+ImageEffects.h"
 #import "VITXManager.h"
 
 
@@ -18,6 +19,8 @@
 
 
 @property (nonatomic, strong) UICollectionViewFlowLayout *condensedLayout;
+@property (nonatomic, strong) UIImageView *wallpaperView;
+@property UIImage *wallpaper;
 
 @end
 
@@ -29,8 +32,11 @@ static NSString * const reuseIdentifier = @"TimeTable";
     [super viewDidLoad];
     [self.collectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:reuseIdentifier];
     
+    self.wallpaper = [[VITXManager sharedManager] getAwesomeImage];
+    
     [self.collectionView setCollectionViewLayout:self.condensedLayout];
     [self.collectionView reloadData];
+    self.collectionView.backgroundView  = self.wallpaperView;
     
     
     
@@ -63,6 +69,22 @@ static NSString * const reuseIdentifier = @"TimeTable";
     else{
         timeTable = self.user.timetable.monday;
     }
+}
+
+- (UIImageView *)wallpaperView
+{
+    if(!_wallpaperView)
+    {
+        _wallpaperView = [[UIImageView alloc] initWithImage:[self.wallpaper applyBlurWithRadius:20
+                                                                                      tintColor:[UIColor colorWithRed:0
+                                                                                                                green:0
+                                                                                                                 blue:0
+                                                                                                                alpha:0.5]
+                                                                          saturationDeltaFactor:1.8
+                                                                                      maskImage:nil]];
+        _wallpaperView.contentMode = UIViewContentModeScaleAspectFill;
+    }
+    return _wallpaperView;
 }
 
 - (CGFloat)collectionView:(UICollectionView *)collectionView
