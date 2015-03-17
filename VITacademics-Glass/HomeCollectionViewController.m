@@ -94,6 +94,7 @@ static NSString * const reuseIdentifier = @"course";
                                                                                                                 alpha:0.5]
                                                                           saturationDeltaFactor:1.8
                                                                                       maskImage:nil]];
+        
         _wallpaperView.contentMode = UIViewContentModeScaleAspectFill;
         
     }
@@ -203,7 +204,6 @@ minimumInteritemSpacingForSectionAtIndex:(NSInteger)section
                                  }
                              }
                              completion:nil];
-            [view viewWithTag:1].transform = CGAffineTransformMakeRotation(M_PI/6);
             
         }
         else
