@@ -21,7 +21,11 @@
 
 -(void)hideLoadingIndicator;
 -(void)showLoadingIndicator;
--(UIImage *)getAwesomeImage;
+
+//Wallpaper Related Code:
+-(int)getAwesomeChoice;
+-(UIImage *)getBlurredImagesArray:(int)choice;
+-(UIImage *)getImagesArray:(int)choice;
 
 @property User *user;
 

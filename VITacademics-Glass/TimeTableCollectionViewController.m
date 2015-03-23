@@ -7,7 +7,6 @@
 //
 
 #import "TimeTableCollectionViewController.h"
-#import "UIImage+ImageEffects.h"
 #import "VITXManager.h"
 
 
@@ -15,6 +14,7 @@
 @interface TimeTableCollectionViewController (){
     NSArray *timeTable;
     NSMutableArray *classes;
+    int choice;
 }
 
 
@@ -32,7 +32,8 @@ static NSString * const reuseIdentifier = @"TimeTable";
     [super viewDidLoad];
     [self.collectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:reuseIdentifier];
     
-    self.wallpaper = [[VITXManager sharedManager] getAwesomeImage];
+    choice = [[VITXManager sharedManager] getAwesomeChoice];
+    self.wallpaper = [[VITXManager sharedManager] getBlurredImagesArray:choice];
     
     [self.collectionView setCollectionViewLayout:self.condensedLayout];
     [self.collectionView reloadData];
@@ -75,13 +76,7 @@ static NSString * const reuseIdentifier = @"TimeTable";
 {
     if(!_wallpaperView)
     {
-        _wallpaperView = [[UIImageView alloc] initWithImage:[self.wallpaper applyBlurWithRadius:20
-                                                                                      tintColor:[UIColor colorWithRed:0
-                                                                                                                green:0
-                                                                                                                 blue:0
-                                                                                                                alpha:0.5]
-                                                                          saturationDeltaFactor:1.8
-                                                                                      maskImage:nil]];
+        _wallpaperView = [[UIImageView alloc] initWithImage:self.wallpaper];
         _wallpaperView.contentMode = UIViewContentModeScaleAspectFill;
     }
     return _wallpaperView;

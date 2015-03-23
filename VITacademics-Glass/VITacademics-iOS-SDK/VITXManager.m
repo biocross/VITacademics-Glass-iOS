@@ -149,9 +149,18 @@
     [self.baseViewController showLoadingIndicator];
 }
 
--(UIImage *)getAwesomeImage{
+-(int)getAwesomeChoice{
+    int choice = arc4random() % 5;
+    return choice;
+}
+
+-(UIImage *)getImagesArray:(int)choice{
+    NSArray *images = @[@"1.jpg", @"2.jpg", @"3.jpg", @"5.jpg", @"6.jpg"];
+    return [UIImage imageNamed:images[choice]];
+}
+
+-(UIImage *)getBlurredImagesArray:(int)choice{
     NSArray *images = @[@"b1.jpg", @"b2.jpg", @"b3.jpg", @"b5.jpg", @"b6.jpg"];
-    int choice = arc4random() % [images count];
     return [UIImage imageNamed:images[choice]];
 }
 

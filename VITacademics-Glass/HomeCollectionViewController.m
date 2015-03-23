@@ -7,13 +7,15 @@
 //
 
 #import "HomeCollectionViewController.h"
-#import "UIImage+ImageEffects.h"
 #import "RoundedHexagonPercentageView.h"
+#import "UIImage+ImageEffects.h"
 #import "GraphView.h"
 #import "VITXManager.h"
 #import "CCColorCube.h"
 
-@interface HomeCollectionViewController ()
+@interface HomeCollectionViewController (){
+    int choice;
+}
 
 @property (nonatomic) NSInteger selectedCell;
 @property (nonatomic, strong) UICollectionViewFlowLayout *condensedLayout;
@@ -22,7 +24,6 @@
 @property (nonatomic) NSInteger previouslySelectedCell;
 @property (nonatomic) BOOL cellIsChanging;
 @property User *user;
-@property UIImage *wallpaper;
 
 @end
 
@@ -39,9 +40,9 @@ static NSString * const reuseIdentifier = @"course";
     CCColorCube *colorCube = [[CCColorCube alloc] init];
     UIColor *color;
     
-    self.wallpaper = [[VITXManager sharedManager] getAwesomeImage];
+    choice = [[VITXManager sharedManager] getAwesomeChoice];
     
-    color = [[colorCube extractColorsFromImage:self.wallpaper
+    color = [[colorCube extractColorsFromImage:[[VITXManager sharedManager] getImagesArray:choice]
                                          flags:CCAvoidBlack|CCOnlyBrightColors|CCOrderByBrightness
                                          count:3] firstObject];
     
@@ -86,17 +87,8 @@ static NSString * const reuseIdentifier = @"course";
 {
     if(!_wallpaperView)
     {
-        
-        _wallpaperView = [[UIImageView alloc] initWithImage:[self.wallpaper applyBlurWithRadius:20
-                                                                                      tintColor:[UIColor colorWithRed:0
-                                                                                                                green:0
-                                                                                                                 blue:0
-                                                                                                                alpha:0.5]
-                                                                          saturationDeltaFactor:1.8
-                                                                                      maskImage:nil]];
-        
+        _wallpaperView = [[UIImageView alloc] initWithImage:[[VITXManager sharedManager] getBlurredImagesArray:choice]];
         _wallpaperView.contentMode = UIViewContentModeScaleAspectFill;
-        
     }
     return _wallpaperView;
 }

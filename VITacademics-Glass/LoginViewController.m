@@ -46,7 +46,9 @@
     if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad){
         _wallpaperView.contentMode = UIViewContentModeScaleAspectFill;
     }
-    _wallpaperView.image = [[[VITXManager sharedManager] getAwesomeImage] applyBlurWithRadius:5 tintColor:[UIColor colorWithRed:0 green:0 blue:0 alpha:0.5] saturationDeltaFactor:1.8 maskImage:nil];
+    
+    int choice = [[VITXManager sharedManager] getAwesomeChoice];
+    _wallpaperView.image = [[[VITXManager sharedManager] getBlurredImagesArray:choice] applyBlurWithRadius:5 tintColor:[UIColor colorWithRed:0 green:0 blue:0 alpha:0.5] saturationDeltaFactor:1.8 maskImage:nil];
     [self.view insertSubview:_wallpaperView atIndex:0];
     
     if ([self.regNoTextField respondsToSelector:@selector(setAttributedPlaceholder:)]) {

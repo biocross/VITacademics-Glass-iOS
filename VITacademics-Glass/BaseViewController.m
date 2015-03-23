@@ -147,7 +147,6 @@ typedef CGPoint NSPoint;
 -(void)viewDidLoad{
     
     [super viewDidLoad];
-    
     if(![[NSUserDefaults standardUserDefaults] stringForKey:@"firstTime"]){
         [self performSelector:(@selector(beginLoginProcess)) withObject:nil afterDelay:1];
     }
