@@ -17,7 +17,7 @@
 
 @interface Courses : MTLModel <MTLJSONSerializing>
 
-@property (nonatomic, retain) NSString * class_number;
+@property (nonatomic, retain) NSNumber * class_number;
 @property (nonatomic, retain) NSString * course_code;
 @property (nonatomic, retain) NSString * course_mode;
 @property (nonatomic, retain) NSString * course_option;

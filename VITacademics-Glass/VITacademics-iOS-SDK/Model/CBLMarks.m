@@ -42,6 +42,7 @@
 
 + (NSValueTransformer *)cat1_statusJSONTransformer{
     return [MTLValueTransformer mtl_valueMappingTransformerWithDictionary:@{
+                                                                            @"": @(NO),
                                                                             @"Present": @(YES),
                                                                             @"Absent": @(NO),
                                                                             @"Debarred": @(NO)
@@ -49,6 +50,7 @@
 }
 + (NSValueTransformer *)cat2_statusJSONTransformer{
     return [MTLValueTransformer mtl_valueMappingTransformerWithDictionary:@{
+                                                                            @"": @(NO),
                                                                             @"Present": @(YES),
                                                                             @"Absent": @(NO),
                                                                             @"Debarred": @(NO)
@@ -56,6 +58,7 @@
 }
 + (NSValueTransformer *)quiz1_statusJSONTransformer{
     return [MTLValueTransformer mtl_valueMappingTransformerWithDictionary:@{
+                                                                            @"": @(NO),
                                                                             @"Present": @(YES),
                                                                             @"Absent": @(NO),
                                                                             @"Debarred": @(NO)
@@ -63,6 +66,7 @@
 }
 + (NSValueTransformer *)quiz2_statusJSONTransformer{
     return [MTLValueTransformer mtl_valueMappingTransformerWithDictionary:@{
+                                                                            @"": @(NO),
                                                                             @"Present": @(YES),
                                                                             @"Absent": @(NO),
                                                                             @"Debarred": @(NO)
@@ -70,6 +74,7 @@
 }
 + (NSValueTransformer *)quiz3_statusJSONTransformer{
     return [MTLValueTransformer mtl_valueMappingTransformerWithDictionary:@{
+                                                                            @"": @(NO),
                                                                             @"Present": @(YES),
                                                                             @"Absent": @(NO),
                                                                             @"Debarred": @(NO)
@@ -77,6 +82,7 @@
 }
 + (NSValueTransformer *)assignment_statusJSONTransformer{
     return [MTLValueTransformer mtl_valueMappingTransformerWithDictionary:@{
+                                                                            @"": @(NO),
                                                                             @"Present": @(YES),
                                                                             @"Absent": @(NO),
                                                                             @"Debarred": @(NO)

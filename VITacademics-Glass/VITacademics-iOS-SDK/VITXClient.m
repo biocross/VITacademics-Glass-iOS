@@ -54,7 +54,7 @@
             [dataTask cancel];
         }];
     }] doError:^(NSError *error) {
-        NSLog(@"HerE: %@",error);
+        NSLog(@"VITXClient: Error in fetchJSONFromURL: %@", error);
     }];
     
     

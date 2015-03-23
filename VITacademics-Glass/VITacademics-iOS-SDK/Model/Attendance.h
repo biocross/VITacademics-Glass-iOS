@@ -14,11 +14,11 @@
 
 @interface Attendance : MTLModel <MTLJSONSerializing>
 
-@property (nonatomic, retain) NSString * attendance_percentage;
-@property (nonatomic, retain) NSString * attended_classes;
+@property (nonatomic, retain) NSNumber * attendance_percentage;
+@property (nonatomic, retain) NSNumber * attended_classes;
 @property (nonatomic, retain) NSString * registration_date;
 @property (nonatomic, retain) NSString * supported;
-@property (nonatomic, retain) NSString * total_classes;
+@property (nonatomic, retain) NSNumber * total_classes;
 @property (nonatomic) NSArray * details;
 
 

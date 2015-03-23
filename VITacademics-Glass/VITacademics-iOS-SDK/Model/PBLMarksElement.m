@@ -33,6 +33,7 @@
 
 + (NSValueTransformer *)statusJSONTransformer{
     return [MTLValueTransformer mtl_valueMappingTransformerWithDictionary:@{
+                                                                            @"": @(NO),
                                                                             @"Present": @(YES),
                                                                             @"Absent": @(NO),
                                                                             @"Debarred": @(NO)
@@ -41,7 +42,7 @@
 
 +(NSValueTransformer *)conducted_onJSONTransformer{
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-    dateFormatter.dateFormat = @"dd-MMM-yyyy";
+    dateFormatter.dateFormat = @"dd-MM-yyyy";
     
     return [MTLValueTransformer reversibleTransformerWithForwardBlock:^(NSString *dateStr) {
         return [dateFormatter dateFromString:dateStr];

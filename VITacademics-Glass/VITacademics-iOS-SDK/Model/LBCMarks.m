@@ -24,6 +24,7 @@
 
 + (NSValueTransformer *)statusJSONTransformer{
     return [MTLValueTransformer mtl_valueMappingTransformerWithDictionary:@{
+                                                                            @"": @(NO),
                                                                             @"Present": @(YES),
                                                                             @"Absent": @(NO),
                                                                             @"Debarred": @(NO)
