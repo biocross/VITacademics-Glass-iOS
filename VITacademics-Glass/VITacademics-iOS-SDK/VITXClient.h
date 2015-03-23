@@ -12,7 +12,6 @@
 
 @interface VITXClient : NSObject
 
-- (RACSignal *)fetchFirstTimeForUserWithRegistrationNumber:(NSString *)registrationNumber andDateOfBirth:(NSString *)dateOfBirth;
 - (RACSignal *)refreshDataForUserWithRegistrationNumber:(NSString *)registrationNumber andDateOfBirth:(NSString *)dateOfBirth;
 - (RACSignal *)loginWithRegistrationNumber:(NSString *)registrationNumber andDateOfBirth:(NSString *)dateOfBirth;
     

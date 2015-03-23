@@ -13,6 +13,8 @@
 #import "VITXManager.h"
 #import "CCColorCube.h"
 
+#warning First Time Login View Controller does not set campus
+
 @interface HomeCollectionViewController (){
     int choice;
 }
@@ -68,8 +70,9 @@ static NSString * const reuseIdentifier = @"course";
          if(!user){
              [[VITXManager sharedManager] startRefreshing];
          }
-         //NSLog(@"User: %@", user);
+         NSLog(@"User: %@", user);
          self.user = user;
+         
          
          [self.collectionView reloadData];
          [[VITXManager sharedManager] hideLoadingIndicator];

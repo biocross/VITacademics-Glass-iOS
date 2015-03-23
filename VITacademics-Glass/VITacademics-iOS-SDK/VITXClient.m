@@ -26,12 +26,11 @@
     return self;
 }
 
-- (RACSignal *)fetchJSONFromURL:(NSString *)urlString {
-    NSURL *url = [NSURL URLWithString:urlString];
-    NSLog(@"VITXClient: Fetching: %@",url.absoluteString);
+- (RACSignal *)fetchJSONFromURL:(NSMutableURLRequest *)request {
+    NSLog(@"VITXClient: Fetching Something.");
     
     RACSignal *signal = [[RACSignal createSignal:^RACDisposable *(id<RACSubscriber> subscriber) {
-        NSURLSessionDataTask *dataTask = [self.session dataTaskWithURL:url completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
+        NSURLSessionDataTask *dataTask = [self.session dataTaskWithRequest:request completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
             if (! error) {
                 NSError *jsonError = nil;
                 id json = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&jsonError];
@@ -55,36 +54,38 @@
             [dataTask cancel];
         }];
     }] doError:^(NSError *error) {
-        NSLog(@"%@",error);
+        NSLog(@"HerE: %@",error);
     }];
     
     
     return signal;
 }
 
-- (RACSignal *)fetchFirstTimeForUserWithRegistrationNumber:(NSString *)registrationNumber andDateOfBirth:(NSString *)dateOfBirth {
-    NSString *campus = [[NSUserDefaults standardUserDefaults] stringForKey:@"campus"];
-    NSString *url = [NSString stringWithFormat:@"http://vitacademics-rel.herokuapp.com/api/%@/data/first?regno=%@&dob=%@", campus, registrationNumber, dateOfBirth];
-    
-    return [[self fetchJSONFromURL:url] map:^(NSDictionary *json) {
-        return [MTLJSONAdapter modelOfClass:[User class] fromJSONDictionary:json error:nil];
-    }];
-}
-
 - (RACSignal *)refreshDataForUserWithRegistrationNumber:(NSString *)registrationNumber andDateOfBirth:(NSString *)dateOfBirth {
     NSString *campus = [[NSUserDefaults standardUserDefaults] stringForKey:@"campus"];
-    NSString *url = [NSString stringWithFormat:@"http://vitacademics-rel.herokuapp.com/api/%@/data/refresh?regno=%@&dob=%@", campus, registrationNumber, dateOfBirth];
+    NSString *urlString = [NSString stringWithFormat:@"https://vitacademics-rel.herokuapp.com/api/v2/%@/refresh", campus];
+    NSURL *url = [NSURL URLWithString:urlString];
+    NSMutableURLRequest * urlRequest = [NSMutableURLRequest requestWithURL:url];
+    NSString * params = [NSString stringWithFormat:@"regno=%@&dob=%@", registrationNumber, dateOfBirth];
+    [urlRequest setHTTPMethod:@"POST"];
+    [urlRequest setHTTPBody:[params dataUsingEncoding:NSUTF8StringEncoding]];
     
-    return [[self fetchJSONFromURL:url] map:^(NSDictionary *json) {
+    return [[self fetchJSONFromURL:urlRequest] map:^(NSDictionary *json) {
         return [MTLJSONAdapter modelOfClass:[User class] fromJSONDictionary:json error:nil];
     }];
 }
 
 - (RACSignal *)loginWithRegistrationNumber:(NSString *)registrationNumber andDateOfBirth:(NSString *)dateOfBirth {
     NSString *campus = [[NSUserDefaults standardUserDefaults] stringForKey:@"campus"];
-    NSString *url = [NSString stringWithFormat:@"http://vitacademics-rel.herokuapp.com/api/%@/login/auto?regno=%@&dob=%@", campus, registrationNumber, dateOfBirth];
+    NSString *urlString = [NSString stringWithFormat:@"https://vitacademics-rel.herokuapp.com/api/v2/%@/login", campus];
+    NSURL *url = [NSURL URLWithString:urlString];
+    NSMutableURLRequest * urlRequest = [NSMutableURLRequest requestWithURL:url];
+    NSString * params = [NSString stringWithFormat:@"regno=%@&dob=%@", registrationNumber, dateOfBirth];
+    [urlRequest setHTTPMethod:@"POST"];
+    [urlRequest setHTTPBody:[params dataUsingEncoding:NSUTF8StringEncoding]];
     
-    return [[self fetchJSONFromURL:url] map:^(NSDictionary *json) {
+    return [[self fetchJSONFromURL:urlRequest] map:^(NSDictionary *json) {
+        NSLog(@"JSON Received: %@", json );
         return [MTLJSONAdapter modelOfClass:[LoginStatus class] fromJSONDictionary:json[@"status"] error:nil];
     }];
 }

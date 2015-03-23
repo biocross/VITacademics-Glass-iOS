@@ -16,7 +16,7 @@
 
 +(NSValueTransformer *)dateJSONTransformer{
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-    dateFormatter.dateFormat = @"dd-MMM-yyyy";
+    dateFormatter.dateFormat = @"yyyy-MM-dd";
     
     return [MTLValueTransformer reversibleTransformerWithForwardBlock:^(NSString *dateStr) {
         return [dateFormatter dateFromString:dateStr];

@@ -79,38 +79,18 @@
          
          if([self.status.message containsString:@"Success"]){
              
-             if(self.firstTime){
-                 [[RACSignal
-                   merge:@[[self reloadFirstTimeData]]]
-                  subscribeCompleted:^{
-                      NSLog(@"Loaded first time data");
-                      [[NSNotificationCenter defaultCenter] postNotificationName:@"prepareViewsForDataPresentation" object:nil];
-                  }];
-                 
-             }
-             else{
-                 [[RACSignal
-                   merge:@[[self refreshData]]]
-                  subscribeCompleted:^{
-                      NSLog(@"Refreshing data");
-                  }];
-             }
+             [[RACSignal
+               merge:@[[self refreshData]]]
+              subscribeCompleted:^{
+                  NSLog(@"Refreshing data");
+              }];
+             
          }
          else{
              NSLog(@"Login Failure");
+             [self.baseViewController hideLoadingIndicator];
          }
      }];
-}
-
-- (RACSignal *)reloadFirstTimeData {
-    NSLog(@"Loading data for the first time.");
-    
-     return [[_client fetchFirstTimeForUserWithRegistrationNumber:[[NSUserDefaults standardUserDefaults] stringForKey:@"registrationNumber"] andDateOfBirth:[[NSUserDefaults standardUserDefaults] stringForKey:@"dateOfBirth"]] doNext:^(User *user) {
-        self.user = user;
-        [self saveData];
-         [[NSUserDefaults standardUserDefaults] setObject:@"NO" forKey:@"firstTime"];
-    }];
-     
 }
 
 -(RACSignal *)loginUser{
