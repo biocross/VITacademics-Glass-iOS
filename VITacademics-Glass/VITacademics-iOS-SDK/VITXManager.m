@@ -88,6 +88,14 @@
          }
          else{
              NSLog(@"Login Failure");
+             
+             if(!(self.status.message) || [self.status.message isEqualToString:@""]){
+                 [self.baseViewController showInfoToUserWithTitle:@"Server Error" andMessage:@"Please try again"];
+             }
+             else{
+                [self.baseViewController showInfoToUserWithTitle:@"" andMessage:self.status.message];
+             }
+             
              [self.baseViewController hideLoadingIndicator];
          }
      }];

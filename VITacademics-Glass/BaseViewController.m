@@ -142,6 +142,13 @@ typedef CGPoint NSPoint;
     
 }
 
+-(void)showInfoToUserWithTitle:(NSString *)title andMessage:(NSString *)message{
+    UIAlertController *error = [UIAlertController alertControllerWithTitle:title message:message preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertAction *okay = [UIAlertAction actionWithTitle:@"Okay" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+    }];
+    [error addAction:okay];
+    [self presentViewController:error animated:YES completion:nil];
+}
 
 
 -(void)viewDidLoad{
@@ -202,7 +209,7 @@ typedef CGPoint NSPoint;
 
 - (void)addChildViews{
     [self addCollectionView];
-    [self addTimeTableView];
+    //[self addTimeTableView];
 }
 
 - (void) viewDidAppear:(BOOL)animated
@@ -335,7 +342,45 @@ typedef CGPoint NSPoint;
 }
 
 - (IBAction)refreshedPressed:(id)sender {
-    [[VITXManager sharedManager] startRefreshing];
+    [self showLoadingIndicator];
+    dispatch_queue_t downloadQueue = dispatch_queue_create("serverStatus", nil);
+    dispatch_async(downloadQueue, ^{
+        
+        
+        
+        NSString *buildingUrl = [NSString stringWithFormat:@"http://vitacademics-rel.herokuapp.com/status"];
+        NSURL *url = [NSURL URLWithString:buildingUrl];
+        NSURLRequest * request = [NSURLRequest requestWithURL:url];
+        NSError * error = nil;
+        NSURLResponse * response = nil;
+        
+        [NSURLConnection sendSynchronousRequest:request
+                                             returningResponse:&response
+                                                         error:&error];
+        NSInteger httpCode = [(NSHTTPURLResponse *)response statusCode];
+        
+        int shouldLoadAttendance =  httpCode;
+        
+        dispatch_async(dispatch_get_main_queue(), ^{
+            NSLog(@"Status: %d", shouldLoadAttendance);
+            
+            [self hideLoadingIndicator];
+            
+            if(!shouldLoadAttendance){
+                [self showInfoToUserWithTitle:@"Network Error" andMessage:@"Are you connected to the internet?"];
+            }
+            else if(shouldLoadAttendance == 200){
+                [[VITXManager sharedManager] startRefreshing];
+            }
+            else{
+                [self showInfoToUserWithTitle:@"Server Error" andMessage:@"Please try again a little bit later"];
+            }
+            
+        });//end of GCD
+    });
+    
+    
+    
 }
 
 
@@ -359,8 +404,10 @@ typedef CGPoint NSPoint;
 }
 
 - (IBAction)timeTablePressed:(id)sender {
-    coursesDragged = NO;
-    [self hideShowCollectionViewController];
+//    coursesDragged = NO;
+//    [self hideShowCollectionViewController];
+    
+    [self showInfoToUserWithTitle:@"Coming Soon" andMessage:@"We're working on this. Please hang on."];
 }
 
 

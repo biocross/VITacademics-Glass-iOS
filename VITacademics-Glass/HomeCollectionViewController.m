@@ -70,14 +70,17 @@ static NSString * const reuseIdentifier = @"course";
          if(!user){
              [[VITXManager sharedManager] startRefreshing];
          }
-         NSLog(@"User: %@", user);
+         //NSLog(@"User: %@", user);
          self.user = user;
          
          
          [self.collectionView reloadData];
          [[VITXManager sharedManager] hideLoadingIndicator];
          
-     }];
+     } error:^(NSError *error) {
+         NSLog(@"Error in User subscription!");
+     }
+    ];
 }
 
 

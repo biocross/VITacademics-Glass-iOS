@@ -39,6 +39,15 @@
 		168195141A728508009C236B /* b6.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 168195111A728508009C236B /* b6.jpg */; };
 		168636D11AB719DC00E392FE /* ExpandedView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 168636D01AB719DC00E392FE /* ExpandedView.xib */; };
 		168636D41AB71A1000E392FE /* ExpandedView.m in Sources */ = {isa = PBXBuildFile; fileRef = 168636D31AB71A1000E392FE /* ExpandedView.m */; };
+		16A676C41AC17EB6005BAFB7 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 161CCD9D1A6A436600527A7A /* User.m */; };
+		16A676C71AC1807A005BAFB7 /* TimeTable.m in Sources */ = {isa = PBXBuildFile; fileRef = 1644E5F11A6BDB4300504ED8 /* TimeTable.m */; };
+		16A676C81AC1807D005BAFB7 /* Attendance.m in Sources */ = {isa = PBXBuildFile; fileRef = 161CCD8F1A6A436600527A7A /* Attendance.m */; };
+		16A676C91AC1807F005BAFB7 /* AttendanceDetails.m in Sources */ = {isa = PBXBuildFile; fileRef = 161CCD911A6A436600527A7A /* AttendanceDetails.m */; };
+		16A676CA1AC18081005BAFB7 /* CBLMarks.m in Sources */ = {isa = PBXBuildFile; fileRef = 161CCD931A6A436600527A7A /* CBLMarks.m */; };
+		16A676CB1AC18084005BAFB7 /* Courses.m in Sources */ = {isa = PBXBuildFile; fileRef = 161CCD951A6A436600527A7A /* Courses.m */; };
+		16A676CC1AC18086005BAFB7 /* LBCMarks.m in Sources */ = {isa = PBXBuildFile; fileRef = 161CCD971A6A436600527A7A /* LBCMarks.m */; };
+		16A676CD1AC18088005BAFB7 /* LoginStatus.m in Sources */ = {isa = PBXBuildFile; fileRef = 161CCD991A6A436600527A7A /* LoginStatus.m */; };
+		16A676CE1AC1808A005BAFB7 /* PBLMarksElement.m in Sources */ = {isa = PBXBuildFile; fileRef = 161CCD9B1A6A436600527A7A /* PBLMarksElement.m */; };
 		16A902B31A86299000C3E65A /* TimeTableDayView.m in Sources */ = {isa = PBXBuildFile; fileRef = 16A902B21A86299000C3E65A /* TimeTableDayView.m */; };
 		16C7A4C31A7158FA009D6522 /* Images-2.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 16C7A4C21A7158FA009D6522 /* Images-2.xcassets */; };
 		16C98A071AC04BC000E384E7 /* 6.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 16C98A021AC04BC000E384E7 /* 6.jpg */; };
@@ -57,6 +66,7 @@
 		425783A01A69391600885323 /* GraphView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4257839F1A69391600885323 /* GraphView.m */; };
 		42E4ACFB1A6EC81200D9572F /* Menu@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 42E4ACFA1A6EC81200D9572F /* Menu@2x.png */; };
 		42F370D01A8886C700854AE8 /* TopAttendanceView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 42F370CF1A8886C700854AE8 /* TopAttendanceView.xib */; };
+		A81D350BBE47E4FF5FEFD84E /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DA9E6B1DB054274C90B053C6 /* libPods.a */; };
 		CEC71B31D098745E1442027B /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DA9E6B1DB054274C90B053C6 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -298,6 +308,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A81D350BBE47E4FF5FEFD84E /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -759,9 +770,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 16E4A3241A67D66900152389 /* Build configuration list for PBXNativeTarget "VITacademics-GlassTests" */;
 			buildPhases = (
+				F090280C49C483C710D077B6 /* Check Pods Manifest.lock */,
 				16E4A3131A67D66900152389 /* Sources */,
 				16E4A3141A67D66900152389 /* Frameworks */,
 				16E4A3151A67D66900152389 /* Resources */,
+				8EAD5A333649F512D35BDE32 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -877,6 +890,21 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		8EAD5A333649F512D35BDE32 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		A3F2500286869D6451D03DF5 /* Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -905,6 +933,21 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F090280C49C483C710D077B6 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -949,7 +992,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				16A676CB1AC18084005BAFB7 /* Courses.m in Sources */,
+				16A676CC1AC18086005BAFB7 /* LBCMarks.m in Sources */,
+				16A676CA1AC18081005BAFB7 /* CBLMarks.m in Sources */,
+				16A676C81AC1807D005BAFB7 /* Attendance.m in Sources */,
+				16A676C71AC1807A005BAFB7 /* TimeTable.m in Sources */,
 				16E4A31E1A67D66900152389 /* VITacademics_GlassTests.m in Sources */,
+				16A676C41AC17EB6005BAFB7 /* User.m in Sources */,
+				16A676C91AC1807F005BAFB7 /* AttendanceDetails.m in Sources */,
+				16A676CD1AC18088005BAFB7 /* LoginStatus.m in Sources */,
+				16A676CE1AC1808A005BAFB7 /* PBLMarksElement.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1095,6 +1147,7 @@
 		};
 		16E4A3251A67D66900152389 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 35B4FC53CC73941112528291 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				FRAMEWORK_SEARCH_PATHS = (
@@ -1114,6 +1167,7 @@
 		};
 		16E4A3261A67D66900152389 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E37A615077840976B51267B2 /* Pods.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				FRAMEWORK_SEARCH_PATHS = (
