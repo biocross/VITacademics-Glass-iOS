@@ -224,14 +224,21 @@ minimumInteritemSpacingForSectionAtIndex:(NSInteger)section
             UILabel *courseCode = (UILabel *)[view viewWithTag:3];
             UILabel *courseTitle = (UILabel *)[view viewWithTag:4];
             UILabel *courseSlot = (UILabel *)[view viewWithTag:5];
+            UILabel *attended = (UILabel *)[view viewWithTag:8];
+            UILabel *conducted = (UILabel *)[view viewWithTag:9];
+            
             
             courseCode.text = [self.user.courses[indexPath.row] course_code];
             courseTitle.text = [self.user.courses[indexPath.row] course_title];
             courseSlot.text = [self.user.courses[indexPath.row] slot];
+            attended.text = [NSString stringWithFormat:@"%d", [[self.user.courses[indexPath.row] attendance] attended_classes].intValue];
+            conducted.text = [NSString stringWithFormat:@"/ %d", [[self.user.courses[indexPath.row] attendance] total_classes].intValue];
             
             courseCode.textColor = self.view.tintColor;
             courseTitle.textColor = self.view.tintColor;
             courseSlot.textColor = self.view.tintColor;
+            attended.textColor = self.view.tintColor;
+            conducted.textColor = self.view.tintColor;
             
             
 

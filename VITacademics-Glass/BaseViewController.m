@@ -23,6 +23,7 @@ TODOs:
 
 @interface BaseViewController (){
     BOOL coursesDragged;
+    BOOL childViewsAdded;
 }
 
 @property (nonatomic) BOOL menuShowing;
@@ -176,11 +177,20 @@ typedef CGPoint NSPoint;
     
     [[NSNotificationCenter defaultCenter]
      addObserver:self
-     selector:@selector(addChildViews)
+     selector:@selector(addChildViewsFirstTime)
      name:@"prepareViewsForDataPresentation"
      object:nil];
     
+    childViewsAdded = NO;
+    
     coursesDragged = YES; //Default View is Courses View.
+}
+
+-(void)addChildViewsFirstTime{
+    NSLog(@"Add Child Views Notification Rcvd!");
+    if(!childViewsAdded){
+        [self addChildViews];
+    }
 }
 
 
@@ -214,6 +224,8 @@ typedef CGPoint NSPoint;
 - (void)addChildViews{
     [self addCollectionView];
     //[self addTimeTableView];
+    
+    childViewsAdded = YES;
 }
 
 - (void) viewDidAppear:(BOOL)animated
@@ -356,8 +368,7 @@ typedef CGPoint NSPoint;
         [NSURLConnection sendSynchronousRequest:request
                                              returningResponse:&response
                                                          error:&error];
-        NSInteger httpCode = [(NSHTTPURLResponse *)response statusCode];
-        
+        int httpCode = [(NSHTTPURLResponse *)response statusCode];
         int shouldLoadAttendance =  httpCode;
         
         dispatch_async(dispatch_get_main_queue(), ^{
