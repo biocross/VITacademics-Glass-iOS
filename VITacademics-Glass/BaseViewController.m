@@ -174,6 +174,12 @@ typedef CGPoint NSPoint;
     self.shimmeringView.contentView = loadingLabel;
     self.shimmeringView.shimmering = YES;
     
+    [[NSNotificationCenter defaultCenter]
+     addObserver:self
+     selector:@selector(addChildViews)
+     name:@"prepareViewsForDataPresentation"
+     object:nil];
+    
     coursesDragged = YES; //Default View is Courses View.
 }
 
@@ -194,12 +200,10 @@ typedef CGPoint NSPoint;
     [self.view sendSubviewToBack:self.buttonsView];
     self.menuButton.backgroundColor = [UIColor colorWithWhite:0.1 alpha:0.15];
     [self.timeTableCollectionViewController.view addGestureRecognizer:self.timeTablePangestureRecognizer];
-
 }
 
 -(void)addCollectionView
 {
-    
     [self addChildViewController:self.homeScreenCollectionViewController];
     [self.view insertSubview:self.homeScreenCollectionViewController.view atIndex:1];
     [self addshadows:self.homeScreenCollectionViewController.view];
@@ -220,11 +224,7 @@ typedef CGPoint NSPoint;
         button.contentEdgeInsets = UIEdgeInsetsMake(0, 15, 0, 0);
     }
 
-    [[NSNotificationCenter defaultCenter]
-     addObserver:self
-     selector:@selector(addChildViews)
-     name:@"prepareViewsForDataPresentation"
-     object:nil];
+    
     
     [self.homeScreenCollectionViewController.view addObserver:self forKeyPath:@"center" options:NSKeyValueObservingOptionNew context:nil];
 }
@@ -240,7 +240,6 @@ typedef CGPoint NSPoint;
 
 -(void)viewWillDisappear:(BOOL)animated{
     [super viewDidDisappear:animated];
-    
 }
 
 -(void)dealloc{
@@ -397,7 +396,7 @@ typedef CGPoint NSPoint;
             MFMailComposeViewController *mailCont = [[MFMailComposeViewController alloc] init];
             mailCont.mailComposeDelegate = self;
             [mailCont setToRecipients:emails];
-            [mailCont setSubject:@"VITacademics Beta Bug Report"];
+            [mailCont setSubject:@"VITacademics Beta 3.1 Bug Report"];
             [self presentViewController:mailCont animated:YES completion:nil];
     }
     

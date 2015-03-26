@@ -13,7 +13,6 @@
 #import "VITXManager.h"
 #import "CCColorCube.h"
 
-#warning First Time Login View Controller does not set campus
 
 @interface HomeCollectionViewController (){
     int choice;

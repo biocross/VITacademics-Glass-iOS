@@ -17,5 +17,7 @@
 - (IBAction)loginButtonPressed:(id)sender;
 @property (strong, nonatomic) IBOutlet UILabel *statusLabel;
 @property (strong, nonatomic) IBOutlet UISegmentedControl *campusSelector;
+@property (strong, nonatomic) IBOutlet UIButton *closeButton;
+- (IBAction)clostButtonPressed:(id)sender;
 
 @end

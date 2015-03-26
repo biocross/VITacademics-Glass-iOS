@@ -82,7 +82,8 @@
              [[RACSignal
                merge:@[[self refreshData]]]
               subscribeCompleted:^{
-                  NSLog(@"Refreshing data");
+                  NSLog(@"Refreshed Data");
+                  [[NSNotificationCenter defaultCenter] postNotificationName:@"prepareViewsForDataPresentation" object:nil];
               }];
              
          }

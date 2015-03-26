@@ -57,14 +57,20 @@
         self.dobTextField.attributedPlaceholder = [[NSAttributedString alloc] initWithString:@"Date Of Birth" attributes:@{NSForegroundColorAttributeName: color}];
     } else {
         NSLog(@"Cannot set placeholder text's color, because deployment target is earlier than iOS 6.0");
-        // TODO: Add fall-back code to set placeholder color.
     }
     
     [self.campusSelector addTarget:self
                             action:@selector(selectCampus:)
                forControlEvents:UIControlEventValueChanged];
-
     
+    self.closeButton.enabled = NO;
+    self.closeButton.hidden = YES;
+    
+    NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
+    if([prefs objectForKey:@"registrationNumber"] && [prefs objectForKey:@"dateOfBirth"]){
+        self.closeButton.enabled = YES;
+        self.closeButton.hidden = NO;
+    }
 }
 
 -(void)selectCampus:(UISegmentedControl *)sender{
@@ -86,8 +92,10 @@
 - (IBAction)loginButtonPressed:(id)sender {
     
     if([self.regNoTextField.text length] < 6 || [self.dobTextField.text length] < 8){
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Check Fields" message:@"Please enter your correct details." delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil];
-        [alert show];
+        UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Check Fields" message:@"Please make sure you've entered all the required information" preferredStyle:UIAlertControllerStyleActionSheet];
+        UIAlertAction *okay = [UIAlertAction actionWithTitle:@"Okay" style:UIAlertActionStyleDefault handler:nil];
+        [alert addAction:okay];
+        [self presentViewController:alert animated:YES completion:nil];
         return;
     }
     
@@ -97,11 +105,12 @@
     [prefs setObject:self.regNoTextField.text forKey:@"registrationNumber"];
     [prefs setObject:self.dobTextField.text forKey:@"dateOfBirth"];
     NSLog(@"Preferences Saved");
-    
-    [VITXManager sharedManager];
-    
+        
     [prefs removeObjectForKey:@"firstTime"];
     [prefs setObject:@"YES" forKey:@"firstTime"];
+    
+    [self.regNoTextField resignFirstResponder];
+    [self.dobTextField resignFirstResponder];
     
     [self dismissViewControllerAnimated:YES completion:^{
         [[NSNotificationCenter defaultCenter] postNotificationName:@"credentialsChanged" object:nil];
@@ -125,5 +134,8 @@
 -(BOOL)textFieldShouldReturn:(UITextField *)textField{
     [textField resignFirstResponder];
     return YES;
+}
+- (IBAction)clostButtonPressed:(id)sender {
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 @end
