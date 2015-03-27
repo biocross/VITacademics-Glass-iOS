@@ -7,9 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Courses.h"
 
 @interface ExpandedView : UIView
 
 @property (strong, nonatomic) IBOutlet UIScrollView *scrollView;
+@property (strong, nonatomic) Courses *course;
 
 @end

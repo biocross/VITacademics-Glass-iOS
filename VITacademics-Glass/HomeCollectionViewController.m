@@ -12,6 +12,7 @@
 #import "GraphView.h"
 #import "VITXManager.h"
 #import "CCColorCube.h"
+#import "ExpandedView.h"
 
 
 @interface HomeCollectionViewController (){
@@ -23,8 +24,8 @@
 @property (nonatomic, strong) UICollectionViewFlowLayout *expandedLayout;
 @property (nonatomic, strong) UIImageView *wallpaperView;
 @property (nonatomic) NSInteger previouslySelectedCell;
-@property (nonatomic) BOOL cellIsChanging;
 @property User *user;
+@property (nonatomic) BOOL cellIsChanging;
 
 @end
 
@@ -169,7 +170,7 @@ minimumInteritemSpacingForSectionAtIndex:(NSInteger)section
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
     UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:reuseIdentifier forIndexPath:indexPath];
-    UIView *view;
+    ExpandedView *view;
     
         for(UIView *view in [cell.contentView subviews])
         {
@@ -184,6 +185,7 @@ minimumInteritemSpacingForSectionAtIndex:(NSInteger)section
             view = [views firstObject];
             
             [cell.contentView addSubview:view];
+            view.course = self.user.courses[indexPath.row];
             
             for(UIView *view in [cell.contentView subviews])
             {
@@ -366,7 +368,8 @@ minimumInteritemSpacingForSectionAtIndex:(NSInteger)section
                                  view.hidden = YES;
                              }
                          }
-                         if(self.collectionView.collectionViewLayout == self.expandedLayout)
+                         if(self.collectionView.collectionViewLayout == self.expandedLayout){
+                              __unsafe_unretained typeof(self) weakSelf = self;
                              [self.collectionView setCollectionViewLayout:self.condensedLayout
                                                                  animated:YES
                                                                completion:^(BOOL success){
@@ -377,10 +380,12 @@ minimumInteritemSpacingForSectionAtIndex:(NSInteger)section
                                                                        [collectionView reloadItemsAtIndexPaths:@[[collectionView indexPathForCell:previousCell]]];
                                                                    }
                                                                    
-                                                                   self.cellIsChanging = NO;
+                                                                   weakSelf.cellIsChanging = NO;
                                                                    
                                                                }];
-                         else
+                         }
+                         else{
+                             __unsafe_unretained typeof(self) weakSelf = self;
                              [self.collectionView setCollectionViewLayout:self.expandedLayout
                                                                  animated:YES
                                                                completion:^(BOOL success){
@@ -391,9 +396,10 @@ minimumInteritemSpacingForSectionAtIndex:(NSInteger)section
                                                                        [collectionView reloadItemsAtIndexPaths:@[[collectionView indexPathForCell:previousCell]]];
                                                                    }
                                                                    
-                                                                   self.cellIsChanging = NO;
+                                                                   weakSelf.cellIsChanging = NO;
                                                                    
                                                                }];
+                         }
                      }];
 }
 @end

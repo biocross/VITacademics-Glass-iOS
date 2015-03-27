@@ -25,6 +25,8 @@
     self.scrollView.contentSize = CGSizeMake(self.bounds.size.width, 1000);
     
     self.scrollView.scrollIndicatorInsets = UIEdgeInsetsMake(0, 0, 30, 30);
+    
+    
 }
 
 
