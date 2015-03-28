@@ -23,7 +23,7 @@
 @property (nonatomic, strong) UICollectionViewFlowLayout *condensedLayout;
 @property (nonatomic, strong) UICollectionViewFlowLayout *expandedLayout;
 @property (nonatomic, strong) UIImageView *wallpaperView;
-@property (nonatomic) NSInteger previouslySelectedCell;
+@property (nonatomic) NSInteger previouslySelectedCell; 
 @property User *user;
 @property (nonatomic) BOOL cellIsChanging;
 
@@ -79,10 +79,15 @@ static NSString * const reuseIdentifier = @"course";
          
      } error:^(NSError *error) {
          NSLog(@"Error in User subscription!");
-     }
-    ];
+     }];
+
 }
 
+- (void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    NSLog(@"View did appear!!");
+}
 
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView
 {

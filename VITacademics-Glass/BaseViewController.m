@@ -155,10 +155,12 @@ typedef CGPoint NSPoint;
 -(void)viewDidLoad{
     
     [super viewDidLoad];
-    if(![[NSUserDefaults standardUserDefaults] stringForKey:@"firstTime"]){
+    if(![[NSUserDefaults standardUserDefaults] stringForKey:@"firstTime"])
+    {
         [self performSelector:(@selector(beginLoginProcess)) withObject:nil afterDelay:1];
     }
-    else{
+    else
+    {
         [self addChildViews];
     }
 

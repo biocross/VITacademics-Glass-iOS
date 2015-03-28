@@ -11,6 +11,7 @@
 #import <MessageUI/MessageUI.h>
 #import "TimeTableCollectionViewController.h"
 #import "FBShimmeringView.h"
+#import "CCColorCube.h"
 
 
 @interface BaseViewController : UIViewController <MFMailComposeViewControllerDelegate>

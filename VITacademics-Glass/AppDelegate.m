@@ -8,6 +8,8 @@
 
 #import "AppDelegate.h"
 #import <NewRelicAgent/NewRelic.h>
+#import "CCColorCube.h"
+#import "VITXManager.h"
 
 
 @interface AppDelegate ()

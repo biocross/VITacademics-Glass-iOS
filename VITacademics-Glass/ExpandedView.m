@@ -26,10 +26,9 @@
     
     self.scrollView.scrollIndicatorInsets = UIEdgeInsetsMake(0, 0, 30, 30);
     
+    self.backgroundColor = [UIColor clearColor];
     
 }
-
-
 
 
 @end
