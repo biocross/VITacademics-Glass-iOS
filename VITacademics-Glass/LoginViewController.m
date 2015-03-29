@@ -8,7 +8,6 @@
 
 #import "LoginViewController.h"
 #import "VITXManager.h"
-#import "UIImage+ImageEffects.h"
 
 
 
@@ -48,7 +47,7 @@
     }
     
     int choice = [[VITXManager sharedManager] getAwesomeChoice];
-    _wallpaperView.image = [[[VITXManager sharedManager] getBlurredImagesArray:choice] applyBlurWithRadius:5 tintColor:[UIColor colorWithRed:0 green:0 blue:0 alpha:0.5] saturationDeltaFactor:1.8 maskImage:nil];
+    _wallpaperView.image = [[VITXManager sharedManager] getBlurredImagesArray:choice];
     [self.view insertSubview:_wallpaperView atIndex:0];
     
     if ([self.regNoTextField respondsToSelector:@selector(setAttributedPlaceholder:)]) {

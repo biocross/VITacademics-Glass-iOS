@@ -184,7 +184,6 @@ typedef CGPoint NSPoint;
      object:nil];
     
     childViewsAdded = NO;
-    
     coursesDragged = YES; //Default View is Courses View.
 }
 
@@ -238,16 +237,12 @@ typedef CGPoint NSPoint;
         button.contentEdgeInsets = UIEdgeInsetsMake(0, 15, 0, 0);
     }
 
-    
-    
     [self.homeScreenCollectionViewController.view addObserver:self forKeyPath:@"center" options:NSKeyValueObservingOptionNew context:nil];
 }
 
 -(void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context{
     CGPoint new = [change[@"new"] CGPointValue];
-
 #warning Hardcoded Values
-    
     float alpha = (new.y - 284) / 384;
     self.buttonsView.alpha = alpha;
 }

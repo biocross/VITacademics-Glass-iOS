@@ -8,7 +8,6 @@
 
 #import "HomeCollectionViewController.h"
 #import "RoundedHexagonPercentageView.h"
-#import "UIImage+ImageEffects.h"
 #import "GraphView.h"
 #import "VITXManager.h"
 #import "CCColorCube.h"
