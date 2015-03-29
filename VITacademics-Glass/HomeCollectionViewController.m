@@ -189,8 +189,8 @@ minimumInteritemSpacingForSectionAtIndex:(NSInteger)section
             
             view = [views firstObject];
             
-            [cell.contentView addSubview:view];
             view.course = self.user.courses[indexPath.row];
+            [cell.contentView addSubview:view];
             
             for(UIView *view in [cell.contentView subviews])
             {

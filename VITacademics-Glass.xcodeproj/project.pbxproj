@@ -23,6 +23,9 @@
 		161CCDAE1A6A436600527A7A /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = 161CCD9E1A6A436600527A7A /* README.md */; };
 		161CCDAF1A6A436600527A7A /* VITXClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 161CCDA01A6A436600527A7A /* VITXClient.m */; };
 		161CCDB01A6A436600527A7A /* VITXManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 161CCDA21A6A436600527A7A /* VITXManager.m */; };
+		16326AE81AC7544C009C5F9E /* RDVCalendarDayCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 16326AE31AC7544C009C5F9E /* RDVCalendarDayCell.m */; };
+		16326AE91AC7544C009C5F9E /* RDVCalendarView.m in Sources */ = {isa = PBXBuildFile; fileRef = 16326AE51AC7544C009C5F9E /* RDVCalendarView.m */; };
+		16326AEA1AC7544C009C5F9E /* RDVCalendarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 16326AE71AC7544C009C5F9E /* RDVCalendarViewController.m */; };
 		1644E5F21A6BDB4300504ED8 /* TimeTable.m in Sources */ = {isa = PBXBuildFile; fileRef = 1644E5F11A6BDB4300504ED8 /* TimeTable.m */; };
 		1658035B1A86727100FD9E2D /* TimeTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1658035A1A86727100FD9E2D /* TimeTableCell.xib */; };
 		16617C171A6BDF86000CA406 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 16617C151A6BDF86000CA406 /* LoginViewController.m */; };
@@ -125,6 +128,12 @@
 		161CCDA01A6A436600527A7A /* VITXClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VITXClient.m; sourceTree = "<group>"; };
 		161CCDA11A6A436600527A7A /* VITXManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VITXManager.h; sourceTree = "<group>"; };
 		161CCDA21A6A436600527A7A /* VITXManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VITXManager.m; sourceTree = "<group>"; };
+		16326AE21AC7544C009C5F9E /* RDVCalendarDayCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RDVCalendarDayCell.h; sourceTree = "<group>"; };
+		16326AE31AC7544C009C5F9E /* RDVCalendarDayCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RDVCalendarDayCell.m; sourceTree = "<group>"; };
+		16326AE41AC7544C009C5F9E /* RDVCalendarView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RDVCalendarView.h; sourceTree = "<group>"; };
+		16326AE51AC7544C009C5F9E /* RDVCalendarView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RDVCalendarView.m; sourceTree = "<group>"; };
+		16326AE61AC7544C009C5F9E /* RDVCalendarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RDVCalendarViewController.h; sourceTree = "<group>"; };
+		16326AE71AC7544C009C5F9E /* RDVCalendarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RDVCalendarViewController.m; sourceTree = "<group>"; };
 		1644E5F01A6BDB4300504ED8 /* TimeTable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimeTable.h; sourceTree = "<group>"; };
 		1644E5F11A6BDB4300504ED8 /* TimeTable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TimeTable.m; sourceTree = "<group>"; };
 		1658035A1A86727100FD9E2D /* TimeTableCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TimeTableCell.xib; sourceTree = "<group>"; };
@@ -375,6 +384,19 @@
 				161CCD9D1A6A436600527A7A /* User.m */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		16326AE11AC7544C009C5F9E /* RDVCalendarView */ = {
+			isa = PBXGroup;
+			children = (
+				16326AE21AC7544C009C5F9E /* RDVCalendarDayCell.h */,
+				16326AE31AC7544C009C5F9E /* RDVCalendarDayCell.m */,
+				16326AE41AC7544C009C5F9E /* RDVCalendarView.h */,
+				16326AE51AC7544C009C5F9E /* RDVCalendarView.m */,
+				16326AE61AC7544C009C5F9E /* RDVCalendarViewController.h */,
+				16326AE71AC7544C009C5F9E /* RDVCalendarViewController.m */,
+			);
+			path = RDVCalendarView;
 			sourceTree = "<group>";
 		};
 		1644E5F31A6BDB6300504ED8 /* Images */ = {
@@ -665,6 +687,7 @@
 		16E4A3011A67D66900152389 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				16326AE11AC7544C009C5F9E /* RDVCalendarView */,
 				1644E5F31A6BDB6300504ED8 /* Images */,
 				167203B31A6B969F00A498AE /* ColorCube */,
 				161CCD861A6A436600527A7A /* VITacademics-iOS-SDK */,
@@ -957,6 +980,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				16326AEA1AC7544C009C5F9E /* RDVCalendarViewController.m in Sources */,
 				425783971A682FF300885323 /* UIImage+ImageEffects.m in Sources */,
 				161CCDAF1A6A436600527A7A /* VITXClient.m in Sources */,
 				16617C171A6BDF86000CA406 /* LoginViewController.m in Sources */,
@@ -964,6 +988,7 @@
 				161CCDAD1A6A436600527A7A /* User.m in Sources */,
 				168636D41AB71A1000E392FE /* ExpandedView.m in Sources */,
 				1662CF3C1A7A746F00F02F81 /* TimeTableCollectionViewController.m in Sources */,
+				16326AE81AC7544C009C5F9E /* RDVCalendarDayCell.m in Sources */,
 				167203B91A6B969F00A498AE /* CCLocalMaximum.m in Sources */,
 				161B755A1A693E9F0074AFD5 /* PulsingHaloLayer.m in Sources */,
 				16E4A3071A67D66900152389 /* AppDelegate.m in Sources */,
@@ -971,6 +996,7 @@
 				161CCDB01A6A436600527A7A /* VITXManager.m in Sources */,
 				161B75591A693E9F0074AFD5 /* MultiplePulsingHaloLayer.m in Sources */,
 				16A902B31A86299000C3E65A /* TimeTableDayView.m in Sources */,
+				16326AE91AC7544C009C5F9E /* RDVCalendarView.m in Sources */,
 				1644E5F21A6BDB4300504ED8 /* TimeTable.m in Sources */,
 				161CCDA91A6A436600527A7A /* Courses.m in Sources */,
 				161CCDA61A6A436600527A7A /* Attendance.m in Sources */,
