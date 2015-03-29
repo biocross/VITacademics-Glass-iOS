@@ -49,12 +49,6 @@
                             <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="78" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Pl-Sp-ktZ">
-                            <rect key="frame" x="108" y="93" width="105" height="62"/>
-                            <fontDescription key="fontDescription" name="HelveticaNeue-UltraLight" family="Helvetica Neue" pointSize="72"/>
-                            <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
-                            <nil key="highlightedColor"/>
-                        </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="PERCENT" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0iQ-6N-bxG">
                             <rect key="frame" x="135" y="163" width="51" height="15"/>
                             <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="12"/>
@@ -81,18 +75,27 @@
                                     <state key="normal" title="-">
                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                     </state>
+                                    <connections>
+                                        <action selector="attendMinus:" destination="iN0-l3-epB" eventType="touchUpInside" id="62s-Ca-0Tw"/>
+                                    </connections>
                                 </button>
                                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2Do-uc-qua">
                                     <rect key="frame" x="266" y="32" width="46" height="34"/>
                                     <state key="normal" title="﹢">
                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                     </state>
+                                    <connections>
+                                        <action selector="missPlus:" destination="iN0-l3-epB" eventType="touchUpInside" id="H6K-r8-jeF"/>
+                                    </connections>
                                 </button>
                                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iAW-kI-KVE">
                                     <rect key="frame" x="8" y="32" width="46" height="34"/>
                                     <state key="normal" title="﹢">
                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                     </state>
+                                    <connections>
+                                        <action selector="attendPlus:" destination="iN0-l3-epB" eventType="touchUpInside" id="x6M-E7-Pgw"/>
+                                    </connections>
                                 </button>
                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="You have attended" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WQw-XA-YPL">
                                     <rect key="frame" x="27" y="8" width="122" height="21"/>
@@ -129,21 +132,24 @@
                                     <state key="normal" title="-">
                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                     </state>
+                                    <connections>
+                                        <action selector="missMinus:" destination="iN0-l3-epB" eventType="touchUpInside" id="GFf-hw-pGc"/>
+                                    </connections>
                                 </button>
-                                <label opaque="NO" userInteractionEnabled="NO" tag="9" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="99" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jaj-Ml-du1">
-                                    <rect key="frame" x="175" y="44" width="25" height="25"/>
+                                <label opaque="NO" userInteractionEnabled="NO" tag="9" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jaj-Ml-du1">
+                                    <rect key="frame" x="169" y="44" width="25" height="25"/>
                                     <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="21"/>
                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <nil key="highlightedColor"/>
                                 </label>
-                                <label opaque="NO" userInteractionEnabled="NO" tag="8" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="99" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NzR-JD-1Kc">
-                                    <rect key="frame" x="121" y="44" width="25" height="25"/>
+                                <label opaque="NO" userInteractionEnabled="NO" tag="8" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NzR-JD-1Kc">
+                                    <rect key="frame" x="127" y="44" width="25" height="25"/>
                                     <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="21"/>
                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <nil key="highlightedColor"/>
                                 </label>
-                                <label opaque="NO" userInteractionEnabled="NO" alpha="0.59999999999999998" tag="8" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="attended" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wzU-nH-GLn">
-                                    <rect key="frame" x="110" y="73" width="46" height="19"/>
+                                <label opaque="NO" userInteractionEnabled="NO" alpha="0.59999999999999998" tag="8" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="attend" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wzU-nH-GLn">
+                                    <rect key="frame" x="115" y="73" width="46" height="19"/>
                                     <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="11"/>
                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <nil key="highlightedColor"/>
@@ -152,8 +158,8 @@
                                     <rect key="frame" x="160" y="41" width="1" height="55"/>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </view>
-                                <label opaque="NO" userInteractionEnabled="NO" alpha="0.59999999999999998" tag="8" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="missed" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mzr-mJ-iDg">
-                                    <rect key="frame" x="164" y="73" width="46" height="19"/>
+                                <label opaque="NO" userInteractionEnabled="NO" alpha="0.59999999999999998" tag="8" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="miss" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mzr-mJ-iDg">
+                                    <rect key="frame" x="160" y="73" width="46" height="19"/>
                                     <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="11"/>
                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <nil key="highlightedColor"/>
@@ -251,6 +257,12 @@
                             <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="78" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Pl-Sp-ktZ">
+                            <rect key="frame" x="93" y="93" width="138" height="62"/>
+                            <fontDescription key="fontDescription" name="HelveticaNeue-UltraLight" family="Helvetica Neue" pointSize="72"/>
+                            <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
                     </subviews>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                 </scrollView>
@@ -263,7 +275,7 @@
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                 </view>
             </subviews>
-            <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstAttribute="bottom" secondItem="trE-uN-bDU" secondAttribute="bottom" id="5pd-eW-9cA"/>
                 <constraint firstItem="trE-uN-bDU" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="Fss-dn-dek"/>
@@ -273,17 +285,29 @@
             <nil key="simulatedStatusBarMetrics"/>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
             <connections>
+                <outlet property="attendLabel" destination="NzR-JD-1Kc" id="WDz-lv-igu"/>
                 <outlet property="attendedLabel" destination="V3W-NP-s6v" id="uw8-8f-9W7"/>
                 <outlet property="codeLabel" destination="rgU-z6-zYl" id="oHQ-Za-DIx"/>
                 <outlet property="conductedLabel" destination="qAq-7X-eGQ" id="HEk-YI-eNS"/>
                 <outlet property="lastUpdatedLabel" destination="0Tz-vI-fEQ" id="2i6-NH-sBX"/>
+                <outlet property="mMarks1" destination="p9s-fa-p6I" id="UMK-Gl-RT0"/>
+                <outlet property="mMarks2" destination="uyp-37-6yO" id="WkX-ij-aZ0"/>
+                <outlet property="mMarks3" destination="R7j-k1-HJz" id="83c-sh-fNI"/>
+                <outlet property="mMarks4" destination="XL1-FT-YKD" id="ql3-A0-w2Y"/>
+                <outlet property="mMarks5" destination="oQP-tt-gTr" id="D93-Xm-F7f"/>
+                <outlet property="mTitle1" destination="DKV-Q3-9Lt" id="BJZ-p9-puA"/>
+                <outlet property="mTitle2" destination="zS5-fZ-EK4" id="w8M-Lw-SGn"/>
+                <outlet property="mTitle3" destination="p2a-KZ-gm8" id="DXi-MV-vg2"/>
+                <outlet property="mTitle4" destination="Nnn-Ba-clj" id="FfH-Xg-fc0"/>
+                <outlet property="mTitle5" destination="yOh-SQ-lJU" id="SeJ-4T-v2p"/>
+                <outlet property="missLabel" destination="Jaj-Ml-du1" id="vaU-PI-6AS"/>
                 <outlet property="percentageLabel" destination="3Pl-Sp-ktZ" id="9K4-4F-LAk"/>
                 <outlet property="scrollView" destination="trE-uN-bDU" id="bTR-Oe-9cd"/>
                 <outlet property="slotLabel" destination="ub8-bY-95q" id="u4y-xF-PSs"/>
                 <outlet property="titleLabel" destination="mkJ-yv-2zq" id="dHT-3X-bd2"/>
                 <outlet property="typeLabel" destination="98i-gT-ZyX" id="tbB-ir-lyt"/>
             </connections>
-            <point key="canvasLocation" x="216" y="997.5"/>
+            <point key="canvasLocation" x="216" y="997"/>
         </view>
     </objects>
 </document>

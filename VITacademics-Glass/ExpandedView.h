@@ -26,5 +26,22 @@
 @property (strong, nonatomic) IBOutlet UILabel *conductedLabel;
 @property (nonatomic, strong) RDVCalendarView *calenderView;
 
+@property (strong, nonatomic) IBOutlet UILabel *attendLabel;
+@property (strong, nonatomic) IBOutlet UILabel *missLabel;
 
+- (IBAction)attendPlus:(id)sender;
+- (IBAction)attendMinus:(id)sender;
+- (IBAction)missPlus:(id)sender;
+- (IBAction)missMinus:(id)sender;
+
+@property (strong, nonatomic) IBOutlet UILabel *mTitle1;
+@property (strong, nonatomic) IBOutlet UILabel *mTitle2;
+@property (strong, nonatomic) IBOutlet UILabel *mTitle3;
+@property (strong, nonatomic) IBOutlet UILabel *mTitle4;
+@property (strong, nonatomic) IBOutlet UILabel *mTitle5;
+@property (strong, nonatomic) IBOutlet UILabel *mMarks1;
+@property (strong, nonatomic) IBOutlet UILabel *mMarks2;
+@property (strong, nonatomic) IBOutlet UILabel *mMarks3;
+@property (strong, nonatomic) IBOutlet UILabel *mMarks4;
+@property (strong, nonatomic) IBOutlet UILabel *mMarks5;
 @end

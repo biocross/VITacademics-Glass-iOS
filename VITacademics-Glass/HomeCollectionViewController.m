@@ -86,7 +86,6 @@ static NSString * const reuseIdentifier = @"course";
 - (void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
-    NSLog(@"View did appear!!");
 }
 
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView
