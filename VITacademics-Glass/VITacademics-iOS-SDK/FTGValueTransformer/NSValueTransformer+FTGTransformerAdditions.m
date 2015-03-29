@@ -67,7 +67,7 @@ NSString * const FTGStringValueTransformerName = @"StringToNumber";
     NSValueTransformer *stringValueTransformer = [MTLValueTransformer
                                                   reversibleTransformerWithBlock:^ id (NSNumber *number) {
                                                       if (![number isKindOfClass:NSNumber.class]) {
-                                                          return  nil;
+                                                          return  0;
                                                       }
                                                       
                                                       return number.stringValue;
@@ -79,11 +79,15 @@ NSString * const FTGStringValueTransformerName = @"StringToNumber";
 + (NSValueTransformer *)ftg_numberValueTransformer {
     NSValueTransformer *numberValueTransformer = [MTLValueTransformer
                                                   reversibleTransformerWithBlock:^ id (NSString *string) {
-                                                      if (![string isKindOfClass:NSString.class]) {
-                                                          return  nil;
+                                                      
+                                                      if(!string){
+                                                          return @(0);
                                                       }
                                                       
-                                                      return @(string.integerValue);
+
+                                            
+                                                      
+                                                      return string;
                                                   }];
     
     return numberValueTransformer;

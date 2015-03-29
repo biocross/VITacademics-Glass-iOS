@@ -15,7 +15,7 @@
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
     return @{
-             @"CBLMarks": @"cbl_marks",
+             @"CBLMarks": @"marks",
              @"PBLMarks": @"pbl_marks",
              @"LBCMarks": @"lbc_marks"
              };
