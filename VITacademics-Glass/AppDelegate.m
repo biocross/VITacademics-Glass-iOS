@@ -17,12 +17,11 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    [[BITHockeyManager sharedHockeyManager] configureWithIdentifier:@"0eadafead596e144c5e5bbfce7ac1149"];
+    [[BITHockeyManager sharedHockeyManager] configureWithIdentifier:@"78308c9ecfa82cc194ccebb197472ffe"];
     [[BITHockeyManager sharedHockeyManager] startManager];
     [[BITHockeyManager sharedHockeyManager].authenticator
      authenticateInstallation];
 
-    
     return YES;
 }
 

@@ -77,28 +77,39 @@
       merge:@[[self loginUser]]]
      subscribeCompleted:^{
          
-         if([self.status.message containsString:@"Success"]){
-             
-             [[RACSignal
-               merge:@[[self refreshData]]]
-              subscribeCompleted:^{
-                  NSLog(@"Refreshed Data");
-                  [[NSNotificationCenter defaultCenter] postNotificationName:@"prepareViewsForDataPresentation" object:nil];
-              }];
-             
-         }
-         else{
-             NSLog(@"Login Failure");
-             
-             if(!(self.status.message) || [self.status.message isEqualToString:@""]){
+         
+         @try{
+             if(!self.status.message){
                  [self.baseViewController showInfoToUserWithTitle:@"Server Error" andMessage:@"Please try again"];
+                 [self.baseViewController hideLoadingIndicator];
+             }
+             
+             if([self.status.message containsString:@"Success"]){
+                 
+                 [[RACSignal
+                   merge:@[[self refreshData]]]
+                  subscribeCompleted:^{
+                      NSLog(@"Refreshed Data");
+                  }];
+                 
              }
              else{
-                [self.baseViewController showInfoToUserWithTitle:@"" andMessage:self.status.message];
+                 NSLog(@"Login Failure");
+                 
+                 if(!(self.status.message) || [self.status.message isEqualToString:@""]){
+                     [self.baseViewController showInfoToUserWithTitle:@"Server Error" andMessage:@"Please try again"];
+                 }
+                 else{
+                     [self.baseViewController showInfoToUserWithTitle:@"" andMessage:self.status.message];
+                 }
+                 
+                 [self.baseViewController hideLoadingIndicator];
              }
-             
-             [self.baseViewController hideLoadingIndicator];
          }
+         @catch(NSException *e){
+             NSLog(@"Exception In Refresh: %@", [e description]);
+         }
+         
      }];
 }
 

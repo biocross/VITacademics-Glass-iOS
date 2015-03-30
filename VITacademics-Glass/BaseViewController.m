@@ -155,6 +155,7 @@ typedef CGPoint NSPoint;
 -(void)viewDidLoad{
     
     [super viewDidLoad];
+    
     if(![[NSUserDefaults standardUserDefaults] stringForKey:@"firstTime_b3"])
     {
         [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"registrationNumber"];
@@ -162,8 +163,7 @@ typedef CGPoint NSPoint;
         [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"campus"];
         [self performSelector:(@selector(beginLoginProcess)) withObject:nil afterDelay:1];
     }
-    else
-    {
+    else{
         [self addChildViews];
     }
 
@@ -180,23 +180,9 @@ typedef CGPoint NSPoint;
     self.shimmeringView.contentView = loadingLabel;
     self.shimmeringView.shimmering = YES;
     
-    [[NSNotificationCenter defaultCenter]
-     addObserver:self
-     selector:@selector(addChildViewsFirstTime)
-     name:@"prepareViewsForDataPresentation"
-     object:nil];
-    
     childViewsAdded = NO;
     coursesDragged = YES; //Default View is Courses View.
 }
-
--(void)addChildViewsFirstTime{
-    NSLog(@"Add Child Views Notification Rcvd!");
-    if(!childViewsAdded){
-        [self addChildViews];
-    }
-}
-
 
 -(void)showLoadingIndicator{
     self.shimmeringView.hidden = NO;
@@ -261,7 +247,9 @@ typedef CGPoint NSPoint;
 -(void)beginLoginProcess
 {
     LoginViewController *loginViewController = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"LoginViewController"];
-    [self presentViewController:loginViewController animated:YES completion:nil];
+    [self presentViewController:loginViewController animated:YES completion:^{
+        [self addChildViews];
+    }];
 }
 
 
