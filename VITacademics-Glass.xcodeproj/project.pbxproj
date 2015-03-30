@@ -66,10 +66,6 @@
 		425783911A6820B600885323 /* CondensedView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 425783901A6820B600885323 /* CondensedView.xib */; };
 		4257839A1A68E93600885323 /* RoundedHexagonPercentageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 425783991A68E93600885323 /* RoundedHexagonPercentageView.m */; };
 		425783A01A69391600885323 /* GraphView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4257839F1A69391600885323 /* GraphView.m */; };
-		4289A4361AC7E928008BA92B /* drums.png in Resources */ = {isa = PBXBuildFile; fileRef = 4289A4321AC7E928008BA92B /* drums.png */; };
-		4289A4371AC7E928008BA92B /* electro.png in Resources */ = {isa = PBXBuildFile; fileRef = 4289A4331AC7E928008BA92B /* electro.png */; };
-		4289A4381AC7E928008BA92B /* guitar.png in Resources */ = {isa = PBXBuildFile; fileRef = 4289A4341AC7E928008BA92B /* guitar.png */; };
-		4289A4391AC7E928008BA92B /* saxophone.png in Resources */ = {isa = PBXBuildFile; fileRef = 4289A4351AC7E928008BA92B /* saxophone.png */; };
 		42E4ACFB1A6EC81200D9572F /* Menu@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 42E4ACFA1A6EC81200D9572F /* Menu@2x.png */; };
 		42F370D01A8886C700854AE8 /* TopAttendanceView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 42F370CF1A8886C700854AE8 /* TopAttendanceView.xib */; };
 		A81D350BBE47E4FF5FEFD84E /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DA9E6B1DB054274C90B053C6 /* libPods.a */; };
@@ -299,10 +295,6 @@
 		425783991A68E93600885323 /* RoundedHexagonPercentageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RoundedHexagonPercentageView.m; sourceTree = "<group>"; };
 		4257839E1A69391600885323 /* GraphView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GraphView.h; sourceTree = "<group>"; };
 		4257839F1A69391600885323 /* GraphView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GraphView.m; sourceTree = "<group>"; };
-		4289A4321AC7E928008BA92B /* drums.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = drums.png; sourceTree = "<group>"; };
-		4289A4331AC7E928008BA92B /* electro.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = electro.png; sourceTree = "<group>"; };
-		4289A4341AC7E928008BA92B /* guitar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = guitar.png; sourceTree = "<group>"; };
-		4289A4351AC7E928008BA92B /* saxophone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = saxophone.png; sourceTree = "<group>"; };
 		42E4ACFA1A6EC81200D9572F /* Menu@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Menu@2x.png"; sourceTree = "<group>"; };
 		42F370CF1A8886C700854AE8 /* TopAttendanceView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TopAttendanceView.xib; sourceTree = "<group>"; };
 		DA9E6B1DB054274C90B053C6 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -682,7 +674,6 @@
 				16617C1A1A6BE622000CA406 /* BaseViewController.m */,
 				16617C141A6BDF86000CA406 /* LoginViewController.h */,
 				16617C151A6BDF86000CA406 /* LoginViewController.m */,
-				4289A4311AC7E928008BA92B /* Sample Instruments */,
 				425783941A6820DB00885323 /* View XIB Files */,
 				16C7A4C21A7158FA009D6522 /* Images-2.xcassets */,
 				16E4A3011A67D66900152389 /* Supporting Files */,
@@ -752,17 +743,6 @@
 				42F370CE1A88869D00854AE8 /* Sections of Expanded View */,
 			);
 			name = "View XIB Files";
-			sourceTree = "<group>";
-		};
-		4289A4311AC7E928008BA92B /* Sample Instruments */ = {
-			isa = PBXGroup;
-			children = (
-				4289A4321AC7E928008BA92B /* drums.png */,
-				4289A4331AC7E928008BA92B /* electro.png */,
-				4289A4341AC7E928008BA92B /* guitar.png */,
-				4289A4351AC7E928008BA92B /* saxophone.png */,
-			);
-			path = "Sample Instruments";
 			sourceTree = "<group>";
 		};
 		42F370CE1A88869D00854AE8 /* Sections of Expanded View */ = {
@@ -900,7 +880,6 @@
 				16C98A0A1AC04BC000E384E7 /* 2.jpg in Resources */,
 				425783911A6820B600885323 /* CondensedView.xib in Resources */,
 				16C98A081AC04BC000E384E7 /* 5.jpg in Resources */,
-				4289A4361AC7E928008BA92B /* drums.png in Resources */,
 				168195131A728508009C236B /* b5.jpg in Resources */,
 				16C98A0B1AC04BC000E384E7 /* 1.jpg in Resources */,
 				168636D11AB719DC00E392FE /* ExpandedView.xib in Resources */,
@@ -909,11 +888,8 @@
 				161CCDA51A6A436600527A7A /* LICENSE in Resources */,
 				1681950A1A727D20009C236B /* b3.jpg in Resources */,
 				16C98A071AC04BC000E384E7 /* 6.jpg in Resources */,
-				4289A4391AC7E928008BA92B /* saxophone.png in Resources */,
 				1681950C1A727D65009C236B /* b2.jpg in Resources */,
 				1658035B1A86727100FD9E2D /* TimeTableCell.xib in Resources */,
-				4289A4371AC7E928008BA92B /* electro.png in Resources */,
-				4289A4381AC7E928008BA92B /* guitar.png in Resources */,
 				16C7A4C31A7158FA009D6522 /* Images-2.xcassets in Resources */,
 				16E4A30D1A67D66900152389 /* Main.storyboard in Resources */,
 				42E4ACFB1A6EC81200D9572F /* Menu@2x.png in Resources */,
