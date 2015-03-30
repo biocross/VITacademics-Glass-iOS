@@ -269,7 +269,6 @@ minimumInteritemSpacingForSectionAtIndex:(NSInteger)section
                                  current:[[[self.user.courses[indexPath.row] attendance] attendance_percentage] floatValue]/100
                                    after:0.5];
                 
-                
                 graphView.lastUpdated = [[[[self.user.courses[indexPath.row] attendance] details] lastObject] date];
             
             }

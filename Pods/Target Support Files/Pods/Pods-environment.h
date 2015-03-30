@@ -12,6 +12,12 @@
 #define COCOAPODS_VERSION_MINOR_DateTools 4
 #define COCOAPODS_VERSION_PATCH_DateTools 3
 
+// HockeySDK
+#define COCOAPODS_POD_AVAILABLE_HockeySDK
+#define COCOAPODS_VERSION_MAJOR_HockeySDK 3
+#define COCOAPODS_VERSION_MINOR_HockeySDK 6
+#define COCOAPODS_VERSION_PATCH_HockeySDK 2
+
 // Mantle
 #define COCOAPODS_POD_AVAILABLE_Mantle
 #define COCOAPODS_VERSION_MAJOR_Mantle 1
@@ -23,12 +29,6 @@
 #define COCOAPODS_VERSION_MAJOR_Mantle_extobjc 1
 #define COCOAPODS_VERSION_MINOR_Mantle_extobjc 5
 #define COCOAPODS_VERSION_PATCH_Mantle_extobjc 3
-
-// NewRelicAgent
-#define COCOAPODS_POD_AVAILABLE_NewRelicAgent
-#define COCOAPODS_VERSION_MAJOR_NewRelicAgent 4
-#define COCOAPODS_VERSION_MINOR_NewRelicAgent 155
-#define COCOAPODS_VERSION_PATCH_NewRelicAgent 0
 
 // Pop
 #define COCOAPODS_POD_AVAILABLE_Pop

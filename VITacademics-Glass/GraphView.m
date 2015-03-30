@@ -72,7 +72,10 @@
     
     NSString *string;
     if(self.lastUpdated){
-         string = [NSString stringWithFormat:@"Updated %@", self.lastUpdated.timeAgoSinceNow];
+        NSDateFormatter *format = [[NSDateFormatter alloc] init];
+        [format setDateFormat:@"EEEE, MMM dd"];
+        NSString *dateString = [format stringFromDate:self.lastUpdated];
+        string = [@"Updated: " stringByAppendingString:dateString];
     }
     else{
         string = @"Not Uploaded";

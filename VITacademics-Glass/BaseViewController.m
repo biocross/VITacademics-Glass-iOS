@@ -365,7 +365,7 @@ typedef CGPoint NSPoint;
         [NSURLConnection sendSynchronousRequest:request
                                              returningResponse:&response
                                                          error:&error];
-        int httpCode = [(NSHTTPURLResponse *)response statusCode];
+        int httpCode = (int)[(NSHTTPURLResponse *)response statusCode];
         int shouldLoadAttendance =  httpCode;
         
         dispatch_async(dispatch_get_main_queue(), ^{
@@ -386,8 +386,6 @@ typedef CGPoint NSPoint;
         });//end of GCD
     });
     
-    
-    
 }
 
 
@@ -407,7 +405,6 @@ typedef CGPoint NSPoint;
             [mailCont setSubject:@"VITacademics Beta 3.1 Bug Report"];
             [self presentViewController:mailCont animated:YES completion:nil];
     }
-    
 }
 
 - (IBAction)timeTablePressed:(id)sender {

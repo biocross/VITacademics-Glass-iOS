@@ -7,9 +7,6 @@
 //
 
 #import "AppDelegate.h"
-#import <NewRelicAgent/NewRelic.h>
-#import "CCColorCube.h"
-#import "VITXManager.h"
 
 
 @interface AppDelegate ()
@@ -20,7 +17,12 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    //[NewRelicAgent startWithApplicationToken:@"AA9dddfc1c83a1544567e0d6f2664d650191b08979"];
+    [[BITHockeyManager sharedHockeyManager] configureWithIdentifier:@"0eadafead596e144c5e5bbfce7ac1149"];
+    [[BITHockeyManager sharedHockeyManager] startManager];
+    [[BITHockeyManager sharedHockeyManager].authenticator
+     authenticateInstallation];
+
+    
     return YES;
 }
 

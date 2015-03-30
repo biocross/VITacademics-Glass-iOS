@@ -7,6 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "HockeySDK.h"
+
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 

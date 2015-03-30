@@ -1,9 +1,9 @@
 PODS:
   - DateTools (1.4.3)
+  - HockeySDK (3.6.2)
   - Mantle (1.5.3):
     - Mantle/extobjc (= 1.5.3)
   - Mantle/extobjc (1.5.3)
-  - NewRelicAgent (4.155)
   - pop (1.0.7)
   - ReactiveCocoa (2.4.4):
     - ReactiveCocoa/UI (= 2.4.4)
@@ -16,18 +16,18 @@ PODS:
 
 DEPENDENCIES:
   - DateTools
+  - HockeySDK (~> 3.6.2)
   - Mantle
-  - NewRelicAgent
   - Pop
   - ReactiveCocoa
   - Shimmer
 
 SPEC CHECKSUMS:
-  DateTools: 7c2d233ea2d4bda3a717d0cd5f58da926a5998d0
-  Mantle: 8d84cacd6c2a69ff6fbce985a2b51298a5495de3
-  NewRelicAgent: 4b148cc1ded2ed52a567ae64f78d658a16f1ed63
-  pop: 2f14a1ea61339767af9e66741b418c831b3844df
-  ReactiveCocoa: 31119068e3dde866bd257cf74e1f06b4023bf387
-  Shimmer: 057fcfe9c1c978d69d50b64fce93a61080cd08ec
+  DateTools: c3d055af2c4d039c1791b5bffb1444ad1db32219
+  HockeySDK: 51ade1aff04463137e852797d2eb4dfb2511d6a9
+  Mantle: 7dddb082367d3e13bd244636d56838481c4552fe
+  pop: 628ffc631644601567ee8bfaaaea493ebd7d0923
+  ReactiveCocoa: cbe3b5eae464aa72a348a7323996b171728a9e71
+  Shimmer: c5374be1c2b0c9e292fb05b339a513cf291cac86
 
 COCOAPODS: 0.35.0
