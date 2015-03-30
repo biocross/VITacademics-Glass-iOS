@@ -105,8 +105,8 @@
     [prefs setObject:self.dobTextField.text forKey:@"dateOfBirth"];
     NSLog(@"Preferences Saved");
         
-    [prefs removeObjectForKey:@"firstTime"];
-    [prefs setObject:@"YES" forKey:@"firstTime"];
+    [prefs removeObjectForKey:@"firstTime_b3"];
+    [prefs setObject:@"YES" forKey:@"firstTime_b3"];
     
     [self.regNoTextField resignFirstResponder];
     [self.dobTextField resignFirstResponder];

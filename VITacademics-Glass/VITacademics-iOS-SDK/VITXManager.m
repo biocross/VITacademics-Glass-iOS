@@ -47,7 +47,7 @@
          name:@"credentialsChanged"
          object:nil];
 
-        if([[NSUserDefaults standardUserDefaults] stringForKey:@"firstTime"]){
+        if([[NSUserDefaults standardUserDefaults] stringForKey:@"firstTime_b3"]){
             self.firstTime = NO;
             [self loadData];
         }

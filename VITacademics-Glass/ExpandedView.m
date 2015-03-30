@@ -39,8 +39,11 @@
     if(!dateString){
         self.lastUpdatedLabel.text = @"-";
     }
-
-    if([self.course.slot isEqualToString:@"NIL"]){
+    
+    if(!self.course.slot){
+        self.slotLabel.text = @"-";
+    }
+    else if([self.course.slot isEqualToString:@"NIL"]){
         self.slotLabel.text = @"-";
     }
     
@@ -119,6 +122,7 @@
     
     NSError *error = NULL;
     NSRegularExpression *regex = [NSRegularExpression regularExpressionWithPattern:@"L" options:NSRegularExpressionCaseInsensitive error:&error];
+    
     NSUInteger numberOfMatches = [regex numberOfMatchesInString:self.slotLabel.text options:0 range:NSMakeRange(0, [self.slotLabel.text length])];
     
     int numberOfSlots = 1;

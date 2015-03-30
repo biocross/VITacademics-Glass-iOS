@@ -155,8 +155,11 @@ typedef CGPoint NSPoint;
 -(void)viewDidLoad{
     
     [super viewDidLoad];
-    if(![[NSUserDefaults standardUserDefaults] stringForKey:@"firstTime"])
+    if(![[NSUserDefaults standardUserDefaults] stringForKey:@"firstTime_b3"])
     {
+        [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"registrationNumber"];
+        [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"dateOfBirth"];
+        [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"campus"];
         [self performSelector:(@selector(beginLoginProcess)) withObject:nil afterDelay:1];
     }
     else
