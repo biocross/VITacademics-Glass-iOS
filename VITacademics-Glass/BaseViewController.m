@@ -398,12 +398,12 @@ typedef CGPoint NSPoint;
     }
 }
 
-- (IBAction)timeTablePressed:(id)sender {
+/*- (IBAction)timeTablePressed:(id)sender {
 //    coursesDragged = NO;
 //    [self hideShowCollectionViewController];
     
     [self showInfoToUserWithTitle:@"Coming Soon" andMessage:@"We're working on this. Please hang on."];
-}
+}*/
 
 
 - (void)mailComposeController:(MFMailComposeViewController *)controller didFinishWithResult:(MFMailComposeResult)result error:(NSError *)error

@@ -23,11 +23,7 @@
 	<key>CFBundleSignature</key>
 	<string>????</string>
 	<key>CFBundleVersion</key>
-<<<<<<< Updated upstream
 	<string>4</string>
-=======
-	<string>3.1</string>
->>>>>>> Stashed changes
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>UIMainStoryboardFile</key>
