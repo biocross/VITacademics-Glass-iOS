@@ -14,8 +14,6 @@
 #import "ExpandedView.h"
 
 
-//iOS developing is aweosme!
-
 @interface HomeCollectionViewController (){
     int choice;
 }
