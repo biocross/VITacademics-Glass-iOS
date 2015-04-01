@@ -144,11 +144,21 @@ typedef CGPoint NSPoint;
 }
 
 -(void)showInfoToUserWithTitle:(NSString *)title andMessage:(NSString *)message{
-    UIAlertController *error = [UIAlertController alertControllerWithTitle:title message:message preferredStyle:UIAlertControllerStyleAlert];
-    UIAlertAction *okay = [UIAlertAction actionWithTitle:@"Okay" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
-    }];
-    [error addAction:okay];
-    [self presentViewController:error animated:YES completion:nil];
+    
+    if ([UIAlertController class]) {
+        UIAlertController *error = [UIAlertController alertControllerWithTitle:title message:message preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertAction *okay = [UIAlertAction actionWithTitle:@"Okay" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+        }];
+        [error addAction:okay];
+        
+        [self presentViewController:error animated:YES completion:nil];
+        
+    } else {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:title message:message delegate:self cancelButtonTitle:@"Okay" otherButtonTitles: nil];
+        [alert show];
+    }
+    
+    
 }
 
 

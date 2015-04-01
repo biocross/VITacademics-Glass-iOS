@@ -91,10 +91,18 @@
 - (IBAction)loginButtonPressed:(id)sender {
     
     if([self.regNoTextField.text length] < 6 || [self.dobTextField.text length] < 8){
-        UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Check Fields" message:@"Please make sure you've entered all the required information" preferredStyle:UIAlertControllerStyleActionSheet];
-        UIAlertAction *okay = [UIAlertAction actionWithTitle:@"Okay" style:UIAlertActionStyleDefault handler:nil];
-        [alert addAction:okay];
-        [self presentViewController:alert animated:YES completion:nil];
+        
+        if ([UIAlertController class]) {
+            UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Check Fields" message:@"Please make sure you've entered all the required information" preferredStyle:UIAlertControllerStyleActionSheet];
+            UIAlertAction *okay = [UIAlertAction actionWithTitle:@"Okay" style:UIAlertActionStyleDefault handler:nil];
+            [alert addAction:okay];
+            [self presentViewController:alert animated:YES completion:nil];
+        }
+        else{
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Check Fields" message:@"Please make sure you've entered all the required information" delegate:self cancelButtonTitle:@"Okay" otherButtonTitles: nil];
+            [alert show];
+        }
+        
         return;
     }
     
