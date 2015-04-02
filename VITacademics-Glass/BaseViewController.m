@@ -30,7 +30,6 @@ TODOs:
 @property (strong, nonatomic) IBOutlet UIButton *menuButton;
 @property (nonatomic, strong) UIPanGestureRecognizer *coursesPanGestureRecognizer;
 @property (nonatomic, strong) UIPanGestureRecognizer *timeTablePangestureRecognizer;
-
 @property (nonatomic, strong) UITapGestureRecognizer *coursesTapped;
 @property (nonatomic, strong) UITapGestureRecognizer *timeTableTapped;
 

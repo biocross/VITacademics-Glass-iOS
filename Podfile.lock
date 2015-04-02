@@ -1,0 +1,33 @@
+PODS:
+  - DateTools (1.5.0)
+  - HockeySDK (3.6.2)
+  - Mantle (1.5.4):
+    - Mantle/extobjc (= 1.5.4)
+  - Mantle/extobjc (1.5.4)
+  - pop (1.0.7)
+  - ReactiveCocoa (2.4.7):
+    - ReactiveCocoa/UI (= 2.4.7)
+  - ReactiveCocoa/Core (2.4.7):
+    - ReactiveCocoa/no-arc
+  - ReactiveCocoa/no-arc (2.4.7)
+  - ReactiveCocoa/UI (2.4.7):
+    - ReactiveCocoa/Core
+  - Shimmer (1.0.2)
+
+DEPENDENCIES:
+  - DateTools
+  - HockeySDK (~> 3.6.2)
+  - Mantle
+  - Pop
+  - ReactiveCocoa
+  - Shimmer
+
+SPEC CHECKSUMS:
+  DateTools: b93a2c2017747329c6077c7d7e8a75106e23d0d7
+  HockeySDK: 51ade1aff04463137e852797d2eb4dfb2511d6a9
+  Mantle: 60acd0cd363e27d945bda0a6b8e90577112d28f3
+  pop: 628ffc631644601567ee8bfaaaea493ebd7d0923
+  ReactiveCocoa: eb38dee0a0e698f73a9b25e5c1faea2bb4c79240
+  Shimmer: c5374be1c2b0c9e292fb05b339a513cf291cac86
+
+COCOAPODS: 0.36.3
