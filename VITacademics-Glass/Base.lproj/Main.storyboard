@@ -76,10 +76,10 @@
             </objects>
             <point key="canvasLocation" x="481.5" y="537.5"/>
         </scene>
-        <!--Table View Controller-->
+        <!--Grades Calculator-->
         <scene sceneID="cOs-yG-eey">
             <objects>
-                <tableViewController id="qMM-bK-K8S" customClass="CGPATableViewController" sceneMemberID="viewController">
+                <tableViewController id="qMM-bK-K8S" customClass="GradesTableViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="DJU-5K-aVk">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -97,11 +97,12 @@
                             <outlet property="delegate" destination="qMM-bK-K8S" id="Rmj-53-LnU"/>
                         </connections>
                     </tableView>
+                    <navigationItem key="navigationItem" title="Grades Calculator" id="2jo-OP-rO9"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kZ4-Fl-sJU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="901.5" y="537.5"/>
+            <point key="canvasLocation" x="1279.5" y="537.5"/>
         </scene>
         <!--LoginViewController-->
         <scene sceneID="p3V-mF-Y0s">
@@ -216,7 +217,7 @@
                                 <rect key="frame" x="16" y="21" width="220" height="284"/>
                                 <subviews>
                                     <button contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qmR-17-Wjt">
-                                        <rect key="frame" x="0.0" y="8" width="168" height="43"/>
+                                        <rect key="frame" x="-1" y="8" width="168" height="43"/>
                                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="26"/>
                                         <state key="normal" title="Courses">
@@ -228,7 +229,7 @@
                                         </connections>
                                     </button>
                                     <button contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zc9-za-qde">
-                                        <rect key="frame" x="1" y="49" width="168" height="43"/>
+                                        <rect key="frame" x="-1" y="49" width="168" height="43"/>
                                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="26"/>
                                         <state key="normal" title="Refresh">
@@ -240,7 +241,7 @@
                                         </connections>
                                     </button>
                                     <button contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="u2f-a7-s2m">
-                                        <rect key="frame" x="1" y="90" width="168" height="43"/>
+                                        <rect key="frame" x="-1" y="90" width="168" height="43"/>
                                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="26"/>
                                         <state key="normal" title="Credentials">
@@ -261,6 +262,18 @@
                                         </state>
                                         <connections>
                                             <action selector="feedbackPressed:" destination="BJl-B7-Ivi" eventType="touchUpInside" id="WXm-4q-7oB"/>
+                                        </connections>
+                                    </button>
+                                    <button contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oJ7-KX-kNm">
+                                        <rect key="frame" x="-1" y="171" width="222" height="43"/>
+                                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="26"/>
+                                        <state key="normal" title="Grades">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="gradesPressed:" destination="BJl-B7-Ivi" eventType="touchUpInside" id="J9G-cB-2aa"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -305,11 +318,31 @@
                         <outletCollection property="MenuButtons" destination="u2f-a7-s2m" id="Mhe-aR-PKB"/>
                         <outletCollection property="MenuButtons" destination="Zc9-za-qde" id="OB7-2J-lRs"/>
                         <outletCollection property="MenuButtons" destination="qmR-17-Wjt" id="UZX-bl-NUz"/>
+                        <outletCollection property="MenuButtons" destination="oJ7-KX-kNm" id="ns1-lK-zdY"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tjo-XE-JbJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="481" y="-164"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="BdW-gb-jqI">
+            <objects>
+                <navigationController storyboardIdentifier="GradesTableViewController" automaticallyAdjustsScrollViewInsets="NO" id="COg-u6-p3I" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="IPJ-P4-lyk">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="qMM-bK-K8S" kind="relationship" relationship="rootViewController" id="wXd-D6-c4E"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5jB-2S-ExB" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="855" y="444"/>
         </scene>
     </scenes>
     <resources>

@@ -27,7 +27,7 @@
 		16326AE91AC7544C009C5F9E /* RDVCalendarView.m in Sources */ = {isa = PBXBuildFile; fileRef = 16326AE51AC7544C009C5F9E /* RDVCalendarView.m */; };
 		16326AEA1AC7544C009C5F9E /* RDVCalendarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 16326AE71AC7544C009C5F9E /* RDVCalendarViewController.m */; };
 		1644E5F21A6BDB4300504ED8 /* TimeTable.m in Sources */ = {isa = PBXBuildFile; fileRef = 1644E5F11A6BDB4300504ED8 /* TimeTable.m */; };
-		164912E11ACDE0D7000057A3 /* CGPATableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 164912E01ACDE0D7000057A3 /* CGPATableViewController.m */; };
+		164912E11ACDE0D7000057A3 /* GradesTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 164912E01ACDE0D7000057A3 /* GradesTableViewController.m */; };
 		1658035B1A86727100FD9E2D /* TimeTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1658035A1A86727100FD9E2D /* TimeTableCell.xib */; };
 		16617C171A6BDF86000CA406 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 16617C151A6BDF86000CA406 /* LoginViewController.m */; };
 		16617C1B1A6BE622000CA406 /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 16617C1A1A6BE622000CA406 /* BaseViewController.m */; };
@@ -136,8 +136,8 @@
 		16326AE71AC7544C009C5F9E /* RDVCalendarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RDVCalendarViewController.m; sourceTree = "<group>"; };
 		1644E5F01A6BDB4300504ED8 /* TimeTable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimeTable.h; sourceTree = "<group>"; };
 		1644E5F11A6BDB4300504ED8 /* TimeTable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TimeTable.m; sourceTree = "<group>"; };
-		164912DF1ACDE0D7000057A3 /* CGPATableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGPATableViewController.h; sourceTree = "<group>"; };
-		164912E01ACDE0D7000057A3 /* CGPATableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CGPATableViewController.m; sourceTree = "<group>"; };
+		164912DF1ACDE0D7000057A3 /* GradesTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GradesTableViewController.h; sourceTree = "<group>"; };
+		164912E01ACDE0D7000057A3 /* GradesTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GradesTableViewController.m; sourceTree = "<group>"; };
 		1658035A1A86727100FD9E2D /* TimeTableCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TimeTableCell.xib; sourceTree = "<group>"; };
 		16617C141A6BDF86000CA406 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		16617C151A6BDF86000CA406 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
@@ -675,8 +675,8 @@
 				16E4A30B1A67D66900152389 /* Main.storyboard */,
 				16617C191A6BE622000CA406 /* BaseViewController.h */,
 				16617C1A1A6BE622000CA406 /* BaseViewController.m */,
-				164912DF1ACDE0D7000057A3 /* CGPATableViewController.h */,
-				164912E01ACDE0D7000057A3 /* CGPATableViewController.m */,
+				164912DF1ACDE0D7000057A3 /* GradesTableViewController.h */,
+				164912E01ACDE0D7000057A3 /* GradesTableViewController.m */,
 				16617C141A6BDF86000CA406 /* LoginViewController.h */,
 				16617C151A6BDF86000CA406 /* LoginViewController.m */,
 				425783941A6820DB00885323 /* View XIB Files */,
@@ -1024,7 +1024,7 @@
 				16E4A3291A67D6DE00152389 /* HomeCollectionViewController.m in Sources */,
 				167203B81A6B969F00A498AE /* CCColorCube.mm in Sources */,
 				161CCDA71A6A436600527A7A /* AttendanceDetails.m in Sources */,
-				164912E11ACDE0D7000057A3 /* CGPATableViewController.m in Sources */,
+				164912E11ACDE0D7000057A3 /* GradesTableViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

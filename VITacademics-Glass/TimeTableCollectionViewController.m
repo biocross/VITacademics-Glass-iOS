@@ -39,8 +39,6 @@ static NSString * const reuseIdentifier = @"TimeTable";
     [self.collectionView reloadData];
     self.collectionView.backgroundView  = self.wallpaperView;
     
-    
-    
 }
 
 -(void)initTimeTable{

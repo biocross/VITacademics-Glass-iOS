@@ -10,6 +10,7 @@
 #import "LoginViewController.h"
 #import "VITXManager.h"
 #import <pop/POP.h>
+#import "GradesTableViewController.h"
 
 
 /*
@@ -140,6 +141,11 @@ typedef CGPoint NSPoint;
         }
     }
     
+}
+
+- (IBAction)gradesPressed:(id)sender {
+    GradesTableViewController *loginViewController = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"GradesTableViewController"];
+    [self presentViewController:loginViewController animated:YES completion:nil];
 }
 
 -(void)showInfoToUserWithTitle:(NSString *)title andMessage:(NSString *)message{

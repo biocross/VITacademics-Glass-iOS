@@ -10,6 +10,6 @@
 #import "VITXManager.h"
 #import "CCColorCube.h"
 
-@interface CGPATableViewController : UITableViewController
+@interface GradesTableViewController : UITableViewController
 
 @end

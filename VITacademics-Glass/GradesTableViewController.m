@@ -6,9 +6,9 @@
 //  Copyright (c) 2015 Siddharth Gupta. All rights reserved.
 //
 
-#import "CGPATableViewController.h"
+#import "GradesTableViewController.h"
 
-@interface CGPATableViewController (){
+@interface GradesTableViewController (){
     int choice;
 }
 
@@ -17,7 +17,7 @@
 
 @end
 
-@implementation CGPATableViewController
+@implementation GradesTableViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
