@@ -49,7 +49,7 @@
     
     if(self.course.CBLMarks){
         if(self.course.CBLMarks.cat1_status){
-            self.mMarks1.text = [NSString stringWithFormat:@"%ld/50", (long)self.course.CBLMarks.cat1];
+            self.mMarks1.text = [NSString stringWithFormat:@"%.1f/50", self.course.CBLMarks.cat1.floatValue];
         }
         else{
             self.mMarks1.text = @"-";
@@ -57,7 +57,7 @@
         }
         
         if(self.course.CBLMarks.cat2_status){
-            self.mMarks2.text = [NSString stringWithFormat:@"%ld/50", (long)self.course.CBLMarks.cat2];
+            self.mMarks2.text = [NSString stringWithFormat:@"%.1f/50", self.course.CBLMarks.cat2.floatValue];
         }
         else{
             self.mMarks2.text = @"-";
@@ -65,7 +65,8 @@
         }
         
         if(self.course.CBLMarks.quiz1_status){
-            self.mMarks3.text = [NSString stringWithFormat:@"%ld/5", (long)self.course.CBLMarks.quiz1];
+            NSLog(@"%f", self.course.CBLMarks.quiz1.floatValue);
+            self.mMarks3.text = [NSString stringWithFormat:@"%.1f/5", self.course.CBLMarks.quiz1.floatValue];
         }
         else{
             self.mMarks3.text = @"-";
@@ -73,7 +74,7 @@
         }
         
         if(self.course.CBLMarks.quiz2_status){
-            self.mMarks4.text = [NSString stringWithFormat:@"%ld/5", (long)self.course.CBLMarks.quiz2];
+            self.mMarks4.text = [NSString stringWithFormat:@"%.1f/5", self.course.CBLMarks.quiz2.floatValue];
         }
         else{
             self.mMarks4.text = @"-";
@@ -81,7 +82,7 @@
         }
         
         if(self.course.CBLMarks.quiz3_status){
-            self.mMarks5.text = [NSString stringWithFormat:@"%ld/5", (long)self.course.CBLMarks.quiz3];
+            self.mMarks5.text = [NSString stringWithFormat:@"%.1f/5", self.course.CBLMarks.quiz3.floatValue];
         }
         else{
             self.mMarks5.text = @"-";
@@ -89,7 +90,7 @@
         }
         
         if(self.course.CBLMarks.assignment_status){
-            self.mMarks6.text = [NSString stringWithFormat:@"%ld/5", (long)self.course.CBLMarks.assignment];
+            self.mMarks6.text = [NSString stringWithFormat:@"%.1f/5", self.course.CBLMarks.assignment.floatValue];
         }
         else{
             self.mMarks6.text = @"-";

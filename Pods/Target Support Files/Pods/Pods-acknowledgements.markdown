@@ -214,7 +214,7 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 ## ReactiveCocoa
 
-**Copyright (c) 2012 - 2014, GitHub, Inc.**
+**Copyright (c) 2012 - 2015, GitHub, Inc.**
 **All rights reserved.**
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of

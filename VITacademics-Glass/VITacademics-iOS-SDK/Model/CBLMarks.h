@@ -10,17 +10,17 @@
 
 @interface CBLMarks : MTLModel <MTLJSONSerializing>
 
-@property (nonatomic) NSInteger cat1;
+@property (nonatomic) NSNumber *cat1;
 @property (nonatomic) BOOL cat1_status;
-@property (nonatomic) NSInteger cat2;
+@property (nonatomic) NSNumber *cat2;
 @property (nonatomic) BOOL cat2_status;
-@property (nonatomic) NSInteger quiz1;
+@property (nonatomic) NSNumber *quiz1;
 @property (nonatomic) BOOL quiz1_status;
-@property (nonatomic) NSInteger quiz2;
+@property (nonatomic) NSNumber *quiz2;
 @property (nonatomic) BOOL quiz2_status;
-@property (nonatomic) NSInteger quiz3;
+@property (nonatomic) NSNumber *quiz3;
 @property (nonatomic) BOOL quiz3_status;
-@property (nonatomic) NSInteger assignment;
+@property (nonatomic) NSNumber *assignment;
 @property (nonatomic) BOOL assignment_status;
 
 
