@@ -78,13 +78,12 @@ static NSString * const reuseIdentifier = @"course";
          
      } error:^(NSError *error) {
          NSLog(@"Error in User subscription!");
+         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error" message:@"Please try refreshing again." delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil];
+         [alert show];
+         [[VITXManager sharedManager] hideLoadingIndicator];
      }];
+    
 
-}
-
-- (void)viewDidAppear:(BOOL)animated
-{
-    [super viewDidAppear:animated];
 }
 
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView

@@ -60,7 +60,7 @@
 
 -(void)startRefreshing{
     
-    NSLog(@"Started Refreshing: %@", self.client);
+    NSLog(@"Started Refreshing");
     
     /*
     NSAssert([[NSUserDefaults standardUserDefaults] stringForKey:@"registrationNumber"],
