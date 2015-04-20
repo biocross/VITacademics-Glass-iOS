@@ -29,6 +29,9 @@
         [[NSUserDefaults standardUserDefaults] setObject:@"vellore" forKey:@"campus"];
     }
     
+    UITapGestureRecognizer *responders = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dismissAllFirstResponders:)];
+    [self.view addGestureRecognizer:responders];
+    
     self.regNoTextField.delegate = self;
     self.dobTextField.delegate = self;
      datePicker = [[UIDatePicker alloc] init];
@@ -54,6 +57,7 @@
         UIColor *color = [UIColor whiteColor];
         self.regNoTextField.attributedPlaceholder = [[NSAttributedString alloc] initWithString:@"Registration Number" attributes:@{NSForegroundColorAttributeName: color}];
         self.dobTextField.attributedPlaceholder = [[NSAttributedString alloc] initWithString:@"Date Of Birth" attributes:@{NSForegroundColorAttributeName: color}];
+        self.parentPhoneNumber.attributedPlaceholder = [[NSAttributedString alloc] initWithString:@"Parent Phone Number" attributes:@{NSForegroundColorAttributeName: color}];
     } else {
         NSLog(@"Cannot set placeholder text's color, because deployment target is earlier than iOS 6.0");
     }
@@ -70,6 +74,12 @@
         self.closeButton.enabled = YES;
         self.closeButton.hidden = NO;
     }
+}
+
+-(void)dismissAllFirstResponders:(id)sender{
+    [self.regNoTextField resignFirstResponder];
+    [self.dobTextField resignFirstResponder];
+    [self.parentPhoneNumber resignFirstResponder];
 }
 
 -(void)selectCampus:(UISegmentedControl *)sender{
@@ -90,7 +100,7 @@
 
 - (IBAction)loginButtonPressed:(id)sender {
     
-    if([self.regNoTextField.text length] < 6 || [self.dobTextField.text length] < 8){
+    if([self.regNoTextField.text length] < 6 || [self.dobTextField.text length] < 8 || [self.parentPhoneNumber.text length] < 7){
         
         if ([UIAlertController class]) {
             UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Check Fields" message:@"Please make sure you've entered all the required information" preferredStyle:UIAlertControllerStyleActionSheet];
@@ -109,12 +119,14 @@
     NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
     [prefs removeObjectForKey:@"registrationNumber"];
     [prefs removeObjectForKey:@"dateOfBirth"];
+    [prefs removeObjectForKey:@"parentPhoneNumber"];
     [prefs setObject:self.regNoTextField.text forKey:@"registrationNumber"];
     [prefs setObject:self.dobTextField.text forKey:@"dateOfBirth"];
+    [prefs setObject:self.parentPhoneNumber.text forKey:@"parentPhoneNumber"];
     NSLog(@"Preferences Saved");
         
-    [prefs removeObjectForKey:@"firstTime_b3"];
-    [prefs setObject:@"YES" forKey:@"firstTime_b3"];
+    [prefs removeObjectForKey:@"firstTime_b6"];
+    [prefs setObject:@"YES" forKey:@"firstTime_b6"];
     
     [self.regNoTextField resignFirstResponder];
     [self.dobTextField resignFirstResponder];

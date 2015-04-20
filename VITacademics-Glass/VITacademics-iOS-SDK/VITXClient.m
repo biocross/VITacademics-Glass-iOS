@@ -63,10 +63,11 @@
 
 - (RACSignal *)refreshDataForUserWithRegistrationNumber:(NSString *)registrationNumber andDateOfBirth:(NSString *)dateOfBirth {
     NSString *campus = [[NSUserDefaults standardUserDefaults] stringForKey:@"campus"];
+    NSString *mobile = [[NSUserDefaults standardUserDefaults] stringForKey:@"parentPhoneNumber"];
     NSString *urlString = [NSString stringWithFormat:@"https://vitacademics-rel.herokuapp.com/api/v2/%@/refresh", campus];
     NSURL *url = [NSURL URLWithString:urlString];
     NSMutableURLRequest * urlRequest = [NSMutableURLRequest requestWithURL:url];
-    NSString * params = [NSString stringWithFormat:@"regno=%@&dob=%@", registrationNumber, dateOfBirth];
+    NSString * params = [NSString stringWithFormat:@"regno=%@&dob=%@&mobile=%@", registrationNumber, dateOfBirth, mobile];
     [urlRequest setHTTPMethod:@"POST"];
     [urlRequest setHTTPBody:[params dataUsingEncoding:NSUTF8StringEncoding]];
     
@@ -77,15 +78,16 @@
 
 - (RACSignal *)loginWithRegistrationNumber:(NSString *)registrationNumber andDateOfBirth:(NSString *)dateOfBirth {
     NSString *campus = [[NSUserDefaults standardUserDefaults] stringForKey:@"campus"];
+    NSString *mobile = [[NSUserDefaults standardUserDefaults] stringForKey:@"parentPhoneNumber"];
     NSString *urlString = [NSString stringWithFormat:@"https://vitacademics-rel.herokuapp.com/api/v2/%@/login", campus];
     NSURL *url = [NSURL URLWithString:urlString];
     NSMutableURLRequest * urlRequest = [NSMutableURLRequest requestWithURL:url];
-    NSString * params = [NSString stringWithFormat:@"regno=%@&dob=%@", registrationNumber, dateOfBirth];
+    NSString * params = [NSString stringWithFormat:@"regno=%@&dob=%@&mobile=%@", registrationNumber, dateOfBirth, mobile];
     [urlRequest setHTTPMethod:@"POST"];
     [urlRequest setHTTPBody:[params dataUsingEncoding:NSUTF8StringEncoding]];
     
     return [[self fetchJSONFromURL:urlRequest] map:^(NSDictionary *json) {
-        NSLog(@"JSON Received: %@", json );
+        //NSLog(@"JSON Received: %@", json );
         return [MTLJSONAdapter modelOfClass:[LoginStatus class] fromJSONDictionary:json[@"status"] error:nil];
     }];
 }
