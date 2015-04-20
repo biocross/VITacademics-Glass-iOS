@@ -125,8 +125,8 @@
     [prefs setObject:self.parentPhoneNumber.text forKey:@"parentPhoneNumber"];
     NSLog(@"Preferences Saved");
         
-    [prefs removeObjectForKey:@"firstTime_b3"];
-    [prefs setObject:@"YES" forKey:@"firstTime_b3"];
+    [prefs removeObjectForKey:@"firstTime_b6"];
+    [prefs setObject:@"YES" forKey:@"firstTime_b6"];
     
     [self.regNoTextField resignFirstResponder];
     [self.dobTextField resignFirstResponder];
