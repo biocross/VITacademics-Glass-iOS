@@ -13,6 +13,7 @@
 
 @property (strong, nonatomic) IBOutlet UITextField *regNoTextField;
 @property (strong, nonatomic) IBOutlet UITextField *dobTextField;
+@property (strong, nonatomic) IBOutlet UITextField *parentPhoneNumber;
 @property (strong, nonatomic) IBOutlet UIButton *loginButton;
 - (IBAction)loginButtonPressed:(id)sender;
 @property (strong, nonatomic) IBOutlet UILabel *statusLabel;
