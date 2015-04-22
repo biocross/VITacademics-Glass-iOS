@@ -356,7 +356,7 @@ typedef CGPoint NSPoint;
         
         
         
-        NSString *buildingUrl = [NSString stringWithFormat:@"http://vitacademics-rel.herokuapp.com/status"];
+        NSString *buildingUrl = [NSString stringWithFormat:@"https://vitacademics-rel.herokuapp.com/api/v2/system"];
         NSURL *url = [NSURL URLWithString:buildingUrl];
         NSURLRequest * request = [NSURLRequest requestWithURL:url];
         NSError * error = nil;
