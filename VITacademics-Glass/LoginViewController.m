@@ -28,6 +28,20 @@
     if(![[NSUserDefaults standardUserDefaults] objectForKey:@"campus"]){
         [[NSUserDefaults standardUserDefaults] setObject:@"vellore" forKey:@"campus"];
     }
+    else{
+        @try {
+            NSString *campus = [[NSUserDefaults standardUserDefaults] stringForKey:@"campus"];
+            if ([campus isEqualToString:@"vellore"]){
+                [self.campusSelector setSelectedSegmentIndex:0];
+            }
+            else{
+                [self.campusSelector setSelectedSegmentIndex:1];
+            }
+        }
+        @catch (NSException *exception) {
+            NSLog(@"Couldn't set existing campus value in segmented view.");
+        }
+    }
     
     UITapGestureRecognizer *responders = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dismissAllFirstResponders:)];
     [self.view addGestureRecognizer:responders];
@@ -41,6 +55,10 @@
     }
     if([[NSUserDefaults standardUserDefaults] stringForKey:@"dateOfBirth"]){
         self.dobTextField.text = [[NSUserDefaults standardUserDefaults] stringForKey:@"dateOfBirth"];
+    }
+    
+    if([[NSUserDefaults standardUserDefaults] stringForKey:@"parentPhoneNumber"]){
+        self.parentPhoneNumber.text = [[NSUserDefaults standardUserDefaults] stringForKey:@"parentPhoneNumber"];
     }
     
     _wallpaperView = [[UIImageView alloc] initWithFrame:self.view.frame];
