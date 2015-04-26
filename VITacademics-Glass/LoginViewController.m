@@ -121,7 +121,7 @@
     if([self.regNoTextField.text length] < 6 || [self.dobTextField.text length] < 8 || [self.parentPhoneNumber.text length] < 7){
         
         if ([UIAlertController class]) {
-            UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Check Fields" message:@"Please make sure you've entered all the required information" preferredStyle:UIAlertControllerStyleActionSheet];
+            UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Check Fields" message:@"Please make sure you've entered all the required information" preferredStyle:UIAlertControllerStyleAlert];
             UIAlertAction *okay = [UIAlertAction actionWithTitle:@"Okay" style:UIAlertActionStyleDefault handler:nil];
             [alert addAction:okay];
             [self presentViewController:alert animated:YES completion:nil];
