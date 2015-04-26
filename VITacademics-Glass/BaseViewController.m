@@ -354,8 +354,6 @@ typedef CGPoint NSPoint;
     dispatch_queue_t downloadQueue = dispatch_queue_create("serverStatus", nil);
     dispatch_async(downloadQueue, ^{
         
-        
-        
         NSString *buildingUrl = [NSString stringWithFormat:@"https://vitacademics-rel.herokuapp.com/api/v2/system"];
         NSURL *url = [NSURL URLWithString:buildingUrl];
         NSURLRequest * request = [NSURLRequest requestWithURL:url];
@@ -366,7 +364,7 @@ typedef CGPoint NSPoint;
                                              returningResponse:&response
                                                          error:&error];
         int httpCode = (int)[(NSHTTPURLResponse *)response statusCode];
-        int shouldLoadAttendance =  httpCode;
+        int shouldLoadAttendance = httpCode;
         
         dispatch_async(dispatch_get_main_queue(), ^{
             NSLog(@"Status: %d", shouldLoadAttendance);

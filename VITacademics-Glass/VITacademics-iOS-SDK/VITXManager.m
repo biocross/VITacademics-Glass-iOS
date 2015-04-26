@@ -75,13 +75,15 @@
     
     [[RACSignal
       merge:@[[self loginUser]]]
-     subscribeCompleted:^{
-         
+     subscribeError:^(NSError *error) {
+         [self.baseViewController hideLoadingIndicator];
+         [self.baseViewController showInfoToUserWithTitle:@"Network Error" andMessage:@"Please try again with a more stable internet connection."];
+     } completed:^{
          
          @try{
              if(!self.status.message){
-                 [self.baseViewController showInfoToUserWithTitle:@"Server Error" andMessage:@"Please try again"];
                  [self.baseViewController hideLoadingIndicator];
+                 [self.baseViewController showInfoToUserWithTitle:@"Server Error" andMessage:@"Please try again"];
              }
              
              if([self.status.message containsString:@"Success"]){
@@ -95,6 +97,7 @@
              }
              else{
                  NSLog(@"Login Failure");
+                 [self.baseViewController hideLoadingIndicator];
                  
                  if(!(self.status.message) || [self.status.message isEqualToString:@""]){
                      [self.baseViewController showInfoToUserWithTitle:@"Server Error" andMessage:@"Please try again"];
@@ -103,7 +106,7 @@
                      [self.baseViewController showInfoToUserWithTitle:@"" andMessage:self.status.message];
                  }
                  
-                 [self.baseViewController hideLoadingIndicator];
+                 
              }
          }
          @catch(NSException *e){
@@ -111,6 +114,7 @@
          }
          
      }];
+    
 }
 
 -(RACSignal *)loginUser{

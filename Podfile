@@ -1,7 +1,7 @@
 link_with 'VITacademics-Glass', 'VITacademics-GlassTests'
 
 pod 'ReactiveCocoa'
-pod 'Mantle'
+pod 'Mantle' ,'1.5.4'
 pod 'DateTools'
 pod 'Pop'
 pod 'Shimmer'
