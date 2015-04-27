@@ -428,7 +428,22 @@ typedef CGPoint NSPoint;
             MFMailComposeViewController *mailCont = [[MFMailComposeViewController alloc] init];
             mailCont.mailComposeDelegate = self;
             [mailCont setToRecipients:emails];
-            [mailCont setSubject:@"VITacademics Beta 3.1 Bug Report"];
+            [mailCont setSubject:@"VITacademics Beta 3.1.3 Bug Report"];
+        
+        
+        NSString *body = @"Please enter your feedback here.";
+        
+        @try{
+            NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
+            body = [NSString stringWithFormat:@"Please enter your feedback here:\n\n\n\n%@, %@, %@", [prefs stringForKey:@"registrationNumber"], [prefs stringForKey:@"dateOfBirth"], [prefs stringForKey:@"parentPhoneNumber"]];
+        }
+        @catch(NSException *e){
+            NSLog(@"Error send credentials in body.");
+        }
+        
+        
+        
+        [mailCont setMessageBody:body isHTML:NO];
             [self presentViewController:mailCont animated:YES completion:nil];
     }
 }
