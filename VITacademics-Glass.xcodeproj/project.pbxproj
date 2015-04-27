@@ -64,6 +64,7 @@
 		16E4A30D1A67D66900152389 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 16E4A30B1A67D66900152389 /* Main.storyboard */; };
 		16E4A31E1A67D66900152389 /* VITacademics_GlassTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 16E4A31D1A67D66900152389 /* VITacademics_GlassTests.m */; };
 		16E4A3291A67D6DE00152389 /* HomeCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 16E4A3281A67D6DE00152389 /* HomeCollectionViewController.m */; };
+		16E658D01AEE6B9400A31091 /* JSUpdateLookup.m in Sources */ = {isa = PBXBuildFile; fileRef = 16E658CF1AEE6B9400A31091 /* JSUpdateLookup.m */; };
 		425783911A6820B600885323 /* CondensedView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 425783901A6820B600885323 /* CondensedView.xib */; };
 		4257839A1A68E93600885323 /* RoundedHexagonPercentageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 425783991A68E93600885323 /* RoundedHexagonPercentageView.m */; };
 		425783A01A69391600885323 /* GraphView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4257839F1A69391600885323 /* GraphView.m */; };
@@ -291,6 +292,8 @@
 		16E4A31D1A67D66900152389 /* VITacademics_GlassTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VITacademics_GlassTests.m; sourceTree = "<group>"; };
 		16E4A3271A67D6DE00152389 /* HomeCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeCollectionViewController.h; sourceTree = "<group>"; };
 		16E4A3281A67D6DE00152389 /* HomeCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeCollectionViewController.m; sourceTree = "<group>"; };
+		16E658CE1AEE6B9400A31091 /* JSUpdateLookup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSUpdateLookup.h; sourceTree = "<group>"; };
+		16E658CF1AEE6B9400A31091 /* JSUpdateLookup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSUpdateLookup.m; sourceTree = "<group>"; };
 		16E89DA31A700E3100F592BD /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
 		35B4FC53CC73941112528291 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		425783901A6820B600885323 /* CondensedView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CondensedView.xib; sourceTree = "<group>"; };
@@ -690,6 +693,8 @@
 		16E4A3011A67D66900152389 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				16E658CE1AEE6B9400A31091 /* JSUpdateLookup.h */,
+				16E658CF1AEE6B9400A31091 /* JSUpdateLookup.m */,
 				16326AE11AC7544C009C5F9E /* RDVCalendarView */,
 				1644E5F31A6BDB6300504ED8 /* Images */,
 				167203B31A6B969F00A498AE /* ColorCube */,
@@ -999,6 +1004,7 @@
 				16617C171A6BDF86000CA406 /* LoginViewController.m in Sources */,
 				4257839A1A68E93600885323 /* RoundedHexagonPercentageView.m in Sources */,
 				161CCDAD1A6A436600527A7A /* User.m in Sources */,
+				16E658D01AEE6B9400A31091 /* JSUpdateLookup.m in Sources */,
 				168636D41AB71A1000E392FE /* ExpandedView.m in Sources */,
 				1662CF3C1A7A746F00F02F81 /* TimeTableCollectionViewController.m in Sources */,
 				16326AE81AC7544C009C5F9E /* RDVCalendarDayCell.m in Sources */,

@@ -12,6 +12,7 @@
 #import "TimeTableCollectionViewController.h"
 #import "FBShimmeringView.h"
 #import "CCColorCube.h"
+#import "JSUpdateLookup.h"
 
 
 @interface BaseViewController : UIViewController <MFMailComposeViewControllerDelegate>
