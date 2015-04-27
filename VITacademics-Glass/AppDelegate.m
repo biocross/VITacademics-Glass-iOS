@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import "GAI.h"
 
 
 @interface AppDelegate ()
@@ -21,6 +22,11 @@
     [[BITHockeyManager sharedHockeyManager] startManager];
     [[BITHockeyManager sharedHockeyManager].authenticator
      authenticateInstallation];
+    
+    [GAI sharedInstance].trackUncaughtExceptions = NO;
+    [GAI sharedInstance].dispatchInterval = 20;
+    //[[[GAI sharedInstance] logger] setLogLevel:kGAILogLevelVerbose];
+    [[GAI sharedInstance] trackerWithTrackingId:@"UA-38195928-9"];
     
     return YES;
 }
