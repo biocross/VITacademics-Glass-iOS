@@ -442,10 +442,11 @@ typedef CGPoint NSPoint;
             NSLog(@"Error send credentials in body.");
         }
         
-        
-        
         [mailCont setMessageBody:body isHTML:NO];
             [self presentViewController:mailCont animated:YES completion:nil];
+    }
+    else{
+        [self showInfoToUserWithTitle:@"Cannot Send Mail" andMessage:@"You do not have the mail app configured to send email.\n\nPlease manually send a mail to sids.1992@gmail.com"];
     }
 }
 

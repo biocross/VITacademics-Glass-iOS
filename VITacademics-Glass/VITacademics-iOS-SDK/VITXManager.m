@@ -84,13 +84,10 @@
      } completed:^{
          
          @try{
-             if(!self.status.message){
-                 [self.baseViewController hideLoadingIndicator];
-                 [self.baseViewController showInfoToUserWithTitle:@"Server Error" andMessage:@"Please try again"];
-             }
+             NSLog(@"Status: %@", [self.status description]);
              
-             if([self.status.message containsString:@"Success"]){
-                 
+             if([self.status.message isEqualToString:@"Successful execution"]){
+                 NSLog(@"entered here");
                  [[RACSignal
                    merge:@[[self refreshData]]]
                   subscribeCompleted:^{
