@@ -7,8 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		161B75591A693E9F0074AFD5 /* MultiplePulsingHaloLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 161B75561A693E9F0074AFD5 /* MultiplePulsingHaloLayer.m */; };
-		161B755A1A693E9F0074AFD5 /* PulsingHaloLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 161B75581A693E9F0074AFD5 /* PulsingHaloLayer.m */; };
 		161CCDA31A6A436600527A7A /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 161CCD871A6A436600527A7A /* .gitignore */; };
 		161CCDA41A6A436600527A7A /* NSValueTransformer+FTGTransformerAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 161CCD8B1A6A436600527A7A /* NSValueTransformer+FTGTransformerAdditions.m */; };
 		161CCDA51A6A436600527A7A /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = 161CCD8C1A6A436600527A7A /* LICENSE */; };
@@ -104,10 +102,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		161B75551A693E9F0074AFD5 /* MultiplePulsingHaloLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MultiplePulsingHaloLayer.h; sourceTree = "<group>"; };
-		161B75561A693E9F0074AFD5 /* MultiplePulsingHaloLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MultiplePulsingHaloLayer.m; sourceTree = "<group>"; };
-		161B75571A693E9F0074AFD5 /* PulsingHaloLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PulsingHaloLayer.h; sourceTree = "<group>"; };
-		161B75581A693E9F0074AFD5 /* PulsingHaloLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PulsingHaloLayer.m; sourceTree = "<group>"; };
 		161CCD871A6A436600527A7A /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		161CCD891A6A436600527A7A /* FTGValueTransformer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FTGValueTransformer.h; sourceTree = "<group>"; };
 		161CCD8A1A6A436600527A7A /* NSValueTransformer+FTGTransformerAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSValueTransformer+FTGTransformerAdditions.h"; sourceTree = "<group>"; };
@@ -349,17 +343,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		161B75541A693E9F0074AFD5 /* PulsingHalo */ = {
-			isa = PBXGroup;
-			children = (
-				161B75551A693E9F0074AFD5 /* MultiplePulsingHaloLayer.h */,
-				161B75561A693E9F0074AFD5 /* MultiplePulsingHaloLayer.m */,
-				161B75571A693E9F0074AFD5 /* PulsingHaloLayer.h */,
-				161B75581A693E9F0074AFD5 /* PulsingHaloLayer.m */,
-			);
-			path = PulsingHalo;
-			sourceTree = "<group>";
-		};
 		161CCD861A6A436600527A7A /* VITacademics-iOS-SDK */ = {
 			isa = PBXGroup;
 			children = (
@@ -721,7 +704,6 @@
 				16326AE11AC7544C009C5F9E /* RDVCalendarView */,
 				1644E5F31A6BDB6300504ED8 /* Images */,
 				167203B31A6B969F00A498AE /* ColorCube */,
-				161B75541A693E9F0074AFD5 /* PulsingHalo */,
 				16E4A3021A67D66900152389 /* Info.plist */,
 				16E4A3031A67D66900152389 /* main.m */,
 			);
@@ -1051,11 +1033,9 @@
 				1662CF3C1A7A746F00F02F81 /* TimeTableCollectionViewController.m in Sources */,
 				16326AE81AC7544C009C5F9E /* RDVCalendarDayCell.m in Sources */,
 				167203B91A6B969F00A498AE /* CCLocalMaximum.m in Sources */,
-				161B755A1A693E9F0074AFD5 /* PulsingHaloLayer.m in Sources */,
 				16E4A3071A67D66900152389 /* AppDelegate.m in Sources */,
 				161CCDAB1A6A436600527A7A /* LoginStatus.m in Sources */,
 				161CCDB01A6A436600527A7A /* VITXManager.m in Sources */,
-				161B75591A693E9F0074AFD5 /* MultiplePulsingHaloLayer.m in Sources */,
 				16A902B31A86299000C3E65A /* TimeTableDayView.m in Sources */,
 				16326AE91AC7544C009C5F9E /* RDVCalendarView.m in Sources */,
 				1644E5F21A6BDB4300504ED8 /* TimeTable.m in Sources */,

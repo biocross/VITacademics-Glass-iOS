@@ -7,8 +7,6 @@
 //
 
 #import "GraphView.h"
-#import "MultiplePulsingHaloLayer.h"
-#import "PulsingHaloLayer.h"
 #import "DateTools.h"
 
 @implementation GraphView

@@ -77,7 +77,10 @@
       merge:@[[self loginUser]]]
      subscribeError:^(NSError *error) {
          [self.baseViewController hideLoadingIndicator];
-         [self.baseViewController showInfoToUserWithTitle:@"Network Error" andMessage:@"Please try again with a more stable internet connection."];
+         if([[NSUserDefaults standardUserDefaults] stringForKey:@"firstTime_b7"]){
+             [self.baseViewController showInfoToUserWithTitle:@"Network Error" andMessage:@"Please try again with a more stable internet connection."];
+         }
+         
      } completed:^{
          
          @try{
