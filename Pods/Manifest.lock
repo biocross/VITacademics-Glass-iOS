@@ -13,6 +13,7 @@ PODS:
   - ReactiveCocoa/UI (2.5):
     - ReactiveCocoa/Core
   - Shimmer (1.0.2)
+  - SupportKit (2.7.1)
 
 DEPENDENCIES:
   - DateTools
@@ -21,6 +22,7 @@ DEPENDENCIES:
   - Pop
   - ReactiveCocoa
   - Shimmer
+  - SupportKit
 
 SPEC CHECKSUMS:
   DateTools: b93a2c2017747329c6077c7d7e8a75106e23d0d7
@@ -29,5 +31,6 @@ SPEC CHECKSUMS:
   pop: 628ffc631644601567ee8bfaaaea493ebd7d0923
   ReactiveCocoa: e2db045570aa97c695e7aa97c2bcab222ae51f4a
   Shimmer: c5374be1c2b0c9e292fb05b339a513cf291cac86
+  SupportKit: 1292a907fe6017994b23aec1aa2dc6245395fe3b
 
 COCOAPODS: 0.36.3

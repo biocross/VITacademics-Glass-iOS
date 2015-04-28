@@ -8,7 +8,7 @@
 
 #import "AppDelegate.h"
 #import "GAI.h"
-
+#import <SupportKit/SupportKit.h>
 
 @interface AppDelegate ()
 
@@ -27,6 +27,10 @@
     [GAI sharedInstance].dispatchInterval = 20;
     //[[[GAI sharedInstance] logger] setLogLevel:kGAILogLevelVerbose];
     [[GAI sharedInstance] trackerWithTrackingId:@"UA-38195928-9"];
+    
+    [SupportKit initWithSettings:
+     [SKTSettings settingsWithAppToken:@"3l84z9jlb16rr5m5mqpgniv76"]];
+    //[SupportKit setUserFirstName:@"Han" lastName:@"Solo"];
     
     return YES;
 }

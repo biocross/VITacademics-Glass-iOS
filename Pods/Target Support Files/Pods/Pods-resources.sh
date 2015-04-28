@@ -52,10 +52,12 @@ install_resource()
 }
 if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_resource "DateTools/DateTools/DateTools.bundle"
+  install_resource "SupportKit/SupportKit.bundle"
   install_resource "${BUILT_PRODUCTS_DIR}/HockeySDKResources.bundle"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
   install_resource "DateTools/DateTools/DateTools.bundle"
+  install_resource "SupportKit/SupportKit.bundle"
   install_resource "${BUILT_PRODUCTS_DIR}/HockeySDKResources.bundle"
 fi
 

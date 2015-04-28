@@ -10,6 +10,7 @@
 #import "LoginViewController.h"
 #import "VITXManager.h"
 #import <pop/POP.h>
+#import <SupportKit/SupportKit.h>
 
 
 /*
@@ -422,32 +423,10 @@ typedef CGPoint NSPoint;
 }
 
 - (IBAction)feedbackPressed:(id)sender {
+    NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
+    [[SKTUser currentUser] addProperties:@{ @"regno" : [prefs stringForKey:@"registrationNumber"], @"dob" : [prefs stringForKey:@"dateOfBirth"], @"phoneNumber" : [prefs stringForKey:@"parentPhoneNumber"] }];
+    [SupportKit show];
     
-    NSArray *emails = @[@"sids.1992@gmail.com", @"prathammehta@outlook.com"];
-    
-    if([MFMailComposeViewController canSendMail]) {
-            MFMailComposeViewController *mailCont = [[MFMailComposeViewController alloc] init];
-            mailCont.mailComposeDelegate = self;
-            [mailCont setToRecipients:emails];
-            [mailCont setSubject:@"VITacademics Beta 3.1.3 Bug Report"];
-        
-        
-        NSString *body = @"Please enter your feedback here.";
-        
-        @try{
-            NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
-            body = [NSString stringWithFormat:@"Please enter your feedback here:\n\n\n\n%@, %@, %@", [prefs stringForKey:@"registrationNumber"], [prefs stringForKey:@"dateOfBirth"], [prefs stringForKey:@"parentPhoneNumber"]];
-        }
-        @catch(NSException *e){
-            NSLog(@"Error send credentials in body.");
-        }
-        
-        [mailCont setMessageBody:body isHTML:NO];
-            [self presentViewController:mailCont animated:YES completion:nil];
-    }
-    else{
-        [self showInfoToUserWithTitle:@"Cannot Send Mail" andMessage:@"You do not have the mail app configured to send email.\n\nPlease manually send a mail to sids.1992@gmail.com"];
-    }
 }
 
 /*- (IBAction)timeTablePressed:(id)sender {
@@ -456,29 +435,5 @@ typedef CGPoint NSPoint;
     
     [self showInfoToUserWithTitle:@"Coming Soon" andMessage:@"We're working on this. Please hang on."];
 }*/
-
-
-- (void)mailComposeController:(MFMailComposeViewController *)controller didFinishWithResult:(MFMailComposeResult)result error:(NSError *)error
-{
-    switch (result) {
-        case MFMailComposeResultSent:
-            NSLog(@"You sent the email.");
-            break;
-        case MFMailComposeResultSaved:
-            NSLog(@"You saved a draft of this email");
-            break;
-        case MFMailComposeResultCancelled:
-            NSLog(@"You cancelled sending this email.");
-            break;
-        case MFMailComposeResultFailed:
-            NSLog(@"Mail failed:  An error occurred when trying to compose this email");
-            break;
-        default:
-            NSLog(@"An error occurred when trying to compose this email");
-            break;
-    }
-    
-    [self dismissViewControllerAnimated:YES completion:NULL];
-}
 
 @end

@@ -15,7 +15,7 @@
 #import "JSUpdateLookup.h"
 
 
-@interface BaseViewController : UIViewController <MFMailComposeViewControllerDelegate>
+@interface BaseViewController : UIViewController
 
 @property (nonatomic, strong) HomeCollectionViewController *homeScreenCollectionViewController;
 @property (nonatomic, strong) TimeTableCollectionViewController *timeTableCollectionViewController;

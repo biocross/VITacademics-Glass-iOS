@@ -66,3 +66,9 @@
 #define COCOAPODS_VERSION_MINOR_Shimmer 0
 #define COCOAPODS_VERSION_PATCH_Shimmer 2
 
+// SupportKit
+#define COCOAPODS_POD_AVAILABLE_SupportKit
+#define COCOAPODS_VERSION_MAJOR_SupportKit 2
+#define COCOAPODS_VERSION_MINOR_SupportKit 7
+#define COCOAPODS_VERSION_PATCH_SupportKit 1
+
