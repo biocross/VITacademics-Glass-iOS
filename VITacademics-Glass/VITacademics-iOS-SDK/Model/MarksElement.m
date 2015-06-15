@@ -1,15 +1,15 @@
 //
-//  PBLMarksElement.m
-//  VITacademics_version3
+//  MarksElement.m
+//  VITacademics-Glass
 //
-//  Created by Siddharth Gupta on 12/24/14.
-//  Copyright (c) 2014 Siddharth Gupta. All rights reserved.
+//  Created by Siddharth Gupta on 6/16/15.
+//  Copyright (c) 2015 Siddharth Gupta. All rights reserved.
 //
 
-#import "PBLMarksElement.h"
+#import "MarksElement.h"
 #import "FTGValueTransformer.h"
 
-@implementation PBLMarksElement
+@implementation MarksElement
 
 +(NSDictionary *)JSONKeyPathsByPropertyKey{
     return @{};
@@ -23,11 +23,11 @@
     return [NSValueTransformer valueTransformerForName:FTGNumberValueTransformerName];
 }
 
-+ (NSValueTransformer *)scoredMarkJSONTransformer{
++ (NSValueTransformer *)scored_marksJSONTransformer{
     return [NSValueTransformer valueTransformerForName:FTGNumberValueTransformerName];
 }
 
-+ (NSValueTransformer *)scoredPercentJSONTransformer{
++ (NSValueTransformer *)scored_percentageJSONTransformer{
     return [NSValueTransformer valueTransformerForName:FTGNumberValueTransformerName];
 }
 
@@ -38,17 +38,6 @@
                                                                             @"Absent": @(NO),
                                                                             @"Debarred": @(NO)
                                                                             } defaultValue:@(YES) reverseDefaultValue:@"true"];
-}
-
-+(NSValueTransformer *)conducted_onJSONTransformer{
-    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-    dateFormatter.dateFormat = @"dd-MM-yyyy";
-    
-    return [MTLValueTransformer reversibleTransformerWithForwardBlock:^(NSString *dateStr) {
-        return [dateFormatter dateFromString:dateStr];
-    } reverseBlock:^(NSDate *date) {
-        return [dateFormatter stringFromDate:date];
-    }];
 }
 
 @end

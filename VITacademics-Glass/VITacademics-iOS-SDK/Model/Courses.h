@@ -9,9 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "Mantle.h"
 #import "Attendance.h"
-#import "CBLMarks.h"
-#import "PBLMarksElement.h"
-#import "LBCMarks.h"
+#import "Marks.h"
 
 @class Attendance;
 
@@ -29,8 +27,5 @@
 @property (nonatomic, retain) NSString * slot;
 @property (nonatomic, retain) NSString * venue;
 @property (nonatomic, retain) Attendance *attendance;
-@property (nonatomic) NSArray *PBLMarks;
-@property (nonatomic) CBLMarks *CBLMarks;
-@property (nonatomic) LBCMarks *LBCMarks;
-
+@property (nonatomic, retain) Marks *marks;
 @end

@@ -131,8 +131,7 @@
 }
 
 -(void)saveData{
-    NSData *data = [NSKeyedArchiver archivedDataWithRootObject:self.user];
-    [[NSUserDefaults standardUserDefaults] setObject:data forKey:[[NSUserDefaults standardUserDefaults] stringForKey:@"registrationNumber"]];
+    [[NSUserDefaults standardUserDefaults] setObject:[NSKeyedArchiver archivedDataWithRootObject:self.user] forKey:[[NSUserDefaults standardUserDefaults] stringForKey:@"registrationNumber"]];
 }
 
 -(void)loadData{

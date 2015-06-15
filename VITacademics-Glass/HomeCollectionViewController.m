@@ -12,6 +12,7 @@
 #import "VITXManager.h"
 #import "CCColorCube.h"
 #import "ExpandedView.h"
+#import "Marks.h"
 
 
 @interface HomeCollectionViewController (){

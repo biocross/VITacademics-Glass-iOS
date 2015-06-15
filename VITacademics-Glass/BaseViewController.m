@@ -385,7 +385,7 @@ typedef CGPoint NSPoint;
     dispatch_async(downloadQueue, ^{
         
         NSString *buildingUrl = [NSString stringWithFormat:@"https://vitacademics-rel.herokuapp.com/api/v2/system"];
-        NSURL *url = [NSURL URLWithString:buildingUrl];
+        NSURL *url = [NSURL URLWithString:@"http://localhost:8002"];
         NSURLRequest * request = [NSURLRequest requestWithURL:url];
         NSError * error = nil;
         NSURLResponse * response = nil;

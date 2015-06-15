@@ -12,11 +12,8 @@
 		161CCDA51A6A436600527A7A /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = 161CCD8C1A6A436600527A7A /* LICENSE */; };
 		161CCDA61A6A436600527A7A /* Attendance.m in Sources */ = {isa = PBXBuildFile; fileRef = 161CCD8F1A6A436600527A7A /* Attendance.m */; };
 		161CCDA71A6A436600527A7A /* AttendanceDetails.m in Sources */ = {isa = PBXBuildFile; fileRef = 161CCD911A6A436600527A7A /* AttendanceDetails.m */; };
-		161CCDA81A6A436600527A7A /* CBLMarks.m in Sources */ = {isa = PBXBuildFile; fileRef = 161CCD931A6A436600527A7A /* CBLMarks.m */; };
 		161CCDA91A6A436600527A7A /* Courses.m in Sources */ = {isa = PBXBuildFile; fileRef = 161CCD951A6A436600527A7A /* Courses.m */; };
-		161CCDAA1A6A436600527A7A /* LBCMarks.m in Sources */ = {isa = PBXBuildFile; fileRef = 161CCD971A6A436600527A7A /* LBCMarks.m */; };
 		161CCDAB1A6A436600527A7A /* LoginStatus.m in Sources */ = {isa = PBXBuildFile; fileRef = 161CCD991A6A436600527A7A /* LoginStatus.m */; };
-		161CCDAC1A6A436600527A7A /* PBLMarksElement.m in Sources */ = {isa = PBXBuildFile; fileRef = 161CCD9B1A6A436600527A7A /* PBLMarksElement.m */; };
 		161CCDAD1A6A436600527A7A /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 161CCD9D1A6A436600527A7A /* User.m */; };
 		161CCDAE1A6A436600527A7A /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = 161CCD9E1A6A436600527A7A /* README.md */; };
 		161CCDAF1A6A436600527A7A /* VITXClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 161CCDA01A6A436600527A7A /* VITXClient.m */; };
@@ -33,6 +30,8 @@
 		1662CF3E1A7A75AB00F02F81 /* TimeTableCondensedView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1662CF3D1A7A75AB00F02F81 /* TimeTableCondensedView.xib */; };
 		167203B81A6B969F00A498AE /* CCColorCube.mm in Sources */ = {isa = PBXBuildFile; fileRef = 167203B51A6B969F00A498AE /* CCColorCube.mm */; };
 		167203B91A6B969F00A498AE /* CCLocalMaximum.m in Sources */ = {isa = PBXBuildFile; fileRef = 167203B71A6B969F00A498AE /* CCLocalMaximum.m */; };
+		16818E261B2F63D3000B049D /* Marks.m in Sources */ = {isa = PBXBuildFile; fileRef = 16818E251B2F63D3000B049D /* Marks.m */; };
+		16818E2B1B2F64BC000B049D /* MarksElement.m in Sources */ = {isa = PBXBuildFile; fileRef = 16818E2A1B2F64BC000B049D /* MarksElement.m */; };
 		168195061A727C3A009C236B /* ice.png in Resources */ = {isa = PBXBuildFile; fileRef = 168195051A727C3A009C236B /* ice.png */; };
 		1681950A1A727D20009C236B /* b3.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 168195091A727D20009C236B /* b3.jpg */; };
 		1681950C1A727D65009C236B /* b2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1681950B1A727D65009C236B /* b2.jpg */; };
@@ -45,11 +44,8 @@
 		16A676C71AC1807A005BAFB7 /* TimeTable.m in Sources */ = {isa = PBXBuildFile; fileRef = 1644E5F11A6BDB4300504ED8 /* TimeTable.m */; };
 		16A676C81AC1807D005BAFB7 /* Attendance.m in Sources */ = {isa = PBXBuildFile; fileRef = 161CCD8F1A6A436600527A7A /* Attendance.m */; };
 		16A676C91AC1807F005BAFB7 /* AttendanceDetails.m in Sources */ = {isa = PBXBuildFile; fileRef = 161CCD911A6A436600527A7A /* AttendanceDetails.m */; };
-		16A676CA1AC18081005BAFB7 /* CBLMarks.m in Sources */ = {isa = PBXBuildFile; fileRef = 161CCD931A6A436600527A7A /* CBLMarks.m */; };
 		16A676CB1AC18084005BAFB7 /* Courses.m in Sources */ = {isa = PBXBuildFile; fileRef = 161CCD951A6A436600527A7A /* Courses.m */; };
-		16A676CC1AC18086005BAFB7 /* LBCMarks.m in Sources */ = {isa = PBXBuildFile; fileRef = 161CCD971A6A436600527A7A /* LBCMarks.m */; };
 		16A676CD1AC18088005BAFB7 /* LoginStatus.m in Sources */ = {isa = PBXBuildFile; fileRef = 161CCD991A6A436600527A7A /* LoginStatus.m */; };
-		16A676CE1AC1808A005BAFB7 /* PBLMarksElement.m in Sources */ = {isa = PBXBuildFile; fileRef = 161CCD9B1A6A436600527A7A /* PBLMarksElement.m */; };
 		16A902B31A86299000C3E65A /* TimeTableDayView.m in Sources */ = {isa = PBXBuildFile; fileRef = 16A902B21A86299000C3E65A /* TimeTableDayView.m */; };
 		16C7A4C31A7158FA009D6522 /* Images-2.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 16C7A4C21A7158FA009D6522 /* Images-2.xcassets */; };
 		16C98A071AC04BC000E384E7 /* 6.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 16C98A021AC04BC000E384E7 /* 6.jpg */; };
@@ -111,16 +107,10 @@
 		161CCD8F1A6A436600527A7A /* Attendance.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Attendance.m; sourceTree = "<group>"; };
 		161CCD901A6A436600527A7A /* AttendanceDetails.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AttendanceDetails.h; sourceTree = "<group>"; };
 		161CCD911A6A436600527A7A /* AttendanceDetails.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AttendanceDetails.m; sourceTree = "<group>"; };
-		161CCD921A6A436600527A7A /* CBLMarks.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBLMarks.h; sourceTree = "<group>"; };
-		161CCD931A6A436600527A7A /* CBLMarks.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBLMarks.m; sourceTree = "<group>"; };
 		161CCD941A6A436600527A7A /* Courses.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Courses.h; sourceTree = "<group>"; };
 		161CCD951A6A436600527A7A /* Courses.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Courses.m; sourceTree = "<group>"; };
-		161CCD961A6A436600527A7A /* LBCMarks.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LBCMarks.h; sourceTree = "<group>"; };
-		161CCD971A6A436600527A7A /* LBCMarks.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LBCMarks.m; sourceTree = "<group>"; };
 		161CCD981A6A436600527A7A /* LoginStatus.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginStatus.h; sourceTree = "<group>"; };
 		161CCD991A6A436600527A7A /* LoginStatus.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginStatus.m; sourceTree = "<group>"; };
-		161CCD9A1A6A436600527A7A /* PBLMarksElement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PBLMarksElement.h; sourceTree = "<group>"; };
-		161CCD9B1A6A436600527A7A /* PBLMarksElement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PBLMarksElement.m; sourceTree = "<group>"; };
 		161CCD9C1A6A436600527A7A /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
 		161CCD9D1A6A436600527A7A /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
 		161CCD9E1A6A436600527A7A /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
@@ -150,6 +140,10 @@
 		167203B51A6B969F00A498AE /* CCColorCube.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = CCColorCube.mm; sourceTree = "<group>"; };
 		167203B61A6B969F00A498AE /* CCLocalMaximum.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCLocalMaximum.h; sourceTree = "<group>"; };
 		167203B71A6B969F00A498AE /* CCLocalMaximum.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCLocalMaximum.m; sourceTree = "<group>"; };
+		16818E241B2F63D3000B049D /* Marks.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Marks.h; sourceTree = "<group>"; };
+		16818E251B2F63D3000B049D /* Marks.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Marks.m; sourceTree = "<group>"; };
+		16818E291B2F64BC000B049D /* MarksElement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MarksElement.h; sourceTree = "<group>"; };
+		16818E2A1B2F64BC000B049D /* MarksElement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MarksElement.m; sourceTree = "<group>"; };
 		168195051A727C3A009C236B /* ice.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ice.png; sourceTree = "<group>"; };
 		168195091A727D20009C236B /* b3.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = b3.jpg; sourceTree = "<group>"; };
 		1681950B1A727D65009C236B /* b2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = b2.jpg; sourceTree = "<group>"; };
@@ -378,16 +372,14 @@
 				161CCD8F1A6A436600527A7A /* Attendance.m */,
 				161CCD901A6A436600527A7A /* AttendanceDetails.h */,
 				161CCD911A6A436600527A7A /* AttendanceDetails.m */,
-				161CCD921A6A436600527A7A /* CBLMarks.h */,
-				161CCD931A6A436600527A7A /* CBLMarks.m */,
 				161CCD941A6A436600527A7A /* Courses.h */,
 				161CCD951A6A436600527A7A /* Courses.m */,
-				161CCD961A6A436600527A7A /* LBCMarks.h */,
-				161CCD971A6A436600527A7A /* LBCMarks.m */,
+				16818E241B2F63D3000B049D /* Marks.h */,
+				16818E251B2F63D3000B049D /* Marks.m */,
+				16818E291B2F64BC000B049D /* MarksElement.h */,
+				16818E2A1B2F64BC000B049D /* MarksElement.m */,
 				161CCD981A6A436600527A7A /* LoginStatus.h */,
 				161CCD991A6A436600527A7A /* LoginStatus.m */,
-				161CCD9A1A6A436600527A7A /* PBLMarksElement.h */,
-				161CCD9B1A6A436600527A7A /* PBLMarksElement.m */,
 				161CCD9C1A6A436600527A7A /* User.h */,
 				161CCD9D1A6A436600527A7A /* User.m */,
 			);
@@ -1028,6 +1020,7 @@
 				16617C171A6BDF86000CA406 /* LoginViewController.m in Sources */,
 				4257839A1A68E93600885323 /* RoundedHexagonPercentageView.m in Sources */,
 				161CCDAD1A6A436600527A7A /* User.m in Sources */,
+				16818E261B2F63D3000B049D /* Marks.m in Sources */,
 				16E658D01AEE6B9400A31091 /* JSUpdateLookup.m in Sources */,
 				168636D41AB71A1000E392FE /* ExpandedView.m in Sources */,
 				1662CF3C1A7A746F00F02F81 /* TimeTableCollectionViewController.m in Sources */,
@@ -1039,16 +1032,14 @@
 				16A902B31A86299000C3E65A /* TimeTableDayView.m in Sources */,
 				16326AE91AC7544C009C5F9E /* RDVCalendarView.m in Sources */,
 				1644E5F21A6BDB4300504ED8 /* TimeTable.m in Sources */,
+				16818E2B1B2F64BC000B049D /* MarksElement.m in Sources */,
 				161CCDA91A6A436600527A7A /* Courses.m in Sources */,
 				161CCDA61A6A436600527A7A /* Attendance.m in Sources */,
-				161CCDA81A6A436600527A7A /* CBLMarks.m in Sources */,
 				425783A01A69391600885323 /* GraphView.m in Sources */,
-				161CCDAA1A6A436600527A7A /* LBCMarks.m in Sources */,
 				16617C1B1A6BE622000CA406 /* BaseViewController.m in Sources */,
 				161CCDAE1A6A436600527A7A /* README.md in Sources */,
 				16E4A3041A67D66900152389 /* main.m in Sources */,
 				161CCDA41A6A436600527A7A /* NSValueTransformer+FTGTransformerAdditions.m in Sources */,
-				161CCDAC1A6A436600527A7A /* PBLMarksElement.m in Sources */,
 				16E4A3291A67D6DE00152389 /* HomeCollectionViewController.m in Sources */,
 				167203B81A6B969F00A498AE /* CCColorCube.mm in Sources */,
 				161CCDA71A6A436600527A7A /* AttendanceDetails.m in Sources */,
@@ -1061,15 +1052,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				16A676CB1AC18084005BAFB7 /* Courses.m in Sources */,
-				16A676CC1AC18086005BAFB7 /* LBCMarks.m in Sources */,
-				16A676CA1AC18081005BAFB7 /* CBLMarks.m in Sources */,
 				16A676C81AC1807D005BAFB7 /* Attendance.m in Sources */,
 				16A676C71AC1807A005BAFB7 /* TimeTable.m in Sources */,
 				16E4A31E1A67D66900152389 /* VITacademics_GlassTests.m in Sources */,
 				16A676C41AC17EB6005BAFB7 /* User.m in Sources */,
 				16A676C91AC1807F005BAFB7 /* AttendanceDetails.m in Sources */,
 				16A676CD1AC18088005BAFB7 /* LoginStatus.m in Sources */,
-				16A676CE1AC1808A005BAFB7 /* PBLMarksElement.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

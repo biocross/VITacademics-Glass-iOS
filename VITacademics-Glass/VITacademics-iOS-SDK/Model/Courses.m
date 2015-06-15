@@ -15,9 +15,7 @@
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
     return @{
-             @"CBLMarks": @"marks",
-             @"PBLMarks": @"pbl_marks",
-             @"LBCMarks": @"lbc_marks"
+                @"marks": @"marks"
              };
 }
 
@@ -25,18 +23,21 @@
     return [NSValueTransformer mtl_JSONDictionaryTransformerWithModelClass:[Attendance class]];
 }
 
-
-+ (NSValueTransformer *)CBLMarksJSONTransformer{
-    return [MTLValueTransformer mtl_JSONDictionaryTransformerWithModelClass:[CBLMarks class]];
++(NSValueTransformer *)marksJSONTransformer{
+    return [NSValueTransformer mtl_JSONDictionaryTransformerWithModelClass:[Marks class]];
 }
 
-+ (NSValueTransformer *)PBLMarksJSONTransformer{
-    return [MTLValueTransformer mtl_JSONArrayTransformerWithModelClass:[PBLMarksElement class]];
-}
-
-+ (NSValueTransformer *)LBCMarksJSONTransformer{
-    return [MTLValueTransformer mtl_JSONDictionaryTransformerWithModelClass:[LBCMarks class]];
-}
+//+ (NSValueTransformer *)CBLMarksJSONTransformer{
+//    return [MTLValueTransformer mtl_JSONDictionaryTransformerWithModelClass:[CBLMarks class]];
+//}
+//
+//+ (NSValueTransformer *)PBLMarksJSONTransformer{
+//    return [MTLValueTransformer mtl_JSONArrayTransformerWithModelClass:[PBLMarksElement class]];
+//}
+//
+//+ (NSValueTransformer *)LBCMarksJSONTransformer{
+//    return [MTLValueTransformer mtl_JSONDictionaryTransformerWithModelClass:[LBCMarks class]];
+//}
 
 
 
