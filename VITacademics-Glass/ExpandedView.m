@@ -29,6 +29,7 @@
     
     VRGCalendarView *calendar = [[VRGCalendarView alloc] init];
     //calendar.delegate=self;
+    calendar.backgroundColor = [UIColor clearColor];
     [self.calendarSuperView addSubview:calendar];
     
     NSDateFormatter *format = [[NSDateFormatter alloc] init];
