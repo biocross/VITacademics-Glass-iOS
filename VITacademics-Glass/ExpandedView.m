@@ -8,6 +8,7 @@
 
 #import "ExpandedView.h"
 #import "Marks.h"
+#import "MarksElement.h"
 
 
 @implementation ExpandedView
@@ -45,58 +46,80 @@
         self.slotLabel.text = @"-";
     }
     
-//    if(self.course.CBLMarks){
-//        if(self.course.CBLMarks.cat1_status){
-//            self.mMarks1.text = [NSString stringWithFormat:@"%.1f/50", self.course.CBLMarks.cat1.floatValue];
-//        }
-//        else{
-//            self.mMarks1.text = @"-";
-//            self.mMarks1.textColor = [UIColor lightGrayColor];
-//        }
-//        
-//        if(self.course.CBLMarks.cat2_status){
-//            self.mMarks2.text = [NSString stringWithFormat:@"%.1f/50", self.course.CBLMarks.cat2.floatValue];
-//        }
-//        else{
-//            self.mMarks2.text = @"-";
-//            self.mMarks2.textColor = [UIColor lightGrayColor];
-//        }
-//        
-//        if(self.course.CBLMarks.quiz1_status){
-//            NSLog(@"%f", self.course.CBLMarks.quiz1.floatValue);
-//            self.mMarks3.text = [NSString stringWithFormat:@"%.1f/5", self.course.CBLMarks.quiz1.floatValue];
-//        }
-//        else{
-//            self.mMarks3.text = @"-";
-//            self.mMarks3.textColor = [UIColor lightGrayColor];
-//        }
-//        
-//        if(self.course.CBLMarks.quiz2_status){
-//            self.mMarks4.text = [NSString stringWithFormat:@"%.1f/5", self.course.CBLMarks.quiz2.floatValue];
-//        }
-//        else{
-//            self.mMarks4.text = @"-";
-//            self.mMarks4.textColor = [UIColor lightGrayColor];
-//        }
-//        
-//        if(self.course.CBLMarks.quiz3_status){
-//            self.mMarks5.text = [NSString stringWithFormat:@"%.1f/5", self.course.CBLMarks.quiz3.floatValue];
-//        }
-//        else{
-//            self.mMarks5.text = @"-";
-//            self.mMarks5.textColor = [UIColor lightGrayColor];
-//        }
-//        
-//        if(self.course.CBLMarks.assignment_status){
-//            self.mMarks6.text = [NSString stringWithFormat:@"%.1f/5", self.course.CBLMarks.assignment.floatValue];
-//        }
-//        else{
-//            self.mMarks6.text = @"-";
-//            self.mMarks6.textColor = [UIColor lightGrayColor];
-//        }
-//    }
-
+    int count = [self.course.marks.assessments count];
+    int i = 0;
     
+    if(count){
+        if(self.course.marks.assessments[i]){
+            self.mTitle1.text = [self.course.marks.assessments[i] examTitle];
+            self.mMarks1.text = [NSString stringWithFormat:@"%.1f/%.1f", [self.course.marks.assessments[i] scored_marks].floatValue, [self.course.marks.assessments[i] max_marks].floatValue];
+        }
+        else{
+            self.mMarks1.text = @"-";
+            self.mMarks1.textColor = [UIColor lightGrayColor];
+        }
+        i = i + 1;
+        
+        if(i < count){
+            if([self.course.marks.assessments[i] examTitle]){
+                self.mTitle2.text = [self.course.marks.assessments[i] examTitle];
+                self.mMarks2.text = [NSString stringWithFormat:@"%.1f/%.1f", [self.course.marks.assessments[i] scored_marks].floatValue, [self.course.marks.assessments[i] max_marks].floatValue];
+                                     }
+            else{
+                 self.mMarks2.text = @"-";
+                 self.mMarks2.textColor = [UIColor lightGrayColor];
+             }
+            i = i + 1;
+        }
+        
+        if(i < count){
+            if([self.course.marks.assessments[i] examTitle]){
+                self.mTitle3.text = [self.course.marks.assessments[i] examTitle];
+                self.mMarks3.text = [NSString stringWithFormat:@"%.1f/%.1f", [self.course.marks.assessments[i] scored_marks].floatValue, [self.course.marks.assessments[i] max_marks].floatValue];
+            }
+            else{
+                self.mMarks3.text = @"-";
+                self.mMarks3.textColor = [UIColor lightGrayColor];
+            }
+            i = i + 1;
+        }
+        
+        if(i < count){
+            if([self.course.marks.assessments[i] examTitle]){
+                self.mTitle4.text = [self.course.marks.assessments[i] examTitle];
+                self.mMarks4.text = [NSString stringWithFormat:@"%.1f/%.1f", [self.course.marks.assessments[i] scored_marks].floatValue, [self.course.marks.assessments[i] max_marks].floatValue];
+            }
+            else{
+                self.mMarks4.text = @"-";
+                self.mMarks4.textColor = [UIColor lightGrayColor];
+            }
+            i = i + 1;
+        }
+        
+        if(i < count){
+            if([self.course.marks.assessments[i] examTitle]){
+                self.mTitle5.text = [self.course.marks.assessments[i] examTitle];
+                self.mMarks5.text = [NSString stringWithFormat:@"%.1f/%.1f", [self.course.marks.assessments[i] scored_marks].floatValue, [self.course.marks.assessments[i] max_marks].floatValue];
+            }
+            else{
+                self.mMarks5.text = @"-";
+                self.mMarks5.textColor = [UIColor lightGrayColor];
+            }
+            i = i + 1;
+        }
+        
+        if(i < count){
+            if([self.course.marks.assessments[i] examTitle]){
+                self.mTitle6.text = [self.course.marks.assessments[i] examTitle];
+                self.mMarks6.text = [NSString stringWithFormat:@"%.1f/%.1f", [self.course.marks.assessments[i] scored_marks].floatValue, [self.course.marks.assessments[i] max_marks].floatValue];
+            }
+            else{
+                self.mMarks6.text = @"-";
+                self.mMarks6.textColor = [UIColor lightGrayColor];
+            }
+            i = i + 1;
+        }
+    }
 
 }
 

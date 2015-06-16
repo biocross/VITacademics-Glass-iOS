@@ -10,7 +10,7 @@
 
 @interface MarksElement : MTLModel <MTLJSONSerializing>
 
-@property (nonatomic) NSString *title;
+@property (nonatomic) NSString *examTitle;
 @property (nonatomic) NSNumber *max_marks;
 @property (nonatomic) NSNumber *weightage;
 @property (nonatomic) NSString *conducted_on;

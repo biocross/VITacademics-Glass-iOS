@@ -12,14 +12,10 @@
 @implementation Marks
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
-    NSLog(@"marks jsonKEy");
-    return @{
-             @"assessments": @"assessments"
-             };
+    return @{};
 }
 
-+ (NSValueTransformer *)assessmentJSONTransformer{
-    NSLog(@"reached assesment");
++ (NSValueTransformer *)assessmentsJSONTransformer{
     return [NSValueTransformer mtl_JSONArrayTransformerWithModelClass:[MarksElement class]];
 }
 

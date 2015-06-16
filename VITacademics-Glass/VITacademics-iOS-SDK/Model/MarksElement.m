@@ -12,7 +12,9 @@
 @implementation MarksElement
 
 +(NSDictionary *)JSONKeyPathsByPropertyKey{
-    return @{};
+    return @{
+             @"examTitle": @"title"
+             };
 }
 
 + (NSValueTransformer *)max_marksJSONTransformer{
