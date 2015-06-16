@@ -130,6 +130,15 @@
     }];
 }
 
+- (RACSignal *)getGrades {
+    return [[_client refreshDataForUserWithRegistrationNumber:[[NSUserDefaults standardUserDefaults] stringForKey:@"registrationNumber"] andDateOfBirth:[[NSUserDefaults standardUserDefaults] stringForKey:@"dateOfBirth"]] doNext:^(User *user) {
+        self.user = user;
+        [self saveData];
+    }];
+}
+
+
+
 -(void)saveData{
     [[NSUserDefaults standardUserDefaults] setObject:[NSKeyedArchiver archivedDataWithRootObject:self.user] forKey:[[NSUserDefaults standardUserDefaults] stringForKey:@"registrationNumber"]];
 }

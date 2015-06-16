@@ -10,13 +10,12 @@
 #import "Marks.h"
 #import "MarksElement.h"
 
-
 @implementation ExpandedView
 
 - (void)drawRect:(CGRect)rect {
     
     self.scrollView.bounces = NO;
-    self.scrollView.contentSize = CGSizeMake(self.bounds.size.width, 600);
+    self.scrollView.contentSize = CGSizeMake(self.bounds.size.width, 1150);
     
     self.scrollView.scrollIndicatorInsets = UIEdgeInsetsMake(0, 0, 30, 30);
     
@@ -27,6 +26,10 @@
     self.attendedLabel.text = [NSString stringWithFormat:@"%d", self.course.attendance.attended_classes.intValue];
     self.conductedLabel.text = [NSString stringWithFormat:@"%d", self.course.attendance.total_classes.intValue];
     self.percentageLabel.text = [NSString stringWithFormat:@"%d", self.course.attendance.attendance_percentage.intValue];
+    
+    VRGCalendarView *calendar = [[VRGCalendarView alloc] init];
+    //calendar.delegate=self;
+    [self.calendarSuperView addSubview:calendar];
     
     NSDateFormatter *format = [[NSDateFormatter alloc] init];
     [format setDateFormat:@"EEEE, MMM dd, yyyy"];
@@ -46,7 +49,7 @@
         self.slotLabel.text = @"-";
     }
     
-    int count = [self.course.marks.assessments count];
+    unsigned long count = [self.course.marks.assessments count];
     int i = 0;
     
     if(count){
