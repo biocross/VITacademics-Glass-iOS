@@ -15,7 +15,7 @@
 - (void)drawRect:(CGRect)rect {
     
     self.scrollView.bounces = NO;
-    self.scrollView.contentSize = CGSizeMake(self.bounds.size.width, 1150);
+    self.scrollView.contentSize = CGSizeMake(self.bounds.size.width, 1300);
     
     self.scrollView.scrollIndicatorInsets = UIEdgeInsetsMake(0, 0, 30, 30);
     

@@ -8,7 +8,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="ExpandedView">
-            <rect key="frame" x="0.0" y="0.0" width="320" height="832"/>
+            <rect key="frame" x="0.0" y="0.0" width="320" height="947"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="QuY-aF-KAS" userLabel="Header">
@@ -258,7 +258,7 @@
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         </view>
                         <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="s7f-bf-cfa" userLabel="CalendarParent">
-                            <rect key="frame" x="0.0" y="520" width="320" height="236"/>
+                            <rect key="frame" x="0.0" y="520" width="320" height="330"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Attendance Details" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QyT-69-Vyk">
                                     <rect key="frame" x="8" y="8" width="304" height="21"/>
@@ -271,7 +271,7 @@
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </view>
                             </subviews>
-                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.20000000000000001" colorSpace="calibratedRGB"/>
                         </view>
                     </subviews>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -320,7 +320,7 @@
                 <outlet property="titleLabel" destination="mkJ-yv-2zq" id="dHT-3X-bd2"/>
                 <outlet property="typeLabel" destination="98i-gT-ZyX" id="tbB-ir-lyt"/>
             </connections>
-            <point key="canvasLocation" x="238" y="1454"/>
+            <point key="canvasLocation" x="238" y="1511.5"/>
         </view>
     </objects>
 </document>
