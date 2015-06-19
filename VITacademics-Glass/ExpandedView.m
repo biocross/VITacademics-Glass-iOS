@@ -10,6 +10,8 @@
 #import "Marks.h"
 #import "MarksElement.h"
 
+
+
 @implementation ExpandedView
 
 - (void)drawRect:(CGRect)rect {
@@ -27,10 +29,10 @@
     self.conductedLabel.text = [NSString stringWithFormat:@"%d", self.course.attendance.total_classes.intValue];
     self.percentageLabel.text = [NSString stringWithFormat:@"%d", self.course.attendance.attendance_percentage.intValue];
     
-    VRGCalendarView *calendar = [[VRGCalendarView alloc] init];
-    //calendar.delegate=self;
-    calendar.backgroundColor = [UIColor clearColor];
-    [self.calendarSuperView addSubview:calendar];
+    self.calendar = [[VRGCalendarView alloc] init];
+    self.calendar.delegate = self;
+    self.calendar.backgroundColor = [UIColor clearColor];
+    [self.calendarSuperView addSubview:self.calendar];
     
     NSDateFormatter *format = [[NSDateFormatter alloc] init];
     [format setDateFormat:@"EEEE, MMM dd, yyyy"];
@@ -125,6 +127,36 @@
         }
     }
 
+}
+
+-(void)calendarView:(VRGCalendarView *)calendarView switchedToMonth:(int)month targetHeight:(float)targetHeight animated:(BOOL)animated{
+   
+    NSMutableArray *colorsArray = [[NSMutableArray alloc] init];
+    NSMutableArray *classes = [[NSMutableArray alloc] init];
+    
+    unsigned long classesCount = [self.course.attendance.details count];
+    for (int i = 0; i < classesCount; i++){
+        AttendanceDetails *object = self.course.attendance.details[i];
+        
+        NSDateComponents *components = [[NSCalendar currentCalendar] components:NSCalendarUnitDay | NSCalendarUnitMonth | NSCalendarUnitYear fromDate:object.date];
+        NSInteger currentMonth = [components month];
+        
+        if(month == currentMonth){
+            [classes addObject:object.date];
+            if(object.status){
+                [colorsArray addObject:[UIColor colorWithRed:0.02 green:0.69 blue:0.78 alpha:1]];
+            }
+            else {
+                [colorsArray addObject:[UIColor redColor]];
+            }
+        }
+    }
+    
+    [self.calendar markDates:classes withColors:colorsArray];
+}
+
+-(void)calendarView:(VRGCalendarView *)calendarView dateSelected:(NSDate *)date{
+    
 }
 
 - (void)recalculateAttendance{

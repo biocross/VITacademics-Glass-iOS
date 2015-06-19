@@ -45,4 +45,6 @@
 @property (strong, nonatomic) IBOutlet UILabel *mMarks5;
 @property (strong, nonatomic) IBOutlet UILabel *mTitle6;
 @property (strong, nonatomic) IBOutlet UILabel *mMarks6;
+
+@property (strong) VRGCalendarView *calendar;
 @end
