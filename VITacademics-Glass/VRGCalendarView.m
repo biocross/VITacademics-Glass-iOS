@@ -89,60 +89,15 @@
     
     [self setNeedsDisplay];
     
-    int lastBlock = [currentMonth firstWeekDayInMonth]+[currentMonth numDaysInMonth]-1;
-    int numBlocks = [self numRows]*7;
-    BOOL hasNextMonthDays = lastBlock<numBlocks;
-    
-    //Old month
-    float oldSize = self.calendarHeight;
-    UIImage *imageCurrentMonth = [self drawCurrentState];
-    
     //New month
     self.currentMonth = [currentMonth offsetMonth:1];
     if ([delegate respondsToSelector:@selector(calendarView:switchedToMonth:targetHeight: animated:)]) [delegate calendarView:self switchedToMonth:[currentMonth month] targetHeight:self.calendarHeight animated:YES];
     prepAnimationNextMonth=NO;
     [self setNeedsDisplay];
     
-    UIImage *imageNextMonth = [self drawCurrentState];
-    float targetSize = fmaxf(oldSize, self.calendarHeight);
-    UIView *animationHolder = [[UIView alloc] initWithFrame:CGRectMake(0, kVRGCalendarViewTopBarHeight, kVRGCalendarViewWidth, targetSize-kVRGCalendarViewTopBarHeight)];
-    [animationHolder setClipsToBounds:YES];
-    [self addSubview:animationHolder];
+    isAnimating = NO;
     
-    //Animate
-    self.animationView_A = [[UIImageView alloc] initWithImage:imageCurrentMonth];
-    self.animationView_B = [[UIImageView alloc] initWithImage:imageNextMonth];
-    [animationHolder addSubview:animationView_A];
-    [animationHolder addSubview:animationView_B];
-    
-    if (hasNextMonthDays) {
-        animationView_B.frameY = animationView_A.frameY + animationView_A.frameHeight - (kVRGCalendarViewDayHeight+3);
-    } else {
-        animationView_B.frameY = animationView_A.frameY + animationView_A.frameHeight -3;
-    }
-    
-    //Animation
-    __block VRGCalendarView *blockSafeSelf = self;
-    [UIView animateWithDuration:.35
-                     animations:^{
-                         [self updateSize];
-                         //blockSafeSelf.frameHeight = 100;
-                         if (hasNextMonthDays) {
-                             animationView_A.frameY = -animationView_A.frameHeight + kVRGCalendarViewDayHeight+3;
-                         } else {
-                             animationView_A.frameY = -animationView_A.frameHeight + 3;
-                         }
-                         animationView_B.frameY = 0;
-                     }
-                     completion:^(BOOL finished) {
-                         [animationView_A removeFromSuperview];
-                         [animationView_B removeFromSuperview];
-                         blockSafeSelf.animationView_A=nil;
-                         blockSafeSelf.animationView_B=nil;
-                         isAnimating=NO;
-                         [animationHolder removeFromSuperview];
-                     }
-     ];
+    [self updateSize];
 }
 
 -(void)showPreviousMonth {
@@ -152,57 +107,15 @@
     //Prepare current screen
     prepAnimationPreviousMonth = YES;
     [self setNeedsDisplay];
-    BOOL hasPreviousDays = [currentMonth firstWeekDayInMonth]>1;
-    float oldSize = self.calendarHeight;
-    UIImage *imageCurrentMonth = [self drawCurrentState];
     
     //Prepare next screen
     self.currentMonth = [currentMonth offsetMonth:-1];
     if ([delegate respondsToSelector:@selector(calendarView:switchedToMonth:targetHeight:animated:)]) [delegate calendarView:self switchedToMonth:[currentMonth month] targetHeight:self.calendarHeight animated:YES];
     prepAnimationPreviousMonth=NO;
     [self setNeedsDisplay];
-    UIImage *imagePreviousMonth = [self drawCurrentState];
+    isAnimating = NO;
     
-    float targetSize = fmaxf(oldSize, self.calendarHeight);
-    UIView *animationHolder = [[UIView alloc] initWithFrame:CGRectMake(0, kVRGCalendarViewTopBarHeight, kVRGCalendarViewWidth, targetSize-kVRGCalendarViewTopBarHeight)];
-    
-    [animationHolder setClipsToBounds:YES];
-    [self addSubview:animationHolder];
-    
-    self.animationView_A = [[UIImageView alloc] initWithImage:imageCurrentMonth];
-    self.animationView_B = [[UIImageView alloc] initWithImage:imagePreviousMonth];
-    [animationHolder addSubview:animationView_A];
-    [animationHolder addSubview:animationView_B];
-    
-    if (hasPreviousDays) {
-        animationView_B.frameY = animationView_A.frameY - (animationView_B.frameHeight-kVRGCalendarViewDayHeight) + 3;
-    } else {
-        animationView_B.frameY = animationView_A.frameY - animationView_B.frameHeight + 3;
-    }
-    
-    __block VRGCalendarView *blockSafeSelf = self;
-    [UIView animateWithDuration:.35
-                     animations:^{
-                         [self updateSize];
-                         
-                         if (hasPreviousDays) {
-                             animationView_A.frameY = animationView_B.frameHeight-(kVRGCalendarViewDayHeight+3); 
-                             
-                         } else {
-                             animationView_A.frameY = animationView_B.frameHeight-3;
-                         }
-                         
-                         animationView_B.frameY = 0;
-                     }
-                     completion:^(BOOL finished) {
-                         [animationView_A removeFromSuperview];
-                         [animationView_B removeFromSuperview];
-                         blockSafeSelf.animationView_A=nil;
-                         blockSafeSelf.animationView_B=nil;
-                         isAnimating=NO;
-                         [animationHolder removeFromSuperview];
-                     }
-     ];
+    [self updateSize];
 }
 
 
