@@ -71,7 +71,7 @@
 
 - (void)start
 {
-	NSString *requestURL = [NSString stringWithFormat:@"https://itunes.apple.com/lookup?id=%u",self.appID];
+	NSString *requestURL = [NSString stringWithFormat:@"https://itunes.apple.com/lookup?id=%lu",(unsigned long)self.appID];
 	NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:requestURL]];
 	self.connection = [NSURLConnection connectionWithRequest:request delegate:self];
 }

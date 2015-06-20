@@ -29,10 +29,19 @@
     self.conductedLabel.text = [NSString stringWithFormat:@"%d", self.course.attendance.total_classes.intValue];
     self.percentageLabel.text = [NSString stringWithFormat:@"%d", self.course.attendance.attendance_percentage.intValue];
     
-    self.calendar = [[VRGCalendarView alloc] init];
-    self.calendar.delegate = self;
-    self.calendar.backgroundColor = [UIColor clearColor];
-    [self.calendarSuperView addSubview:self.calendar];
+    
+    @try {
+        self.calendar = [[VRGCalendarView alloc] init];
+        self.calendar.delegate = self;
+        self.calendar.backgroundColor = [UIColor clearColor];
+        [self.calendarSuperView addSubview:self.calendar];
+    }
+    @catch (NSException *exception) {
+        NSLog(@"Calendar Failure, API Deprecated?");
+    }
+
+    
+    
     
     NSDateFormatter *format = [[NSDateFormatter alloc] init];
     [format setDateFormat:@"EEEE, MMM dd, yyyy"];
