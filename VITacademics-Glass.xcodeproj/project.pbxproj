@@ -47,7 +47,6 @@
 		168636D41AB71A1000E392FE /* ExpandedView.m in Sources */ = {isa = PBXBuildFile; fileRef = 168636D31AB71A1000E392FE /* ExpandedView.m */; };
 		169F087B1B356C6C003ADF4A /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 169F087A1B356C6C003ADF4A /* StoreKit.framework */; };
 		169F087D1B356C84003ADF4A /* GameKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 169F087C1B356C84003ADF4A /* GameKit.framework */; };
-		16A676C41AC17EB6005BAFB7 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 161CCD9D1A6A436600527A7A /* User.m */; };
 		16A676C71AC1807A005BAFB7 /* TimeTable.m in Sources */ = {isa = PBXBuildFile; fileRef = 1644E5F11A6BDB4300504ED8 /* TimeTable.m */; };
 		16A676C81AC1807D005BAFB7 /* Attendance.m in Sources */ = {isa = PBXBuildFile; fileRef = 161CCD8F1A6A436600527A7A /* Attendance.m */; };
 		16A676C91AC1807F005BAFB7 /* AttendanceDetails.m in Sources */ = {isa = PBXBuildFile; fileRef = 161CCD911A6A436600527A7A /* AttendanceDetails.m */; };
