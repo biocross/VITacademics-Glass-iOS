@@ -167,7 +167,7 @@ typedef CGPoint NSPoint;
     
     [super viewDidLoad];
     
-    if(![[NSUserDefaults standardUserDefaults] stringForKey:@"firstTime_b7"])
+    if(![[NSUserDefaults standardUserDefaults] stringForKey:@"firstTime_b8"])
     {
         [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"registrationNumber"];
         [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"dateOfBirth"];

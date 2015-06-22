@@ -45,6 +45,8 @@
 		168195141A728508009C236B /* b6.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 168195111A728508009C236B /* b6.jpg */; };
 		168636D11AB719DC00E392FE /* ExpandedView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 168636D01AB719DC00E392FE /* ExpandedView.xib */; };
 		168636D41AB71A1000E392FE /* ExpandedView.m in Sources */ = {isa = PBXBuildFile; fileRef = 168636D31AB71A1000E392FE /* ExpandedView.m */; };
+		169F087B1B356C6C003ADF4A /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 169F087A1B356C6C003ADF4A /* StoreKit.framework */; };
+		169F087D1B356C84003ADF4A /* GameKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 169F087C1B356C84003ADF4A /* GameKit.framework */; };
 		16A676C41AC17EB6005BAFB7 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 161CCD9D1A6A436600527A7A /* User.m */; };
 		16A676C71AC1807A005BAFB7 /* TimeTable.m in Sources */ = {isa = PBXBuildFile; fileRef = 1644E5F11A6BDB4300504ED8 /* TimeTable.m */; };
 		16A676C81AC1807D005BAFB7 /* Attendance.m in Sources */ = {isa = PBXBuildFile; fileRef = 161CCD8F1A6A436600527A7A /* Attendance.m */; };
@@ -167,6 +169,8 @@
 		168636D01AB719DC00E392FE /* ExpandedView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ExpandedView.xib; sourceTree = "<group>"; };
 		168636D21AB71A1000E392FE /* ExpandedView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExpandedView.h; sourceTree = "<group>"; };
 		168636D31AB71A1000E392FE /* ExpandedView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExpandedView.m; sourceTree = "<group>"; };
+		169F087A1B356C6C003ADF4A /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
+		169F087C1B356C84003ADF4A /* GameKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameKit.framework; path = System/Library/Frameworks/GameKit.framework; sourceTree = SDKROOT; };
 		16A902B11A86299000C3E65A /* TimeTableDayView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimeTableDayView.h; sourceTree = "<group>"; };
 		16A902B21A86299000C3E65A /* TimeTableDayView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TimeTableDayView.m; sourceTree = "<group>"; };
 		16C7A4C21A7158FA009D6522 /* Images-2.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Images-2.xcassets"; sourceTree = "<group>"; };
@@ -322,7 +326,9 @@
 			files = (
 				16E658E01AEE712600A31091 /* libsqlite3.dylib in Frameworks */,
 				16E658DE1AEE711E00A31091 /* libz.dylib in Frameworks */,
+				169F087D1B356C84003ADF4A /* GameKit.framework in Frameworks */,
 				16E658DD1AEE711800A31091 /* SystemConfiguration.framework in Frameworks */,
+				169F087B1B356C6C003ADF4A /* StoreKit.framework in Frameworks */,
 				16E658DC1AEE711200A31091 /* CoreData.framework in Frameworks */,
 				CEC71B31D098745E1442027B /* libPods.a in Frameworks */,
 			);
@@ -741,6 +747,8 @@
 		4086F0218CDD1A78F18C13A2 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				169F087C1B356C84003ADF4A /* GameKit.framework */,
+				169F087A1B356C6C003ADF4A /* StoreKit.framework */,
 				16E658DF1AEE712600A31091 /* libsqlite3.dylib */,
 				16E89DA31A700E3100F592BD /* AdSupport.framework */,
 				16D5D4BE1A700CC50077499D /* GoogleAnalyticsServicesiOS_3.10 */,
@@ -792,9 +800,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		16E4A2FD1A67D66900152389 /* VITacademics-Glass */ = {
+		16E4A2FD1A67D66900152389 /* VITacademics */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 16E4A3211A67D66900152389 /* Build configuration list for PBXNativeTarget "VITacademics-Glass" */;
+			buildConfigurationList = 16E4A3211A67D66900152389 /* Build configuration list for PBXNativeTarget "VITacademics" */;
 			buildPhases = (
 				A3F2500286869D6451D03DF5 /* Check Pods Manifest.lock */,
 				16E4A2FA1A67D66900152389 /* Sources */,
@@ -807,7 +815,7 @@
 			);
 			dependencies = (
 			);
-			name = "VITacademics-Glass";
+			name = VITacademics;
 			productName = "VITacademics-Glass";
 			productReference = 16E4A2FE1A67D66900152389 /* VITacademics-Glass.app */;
 			productType = "com.apple.product-type.application";
@@ -844,6 +852,14 @@
 					16E4A2FD1A67D66900152389 = {
 						CreatedOnToolsVersion = 6.1.1;
 						DevelopmentTeam = RV68FXHFU7;
+						SystemCapabilities = {
+							com.apple.GameCenter = {
+								enabled = 1;
+							};
+							com.apple.InAppPurchase = {
+								enabled = 1;
+							};
+						};
 					};
 					16E4A3161A67D66900152389 = {
 						CreatedOnToolsVersion = 6.1.1;
@@ -874,7 +890,7 @@
 			);
 			projectRoot = "";
 			targets = (
-				16E4A2FD1A67D66900152389 /* VITacademics-Glass */,
+				16E4A2FD1A67D66900152389 /* VITacademics */,
 				16E4A3161A67D66900152389 /* VITacademics-GlassTests */,
 			);
 		};
@@ -1072,7 +1088,7 @@
 /* Begin PBXTargetDependency section */
 		16E4A3191A67D66900152389 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 16E4A2FD1A67D66900152389 /* VITacademics-Glass */;
+			target = 16E4A2FD1A67D66900152389 /* VITacademics */;
 			targetProxy = 16E4A3181A67D66900152389 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -1257,7 +1273,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		16E4A3211A67D66900152389 /* Build configuration list for PBXNativeTarget "VITacademics-Glass" */ = {
+		16E4A3211A67D66900152389 /* Build configuration list for PBXNativeTarget "VITacademics" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				16E4A3221A67D66900152389 /* Debug */,

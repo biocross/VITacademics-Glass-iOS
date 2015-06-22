@@ -47,7 +47,7 @@
          name:@"credentialsChanged"
          object:nil];
 
-        if([[NSUserDefaults standardUserDefaults] stringForKey:@"firstTime_b7"]){
+        if([[NSUserDefaults standardUserDefaults] stringForKey:@"firstTime_b8"]){
             self.firstTime = NO;
             [self loadData];
         }
@@ -77,7 +77,7 @@
       merge:@[[self loginUser]]]
      subscribeError:^(NSError *error) {
          [self.baseViewController hideLoadingIndicator];
-         if([[NSUserDefaults standardUserDefaults] stringForKey:@"firstTime_b7"]){
+         if([[NSUserDefaults standardUserDefaults] stringForKey:@"firstTime_b8"]){
              [self.baseViewController showInfoToUserWithTitle:@"Network Error" andMessage:@"Please try again with a more stable internet connection."];
          }
          
