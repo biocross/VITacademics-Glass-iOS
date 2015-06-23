@@ -16,7 +16,6 @@
 @property (strong, nonatomic) IBOutlet UITextField *parentPhoneNumber;
 @property (strong, nonatomic) IBOutlet UIButton *loginButton;
 - (IBAction)loginButtonPressed:(id)sender;
-@property (strong, nonatomic) IBOutlet UILabel *statusLabel;
 @property (strong, nonatomic) IBOutlet UISegmentedControl *campusSelector;
 @property (strong, nonatomic) IBOutlet UIButton *closeButton;
 - (IBAction)clostButtonPressed:(id)sender;
