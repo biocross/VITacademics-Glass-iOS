@@ -12,6 +12,8 @@
 #import <pop/POP.h>
 #import <SupportKit/SupportKit.h>
 
+#define DEBUG_MODE 1
+
 
 /*
 TODOs:
@@ -393,7 +395,13 @@ typedef CGPoint NSPoint;
     dispatch_queue_t downloadQueue = dispatch_queue_create("serverStatus", nil);
     dispatch_async(downloadQueue, ^{
         
-        NSString *buildingUrl = [NSString stringWithFormat:@"https://vitacademics-rel.herokuapp.com/api/v2/system"];
+        NSString *buildingUrl;
+        if(DEBUG_MODE){
+            buildingUrl = @"http://localhost:8003";
+        }
+        else{
+            buildingUrl = [NSString stringWithFormat:@"https://vitacademics-rel.herokuapp.com/api/v2/system"];
+        }
         NSURL *url = [NSURL URLWithString:buildingUrl];
         NSURLRequest * request = [NSURLRequest requestWithURL:url];
         NSError * error = nil;

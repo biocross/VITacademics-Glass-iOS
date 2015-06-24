@@ -16,7 +16,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    NSLog(@"Caled");
     self.title = @"Campus Map";
     
     self.imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"vitmap.jpg"]];
@@ -30,13 +29,14 @@
     self.scrollView.maximumZoomScale = 5;
     self.scrollView.zoomScale = 0.4;
     
+    self.view.backgroundColor = [UIColor blackColor];
+    
     [self.view bringSubviewToFront:self.closeButton];
     
 }
 
 -(UIView *) viewForZoomingInScrollView:(UIScrollView *)scrollView
 {
-    // return which subview we want to zoom
     return self.imageView;
 }
 

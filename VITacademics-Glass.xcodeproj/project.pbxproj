@@ -424,6 +424,34 @@
 			name = CalendarView;
 			sourceTree = "<group>";
 		};
+		1653CF721B3B09540091578D /* Base View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				1662CF3A1A7A746F00F02F81 /* TimeTableCollectionViewController.h */,
+				1662CF3B1A7A746F00F02F81 /* TimeTableCollectionViewController.m */,
+				16E4A3271A67D6DE00152389 /* HomeCollectionViewController.h */,
+				16E4A3281A67D6DE00152389 /* HomeCollectionViewController.m */,
+				16E4A3051A67D66900152389 /* AppDelegate.h */,
+				16E4A3061A67D66900152389 /* AppDelegate.m */,
+				16617C191A6BE622000CA406 /* BaseViewController.h */,
+				16617C1A1A6BE622000CA406 /* BaseViewController.m */,
+			);
+			name = "Base View Controllers";
+			sourceTree = "<group>";
+		};
+		1653CF751B3B095E0091578D /* Aux View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				1673A4BC1B3A7ED800A5BFD1 /* CampusMapViewController.h */,
+				1673A4BD1B3A7ED800A5BFD1 /* CampusMapViewController.m */,
+				164912DF1ACDE0D7000057A3 /* CGPATableViewController.h */,
+				164912E01ACDE0D7000057A3 /* CGPATableViewController.m */,
+				16617C141A6BDF86000CA406 /* LoginViewController.h */,
+				16617C151A6BDF86000CA406 /* LoginViewController.m */,
+			);
+			name = "Aux View Controllers";
+			sourceTree = "<group>";
+		};
 		167203B31A6B969F00A498AE /* ColorCube */ = {
 			isa = PBXGroup;
 			children = (
@@ -671,21 +699,9 @@
 		16E4A3001A67D66900152389 /* VITacademics-Glass */ = {
 			isa = PBXGroup;
 			children = (
-				1662CF3A1A7A746F00F02F81 /* TimeTableCollectionViewController.h */,
-				1662CF3B1A7A746F00F02F81 /* TimeTableCollectionViewController.m */,
-				16E4A3271A67D6DE00152389 /* HomeCollectionViewController.h */,
-				16E4A3281A67D6DE00152389 /* HomeCollectionViewController.m */,
-				16E4A3051A67D66900152389 /* AppDelegate.h */,
-				16E4A3061A67D66900152389 /* AppDelegate.m */,
+				1653CF721B3B09540091578D /* Base View Controllers */,
 				16E4A30B1A67D66900152389 /* Main.storyboard */,
-				16617C191A6BE622000CA406 /* BaseViewController.h */,
-				16617C1A1A6BE622000CA406 /* BaseViewController.m */,
-				1673A4BC1B3A7ED800A5BFD1 /* CampusMapViewController.h */,
-				1673A4BD1B3A7ED800A5BFD1 /* CampusMapViewController.m */,
-				164912DF1ACDE0D7000057A3 /* CGPATableViewController.h */,
-				164912E01ACDE0D7000057A3 /* CGPATableViewController.m */,
-				16617C141A6BDF86000CA406 /* LoginViewController.h */,
-				16617C151A6BDF86000CA406 /* LoginViewController.m */,
+				1653CF751B3B095E0091578D /* Aux View Controllers */,
 				425783941A6820DB00885323 /* View XIB Files */,
 				161CCD861A6A436600527A7A /* VITacademics-iOS-SDK */,
 				16C7A4C21A7158FA009D6522 /* Images-2.xcassets */,
@@ -1101,7 +1117,7 @@
 					"$(PROJECT_DIR)/VITacademics-Glass",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "adb3e3ef-c4b6-434c-b0d5-bac127b0ce9e";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};

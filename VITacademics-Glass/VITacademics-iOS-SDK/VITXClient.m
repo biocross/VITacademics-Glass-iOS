@@ -10,6 +10,8 @@
 #import "User.h"
 #import "LoginStatus.h"
 
+#define DEBUG_MODE 1
+
 @interface VITXClient ()
 
 @property (nonatomic, strong) NSURLSession *session;
@@ -64,7 +66,13 @@
 - (RACSignal *)refreshDataForUserWithRegistrationNumber:(NSString *)registrationNumber andDateOfBirth:(NSString *)dateOfBirth {
     NSString *campus = [[NSUserDefaults standardUserDefaults] stringForKey:@"campus"];
     NSString *mobile = [[NSUserDefaults standardUserDefaults] stringForKey:@"parentPhoneNumber"];
-    NSString *urlString = [NSString stringWithFormat:@"https://vitacademics-rel.herokuapp.com/api/v2/%@/refresh", campus];
+    NSString *urlString;
+    if(DEBUG_MODE){
+        urlString = @"http://localhost:8002";
+    }
+    else{
+        urlString = [NSString stringWithFormat:@"https://vitacademics-rel.herokuapp.com/api/v2/%@/refresh", campus];
+    }
     NSURL *url = [NSURL URLWithString:urlString];
     NSMutableURLRequest * urlRequest = [NSMutableURLRequest requestWithURL:url];
     NSString * params = [NSString stringWithFormat:@"regno=%@&dob=%@&mobile=%@", registrationNumber, dateOfBirth, mobile];
@@ -80,7 +88,14 @@
     NSString *campus = [[NSUserDefaults standardUserDefaults] stringForKey:@"campus"];
     NSString *mobile = [[NSUserDefaults standardUserDefaults] stringForKey:@"parentPhoneNumber"];
     NSLog(@"%@, %@", campus, mobile);
-    NSString *urlString = [NSString stringWithFormat:@"https://vitacademics-rel.herokuapp.com/api/v2/%@/login", campus];
+    NSString *urlString;
+    if(DEBUG_MODE){
+      urlString = @"http://localhost:8003";
+    }
+    else{
+      urlString = [NSString stringWithFormat:@"https://vitacademics-rel.herokuapp.com/api/v2/%@/login", campus];
+    }
+    
     NSURL *url = [NSURL URLWithString:urlString];
     NSMutableURLRequest * urlRequest = [NSMutableURLRequest requestWithURL:url];
     NSString * params = [NSString stringWithFormat:@"regno=%@&dob=%@&mobile=%@", registrationNumber, dateOfBirth, mobile];
