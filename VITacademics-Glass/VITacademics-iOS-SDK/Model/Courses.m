@@ -7,6 +7,7 @@
 //
 
 #import "Courses.h"
+#import "TimingElement.h"
 
 
 
@@ -27,17 +28,9 @@
     return [NSValueTransformer mtl_JSONDictionaryTransformerWithModelClass:[Marks class]];
 }
 
-//+ (NSValueTransformer *)CBLMarksJSONTransformer{
-//    return [MTLValueTransformer mtl_JSONDictionaryTransformerWithModelClass:[CBLMarks class]];
-//}
-//
-//+ (NSValueTransformer *)PBLMarksJSONTransformer{
-//    return [MTLValueTransformer mtl_JSONArrayTransformerWithModelClass:[PBLMarksElement class]];
-//}
-//
-//+ (NSValueTransformer *)LBCMarksJSONTransformer{
-//    return [MTLValueTransformer mtl_JSONDictionaryTransformerWithModelClass:[LBCMarks class]];
-//}
++ (NSValueTransformer *)timingsJSONTransformer{
+    return [NSValueTransformer mtl_JSONArrayTransformerWithModelClass:[TimingElement class]];
+}
 
 
 

@@ -28,4 +28,5 @@
 @property (nonatomic, retain) NSString * venue;
 @property (nonatomic, retain) Attendance *attendance;
 @property (nonatomic, retain) Marks *marks;
+@property (nonatomic, retain) NSArray *timings;
 @end

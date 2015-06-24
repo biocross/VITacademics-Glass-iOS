@@ -14,7 +14,4 @@
 @property (nonatomic, retain) NSString *reason;
 @property (nonatomic, retain) NSDate *date;
 
-
-
-
 @end

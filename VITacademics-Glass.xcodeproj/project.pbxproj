@@ -28,6 +28,7 @@
 		165119E91B309494003464B1 /* NSMutableArray+convenience.m in Sources */ = {isa = PBXBuildFile; fileRef = 165119E21B309494003464B1 /* NSMutableArray+convenience.m */; };
 		165119EA1B309494003464B1 /* NSDate+convenience.m in Sources */ = {isa = PBXBuildFile; fileRef = 165119E41B309494003464B1 /* NSDate+convenience.m */; };
 		165119EB1B309494003464B1 /* UIColor+expanded.m in Sources */ = {isa = PBXBuildFile; fileRef = 165119E61B309494003464B1 /* UIColor+expanded.m */; };
+		1653CF781B3B0C080091578D /* TimingElement.m in Sources */ = {isa = PBXBuildFile; fileRef = 1653CF771B3B0C080091578D /* TimingElement.m */; };
 		1658035B1A86727100FD9E2D /* TimeTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1658035A1A86727100FD9E2D /* TimeTableCell.xib */; };
 		16617C171A6BDF86000CA406 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 16617C151A6BDF86000CA406 /* LoginViewController.m */; };
 		16617C1B1A6BE622000CA406 /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 16617C1A1A6BE622000CA406 /* BaseViewController.m */; };
@@ -131,6 +132,8 @@
 		165119E41B309494003464B1 /* NSDate+convenience.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+convenience.m"; sourceTree = "<group>"; };
 		165119E51B309494003464B1 /* UIColor+expanded.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+expanded.h"; sourceTree = "<group>"; };
 		165119E61B309494003464B1 /* UIColor+expanded.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+expanded.m"; sourceTree = "<group>"; };
+		1653CF761B3B0C080091578D /* TimingElement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimingElement.h; sourceTree = "<group>"; };
+		1653CF771B3B0C080091578D /* TimingElement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TimingElement.m; sourceTree = "<group>"; };
 		1658035A1A86727100FD9E2D /* TimeTableCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TimeTableCell.xib; sourceTree = "<group>"; };
 		16617C141A6BDF86000CA406 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		16617C151A6BDF86000CA406 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
@@ -371,6 +374,8 @@
 				161CCD991A6A436600527A7A /* LoginStatus.m */,
 				161CCD9C1A6A436600527A7A /* User.h */,
 				161CCD9D1A6A436600527A7A /* User.m */,
+				1653CF761B3B0C080091578D /* TimingElement.h */,
+				1653CF771B3B0C080091578D /* TimingElement.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -978,6 +983,7 @@
 				16818E261B2F63D3000B049D /* Marks.m in Sources */,
 				16E658D01AEE6B9400A31091 /* JSUpdateLookup.m in Sources */,
 				168636D41AB71A1000E392FE /* ExpandedView.m in Sources */,
+				1653CF781B3B0C080091578D /* TimingElement.m in Sources */,
 				1662CF3C1A7A746F00F02F81 /* TimeTableCollectionViewController.m in Sources */,
 				16326AE81AC7544C009C5F9E /* RDVCalendarDayCell.m in Sources */,
 				167203B91A6B969F00A498AE /* CCLocalMaximum.m in Sources */,
