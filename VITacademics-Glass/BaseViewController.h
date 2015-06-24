@@ -13,6 +13,7 @@
 #import "FBShimmeringView.h"
 #import "CCColorCube.h"
 #import "JSUpdateLookup.h"
+#import "CampusMapViewController.h"
 
 
 @interface BaseViewController : UIViewController
@@ -21,12 +22,12 @@
 @property (nonatomic, strong) TimeTableCollectionViewController *timeTableCollectionViewController;
 
 @property (strong, nonatomic) IBOutletCollection(UIButton) NSArray *MenuButtons;
-@property (strong, nonatomic) IBOutlet UIView *buttonsView;
 - (IBAction)coursesPressed:(id)sender;
 - (IBAction)refreshedPressed:(id)sender;
 - (IBAction)credentialsPressed:(id)sender;
 - (IBAction)feedbackPressed:(id)sender;
 //- (IBAction)timeTablePressed:(id)sender;
+- (IBAction)campusMapPressed:(id)sender;
 
 -(void)showInfoToUserWithTitle:(NSString *)title andMessage:(NSString *)message;
 

@@ -26,7 +26,6 @@
     
     [SupportKit initWithSettings:
     [SKTSettings settingsWithAppToken:@"3l84z9jlb16rr5m5mqpgniv76"]];
-    //[SupportKit setUserFirstName:@"Han" lastName:@"Solo"];
     return YES;
 }
 

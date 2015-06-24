@@ -35,6 +35,8 @@
 		1662CF3E1A7A75AB00F02F81 /* TimeTableCondensedView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1662CF3D1A7A75AB00F02F81 /* TimeTableCondensedView.xib */; };
 		167203B81A6B969F00A498AE /* CCColorCube.mm in Sources */ = {isa = PBXBuildFile; fileRef = 167203B51A6B969F00A498AE /* CCColorCube.mm */; };
 		167203B91A6B969F00A498AE /* CCLocalMaximum.m in Sources */ = {isa = PBXBuildFile; fileRef = 167203B71A6B969F00A498AE /* CCLocalMaximum.m */; };
+		1673A4BE1B3A7ED800A5BFD1 /* CampusMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1673A4BD1B3A7ED800A5BFD1 /* CampusMapViewController.m */; };
+		1673A4C21B3A7EF000A5BFD1 /* vitmap.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1673A4C11B3A7EF000A5BFD1 /* vitmap.jpg */; };
 		16818E261B2F63D3000B049D /* Marks.m in Sources */ = {isa = PBXBuildFile; fileRef = 16818E251B2F63D3000B049D /* Marks.m */; };
 		16818E2B1B2F64BC000B049D /* MarksElement.m in Sources */ = {isa = PBXBuildFile; fileRef = 16818E2A1B2F64BC000B049D /* MarksElement.m */; };
 		168195061A727C3A009C236B /* ice.png in Resources */ = {isa = PBXBuildFile; fileRef = 168195051A727C3A009C236B /* ice.png */; };
@@ -141,6 +143,9 @@
 		167203B51A6B969F00A498AE /* CCColorCube.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = CCColorCube.mm; sourceTree = "<group>"; };
 		167203B61A6B969F00A498AE /* CCLocalMaximum.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCLocalMaximum.h; sourceTree = "<group>"; };
 		167203B71A6B969F00A498AE /* CCLocalMaximum.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCLocalMaximum.m; sourceTree = "<group>"; };
+		1673A4BC1B3A7ED800A5BFD1 /* CampusMapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CampusMapViewController.h; sourceTree = "<group>"; };
+		1673A4BD1B3A7ED800A5BFD1 /* CampusMapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CampusMapViewController.m; sourceTree = "<group>"; };
+		1673A4C11B3A7EF000A5BFD1 /* vitmap.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = vitmap.jpg; sourceTree = "<group>"; };
 		16818E241B2F63D3000B049D /* Marks.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Marks.h; sourceTree = "<group>"; };
 		16818E251B2F63D3000B049D /* Marks.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Marks.m; sourceTree = "<group>"; };
 		16818E291B2F64BC000B049D /* MarksElement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MarksElement.h; sourceTree = "<group>"; };
@@ -675,6 +680,8 @@
 				16E4A30B1A67D66900152389 /* Main.storyboard */,
 				16617C191A6BE622000CA406 /* BaseViewController.h */,
 				16617C1A1A6BE622000CA406 /* BaseViewController.m */,
+				1673A4BC1B3A7ED800A5BFD1 /* CampusMapViewController.h */,
+				1673A4BD1B3A7ED800A5BFD1 /* CampusMapViewController.m */,
 				164912DF1ACDE0D7000057A3 /* CGPATableViewController.h */,
 				164912E01ACDE0D7000057A3 /* CGPATableViewController.m */,
 				16617C141A6BDF86000CA406 /* LoginViewController.h */,
@@ -690,6 +697,7 @@
 		16E4A3011A67D66900152389 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				1673A4C11B3A7EF000A5BFD1 /* vitmap.jpg */,
 				165119EE1B30949B003464B1 /* CalendarView */,
 				16E658CE1AEE6B9400A31091 /* JSUpdateLookup.h */,
 				16E658CF1AEE6B9400A31091 /* JSUpdateLookup.m */,
@@ -876,6 +884,7 @@
 				168195131A728508009C236B /* b5.jpg in Resources */,
 				16C98A0B1AC04BC000E384E7 /* 1.jpg in Resources */,
 				168636D11AB719DC00E392FE /* ExpandedView.xib in Resources */,
+				1673A4C21B3A7EF000A5BFD1 /* vitmap.jpg in Resources */,
 				42F370D01A8886C700854AE8 /* TopAttendanceView.xib in Resources */,
 				161CCDA31A6A436600527A7A /* .gitignore in Resources */,
 				161CCDA51A6A436600527A7A /* LICENSE in Resources */,
@@ -964,6 +973,7 @@
 				1644E5F21A6BDB4300504ED8 /* TimeTable.m in Sources */,
 				16818E2B1B2F64BC000B049D /* MarksElement.m in Sources */,
 				161CCDA91A6A436600527A7A /* Courses.m in Sources */,
+				1673A4BE1B3A7ED800A5BFD1 /* CampusMapViewController.m in Sources */,
 				161CCDA61A6A436600527A7A /* Attendance.m in Sources */,
 				425783A01A69391600885323 /* GraphView.m in Sources */,
 				16617C1B1A6BE622000CA406 /* BaseViewController.m in Sources */,

@@ -33,6 +33,7 @@ TODOs:
 @property (nonatomic, strong) UIPanGestureRecognizer *timeTablePangestureRecognizer;
 @property (nonatomic, strong) UITapGestureRecognizer *coursesTapped;
 @property (nonatomic, strong) UITapGestureRecognizer *timeTableTapped;
+@property (strong, nonatomic) IBOutlet UIScrollView *buttonsScrollView;
 
 @property (nonatomic, strong) JSUpdateLookup *updateLookup; 
 @end
@@ -144,6 +145,12 @@ typedef CGPoint NSPoint;
     
 }
 
+- (IBAction)campusMapPressed:(id)sender {
+    CampusMapViewController *mapController = [self.storyboard instantiateViewControllerWithIdentifier:@"campusMap"];
+    [self presentViewController:mapController animated:YES completion:nil];
+    
+}
+
 -(void)showInfoToUserWithTitle:(NSString *)title andMessage:(NSString *)message{
     
     if ([UIAlertController class]) {
@@ -195,8 +202,9 @@ typedef CGPoint NSPoint;
     
     childViewsAdded = NO;
     coursesDragged = YES; //Default View is Courses View.
-    
-    @try{
+#warning UPDATE CHECK DISABLED
+    /*
+     @try{
         self.updateLookup = [JSUpdateLookup updateLookupWithAppID:727796987 andCompletionHandler:^(JSUpdateInfo *updateInfo, NSError *error) {
             if(!error){
                 if(updateInfo.updateAvailable){
@@ -224,6 +232,7 @@ typedef CGPoint NSPoint;
     @catch(NSException *e){
         NSLog(@"Error In Update Check Block");
     }
+    */
 }
 
 -(void)showLoadingIndicator{
@@ -239,7 +248,7 @@ typedef CGPoint NSPoint;
     [self addChildViewController:self.timeTableCollectionViewController];
     [self.view insertSubview:self.timeTableCollectionViewController.view atIndex:2];
     [self addshadows:self.timeTableCollectionViewController.view];
-    [self.view sendSubviewToBack:self.buttonsView];
+    [self.view sendSubviewToBack:self.buttonsScrollView];
     self.menuButton.backgroundColor = [UIColor colorWithWhite:0.1 alpha:0.15];
     [self.timeTableCollectionViewController.view addGestureRecognizer:self.timeTablePangestureRecognizer];
 }
@@ -249,7 +258,7 @@ typedef CGPoint NSPoint;
     [self addChildViewController:self.homeScreenCollectionViewController];
     [self.view insertSubview:self.homeScreenCollectionViewController.view atIndex:1];
     [self addshadows:self.homeScreenCollectionViewController.view];
-    [self.view sendSubviewToBack:self.buttonsView];
+    [self.view sendSubviewToBack:self.buttonsScrollView];
     [self.homeScreenCollectionViewController.view addGestureRecognizer:self.coursesPanGestureRecognizer];
 }
 
@@ -276,7 +285,7 @@ typedef CGPoint NSPoint;
     CGPoint new = [change[@"new"] CGPointValue];
 #warning Hardcoded Values
     float alpha = (new.y - 284) / 384;
-    self.buttonsView.alpha = alpha;
+    self.buttonsScrollView.alpha = alpha;
 }
 
 -(void)dealloc{
