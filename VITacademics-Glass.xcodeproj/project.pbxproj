@@ -21,7 +21,6 @@
 		16326AE81AC7544C009C5F9E /* RDVCalendarDayCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 16326AE31AC7544C009C5F9E /* RDVCalendarDayCell.m */; };
 		16326AE91AC7544C009C5F9E /* RDVCalendarView.m in Sources */ = {isa = PBXBuildFile; fileRef = 16326AE51AC7544C009C5F9E /* RDVCalendarView.m */; };
 		16326AEA1AC7544C009C5F9E /* RDVCalendarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 16326AE71AC7544C009C5F9E /* RDVCalendarViewController.m */; };
-		1644E5F21A6BDB4300504ED8 /* TimeTable.m in Sources */ = {isa = PBXBuildFile; fileRef = 1644E5F11A6BDB4300504ED8 /* TimeTable.m */; };
 		164912E11ACDE0D7000057A3 /* CGPATableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 164912E01ACDE0D7000057A3 /* CGPATableViewController.m */; };
 		165119E71B309494003464B1 /* VRGCalendarView.m in Sources */ = {isa = PBXBuildFile; fileRef = 165119DE1B309494003464B1 /* VRGCalendarView.m */; };
 		165119E81B309494003464B1 /* UIView+convenience.m in Sources */ = {isa = PBXBuildFile; fileRef = 165119E01B309494003464B1 /* UIView+convenience.m */; };
@@ -118,8 +117,6 @@
 		16326AE51AC7544C009C5F9E /* RDVCalendarView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RDVCalendarView.m; sourceTree = "<group>"; };
 		16326AE61AC7544C009C5F9E /* RDVCalendarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RDVCalendarViewController.h; sourceTree = "<group>"; };
 		16326AE71AC7544C009C5F9E /* RDVCalendarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RDVCalendarViewController.m; sourceTree = "<group>"; };
-		1644E5F01A6BDB4300504ED8 /* TimeTable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimeTable.h; sourceTree = "<group>"; };
-		1644E5F11A6BDB4300504ED8 /* TimeTable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TimeTable.m; sourceTree = "<group>"; };
 		164912DF1ACDE0D7000057A3 /* CGPATableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGPATableViewController.h; sourceTree = "<group>"; };
 		164912E01ACDE0D7000057A3 /* CGPATableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CGPATableViewController.m; sourceTree = "<group>"; };
 		165119DD1B309494003464B1 /* VRGCalendarView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VRGCalendarView.h; sourceTree = "<group>"; };
@@ -358,8 +355,6 @@
 		161CCD8D1A6A436600527A7A /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				1644E5F01A6BDB4300504ED8 /* TimeTable.h */,
-				1644E5F11A6BDB4300504ED8 /* TimeTable.m */,
 				161CCD8E1A6A436600527A7A /* Attendance.h */,
 				161CCD8F1A6A436600527A7A /* Attendance.m */,
 				161CCD901A6A436600527A7A /* AttendanceDetails.h */,
@@ -992,7 +987,6 @@
 				161CCDB01A6A436600527A7A /* VITXManager.m in Sources */,
 				16A902B31A86299000C3E65A /* TimeTableDayView.m in Sources */,
 				16326AE91AC7544C009C5F9E /* RDVCalendarView.m in Sources */,
-				1644E5F21A6BDB4300504ED8 /* TimeTable.m in Sources */,
 				16818E2B1B2F64BC000B049D /* MarksElement.m in Sources */,
 				161CCDA91A6A436600527A7A /* Courses.m in Sources */,
 				1673A4BE1B3A7ED800A5BFD1 /* CampusMapViewController.m in Sources */,

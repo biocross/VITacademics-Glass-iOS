@@ -251,7 +251,7 @@ typedef CGPoint NSPoint;
     [self.view insertSubview:self.timeTableCollectionViewController.view atIndex:2];
     [self addshadows:self.timeTableCollectionViewController.view];
     [self.view sendSubviewToBack:self.buttonsScrollView];
-    self.menuButton.backgroundColor = [UIColor colorWithWhite:0.1 alpha:0.15];
+    //self.menuButton.backgroundColor = [UIColor colorWithWhite:0.1 alpha:0.15];
     [self.timeTableCollectionViewController.view addGestureRecognizer:self.timeTablePangestureRecognizer];
 }
 
@@ -265,8 +265,10 @@ typedef CGPoint NSPoint;
 }
 
 - (void)addChildViews{
-    [self addCollectionView];
-    //[self addTimeTableView];
+    //[self addCollectionView];
+    [self addTimeTableView];
+    
+    [self.view bringSubviewToFront:self.menuButton];
     
     childViewsAdded = YES;
 }

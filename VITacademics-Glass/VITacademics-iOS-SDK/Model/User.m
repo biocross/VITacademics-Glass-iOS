@@ -30,19 +30,5 @@
     return [NSValueTransformer mtl_JSONArrayTransformerWithModelClass:[Courses class]];
 }
 
-//+ (NSValueTransformer *)refreshedJSONTransformer{
-//    return [MTLValueTransformer reversibleTransformerWithForwardBlock:^(NSString *dateStr) {
-//        NSLog(@"Date is %@, Expected is: %@", dateStr, [self.dateFormatter dateFromString:dateStr]);
-//        return [self.dateFormatter dateFromString:dateStr];
-//    } reverseBlock:^(NSDate *date) {
-//        return [self.dateFormatter stringFromDate:date];
-//    }];
-//}
-
-+(NSValueTransformer *)timetableJSONTransformer{
-    return [NSValueTransformer mtl_JSONDictionaryTransformerWithModelClass:[TimeTable class]];
-}
-
-
 
 @end

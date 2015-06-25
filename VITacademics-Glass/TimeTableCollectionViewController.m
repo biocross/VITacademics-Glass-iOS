@@ -8,12 +8,12 @@
 
 #import "TimeTableCollectionViewController.h"
 #import "VITXManager.h"
+#import "TimingElement.h"
 
 
 
 @interface TimeTableCollectionViewController (){
-    NSArray *timeTable;
-    NSMutableArray *classes;
+    NSArray *classes;
     int choice;
 }
 
@@ -36,11 +36,24 @@ static NSString * const reuseIdentifier = @"TimeTable";
     self.wallpaper = [[VITXManager sharedManager] getBlurredImagesArray:choice];
     
     [self.collectionView setCollectionViewLayout:self.condensedLayout];
-    [self.collectionView reloadData];
     self.collectionView.backgroundView  = self.wallpaperView;
+    [self.collectionView reloadData];
     
-    
-    
+    [[RACObserve([VITXManager sharedManager], user)
+      deliverOn:RACScheduler.mainThreadScheduler]
+     subscribeNext:^(User *user) {
+         if(!user){
+             //course view will call refresh
+             //[[VITXManager sharedManager] startRefreshing];
+         }
+         self.user = user;
+         
+         [self initTimeTable];
+         [[VITXManager sharedManager] hideLoadingIndicator];
+         
+     } error:^(NSError *error) {
+         NSLog(@"Error in User subscription at TimeTable!");
+     }];
 }
 
 -(void)initTimeTable{
@@ -50,26 +63,53 @@ static NSString * const reuseIdentifier = @"TimeTable";
     
     
     if([todaysDay isEqualToString:@"Monday"]){
-        timeTable = self.user.timetable.monday;
     }
     else if([todaysDay isEqualToString:@"Tuesday"]){
-        timeTable = self.user.timetable.tuesday;
     }
     else if([todaysDay isEqualToString:@"Wednesday"]){
-        timeTable = self.user.timetable.wednesday;
     }
     else if([todaysDay isEqualToString:@"Thursday"]){
-        timeTable = self.user.timetable.thursday;
     }
     else if([todaysDay isEqualToString:@"Friday"]){
-        timeTable = self.user.timetable.friday;
     }
     else if([todaysDay isEqualToString:@"Saturday"]){
-        timeTable = self.user.timetable.saturday;
     }
     else{
-        timeTable = self.user.timetable.monday;
     }
+    
+    
+    //Init Days Array
+    classes = @[[[NSMutableArray alloc] init],
+                [[NSMutableArray alloc] init],
+                [[NSMutableArray alloc] init],
+                [[NSMutableArray alloc] init],
+                [[NSMutableArray alloc] init],
+                [[NSMutableArray alloc] init]];
+    
+    int subjectCount = [self.user.courses count];
+    NSLog(@"subject count: %d", subjectCount);
+    for(int i = 0; i < subjectCount; i++){
+        
+        
+        NSString *subjectName = [self.user.courses[i] course_title];
+        NSString *venue = [self.user.courses[i] venue];
+        int numberOfClassesPerWeek = [[self.user.courses[i] timings] count];
+        for(int j = 0; j < numberOfClassesPerWeek; j++){
+            NSLog(@"HEre: %@", subjectName);
+            NSDictionary *classInfo = [[NSDictionary alloc] init];
+            TimingElement *element = [[self.user.courses[i] timings] objectAtIndex:j];
+            int day = [element.day intValue];
+            classInfo = @{
+                          @"title": subjectName,
+                          @"venue": venue,
+                          @"start": element.start_time,
+                          @"end": element.end_time
+                          };
+            [classes[day] addObject:classInfo];
+        }
+    }
+    
+    NSLog(@"Classes Epicness: %@", [classes description]);
 }
 
 - (UIImageView *)wallpaperView
@@ -144,9 +184,7 @@ minimumInteritemSpacingForSectionAtIndex:(NSInteger)section
     NSArray *views = [[NSBundle mainBundle] loadNibNamed:@"TimeTableCondensedView" owner:self options:nil];
     view = [views firstObject];
     [cell.contentView addSubview:view];
-    
-    
-    
+
     
     cell.backgroundColor = [UIColor clearColor];
     if(indexPath.row % 2 == 0)
