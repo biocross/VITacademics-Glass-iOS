@@ -9,6 +9,7 @@
 #import "TimeTableCollectionViewController.h"
 #import "VITXManager.h"
 #import "TimingElement.h"
+#import "TimeTableDayView.h"
 
 
 
@@ -26,7 +27,7 @@
 
 @implementation TimeTableCollectionViewController
 
-static NSString * const reuseIdentifier = @"TimeTable";
+static NSString * const reuseIdentifier = @"DayCell";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -37,13 +38,13 @@ static NSString * const reuseIdentifier = @"TimeTable";
     
     [self.collectionView setCollectionViewLayout:self.condensedLayout];
     self.collectionView.backgroundView  = self.wallpaperView;
-    [self.collectionView reloadData];
+    //[self.collectionView reloadData];
     
     [[RACObserve([VITXManager sharedManager], user)
       deliverOn:RACScheduler.mainThreadScheduler]
      subscribeNext:^(User *user) {
          if(!user){
-             //course view will call refresh
+             //courses view will call refresh
              //[[VITXManager sharedManager] startRefreshing];
          }
          self.user = user;
@@ -57,6 +58,8 @@ static NSString * const reuseIdentifier = @"TimeTable";
 }
 
 -(void)initTimeTable{
+    
+    NSLog(@"INIT TIME TABLE CALLED");
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
     [dateFormatter setDateFormat:@"EEEE"];
     NSString *todaysDay = [dateFormatter stringFromDate:[NSDate date]];
@@ -87,29 +90,22 @@ static NSString * const reuseIdentifier = @"TimeTable";
                 [[NSMutableArray alloc] init]];
     
     int subjectCount = [self.user.courses count];
-    NSLog(@"subject count: %d", subjectCount);
     for(int i = 0; i < subjectCount; i++){
-        
-        
-        NSString *subjectName = [self.user.courses[i] course_title];
-        NSString *venue = [self.user.courses[i] venue];
         int numberOfClassesPerWeek = [[self.user.courses[i] timings] count];
         for(int j = 0; j < numberOfClassesPerWeek; j++){
-            NSLog(@"HEre: %@", subjectName);
             NSDictionary *classInfo = [[NSDictionary alloc] init];
             TimingElement *element = [[self.user.courses[i] timings] objectAtIndex:j];
             int day = [element.day intValue];
             classInfo = @{
-                          @"title": subjectName,
-                          @"venue": venue,
+                          @"course": self.user.courses[i],
                           @"start": element.start_time,
                           @"end": element.end_time
                           };
             [classes[day] addObject:classInfo];
         }
     }
-    
-    NSLog(@"Classes Epicness: %@", [classes description]);
+    [self.collectionView reloadData];
+    //NSLog(@"Classes Epicness: %@", [classes description]);
 }
 
 - (UIImageView *)wallpaperView
@@ -163,7 +159,7 @@ minimumInteritemSpacingForSectionAtIndex:(NSInteger)section
 }
 
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
-    return 0;
+    return 1;
 }
 
 
@@ -180,10 +176,12 @@ minimumInteritemSpacingForSectionAtIndex:(NSInteger)section
         [view removeFromSuperview];
     }
 
-    UIView *view;
     NSArray *views = [[NSBundle mainBundle] loadNibNamed:@"TimeTableCondensedView" owner:self options:nil];
-    view = [views firstObject];
+    TimeTableDayView *view = [views firstObject];
+    [view setTimeTableForDay:classes[indexPath.row]];
+    [view reloadEverything];
     [cell.contentView addSubview:view];
+    
 
     
     cell.backgroundColor = [UIColor clearColor];

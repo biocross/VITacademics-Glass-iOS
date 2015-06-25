@@ -13,4 +13,7 @@
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
 @property (strong, nonatomic) IBOutlet UILabel *dayLabel;
 
+@property (strong) NSArray *timeTableForDay;
+- (void) reloadEverything;
+
 @end
