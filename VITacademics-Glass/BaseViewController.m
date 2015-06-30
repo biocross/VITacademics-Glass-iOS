@@ -37,7 +37,6 @@ TODOs:
 @property (nonatomic, strong) UITapGestureRecognizer *timeTableTapped;
 @property (strong, nonatomic) IBOutlet UIScrollView *buttonsScrollView;
 
-@property (nonatomic, strong) JSUpdateLookup *updateLookup; 
 @end
 
 @implementation BaseViewController
@@ -204,37 +203,6 @@ typedef CGPoint NSPoint;
     
     childViewsAdded = NO;
     coursesDragged = YES; //Default View is Courses View.
-#warning UPDATE CHECK DISABLED
-    /*
-     @try{
-        self.updateLookup = [JSUpdateLookup updateLookupWithAppID:727796987 andCompletionHandler:^(JSUpdateInfo *updateInfo, NSError *error) {
-            if(!error){
-                if(updateInfo.updateAvailable){
-                    if ([UIAlertController class]) {
-                        UIAlertController *error = [UIAlertController alertControllerWithTitle:@"Update Available" message:@"An update to VITacademics is available on the AppStore.\n\nPlease update to the latest version for better stability and new features." preferredStyle:UIAlertControllerStyleAlert];
-                        UIAlertAction *okay = [UIAlertAction actionWithTitle:@"Okay" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
-                        }];
-                        [error addAction:okay];
-                        
-                        [self presentViewController:error animated:YES completion:nil];
-                        
-                    } else {
-                        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Update Available" message:@"An update to VITacademics is available on the AppStore.\n\nPlease update to the latest update for better stability and more features." delegate:self cancelButtonTitle:@"Okay" otherButtonTitles: nil];
-                        [alert show];
-                    }
-                }
-                else{
-                    NSLog(@"Update Check Complete: None available.");
-                }
-                
-                
-            }
-        }];
-    }
-    @catch(NSException *e){
-        NSLog(@"Error In Update Check Block");
-    }
-    */
 }
 
 -(void)showLoadingIndicator{

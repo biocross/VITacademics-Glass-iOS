@@ -37,7 +37,6 @@
     dateFormatter.dateFormat = @"HH:mm:ssZ";
     
     return [MTLValueTransformer reversibleTransformerWithForwardBlock:^(NSString *dateStr) {
-        NSLog(@"Recived: %@; converted: %@", dateStr, [dateFormatter dateFromString:dateStr]);
         return [dateFormatter dateFromString:dateStr];
     } reverseBlock:^(NSDate *date) {
         return [dateFormatter stringFromDate:date];

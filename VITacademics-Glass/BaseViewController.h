@@ -12,7 +12,6 @@
 #import "TimeTableCollectionViewController.h"
 #import "FBShimmeringView.h"
 #import "CCColorCube.h"
-#import "JSUpdateLookup.h"
 #import "CampusMapViewController.h"
 
 
