@@ -27,6 +27,8 @@
 -(UIImage *)getBlurredImagesArray:(int)choice;
 -(UIImage *)getImagesArray:(int)choice;
 
+-(void)fetchNewDataWithCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler;
+
 @property User *user;
 
 

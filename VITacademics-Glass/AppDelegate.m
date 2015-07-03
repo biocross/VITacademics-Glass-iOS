@@ -26,7 +26,62 @@
     
     [SupportKit initWithSettings:
     [SKTSettings settingsWithAppToken:@"3l84z9jlb16rr5m5mqpgniv76"]];
+    
+    [application setMinimumBackgroundFetchInterval:302400];
+    
+    if([application respondsToSelector:@selector(registerUserNotificationSettings:)])
+    {
+        [application registerUserNotificationSettings:[UIUserNotificationSettings settingsForTypes:UIUserNotificationTypeAlert|UIUserNotificationTypeBadge|UIUserNotificationTypeSound categories:nil]];
+        [application registerForRemoteNotifications];
+    }
+    else
+    {
+        [application registerForRemoteNotificationTypes:UIRemoteNotificationTypeSound | UIRemoteNotificationTypeAlert | UIRemoteNotificationTypeBadge];
+    }
+    
     return YES;
+}
+
+- (void)application:(UIApplication *)application performFetchWithCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler{
+    
+    NSDate *fetchStart = [NSDate date];
+    [[VITXManager sharedManager] fetchNewDataWithCompletionHandler:^(UIBackgroundFetchResult result) {
+        completionHandler(result);
+        
+        NSDate *fetchEnd = [NSDate date];
+        NSTimeInterval timeElapsed = [fetchEnd timeIntervalSinceDate:fetchStart];
+        NSLog(@"Background Fetch: Duration -  %f seconds", timeElapsed);
+        
+        if(result == UIBackgroundFetchResultNewData){
+            [self informUserAboutRefeshedAttendanceWithMessage:@"Your data has been refreshed! Check out what's newly uploaded."];
+        }
+        else if(result == UIBackgroundFetchResultFailed || result == UIBackgroundFetchResultNoData){
+            NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
+            if(![prefs objectForKey:@"registrationNumber"]){
+                [self informUserAboutRefeshedAttendanceWithMessage:@"Looks like you haven't started using VITacademics yet. Let's get started!"];
+            }
+        }
+        
+    }];
+}
+
+- (void)informUserAboutRefeshedAttendanceWithMessage: (NSString *)message{
+    UIApplication *app = [UIApplication sharedApplication];
+    NSArray*    oldNotifications = [app scheduledLocalNotifications];
+    
+    if ([oldNotifications count] > 0)
+        [app cancelAllLocalNotifications];
+    
+    UILocalNotification* alarm = [[UILocalNotification alloc] init];
+    if (alarm)
+    {
+        alarm.fireDate = [NSDate dateWithTimeIntervalSinceNow:2];
+        alarm.timeZone = [NSTimeZone localTimeZone];
+        alarm.repeatInterval = 0;
+        alarm.alertBody = message;
+        
+        [app scheduleLocalNotification:alarm];
+    }
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {

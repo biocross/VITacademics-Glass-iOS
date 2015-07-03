@@ -117,6 +117,40 @@
     
 }
 
+
+-(void)fetchNewDataWithCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler{
+    [[RACSignal
+      merge:@[[self loginUser]]]
+     subscribeError:^(NSError *error) {
+         NSLog(@"Background Fetch: Failed to login");
+         completionHandler(UIBackgroundFetchResultFailed);
+         
+     } completed:^{
+         @try{
+             NSLog(@"Background Fetch: Logged in with Status: %@", [self.status description]);
+             
+             if([self.status.message isEqualToString:@"Successful execution"]){
+                 [[RACSignal
+                   merge:@[[self refreshData]]]
+                  subscribeCompleted:^{
+                      NSLog(@"Background Fetch: Refreshed & Saved Data");
+                      completionHandler(UIBackgroundFetchResultNewData);
+                  }];
+                 
+             }
+             else{
+                 NSLog(@"Background Fetch: Refresh Failure");
+                 completionHandler(UIBackgroundFetchResultNoData);
+             }
+         }
+         @catch(NSException *e){
+             NSLog(@"Background Fetch: Exception In Refresh (try, catch): %@", [e description]);
+             completionHandler(UIBackgroundFetchResultFailed);
+         }
+     }];
+}
+
+
 -(RACSignal *)loginUser{
     return [[_client loginWithRegistrationNumber:[[NSUserDefaults standardUserDefaults] stringForKey:@"registrationNumber"] andDateOfBirth:[[NSUserDefaults standardUserDefaults] stringForKey:@"dateOfBirth"]] doNext:^(LoginStatus *status) {
         self.status = status;
