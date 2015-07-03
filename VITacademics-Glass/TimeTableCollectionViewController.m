@@ -155,7 +155,7 @@ minimumInteritemSpacingForSectionAtIndex:(NSInteger)section
                   layout:(UICollectionViewLayout *)collectionViewLayout
   sizeForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    return CGSizeMake(200, self.collectionView.bounds.size.height);
+    return CGSizeMake(180, self.collectionView.bounds.size.height);
 }
 
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
@@ -177,12 +177,15 @@ minimumInteritemSpacingForSectionAtIndex:(NSInteger)section
     }
 
     NSArray *views = [[NSBundle mainBundle] loadNibNamed:@"TimeTableCondensedView" owner:self options:nil];
+    
+    
+    NSArray *days = @[@"MONDAY", @"TUESDAY", @"WEDNESDAY", @"THURSDAY", @"FRIDAY", @"SATURDAY"];
+    
     TimeTableDayView *view = [views firstObject];
     [view setTimeTableForDay:classes[indexPath.row]];
+    view.dayLabel.text = days[indexPath.row];
     [view reloadEverything];
     [cell.contentView addSubview:view];
-    
-
     
     cell.backgroundColor = [UIColor clearColor];
     if(indexPath.row % 2 == 0)

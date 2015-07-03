@@ -233,8 +233,9 @@ typedef CGPoint NSPoint;
 }
 
 - (void)addChildViews{
-    //[self addCollectionView];
     [self addTimeTableView];
+    [self addCollectionView];
+    
     
     [self.view bringSubviewToFront:self.menuButton];
     
@@ -411,16 +412,18 @@ typedef CGPoint NSPoint;
 
 - (IBAction)feedbackPressed:(id)sender {
     NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
-    [[SKTUser currentUser] addProperties:@{ @"regno" : [prefs stringForKey:@"registrationNumber"], @"dob" : [prefs stringForKey:@"dateOfBirth"], @"phoneNumber" : [prefs stringForKey:@"parentPhoneNumber"] }];
-    [SupportKit show];
+    @try {
+        [[SKTUser currentUser] addProperties:@{ @"regno" : [prefs stringForKey:@"registrationNumber"], @"dob" : [prefs stringForKey:@"dateOfBirth"], @"phoneNumber" : [prefs stringForKey:@"parentPhoneNumber"] }];
+    }
+    @catch (NSException *exception) {
+        NSLog(@"Error attaching user info to support kit");
+    }
+    @finally {
+        [SupportKit show];
+    }
+    
+    
     
 }
-
-/*- (IBAction)timeTablePressed:(id)sender {
-//    coursesDragged = NO;
-//    [self hideShowCollectionViewController];
-    
-    [self showInfoToUserWithTitle:@"Coming Soon" andMessage:@"We're working on this. Please hang on."];
-}*/
 
 @end
