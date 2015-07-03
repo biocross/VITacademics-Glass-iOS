@@ -12,7 +12,7 @@
 #import <pop/POP.h>
 #import <SupportKit/SupportKit.h>
 
-#define DEBUG_MODE 1
+#define DEBUG_MODE 0
 
 
 /*
@@ -276,6 +276,7 @@ typedef CGPoint NSPoint;
 
 - (void) addshadows:(UIView *)view
 {
+    view.layer.shadowPath = [UIBezierPath bezierPathWithRect:view.bounds].CGPath;
     view.layer.shadowRadius = 10.0;
     view.layer.shadowOpacity = 0.8;
     view.layer.shadowColor = [UIColor darkGrayColor].CGColor;
