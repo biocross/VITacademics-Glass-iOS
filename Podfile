@@ -1,9 +1,8 @@
-link_with 'VITacademics-Glass', 'VITacademics-GlassTests'
+link_with 'VITacademics'
 
 pod 'ReactiveCocoa'
 pod 'Mantle' ,'1.5.4'
 pod 'DateTools'
 pod 'Pop'
 pod 'Shimmer'
-pod 'HockeySDK', '~> 3.6.2'
 pod 'SupportKit'

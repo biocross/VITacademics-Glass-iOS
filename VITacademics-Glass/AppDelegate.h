@@ -7,7 +7,6 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "HockeySDK.h"
 #import "VITXManager.h"
 
 

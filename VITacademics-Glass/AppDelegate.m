@@ -8,6 +8,9 @@
 
 #import "AppDelegate.h"
 #import <SupportKit/SupportKit.h>
+#import <Fabric/Fabric.h>
+#import <Crashlytics/Crashlytics.h>
+
 
 @interface AppDelegate ()
 
@@ -18,14 +21,11 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
+    [Fabric with:@[CrashlyticsKit]];
 
-    [[BITHockeyManager sharedHockeyManager] configureWithIdentifier:@"78308c9ecfa82cc194ccebb197472ffe"];
-    [[BITHockeyManager sharedHockeyManager] startManager];
-    [[BITHockeyManager sharedHockeyManager].authenticator
-     authenticateInstallation];
-    
     [SupportKit initWithSettings:
     [SKTSettings settingsWithAppToken:@"3l84z9jlb16rr5m5mqpgniv76"]];
+    
     
     [application setMinimumBackgroundFetchInterval:302400];
     
@@ -38,6 +38,7 @@
     {
         [application registerForRemoteNotificationTypes:UIRemoteNotificationTypeSound | UIRemoteNotificationTypeAlert | UIRemoteNotificationTypeBadge];
     }
+    
     
     return YES;
 }
