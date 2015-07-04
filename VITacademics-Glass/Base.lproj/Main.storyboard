@@ -10,7 +10,7 @@
         <scene sceneID="mCT-4H-nlc">
             <objects>
                 <collectionViewController storyboardIdentifier="TimeTableCollectionViewController" id="Fx8-zU-rtd" customClass="TimeTableCollectionViewController" sceneMemberID="viewController">
-                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="joa-Ta-RuW">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" dataMode="prototypes" id="joa-Ta-RuW">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="VZP-6U-7SK">

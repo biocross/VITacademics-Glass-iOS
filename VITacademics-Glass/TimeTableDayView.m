@@ -34,6 +34,20 @@
 }
 
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
+    
+    if([self.timeTableForDay count] == 0){
+        UILabel *noClassesLabel = [[UILabel alloc] initWithFrame:self.tableView.frame];
+        self.tableView.backgroundView = noClassesLabel;
+        noClassesLabel.textAlignment = NSTextAlignmentCenter;
+        noClassesLabel.text = @"no classes";
+        noClassesLabel.font = [UIFont fontWithName:@"HelveticaNeue-Thin" size:13];
+        noClassesLabel.textColor = [UIColor whiteColor];
+    }
+    else{
+        self.tableView.backgroundView = nil;
+    }
+    
+    
     return [self.timeTableForDay count];
 }
 
