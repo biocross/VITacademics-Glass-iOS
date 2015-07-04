@@ -25,7 +25,7 @@
 - (IBAction)refreshedPressed:(id)sender;
 - (IBAction)credentialsPressed:(id)sender;
 - (IBAction)feedbackPressed:(id)sender;
-//- (IBAction)timeTablePressed:(id)sender;
+- (IBAction)timeTablePressed:(id)sender;
 - (IBAction)campusMapPressed:(id)sender;
 
 -(void)showInfoToUserWithTitle:(NSString *)title andMessage:(NSString *)message;

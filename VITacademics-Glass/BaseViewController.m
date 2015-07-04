@@ -362,6 +362,11 @@ typedef CGPoint NSPoint;
     [self hideShowCollectionViewController];
 }
 
+- (IBAction)timeTablePressed:(id)sender{
+    coursesDragged = NO;
+    [self hideShowCollectionViewController];
+}
+
 - (IBAction)refreshedPressed:(id)sender {
     [self showLoadingIndicator];
     dispatch_queue_t downloadQueue = dispatch_queue_create("serverStatus", nil);

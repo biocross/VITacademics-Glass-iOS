@@ -34,16 +34,43 @@
 }
 
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
-    return 1;
+    return [self.timeTableForDay count];
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return [self.timeTableForDay count];
+    return 1;
+}
+
+-(NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section{
+    NSDateFormatter *df = [[NSDateFormatter alloc] init];
+    [df setDateFormat:@"hh:mm a"];
+    df.timeZone = [NSTimeZone timeZoneForSecondsFromGMT:19800];
+    NSString *startTime = [df stringFromDate:self.timeTableForDay[section][@"start"]];
+    NSString *endTime = [df stringFromDate:self.timeTableForDay[section][@"end"]];
+    
+    return [NSString stringWithFormat:@"%@ to %@", startTime, endTime];
+}
+
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
+    
+    UILabel *myLabel = [[UILabel alloc] init];
+    myLabel.frame = CGRectMake(5, 23, 130, 12);
+    if(section == 0){
+        myLabel.frame = CGRectMake(5, 41, 130, 12);
+    }
+    myLabel.font = [UIFont fontWithName:@"HelveticaNeue-Light" size:11];
+    myLabel.text = [self tableView:tableView titleForHeaderInSection:section];
+    myLabel.textColor = [UIColor lightGrayColor];
+    
+    UIView *headerView = [[UIView alloc] init];
+    [headerView addSubview:myLabel];
+    
+    return headerView;
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
 
-    Courses *course = self.timeTableForDay[indexPath.row][@"course"];
+    Courses *course = self.timeTableForDay[indexPath.section][@"course"];
     NSArray *views = [[NSBundle mainBundle] loadNibNamed:@"TimeTableCell" owner:self options:nil];
     UITableViewCell *cell  = [views firstObject];
     
@@ -70,7 +97,7 @@
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    return 80;
+    return 49;
 }
 
 
