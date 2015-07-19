@@ -96,10 +96,16 @@ static NSString * const reuseIdentifier = @"DayCell";
             NSDictionary *classInfo = [[NSDictionary alloc] init];
             TimingElement *element = [[self.user.courses[i] timings] objectAtIndex:j];
             int day = [element.day intValue];
+            
+            //Fixes crashing when timings are not valid
+            NSDate *startTime = element.start_time ? element.start_time : [[NSDate alloc] init];
+            NSDate *endTime = element.end_time ? element.end_time : [[NSDate alloc] init];
+
+            
             classInfo = @{
                           @"course": self.user.courses[i],
-                          @"start": element.start_time,
-                          @"end": element.end_time
+                          @"start": startTime,
+                          @"end": endTime
                           };
             [classes[day] addObject:classInfo];
         }

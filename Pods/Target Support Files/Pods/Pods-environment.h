@@ -9,8 +9,8 @@
 // DateTools
 #define COCOAPODS_POD_AVAILABLE_DateTools
 #define COCOAPODS_VERSION_MAJOR_DateTools 1
-#define COCOAPODS_VERSION_MINOR_DateTools 5
-#define COCOAPODS_VERSION_PATCH_DateTools 0
+#define COCOAPODS_VERSION_MINOR_DateTools 6
+#define COCOAPODS_VERSION_PATCH_DateTools 1
 
 // Mantle
 #define COCOAPODS_POD_AVAILABLE_Mantle
@@ -63,6 +63,6 @@
 // SupportKit
 #define COCOAPODS_POD_AVAILABLE_SupportKit
 #define COCOAPODS_VERSION_MAJOR_SupportKit 2
-#define COCOAPODS_VERSION_MINOR_SupportKit 8
-#define COCOAPODS_VERSION_PATCH_SupportKit 1
+#define COCOAPODS_VERSION_MINOR_SupportKit 9
+#define COCOAPODS_VERSION_PATCH_SupportKit 0
 

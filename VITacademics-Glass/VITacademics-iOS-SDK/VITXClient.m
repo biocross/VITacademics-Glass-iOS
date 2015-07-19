@@ -10,7 +10,7 @@
 #import "User.h"
 #import "LoginStatus.h"
 
-#define DEBUG_MODE 0
+#define DEBUG_MODE 1
 
 @interface VITXClient ()
 
