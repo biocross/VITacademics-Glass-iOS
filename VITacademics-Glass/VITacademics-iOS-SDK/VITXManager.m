@@ -58,6 +58,34 @@
     return self;
 }
 
+-(void)getGrades{
+    NSLog(@"Getting Grades");
+    [[RACSignal
+      merge:@[[self loginUser]]]
+     subscribeError:^(NSError *error) {
+         if([[NSUserDefaults standardUserDefaults] stringForKey:@"firstTime_b8"]){
+         }
+     } completed:^{
+         @try{
+             if([self.status.message isEqualToString:@"Successful execution"]){
+                 [[RACSignal
+                   merge:@[[self getGradesData]]]
+                  subscribeCompleted:^{
+                      NSLog(@"Grades JSON Received");
+                  }];
+             }
+             else{
+                 NSLog(@"Failed to get grades");
+             }
+         }
+         @catch(NSException *e){
+             NSLog(@"Exception In Grades login: %@", [e description]);
+         }
+     }];
+}
+
+
+
 -(void)startRefreshing{
     
     NSLog(@"Started Refreshing: %@", self.client);
@@ -164,10 +192,9 @@
     }];
 }
 
-- (RACSignal *)getGrades {
-    return [[_client refreshDataForUserWithRegistrationNumber:[[NSUserDefaults standardUserDefaults] stringForKey:@"registrationNumber"] andDateOfBirth:[[NSUserDefaults standardUserDefaults] stringForKey:@"dateOfBirth"]] doNext:^(User *user) {
-        self.user = user;
-        [self saveData];
+- (RACSignal *)getGradesData {
+    return [[_client getGradesForRegistrationNumber:[[NSUserDefaults standardUserDefaults] stringForKey:@"registrationNumber"] andDateOfBirth:[[NSUserDefaults standardUserDefaults] stringForKey:@"dateOfBirth"]] doNext:^(GradesRoot *grades) {
+        self.gradesObject = grades;
     }];
 }
 

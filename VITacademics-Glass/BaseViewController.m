@@ -11,6 +11,7 @@
 #import "VITXManager.h"
 #import <pop/POP.h>
 #import <SupportKit/SupportKit.h>
+#import "CGPATableViewController.h"
 
 #define DEBUG_MODE 1
 
@@ -150,6 +151,11 @@ typedef CGPoint NSPoint;
     CampusMapViewController *mapController = [self.storyboard instantiateViewControllerWithIdentifier:@"campusMap"];
     [self presentViewController:mapController animated:YES completion:nil];
     
+}
+
+- (IBAction)gradesPressed:(id)sender {
+    CGPATableViewController *view = [self.storyboard instantiateViewControllerWithIdentifier:@"CGPAViewController"];
+    [self presentViewController:view animated:YES completion:nil];
 }
 
 -(void)showInfoToUserWithTitle:(NSString *)title andMessage:(NSString *)message{

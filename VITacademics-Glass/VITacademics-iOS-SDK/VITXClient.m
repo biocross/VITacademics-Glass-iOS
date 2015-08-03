@@ -9,6 +9,7 @@
 #import "VITXClient.h"
 #import "User.h"
 #import "LoginStatus.h"
+#import "GradesRoot.h"
 
 #define DEBUG_MODE 1
 
@@ -63,6 +64,27 @@
     return signal;
 }
 
+-(RACSignal *)getGradesForRegistrationNumber:(NSString *)registrationNumber andDateOfBirth:(NSString *)dateOfBirth{
+    NSString *campus = [[NSUserDefaults standardUserDefaults] stringForKey:@"campus"];
+    NSString *mobile = [[NSUserDefaults standardUserDefaults] stringForKey:@"parentPhoneNumber"];
+    NSString *urlString;
+    if(DEBUG_MODE){
+        urlString = @"http://localhost:8002";
+    }
+    else{
+        urlString = [NSString stringWithFormat:@"https://vitacademics-rel.herokuapp.com/api/v2/%@/grades", campus];
+    }
+    NSURL *url = [NSURL URLWithString:urlString];
+    NSMutableURLRequest * urlRequest = [NSMutableURLRequest requestWithURL:url];
+    NSString * params = [NSString stringWithFormat:@"regno=%@&dob=%@&mobile=%@", registrationNumber, dateOfBirth, mobile];
+    [urlRequest setHTTPMethod:@"POST"];
+    [urlRequest setHTTPBody:[params dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    return [[self fetchJSONFromURL:urlRequest] map:^(NSDictionary *json) {
+        return [MTLJSONAdapter modelOfClass:[GradesRoot class] fromJSONDictionary:json error:nil];
+    }];
+}
+
 - (RACSignal *)refreshDataForUserWithRegistrationNumber:(NSString *)registrationNumber andDateOfBirth:(NSString *)dateOfBirth {
     NSString *campus = [[NSUserDefaults standardUserDefaults] stringForKey:@"campus"];
     NSString *mobile = [[NSUserDefaults standardUserDefaults] stringForKey:@"parentPhoneNumber"];
@@ -103,7 +125,6 @@
     [urlRequest setHTTPBody:[params dataUsingEncoding:NSUTF8StringEncoding]];
     
     return [[self fetchJSONFromURL:urlRequest] map:^(NSDictionary *json) {
-        NSLog(@"JSON Received: %@", json );
         return [MTLJSONAdapter modelOfClass:[LoginStatus class] fromJSONDictionary:json[@"status"] error:nil];
     }];
 }

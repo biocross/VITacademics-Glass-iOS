@@ -11,11 +11,13 @@
 #import "VITXClient.h"
 #import "LoginStatus.h"
 #import "BaseViewController.h"
+#import "GradesRoot.h"
 
 @interface VITXManager : NSObject
 
 + (instancetype)sharedManager;
 - (void)startRefreshing;
+- (void)getGrades;
 
 @property BaseViewController *baseViewController;
 
@@ -30,6 +32,7 @@
 -(void)fetchNewDataWithCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler;
 
 @property User *user;
+@property GradesRoot *gradesObject;
 
 
 

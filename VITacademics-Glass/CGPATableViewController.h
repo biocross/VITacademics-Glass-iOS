@@ -9,7 +9,9 @@
 #import <UIKit/UIKit.h>
 #import "VITXManager.h"
 #import "CCColorCube.h"
+#import "GradesRoot.h"
 
 @interface CGPATableViewController : UITableViewController
+
 
 @end

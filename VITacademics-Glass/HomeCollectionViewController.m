@@ -72,8 +72,6 @@ static NSString * const reuseIdentifier = @"course";
          }
          //NSLog(@"User: %@", user);
          self.user = user;
-         
-         
          [self.collectionView reloadData];
          [[VITXManager sharedManager] hideLoadingIndicator];
          

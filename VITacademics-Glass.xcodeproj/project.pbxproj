@@ -47,6 +47,8 @@
 		168195141A728508009C236B /* b6.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 168195111A728508009C236B /* b6.jpg */; };
 		168636D11AB719DC00E392FE /* ExpandedView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 168636D01AB719DC00E392FE /* ExpandedView.xib */; };
 		168636D41AB71A1000E392FE /* ExpandedView.m in Sources */ = {isa = PBXBuildFile; fileRef = 168636D31AB71A1000E392FE /* ExpandedView.m */; };
+		168C6E1C1B5D4BB0007EF357 /* GradedCourseObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 168C6E1B1B5D4BB0007EF357 /* GradedCourseObject.m */; };
+		1691A39E1B5E6F7B0060F9DA /* GradesRoot.m in Sources */ = {isa = PBXBuildFile; fileRef = 1691A39D1B5E6F7B0060F9DA /* GradesRoot.m */; };
 		169F087B1B356C6C003ADF4A /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 169F087A1B356C6C003ADF4A /* StoreKit.framework */; };
 		169F087D1B356C84003ADF4A /* GameKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 169F087C1B356C84003ADF4A /* GameKit.framework */; };
 		16A902B31A86299000C3E65A /* TimeTableDayView.m in Sources */ = {isa = PBXBuildFile; fileRef = 16A902B21A86299000C3E65A /* TimeTableDayView.m */; };
@@ -160,6 +162,10 @@
 		168636D01AB719DC00E392FE /* ExpandedView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ExpandedView.xib; sourceTree = "<group>"; };
 		168636D21AB71A1000E392FE /* ExpandedView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExpandedView.h; sourceTree = "<group>"; };
 		168636D31AB71A1000E392FE /* ExpandedView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExpandedView.m; sourceTree = "<group>"; };
+		168C6E1A1B5D4BB0007EF357 /* GradedCourseObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GradedCourseObject.h; path = ../GradedCourseObject.h; sourceTree = "<group>"; };
+		168C6E1B1B5D4BB0007EF357 /* GradedCourseObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GradedCourseObject.m; path = ../GradedCourseObject.m; sourceTree = "<group>"; };
+		1691A39C1B5E6F7B0060F9DA /* GradesRoot.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GradesRoot.h; sourceTree = "<group>"; };
+		1691A39D1B5E6F7B0060F9DA /* GradesRoot.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GradesRoot.m; sourceTree = "<group>"; };
 		169F087A1B356C6C003ADF4A /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		169F087C1B356C84003ADF4A /* GameKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameKit.framework; path = System/Library/Frameworks/GameKit.framework; sourceTree = SDKROOT; };
 		16A902B11A86299000C3E65A /* TimeTableDayView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimeTableDayView.h; sourceTree = "<group>"; };
@@ -339,6 +345,8 @@
 				161CCD9E1A6A436600527A7A /* README.md */,
 				161CCD9F1A6A436600527A7A /* VITXClient.h */,
 				161CCDA01A6A436600527A7A /* VITXClient.m */,
+				1691A39C1B5E6F7B0060F9DA /* GradesRoot.h */,
+				1691A39D1B5E6F7B0060F9DA /* GradesRoot.m */,
 				161CCDA11A6A436600527A7A /* VITXManager.h */,
 				161CCDA21A6A436600527A7A /* VITXManager.m */,
 			);
@@ -358,6 +366,8 @@
 		161CCD8D1A6A436600527A7A /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				168C6E1A1B5D4BB0007EF357 /* GradedCourseObject.h */,
+				168C6E1B1B5D4BB0007EF357 /* GradedCourseObject.m */,
 				161CCD8E1A6A436600527A7A /* Attendance.h */,
 				161CCD8F1A6A436600527A7A /* Attendance.m */,
 				161CCD901A6A436600527A7A /* AttendanceDetails.h */,
@@ -1004,6 +1014,7 @@
 				161CCDA91A6A436600527A7A /* Courses.m in Sources */,
 				1673A4BE1B3A7ED800A5BFD1 /* CampusMapViewController.m in Sources */,
 				161CCDA61A6A436600527A7A /* Attendance.m in Sources */,
+				168C6E1C1B5D4BB0007EF357 /* GradedCourseObject.m in Sources */,
 				425783A01A69391600885323 /* GraphView.m in Sources */,
 				16617C1B1A6BE622000CA406 /* BaseViewController.m in Sources */,
 				161CCDAE1A6A436600527A7A /* README.md in Sources */,
@@ -1012,6 +1023,7 @@
 				165119E91B309494003464B1 /* NSMutableArray+convenience.m in Sources */,
 				165119EB1B309494003464B1 /* UIColor+expanded.m in Sources */,
 				165119E81B309494003464B1 /* UIView+convenience.m in Sources */,
+				1691A39E1B5E6F7B0060F9DA /* GradesRoot.m in Sources */,
 				161CCDA41A6A436600527A7A /* NSValueTransformer+FTGTransformerAdditions.m in Sources */,
 				16E4A3291A67D6DE00152389 /* HomeCollectionViewController.m in Sources */,
 				165119EA1B309494003464B1 /* NSDate+convenience.m in Sources */,

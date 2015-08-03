@@ -13,6 +13,8 @@
 }
 
 @property (nonatomic, strong) UIImageView *wallpaperView;
+@property NSArray *grades;
+@property GradesRoot *gradesObject;
 
 
 @end
@@ -42,6 +44,22 @@
     
     self.tableView.backgroundView = self.wallpaperView;
     
+    
+    [[RACObserve([VITXManager sharedManager], gradesObject)
+      deliverOn:RACScheduler.mainThreadScheduler]
+     subscribeNext:^(GradesRoot *grades) {
+         if(!grades){
+             [[VITXManager sharedManager] getGrades];
+         }
+         self.gradesObject = grades;
+         self.grades = self.gradesObject.grades;
+         [self.tableView reloadData];
+         
+     } error:^(NSError *error) {
+         
+     }];
+
+    
 }
 
 - (UIImageView *)wallpaperView
@@ -64,7 +82,15 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     // Return the number of rows in the section.
-    return 0;
+    return self.grades.count;
+}
+
+-(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+    UITableViewCell *cell = [[UITableViewCell alloc] init];
+    
+    cell.textLabel.text = [self.grades[indexPath.row] course_title];
+    
+    return cell;
 }
 
 @end

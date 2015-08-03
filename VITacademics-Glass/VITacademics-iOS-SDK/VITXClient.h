@@ -14,5 +14,6 @@
 
 - (RACSignal *)refreshDataForUserWithRegistrationNumber:(NSString *)registrationNumber andDateOfBirth:(NSString *)dateOfBirth;
 - (RACSignal *)loginWithRegistrationNumber:(NSString *)registrationNumber andDateOfBirth:(NSString *)dateOfBirth;
-    
+- (RACSignal *)getGradesForRegistrationNumber:(NSString *)registrationNumber andDateOfBirth:(NSString *)dateOfBirth;
+
 @end
