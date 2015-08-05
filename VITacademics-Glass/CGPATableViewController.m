@@ -10,6 +10,8 @@
 
 @interface CGPATableViewController (){
     int choice;
+    NSMutableArray *credits;
+    NSMutableArray *gradeValues ;
     
 }
 
@@ -99,7 +101,48 @@
     
     NSLog(@"Sanitized Array Count: %lu", (unsigned long)[sanitizedGrades count]);
     self.grades = sanitizedGrades;
+    
+    credits = [[NSMutableArray alloc] init];
+    gradeValues = [[NSMutableArray alloc] init];
+    
+    int count2 = (int)[self.grades count];
+    for(int i = 0; i < count2; i++){
+        GradedCourseObject *course = self.grades[i];
+        [credits addObject:[NSNumber numberWithInt:course.credits]];
+        [gradeValues addObject:[self getValueOfGrade:course.grade]];
+    }
+    [self recalculateCGPA];
     [self.tableView reloadData];
+}
+
+- (NSNumber *)getValueOfGrade:(NSString *)grade {
+    if([grade isEqualToString:@"N"]){
+        return [NSNumber numberWithInt:0];
+    }
+    else if([grade isEqualToString:@"F"]){
+        return [NSNumber numberWithInt:0];
+    }
+    else if([grade isEqualToString:@"E"]){
+        return [NSNumber numberWithInt:5];
+    }
+    else if([grade isEqualToString:@"D"]){
+        return [NSNumber numberWithInt:6];
+    }
+    else if([grade isEqualToString:@"C"]){
+        return [NSNumber numberWithInt:7];
+    }
+    else if([grade isEqualToString:@"B"]){
+        return [NSNumber numberWithInt:8];
+    }
+    else if([grade isEqualToString:@"A"]){
+        return [NSNumber numberWithInt:9];
+    }
+    else if([grade isEqualToString:@"S"]){
+        return [NSNumber numberWithInt:10];
+    }
+    else{
+        return [NSNumber numberWithInt:0];
+    }
 }
 
 - (UIImageView *)wallpaperView
@@ -114,6 +157,29 @@
 
 - (void)recalculateCGPA {
     
+    long creditsCount = [credits count];
+    long gradeValuesCount = [gradeValues count];
+    
+    if(creditsCount == 0){
+        return;
+    }
+    
+    if(creditsCount != gradeValuesCount){
+        NSLog(@"Array counts not equal! Failed CGPA Calculation");
+        return;
+    }
+    
+    float numerator = 0;
+    float denominator = 0;
+    
+    for(int i = 0; i < creditsCount; i++){
+        denominator += [credits[i] intValue];
+        numerator += ([credits[i] intValue] * [gradeValues[i] intValue]);
+    }
+    
+    NSLog(@"Calculation: %f / %f", numerator, denominator);
+    float CGPA = numerator/denominator;
+    self.expectedCGPA.title = [NSString stringWithFormat:@"%f", CGPA];
 }
 
 
