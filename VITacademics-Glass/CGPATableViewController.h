@@ -10,8 +10,15 @@
 #import "VITXManager.h"
 #import "CCColorCube.h"
 #import "GradesRoot.h"
+#import "GradedCourseObject.h"
 
-@interface CGPATableViewController : UITableViewController
+@interface CGPATableViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>
 
+@property (strong, nonatomic) IBOutlet UITableView *tableView;
 
+@property (strong, nonatomic) IBOutlet UIBarButtonItem *currentCGPA;
+@property (strong, nonatomic) IBOutlet UIBarButtonItem *expectedCGPA;
+@property (strong, nonatomic) IBOutlet UIBarButtonItem *expectedCGPALabel;
+@property (strong, nonatomic) IBOutlet UIToolbar *currentToolbar;
+@property (strong, nonatomic) IBOutlet UIToolbar *expectedToolbar;
 @end

@@ -76,32 +76,95 @@
             </objects>
             <point key="canvasLocation" x="481.5" y="537.5"/>
         </scene>
-        <!--Table View Controller-->
-        <scene sceneID="cOs-yG-eey">
+        <!--Grades-->
+        <scene sceneID="dry-f8-uie">
             <objects>
-                <tableViewController storyboardIdentifier="CGPAViewController" id="qMM-bK-K8S" customClass="CGPATableViewController" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="DJU-5K-aVk">
+                <viewController id="dzG-cf-98s" customClass="CGPATableViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Q9o-bB-2IR"/>
+                        <viewControllerLayoutGuide type="bottom" id="nH3-Zb-owj"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="07m-QL-IWq">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QRP-Tl-Vcd" userLabel="Current Toolbar">
+                                <rect key="frame" x="0.0" y="623" width="375" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="eQ3-Sk-L5X"/>
+                                </constraints>
+                                <items>
+                                    <barButtonItem title="Current CGPA" id="qzm-VP-xXG"/>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="to4-jo-xmX"/>
+                                    <barButtonItem title="0.0" id="7CW-td-ReG"/>
+                                </items>
+                            </toolbar>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vFT-U8-nuh" userLabel="Expected Toolbar">
+                                <rect key="frame" x="0.0" y="579" width="375" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="oEP-vi-bz9"/>
+                                </constraints>
+                                <items>
+                                    <barButtonItem title="Expected CGPA" id="keO-8W-34d"/>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="cz7-qt-uSX"/>
+                                    <barButtonItem title="8.0" id="XmR-Gr-ZwM"/>
+                                </items>
+                            </toolbar>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="huV-Ei-Aoa">
+                                <rect key="frame" x="0.0" y="64" width="375" height="515"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell contentMode="scaleToFill" restorationIdentifier="GradeCell" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="GradeCell" textLabel="URW-lu-0CL" detailTextLabel="PwY-DM-qDE" style="IBUITableViewCellStyleValue2" id="okr-bN-A9k">
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="okr-bN-A9k" id="zYY-cM-9D1">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="URW-lu-0CL">
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                    <color key="textColor" red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Detail" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="PwY-DM-qDE">
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="ule-8y-2Hj">
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ule-8y-2Hj" id="fE6-iH-FtQ">
-                                    <autoresizingMask key="autoresizingMask"/>
-                                </tableViewCellContentView>
-                            </tableViewCell>
-                        </prototypes>
-                        <connections>
-                            <outlet property="dataSource" destination="qMM-bK-K8S" id="F6l-7e-4S3"/>
-                            <outlet property="delegate" destination="qMM-bK-K8S" id="Rmj-53-LnU"/>
-                        </connections>
-                    </tableView>
+                        <constraints>
+                            <constraint firstItem="nH3-Zb-owj" firstAttribute="top" secondItem="QRP-Tl-Vcd" secondAttribute="bottom" id="0X6-CT-dPo"/>
+                            <constraint firstItem="vFT-U8-nuh" firstAttribute="top" secondItem="huV-Ei-Aoa" secondAttribute="bottom" id="0mV-14-Wkc"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="vFT-U8-nuh" secondAttribute="trailing" constant="-16" id="2mJ-NN-r1C"/>
+                            <constraint firstItem="huV-Ei-Aoa" firstAttribute="top" secondItem="Q9o-bB-2IR" secondAttribute="bottom" id="8D6-jg-WvH"/>
+                            <constraint firstItem="huV-Ei-Aoa" firstAttribute="leading" secondItem="07m-QL-IWq" secondAttribute="leadingMargin" constant="-16" id="8NM-ET-PBx"/>
+                            <constraint firstItem="QRP-Tl-Vcd" firstAttribute="leading" secondItem="07m-QL-IWq" secondAttribute="leadingMargin" constant="-16" id="FMe-zl-4X7"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="huV-Ei-Aoa" secondAttribute="trailing" constant="-16" id="OLg-qk-Fzw"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="QRP-Tl-Vcd" secondAttribute="trailing" constant="-16" id="PMR-Vm-THe"/>
+                            <constraint firstItem="vFT-U8-nuh" firstAttribute="leading" secondItem="07m-QL-IWq" secondAttribute="leadingMargin" constant="-16" id="hFj-NL-GS1"/>
+                            <constraint firstItem="QRP-Tl-Vcd" firstAttribute="top" secondItem="vFT-U8-nuh" secondAttribute="bottom" id="wli-Hm-b1D"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Grades" id="Rls-F4-Tt8"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="kZ4-Fl-sJU" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                    <connections>
+                        <outlet property="currentCGPA" destination="7CW-td-ReG" id="o1H-Z4-dHt"/>
+                        <outlet property="currentToolbar" destination="QRP-Tl-Vcd" id="63h-Vc-PBl"/>
+                        <outlet property="expectedCGPA" destination="XmR-Gr-ZwM" id="EWx-m5-HYY"/>
+                        <outlet property="expectedCGPALabel" destination="keO-8W-34d" id="Az0-hF-LUt"/>
+                        <outlet property="expectedToolbar" destination="vFT-U8-nuh" id="sTK-v1-Bsx"/>
+                        <outlet property="tableView" destination="huV-Ei-Aoa" id="r7i-H3-fSe"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="A0y-Rj-41e" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="901.5" y="537.5"/>
+            <point key="canvasLocation" x="1249.5" y="537.5"/>
         </scene>
         <!--LoginViewController-->
         <scene sceneID="p3V-mF-Y0s">
@@ -465,6 +528,25 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hSC-bA-GGo" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="879" y="-164"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="dfg-Kq-BNC">
+            <objects>
+                <navigationController storyboardIdentifier="CGPAViewController" automaticallyAdjustsScrollViewInsets="NO" id="DGM-kL-y1j" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="0sj-jl-ygv">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="dzG-cf-98s" kind="relationship" relationship="rootViewController" id="ldC-W7-nz2"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gTV-ke-Ccw" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="864" y="444"/>
         </scene>
     </scenes>
     <resources>

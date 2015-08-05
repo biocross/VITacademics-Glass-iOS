@@ -164,8 +164,8 @@
 		168636D31AB71A1000E392FE /* ExpandedView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExpandedView.m; sourceTree = "<group>"; };
 		168C6E1A1B5D4BB0007EF357 /* GradedCourseObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GradedCourseObject.h; path = ../GradedCourseObject.h; sourceTree = "<group>"; };
 		168C6E1B1B5D4BB0007EF357 /* GradedCourseObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GradedCourseObject.m; path = ../GradedCourseObject.m; sourceTree = "<group>"; };
-		1691A39C1B5E6F7B0060F9DA /* GradesRoot.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GradesRoot.h; sourceTree = "<group>"; };
-		1691A39D1B5E6F7B0060F9DA /* GradesRoot.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GradesRoot.m; sourceTree = "<group>"; };
+		1691A39C1B5E6F7B0060F9DA /* GradesRoot.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GradesRoot.h; path = ../GradesRoot.h; sourceTree = "<group>"; };
+		1691A39D1B5E6F7B0060F9DA /* GradesRoot.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GradesRoot.m; path = ../GradesRoot.m; sourceTree = "<group>"; };
 		169F087A1B356C6C003ADF4A /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		169F087C1B356C84003ADF4A /* GameKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameKit.framework; path = System/Library/Frameworks/GameKit.framework; sourceTree = SDKROOT; };
 		16A902B11A86299000C3E65A /* TimeTableDayView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimeTableDayView.h; sourceTree = "<group>"; };
@@ -345,8 +345,6 @@
 				161CCD9E1A6A436600527A7A /* README.md */,
 				161CCD9F1A6A436600527A7A /* VITXClient.h */,
 				161CCDA01A6A436600527A7A /* VITXClient.m */,
-				1691A39C1B5E6F7B0060F9DA /* GradesRoot.h */,
-				1691A39D1B5E6F7B0060F9DA /* GradesRoot.m */,
 				161CCDA11A6A436600527A7A /* VITXManager.h */,
 				161CCDA21A6A436600527A7A /* VITXManager.m */,
 			);
@@ -384,6 +382,8 @@
 				161CCD9D1A6A436600527A7A /* User.m */,
 				1653CF761B3B0C080091578D /* TimingElement.h */,
 				1653CF771B3B0C080091578D /* TimingElement.m */,
+				1691A39C1B5E6F7B0060F9DA /* GradesRoot.h */,
+				1691A39D1B5E6F7B0060F9DA /* GradesRoot.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
