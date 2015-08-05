@@ -94,9 +94,13 @@
                                     <constraint firstAttribute="height" constant="44" id="eQ3-Sk-L5X"/>
                                 </constraints>
                                 <items>
-                                    <barButtonItem title="Current CGPA" id="qzm-VP-xXG"/>
+                                    <barButtonItem title="Current CGPA" id="qzm-VP-xXG">
+                                        <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                    </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="to4-jo-xmX"/>
-                                    <barButtonItem title="0.0" id="7CW-td-ReG"/>
+                                    <barButtonItem title="0.0" id="7CW-td-ReG">
+                                        <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                    </barButtonItem>
                                 </items>
                             </toolbar>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vFT-U8-nuh" userLabel="Expected Toolbar">
@@ -105,9 +109,13 @@
                                     <constraint firstAttribute="height" constant="44" id="oEP-vi-bz9"/>
                                 </constraints>
                                 <items>
-                                    <barButtonItem title="Expected CGPA" id="keO-8W-34d"/>
+                                    <barButtonItem title="Loading Grades..." id="keO-8W-34d">
+                                        <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                    </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="cz7-qt-uSX"/>
-                                    <barButtonItem title="8.0" id="XmR-Gr-ZwM"/>
+                                    <barButtonItem id="XmR-Gr-ZwM">
+                                        <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                    </barButtonItem>
                                 </items>
                             </toolbar>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="huV-Ei-Aoa">
@@ -151,7 +159,18 @@
                             <constraint firstItem="QRP-Tl-Vcd" firstAttribute="top" secondItem="vFT-U8-nuh" secondAttribute="bottom" id="wli-Hm-b1D"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Grades" id="Rls-F4-Tt8"/>
+                    <navigationItem key="navigationItem" title="Grades" id="Rls-F4-Tt8">
+                        <barButtonItem key="leftBarButtonItem" title="Close" id="NRu-uF-uli">
+                            <connections>
+                                <action selector="closePressed:" destination="dzG-cf-98s" id="Auk-1u-x6Q"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Reset" id="a6N-uc-UyV">
+                            <connections>
+                                <action selector="resetPressed:" destination="dzG-cf-98s" id="CKx-KH-Xuv"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
                         <outlet property="currentCGPA" destination="7CW-td-ReG" id="o1H-Z4-dHt"/>

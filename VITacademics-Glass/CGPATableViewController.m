@@ -11,12 +11,12 @@
 @interface CGPATableViewController (){
     int choice;
     NSMutableArray *credits;
-    NSMutableArray *gradeValues ;
-    
+    NSMutableArray *gradeValues;
+    BOOL firstTapOnCourse;
 }
 
 @property (nonatomic, strong) UIImageView *wallpaperView;
-@property NSArray *grades;
+@property NSMutableArray *grades;
 @property GradesRoot *gradesObject;
 
 
@@ -26,6 +26,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    firstTapOnCourse = YES;
     
     CCColorCube *colorCube = [[CCColorCube alloc] init];
     choice = [[VITXManager sharedManager] getAwesomeChoice];
@@ -53,7 +55,7 @@
     [self.view bringSubviewToFront:self.currentToolbar];
     [self.view bringSubviewToFront:self.expectedToolbar];
     self.tableView.backgroundColor = [UIColor clearColor];
-    
+
     
     [[RACObserve([VITXManager sharedManager], gradesObject)
       deliverOn:RACScheduler.mainThreadScheduler]
@@ -62,7 +64,8 @@
              [[VITXManager sharedManager] getGrades];
          }
          self.gradesObject = grades;
-         self.grades = self.gradesObject.grades;
+         self.grades = [[NSMutableArray alloc] initWithArray:self.gradesObject.grades];
+         self.expectedCGPALabel.title = @"Parsing Grades";
          [self sanitizeGrades];
          
      } error:^(NSError *error) {
@@ -105,6 +108,14 @@
     credits = [[NSMutableArray alloc] init];
     gradeValues = [[NSMutableArray alloc] init];
     
+    [self initCalculationArrays];
+}
+
+- (void)initCalculationArrays{
+    
+    [credits removeAllObjects];
+    [gradeValues removeAllObjects];
+    
     int count2 = (int)[self.grades count];
     for(int i = 0; i < count2; i++){
         GradedCourseObject *course = self.grades[i];
@@ -113,6 +124,13 @@
     }
     [self recalculateCGPA];
     [self.tableView reloadData];
+    
+    if(firstTapOnCourse){
+        self.expectedCGPALabel.title = @"tap on courses to simulate grades";
+    }
+    else {
+        self.expectedCGPALabel.title = @"Expected CGPA";
+    }
 }
 
 - (NSNumber *)getValueOfGrade:(NSString *)grade {
@@ -179,7 +197,12 @@
     
     NSLog(@"Calculation: %f / %f", numerator, denominator);
     float CGPA = numerator/denominator;
-    self.expectedCGPA.title = [NSString stringWithFormat:@"%f", CGPA];
+    if(firstTapOnCourse){
+        self.currentCGPA.title = [NSString stringWithFormat:@"%f", CGPA];
+    }
+    else{
+        self.expectedCGPA.title = [NSString stringWithFormat:@"%f", CGPA];
+    }
 }
 
 
@@ -204,7 +227,55 @@
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    firstTapOnCourse = NO;
+    
+    GradedCourseObject *selectedCourse = self.grades[indexPath.row];
+    
+    if([selectedCourse.grade isEqualToString:@"F"] || [selectedCourse.grade isEqualToString:@"N"]){
+        selectedCourse.grade = @"E";
+        self.grades[indexPath.row] = selectedCourse;
+    }
+    else if([selectedCourse.grade isEqualToString:@"E"]){
+        selectedCourse.grade = @"D";
+        self.grades[indexPath.row] = selectedCourse;
+    }
+    else if([selectedCourse.grade isEqualToString:@"D"]){
+        selectedCourse.grade = @"C";
+        self.grades[indexPath.row] = selectedCourse;
+    }
+    else if([selectedCourse.grade isEqualToString:@"C"]){
+        selectedCourse.grade = @"B";
+        self.grades[indexPath.row] = selectedCourse;
+    }
+    else if([selectedCourse.grade isEqualToString:@"B"]){
+        selectedCourse.grade = @"A";
+        self.grades[indexPath.row] = selectedCourse;
+    }
+    else if([selectedCourse.grade isEqualToString:@"A"]){
+        selectedCourse.grade = @"S";
+        self.grades[indexPath.row] = selectedCourse;
+    }
+    else /*if([selectedCourse.grade isEqualToString:@"S"])*/{
+        selectedCourse.grade = @"F";
+        self.grades[indexPath.row] = selectedCourse;
+    }
+    
+    //[self.tableView beginUpdates];
+    [self.tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+    
+    [self initCalculationArrays];
+    
     [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
+- (IBAction)closePressed:(id)sender {
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+- (IBAction)resetPressed:(id)sender {
+    self.expectedCGPALabel.title = @"Resetting...";
+    self.expectedCGPA.title = @"";
+    [[VITXManager sharedManager] getGrades];
+}
 @end
