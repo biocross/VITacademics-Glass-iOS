@@ -45,6 +45,16 @@
     self.tableView.dataSource = self;
     self.tableView.delegate = self;
     
+    NSArray *buttons = @[self.expectedCGPALabel, self.expectedCGPA, self.currentCGPA, self.currentCGPALabel, self.closeButton, self.resetButton];
+    
+    for(UIBarButtonItem *button in buttons){
+        [button setTitleTextAttributes:@{
+                                                         NSFontAttributeName: [UIFont fontWithName:@"HelveticaNeue-Light" size:18.0],
+                                                         NSForegroundColorAttributeName: [UIColor darkGrayColor]
+                                                         } forState:UIControlStateNormal];
+    }
+    
+    
     self.view.tintColor = [UIColor colorWithRed:red
                                           green:green
                                            blue:blue
@@ -61,11 +71,11 @@
       deliverOn:RACScheduler.mainThreadScheduler]
      subscribeNext:^(GradesRoot *grades) {
          if(!grades){
+             self.expectedCGPALabel.title = @"Loading Grades...";
              [[VITXManager sharedManager] getGrades];
          }
          self.gradesObject = grades;
          self.grades = [[NSMutableArray alloc] initWithArray:self.gradesObject.grades];
-         self.expectedCGPALabel.title = @"Parsing Grades";
          [self sanitizeGrades];
          
      } error:^(NSError *error) {
@@ -125,12 +135,15 @@
     [self recalculateCGPA];
     [self.tableView reloadData];
     
-    if(firstTapOnCourse){
-        self.expectedCGPALabel.title = @"tap on courses to simulate grades";
+    if([self.grades count] > 0){
+        if(firstTapOnCourse){
+            self.expectedCGPALabel.title = @"tap on courses to simulate grades";
+        }
+        else {
+            self.expectedCGPALabel.title = @"Expected CGPA";
+        }
     }
-    else {
-        self.expectedCGPALabel.title = @"Expected CGPA";
-    }
+    
 }
 
 - (NSNumber *)getValueOfGrade:(NSString *)grade {
@@ -222,6 +235,8 @@
     cell.textLabel.text = [self.grades[indexPath.row] grade];
     cell.backgroundColor = [UIColor clearColor];
     cell.textLabel.textColor = [UIColor whiteColor];
+    cell.detailTextLabel.font = [UIFont fontWithName:@"HelveticaNeue-Thin" size:15];
+    cell.textLabel.font = [UIFont fontWithName:@"HelveticaNeue-Thin" size:15];
     cell.detailTextLabel.textColor = [UIColor lightGrayColor];
     return cell;
 }

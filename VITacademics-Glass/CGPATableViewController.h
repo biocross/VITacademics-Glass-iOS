@@ -21,6 +21,9 @@
 @property (strong, nonatomic) IBOutlet UIBarButtonItem *expectedCGPALabel;
 @property (strong, nonatomic) IBOutlet UIToolbar *currentToolbar;
 @property (strong, nonatomic) IBOutlet UIToolbar *expectedToolbar;
+@property (strong, nonatomic) IBOutlet UIBarButtonItem *currentCGPALabel;
+@property (strong, nonatomic) IBOutlet UIBarButtonItem *closeButton;
+@property (strong, nonatomic) IBOutlet UIBarButtonItem *resetButton;
 
 - (IBAction)closePressed:(id)sender;
 - (IBAction)resetPressed:(id)sender;

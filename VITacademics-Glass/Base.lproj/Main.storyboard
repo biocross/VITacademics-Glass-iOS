@@ -173,11 +173,14 @@
                     </navigationItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
+                        <outlet property="closeButton" destination="NRu-uF-uli" id="ruu-g8-yhv"/>
                         <outlet property="currentCGPA" destination="7CW-td-ReG" id="o1H-Z4-dHt"/>
+                        <outlet property="currentCGPALabel" destination="qzm-VP-xXG" id="VQn-Y2-QNB"/>
                         <outlet property="currentToolbar" destination="QRP-Tl-Vcd" id="63h-Vc-PBl"/>
                         <outlet property="expectedCGPA" destination="XmR-Gr-ZwM" id="EWx-m5-HYY"/>
                         <outlet property="expectedCGPALabel" destination="keO-8W-34d" id="Az0-hF-LUt"/>
                         <outlet property="expectedToolbar" destination="vFT-U8-nuh" id="sTK-v1-Bsx"/>
+                        <outlet property="resetButton" destination="a6N-uc-UyV" id="Azy-2F-Sfm"/>
                         <outlet property="tableView" destination="huV-Ei-Aoa" id="r7i-H3-fSe"/>
                     </connections>
                 </viewController>

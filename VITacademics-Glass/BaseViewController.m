@@ -13,7 +13,7 @@
 #import <SupportKit/SupportKit.h>
 #import "CGPATableViewController.h"
 
-#define DEBUG_MODE 1
+#define DEBUG_MODE 0
 
 
 /*
