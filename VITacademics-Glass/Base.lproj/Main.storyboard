@@ -525,7 +525,7 @@
                                     <action selector="clostButtonPressed:" destination="The-h1-wyW" eventType="touchUpInside" id="0od-66-AHr"/>
                                 </connections>
                             </button>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="HzV-n1-GBb">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HzV-n1-GBb">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Mt4-pc-tAt">
@@ -536,8 +536,12 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="vkW-z0-FVx" firstAttribute="top" secondItem="HzV-n1-GBb" secondAttribute="bottom" id="Do7-gE-hty"/>
                             <constraint firstItem="BjB-ml-N2w" firstAttribute="trailing" secondItem="Vlp-EV-kZI" secondAttribute="trailingMargin" id="HUD-ag-4XG"/>
+                            <constraint firstItem="HzV-n1-GBb" firstAttribute="leading" secondItem="Vlp-EV-kZI" secondAttribute="leadingMargin" constant="-16" id="Jfw-dO-B8j"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="HzV-n1-GBb" secondAttribute="trailing" constant="-16" id="Ksf-bk-NWq"/>
                             <constraint firstItem="BjB-ml-N2w" firstAttribute="top" secondItem="cdl-df-InZ" secondAttribute="bottom" constant="5" id="mTo-9c-QMA"/>
+                            <constraint firstItem="HzV-n1-GBb" firstAttribute="top" secondItem="Vlp-EV-kZI" secondAttribute="topMargin" id="o0p-mW-aJ7"/>
                         </constraints>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
