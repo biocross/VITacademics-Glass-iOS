@@ -161,11 +161,13 @@
                     </view>
                     <navigationItem key="navigationItem" title="Grades" id="Rls-F4-Tt8">
                         <barButtonItem key="leftBarButtonItem" title="Close" id="NRu-uF-uli">
+                            <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                             <connections>
                                 <action selector="closePressed:" destination="dzG-cf-98s" id="Auk-1u-x6Q"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Reset" id="a6N-uc-UyV">
+                            <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                             <connections>
                                 <action selector="resetPressed:" destination="dzG-cf-98s" id="CKx-KH-Xuv"/>
                             </connections>

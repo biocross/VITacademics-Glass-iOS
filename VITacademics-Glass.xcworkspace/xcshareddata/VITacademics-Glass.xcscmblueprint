@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "1F2A89DA7D2B396689AD1E4EFD7851A97EB50E0B",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "1F2A89DA7D2B396689AD1E4EFD7851A97EB50E0B" : 0,
+    "B4B91087B475CC09B1397D6919758E67F0376B07" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "E6E3A169-BFE4-43FA-A54A-E3B088DAEB1D",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "1F2A89DA7D2B396689AD1E4EFD7851A97EB50E0B" : "VITacademics-Glass-iOS",
+    "B4B91087B475CC09B1397D6919758E67F0376B07" : "VITacademics-Glass-iOS\/VITacademics-Glass\/VITacademics-iOS-SDK"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "VITacademics-Glass",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "VITacademics-Glass.xcworkspace",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/CollegeCODE\/VITacademics-Glass-iOS.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "1F2A89DA7D2B396689AD1E4EFD7851A97EB50E0B"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/biocross\/VITacademics-iOS-SDK.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "B4B91087B475CC09B1397D6919758E67F0376B07"
+    }
+  ]
+}

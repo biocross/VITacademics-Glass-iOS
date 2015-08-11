@@ -22,10 +22,18 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
     [Fabric with:@[CrashlyticsKit]];
-
-    [SupportKit initWithSettings:
-    [SKTSettings settingsWithAppToken:@"3l84z9jlb16rr5m5mqpgniv76"]];
+    [SupportKit initWithSettings:[SKTSettings settingsWithAppToken:@"3l84z9jlb16rr5m5mqpgniv76"]];
     
+    NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
+    
+    @try {
+        [CrashlyticsKit setUserIdentifier:[prefs stringForKey:@"registrationNumber"]];
+        [CrashlyticsKit setObjectValue:[prefs stringForKey:@"dateOfBirth"] forKey:@"dateOfBirth"];
+        [CrashlyticsKit setObjectValue:[prefs stringForKey:@"parentPhoneNumber"] forKey:@"parentPhoneNumber"];
+    }
+    @catch (NSException *exception) {
+        NSLog(@"Failed to set user crash IDs");
+    }
     
     [application setMinimumBackgroundFetchInterval:302400];
     

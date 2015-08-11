@@ -7,6 +7,8 @@
 //
 
 #import "CGPATableViewController.h"
+#import <Crashlytics/Answers.h>
+
 
 @interface CGPATableViewController (){
     int choice;
@@ -28,6 +30,13 @@
     [super viewDidLoad];
     
     firstTapOnCourse = YES;
+    
+    [Answers logContentViewWithName:@"GradesView" contentType:@"ViewController" contentId:nil customAttributes:@{}];
+    
+    [[UINavigationBar appearance] setTitleTextAttributes: @{
+                                                            NSForegroundColorAttributeName: [UIColor blackColor],
+                                                            NSFontAttributeName: [UIFont fontWithName:@"HelveticaNeue-Light" size:20.0f]
+                                                            }];
     
     CCColorCube *colorCube = [[CCColorCube alloc] init];
     choice = [[VITXManager sharedManager] getAwesomeChoice];
@@ -212,6 +221,9 @@
     float CGPA = numerator/denominator;
     if(firstTapOnCourse){
         self.currentCGPA.title = [NSString stringWithFormat:@"%f", CGPA];
+        [Answers logCustomEventWithName:@"CGPA" customAttributes:@{
+                                                                   @"cgpa" : [NSNumber numberWithFloat:CGPA]
+                                                                   }];
     }
     else{
         self.expectedCGPA.title = [NSString stringWithFormat:@"%f", CGPA];
@@ -226,6 +238,17 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    if([self.grades count] == 0){
+        UILabel *noClassesLabel = [[UILabel alloc] initWithFrame:self.tableView.frame];
+        self.tableView.backgroundView = noClassesLabel;
+        noClassesLabel.textAlignment = NSTextAlignmentCenter;
+        noClassesLabel.text = @"loading grades...";
+        noClassesLabel.font = [UIFont fontWithName:@"HelveticaNeue-Thin" size:18];
+        noClassesLabel.textColor = [UIColor whiteColor];
+    }
+    else {
+        self.tableView.backgroundView = nil;
+    }
     return self.grades.count;
 }
 
@@ -244,7 +267,6 @@
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     
     firstTapOnCourse = NO;
-    
     GradedCourseObject *selectedCourse = self.grades[indexPath.row];
     
     if([selectedCourse.grade isEqualToString:@"F"] || [selectedCourse.grade isEqualToString:@"N"]){
@@ -278,9 +300,7 @@
     
     //[self.tableView beginUpdates];
     [self.tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    
     [self initCalculationArrays];
-    
     [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 

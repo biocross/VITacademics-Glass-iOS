@@ -12,6 +12,8 @@
 #import <pop/POP.h>
 #import <SupportKit/SupportKit.h>
 #import "CGPATableViewController.h"
+#import <Crashlytics/Answers.h>
+
 
 #define DEBUG_MODE 0
 
@@ -148,12 +150,14 @@ typedef CGPoint NSPoint;
 }
 
 - (IBAction)campusMapPressed:(id)sender {
+    [Answers logCustomEventWithName:@"Campus Map Pressed" customAttributes:@{}];
     CampusMapViewController *mapController = [self.storyboard instantiateViewControllerWithIdentifier:@"campusMap"];
     [self presentViewController:mapController animated:YES completion:nil];
     
 }
 
 - (IBAction)gradesPressed:(id)sender {
+    [Answers logCustomEventWithName:@"Grades Pressed" customAttributes:@{}];
     CGPATableViewController *view = [self.storyboard instantiateViewControllerWithIdentifier:@"CGPAViewController"];
     [self presentViewController:view animated:YES completion:nil];
 }
@@ -291,6 +295,7 @@ typedef CGPoint NSPoint;
 
 - (IBAction)menuButtonTapped:(id)sender
 {
+    [Answers logCustomEventWithName:@"Menu Button Tapped" customAttributes:@{}];
     [self hideShowCollectionViewController];
 }
 
@@ -364,17 +369,20 @@ typedef CGPoint NSPoint;
 }
 
 - (IBAction)coursesPressed:(id)sender {
+    [Answers logCustomEventWithName:@"Courses Pressed" customAttributes:@{}];
     coursesDragged = YES;
     [self hideShowCollectionViewController];
 }
 
 - (IBAction)timeTablePressed:(id)sender{
+    [Answers logCustomEventWithName:@"TimeTable Pressed" customAttributes:@{}];
     coursesDragged = NO;
     [self hideShowCollectionViewController];
 }
 
 - (IBAction)refreshedPressed:(id)sender {
     [self showLoadingIndicator];
+    [Answers logCustomEventWithName:@"Refresh Pressed" customAttributes:@{}];
     dispatch_queue_t downloadQueue = dispatch_queue_create("serverStatus", nil);
     dispatch_async(downloadQueue, ^{
         
@@ -402,13 +410,14 @@ typedef CGPoint NSPoint;
             [self hideLoadingIndicator];
             
             if(!shouldLoadAttendance){
+                [Answers logCustomEventWithName:@"Network Error Occurred" customAttributes:@{@"type" : @"null response"}];
                 [self showInfoToUserWithTitle:@"Network Error" andMessage:@"Are you connected to the internet?"];
             }
             else if(shouldLoadAttendance == 200){
                 [[VITXManager sharedManager] startRefreshing];
             }
             else{
-                [self showInfoToUserWithTitle:@"Server Error" andMessage:@"Please try again a little bit later"];
+                [Answers logCustomEventWithName:@"Network Error Occurred" customAttributes:@{@"type" : @"invalid response"}];
             }
             
         });//end of GCD
@@ -423,6 +432,7 @@ typedef CGPoint NSPoint;
 }
 
 - (IBAction)feedbackPressed:(id)sender {
+    [Answers logCustomEventWithName:@"Feedback Pressed" customAttributes:@{}];
     NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
     @try {
         [[SKTUser currentUser] addProperties:@{ @"regno" : [prefs stringForKey:@"registrationNumber"], @"dob" : [prefs stringForKey:@"dateOfBirth"], @"phoneNumber" : [prefs stringForKey:@"parentPhoneNumber"] }];

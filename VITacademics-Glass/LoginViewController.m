@@ -8,6 +8,7 @@
 
 #import "LoginViewController.h"
 #import "VITXManager.h"
+#import <Crashlytics/Answers.h>
 
 
 
@@ -117,7 +118,7 @@
 
 
 - (IBAction)loginButtonPressed:(id)sender {
-    
+    [Answers logCustomEventWithName:@"Login Pressed" customAttributes:@{}];
     if([self.regNoTextField.text length] < 6 || [self.dobTextField.text length] < 8 || [self.parentPhoneNumber.text length] < 7){
         
         if ([UIAlertController class]) {

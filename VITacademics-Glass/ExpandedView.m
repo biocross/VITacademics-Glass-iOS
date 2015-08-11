@@ -77,7 +77,7 @@
         i = i + 1;
         
         if(i < count){
-            if([self.course.marks.assessments[i] examTitle]){
+            if([self.course.marks.assessments[i] status]){
                 self.mTitle2.text = [self.course.marks.assessments[i] examTitle];
                 self.mMarks2.text = [NSString stringWithFormat:@"%.1f/%.1f", [self.course.marks.assessments[i] scored_marks].floatValue, [self.course.marks.assessments[i] max_marks].floatValue];
                                      }
@@ -89,7 +89,7 @@
         }
         
         if(i < count){
-            if([self.course.marks.assessments[i] examTitle]){
+            if([self.course.marks.assessments[i] status]){
                 self.mTitle3.text = [self.course.marks.assessments[i] examTitle];
                 self.mMarks3.text = [NSString stringWithFormat:@"%.1f/%.1f", [self.course.marks.assessments[i] scored_marks].floatValue, [self.course.marks.assessments[i] max_marks].floatValue];
             }
@@ -101,7 +101,7 @@
         }
         
         if(i < count){
-            if([self.course.marks.assessments[i] examTitle]){
+            if([self.course.marks.assessments[i] status]){
                 self.mTitle4.text = [self.course.marks.assessments[i] examTitle];
                 self.mMarks4.text = [NSString stringWithFormat:@"%.1f/%.1f", [self.course.marks.assessments[i] scored_marks].floatValue, [self.course.marks.assessments[i] max_marks].floatValue];
             }
@@ -113,7 +113,7 @@
         }
         
         if(i < count){
-            if([self.course.marks.assessments[i] examTitle]){
+            if([self.course.marks.assessments[i] status]){
                 self.mTitle5.text = [self.course.marks.assessments[i] examTitle];
                 self.mMarks5.text = [NSString stringWithFormat:@"%.1f/%.1f", [self.course.marks.assessments[i] scored_marks].floatValue, [self.course.marks.assessments[i] max_marks].floatValue];
             }
@@ -125,7 +125,7 @@
         }
         
         if(i < count){
-            if([self.course.marks.assessments[i] examTitle]){
+            if([self.course.marks.assessments[i] status]){
                 self.mTitle6.text = [self.course.marks.assessments[i] examTitle];
                 self.mMarks6.text = [NSString stringWithFormat:@"%.1f/%.1f", [self.course.marks.assessments[i] scored_marks].floatValue, [self.course.marks.assessments[i] max_marks].floatValue];
             }
