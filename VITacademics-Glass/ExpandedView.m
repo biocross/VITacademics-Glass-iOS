@@ -28,6 +28,7 @@
     self.attendedLabel.text = [NSString stringWithFormat:@"%d", self.course.attendance.attended_classes.intValue];
     self.conductedLabel.text = [NSString stringWithFormat:@"%d", self.course.attendance.total_classes.intValue];
     self.percentageLabel.text = [NSString stringWithFormat:@"%d", self.course.attendance.attendance_percentage.intValue];
+    self.facultyLabel.text = [NSString stringWithFormat:@"by %@", self.course.faculty];
     
     
     @try {

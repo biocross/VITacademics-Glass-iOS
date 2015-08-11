@@ -23,6 +23,7 @@
 @property (strong, nonatomic) IBOutlet UILabel *percentageLabel;
 @property (strong, nonatomic) IBOutlet UILabel *attendedLabel;
 @property (strong, nonatomic) IBOutlet UILabel *conductedLabel;
+@property (strong, nonatomic) IBOutlet UILabel *facultyLabel;
 
 @property (strong, nonatomic) IBOutlet UILabel *attendLabel;
 @property (strong, nonatomic) IBOutlet UILabel *missLabel;
