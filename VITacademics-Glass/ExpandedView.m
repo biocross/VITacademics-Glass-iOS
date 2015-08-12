@@ -66,7 +66,7 @@
     int i = 0;
     
     if(count){
-        if(self.course.marks.assessments[i]){
+        if([self.course.marks.assessments[i] status]){
             self.mTitle1.text = [self.course.marks.assessments[i] examTitle];
             self.mMarks1.text = [NSString stringWithFormat:@"%.1f/%.1f", [self.course.marks.assessments[i] scored_marks].floatValue, [self.course.marks.assessments[i] max_marks].floatValue];
         }

@@ -31,8 +31,6 @@
     
     firstTapOnCourse = YES;
     
-    [Answers logContentViewWithName:@"GradesView" contentType:@"ViewController" contentId:nil customAttributes:@{}];
-    
     [[UINavigationBar appearance] setTitleTextAttributes: @{
                                                             NSForegroundColorAttributeName: [UIColor blackColor],
                                                             NSFontAttributeName: [UIFont fontWithName:@"HelveticaNeue-Light" size:20.0f]
