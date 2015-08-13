@@ -213,6 +213,8 @@ typedef CGPoint NSPoint;
     
     childViewsAdded = NO;
     coursesDragged = YES; //Default View is Courses View.
+    
+    self.buttonsScrollView.contentSize = CGSizeMake(self.buttonsScrollView.frame.size.width, 357);
 }
 
 -(void)showLoadingIndicator{
