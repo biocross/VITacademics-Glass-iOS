@@ -15,7 +15,7 @@
 #import <Crashlytics/Answers.h>
 
 
-#define DEBUG_MODE 0
+#define DEBUG_MODE 1
 
 
 /*

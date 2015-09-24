@@ -13,6 +13,11 @@
 #import "CCColorCube.h"
 #import "ExpandedView.h"
 #import "Marks.h"
+#import <CoreSpotlight/CoreSpotlight.h>
+#import <MobileCoreServices/MobileCoreServices.h>
+#import <Crashlytics/Answers.h>
+
+
 
 
 @interface HomeCollectionViewController (){
@@ -74,6 +79,7 @@ static NSString * const reuseIdentifier = @"course";
          self.user = user;
          [self.collectionView reloadData];
          [[VITXManager sharedManager] hideLoadingIndicator];
+         [self indexSubjectsIntoSpotlight];
          
      } error:^(NSError *error) {
          NSLog(@"Error in User subscription!");
@@ -99,6 +105,52 @@ static NSString * const reuseIdentifier = @"course";
         _wallpaperView.contentMode = UIViewContentModeScaleAspectFill;
     }
     return _wallpaperView;
+}
+
+- (void)indexSubjectsIntoSpotlight {
+    
+    if(![self.user.courses count]){
+        NSLog(@"No Subjects to Index to Spotlight! Returning...");
+        return;
+    }
+    
+    
+    @try {
+        NSMutableArray *itemsToIndex = [[NSMutableArray alloc] init];
+        
+        for (Courses *course in self.user.courses){
+            CSSearchableItemAttributeSet *attributeSet = [[CSSearchableItemAttributeSet alloc] initWithItemContentType:(NSString *)kUTTypeText];
+            
+            attributeSet.title = course.course_title;
+            NSString *description = [NSString stringWithFormat:@"Type: %@, Attendance: %@ percent", course.course_mode, course.attendance.attendance_percentage];
+            attributeSet.contentDescription = description;
+            
+            NSArray *keywords = [course.course_title componentsSeparatedByString:@" "];
+            attributeSet.keywords = keywords;
+            
+            NSString *identifier = [NSString stringWithFormat:@"com.siddharth.%@%@", course.course_code, course.course_type];
+            //NSLog(@"Using Identifier: %@", identifier);
+            
+            CSSearchableItem *item = [[CSSearchableItem alloc]initWithUniqueIdentifier:identifier domainIdentifier:@"com.siddharth" attributeSet:attributeSet];
+            [itemsToIndex addObject:item];
+        }
+        
+        
+        [[CSSearchableIndex defaultSearchableIndex] indexSearchableItems:itemsToIndex completionHandler: ^(NSError * __nullable error) {
+            if (!error){
+                NSLog(@"Subjects Now Indexed in Spotlight!");
+            }
+            else {
+                NSLog(@"Error Indexing Subjects!");
+            }
+        }];
+    }
+    @catch (NSException *exception) {
+        NSLog(@"Error Somewhere in the spotlight indexing");
+        [Answers logCustomEventWithName:@"Error Indexing to Spotlight" customAttributes:@{}];
+    }
+    
+    
 }
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView

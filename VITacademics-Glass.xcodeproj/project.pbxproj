@@ -37,6 +37,8 @@
 		167203B91A6B969F00A498AE /* CCLocalMaximum.m in Sources */ = {isa = PBXBuildFile; fileRef = 167203B71A6B969F00A498AE /* CCLocalMaximum.m */; };
 		1673A4BE1B3A7ED800A5BFD1 /* CampusMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1673A4BD1B3A7ED800A5BFD1 /* CampusMapViewController.m */; };
 		1673A4C21B3A7EF000A5BFD1 /* vitmap.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1673A4C11B3A7EF000A5BFD1 /* vitmap.jpg */; };
+		167CE2391BB467AA00EAB110 /* CoreSpotlight.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 167CE2381BB467AA00EAB110 /* CoreSpotlight.framework */; };
+		167CE23D1BB467B500EAB110 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 167CE23C1BB467B500EAB110 /* MobileCoreServices.framework */; };
 		16818E261B2F63D3000B049D /* Marks.m in Sources */ = {isa = PBXBuildFile; fileRef = 16818E251B2F63D3000B049D /* Marks.m */; };
 		16818E2B1B2F64BC000B049D /* MarksElement.m in Sources */ = {isa = PBXBuildFile; fileRef = 16818E2A1B2F64BC000B049D /* MarksElement.m */; };
 		168195061A727C3A009C236B /* ice.png in Resources */ = {isa = PBXBuildFile; fileRef = 168195051A727C3A009C236B /* ice.png */; };
@@ -149,6 +151,8 @@
 		1673A4BC1B3A7ED800A5BFD1 /* CampusMapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CampusMapViewController.h; sourceTree = "<group>"; };
 		1673A4BD1B3A7ED800A5BFD1 /* CampusMapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CampusMapViewController.m; sourceTree = "<group>"; };
 		1673A4C11B3A7EF000A5BFD1 /* vitmap.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = vitmap.jpg; sourceTree = "<group>"; };
+		167CE2381BB467AA00EAB110 /* CoreSpotlight.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreSpotlight.framework; path = System/Library/Frameworks/CoreSpotlight.framework; sourceTree = SDKROOT; };
+		167CE23C1BB467B500EAB110 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		16818E241B2F63D3000B049D /* Marks.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Marks.h; sourceTree = "<group>"; };
 		16818E251B2F63D3000B049D /* Marks.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Marks.m; sourceTree = "<group>"; };
 		16818E291B2F64BC000B049D /* MarksElement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MarksElement.h; sourceTree = "<group>"; };
@@ -320,6 +324,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				167CE23D1BB467B500EAB110 /* MobileCoreServices.framework in Frameworks */,
+				167CE2391BB467AA00EAB110 /* CoreSpotlight.framework in Frameworks */,
 				16E658E01AEE712600A31091 /* libsqlite3.dylib in Frameworks */,
 				16F4E0121B47ACB3003BEF46 /* Crashlytics.framework in Frameworks */,
 				16E658DE1AEE711E00A31091 /* libz.dylib in Frameworks */,
@@ -767,6 +773,8 @@
 		4086F0218CDD1A78F18C13A2 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				167CE23C1BB467B500EAB110 /* MobileCoreServices.framework */,
+				167CE2381BB467AA00EAB110 /* CoreSpotlight.framework */,
 				169F087C1B356C84003ADF4A /* GameKit.framework */,
 				169F087A1B356C6C003ADF4A /* StoreKit.framework */,
 				16E658DF1AEE712600A31091 /* libsqlite3.dylib */,
@@ -846,7 +854,7 @@
 		16E4A2F61A67D66900152389 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0610;
+				LastUpgradeCheck = 0700;
 				ORGANIZATIONNAME = "Siddharth Gupta";
 				TargetAttributes = {
 					16E4A2FD1A67D66900152389 = {
@@ -1066,6 +1074,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -1132,6 +1141,7 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				ENABLE_BITCODE = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -1144,6 +1154,7 @@
 					/Users/Sids/Downloads/GoogleAnalyticsServicesiOS_3.10,
 					"$(PROJECT_DIR)/VITacademics-Glass",
 				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.siddharth.vitacademics;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 			};
@@ -1157,6 +1168,7 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				ENABLE_BITCODE = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -1169,6 +1181,7 @@
 					/Users/Sids/Downloads/GoogleAnalyticsServicesiOS_3.10,
 					"$(PROJECT_DIR)/VITacademics-Glass",
 				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.siddharth.vitacademics;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 			};

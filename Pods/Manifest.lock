@@ -3,7 +3,7 @@ PODS:
   - Mantle (1.5.4):
     - Mantle/extobjc (= 1.5.4)
   - Mantle/extobjc (1.5.4)
-  - pop (1.0.7)
+  - pop (1.0.8)
   - ReactiveCocoa (2.5):
     - ReactiveCocoa/UI (= 2.5)
   - ReactiveCocoa/Core (2.5):
@@ -17,17 +17,17 @@ PODS:
 DEPENDENCIES:
   - DateTools
   - Mantle (= 1.5.4)
-  - Pop
-  - ReactiveCocoa
+  - pop (~> 1.0)
+  - ReactiveCocoa (= 2.5)
   - Shimmer
   - SupportKit
 
 SPEC CHECKSUMS:
   DateTools: 9bcc89e4f2f9004d8a7a2bd1b49269cf78968e65
   Mantle: 60acd0cd363e27d945bda0a6b8e90577112d28f3
-  pop: 628ffc631644601567ee8bfaaaea493ebd7d0923
+  pop: bb773ae2c791ca2629de13b347e7a8b450fa6a57
   ReactiveCocoa: e2db045570aa97c695e7aa97c2bcab222ae51f4a
   Shimmer: c5374be1c2b0c9e292fb05b339a513cf291cac86
   SupportKit: bfc97bf2342bd14d16dc363af5c832f51291fd9b
 
-COCOAPODS: 0.36.3
+COCOAPODS: 0.38.2
