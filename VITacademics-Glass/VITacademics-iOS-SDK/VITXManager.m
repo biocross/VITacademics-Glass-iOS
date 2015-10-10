@@ -207,7 +207,9 @@
 -(void)loadData{
     if(!self.firstTime){
         NSData *data = [[NSUserDefaults standardUserDefaults] objectForKey:[[NSUserDefaults standardUserDefaults] stringForKey:@"registrationNumber"]];
-        self.user = [NSKeyedUnarchiver unarchiveObjectWithData:data];
+        if(data){
+           self.user = [NSKeyedUnarchiver unarchiveObjectWithData:data];
+        }
     }
     else{
         NSLog(@"Cannot load old data, it's the first time.");

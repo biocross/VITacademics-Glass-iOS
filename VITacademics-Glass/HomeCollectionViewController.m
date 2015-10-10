@@ -136,14 +136,21 @@ static NSString * const reuseIdentifier = @"course";
         }
         
         
-        [[CSSearchableIndex defaultSearchableIndex] indexSearchableItems:itemsToIndex completionHandler: ^(NSError * __nullable error) {
-            if (!error){
-                NSLog(@"Subjects Now Indexed in Spotlight!");
-            }
-            else {
-                NSLog(@"Error Indexing Subjects!");
-            }
+        
+        [[CSSearchableIndex defaultSearchableIndex] deleteAllSearchableItemsWithCompletionHandler:^(NSError * _Nullable error) {
+            NSLog(@"Deleted all current items before refreshing Spotlight Index");
+            [[CSSearchableIndex defaultSearchableIndex] indexSearchableItems:itemsToIndex completionHandler: ^(NSError * __nullable error2) {
+                if (!error2){
+                    NSLog(@"Subjects Now Indexed in Spotlight!");
+                }
+                else {
+                    NSLog(@"Error Indexing Subjects!");
+                }
+            }];
         }];
+        
+        
+        
     }
     @catch (NSException *exception) {
         NSLog(@"Error Somewhere in the spotlight indexing");
