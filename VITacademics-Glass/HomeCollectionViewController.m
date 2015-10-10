@@ -123,6 +123,11 @@ static NSString * const reuseIdentifier = @"course";
             
             attributeSet.title = course.course_title;
             NSString *description = [NSString stringWithFormat:@"Type: %@, Attendance: %@ percent", course.course_mode, course.attendance.attendance_percentage];
+            
+            if(!course.attendance.attendance_percentage){
+                description = [NSString stringWithFormat:@"Type: %@", course.course_mode];
+            }
+            
             attributeSet.contentDescription = description;
             
             NSArray *keywords = [course.course_title componentsSeparatedByString:@" "];
@@ -138,7 +143,7 @@ static NSString * const reuseIdentifier = @"course";
         
         
         [[CSSearchableIndex defaultSearchableIndex] deleteAllSearchableItemsWithCompletionHandler:^(NSError * _Nullable error) {
-            NSLog(@"Deleted all current items before refreshing Spotlight Index");
+            NSLog(@"Deleted all current items before refreshing Spotlight Index.");
             [[CSSearchableIndex defaultSearchableIndex] indexSearchableItems:itemsToIndex completionHandler: ^(NSError * __nullable error2) {
                 if (!error2){
                     NSLog(@"Subjects Now Indexed in Spotlight!");
